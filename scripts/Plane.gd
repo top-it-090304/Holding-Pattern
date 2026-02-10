@@ -1,33 +1,27 @@
 extends Sprite2D
 
-var start_pos: Vector2
-var end_pos: Vector2
-var speed: int = 200
+var flight_rout: Curve2D
 var t: float = 0.0
+var speed: float = 180.0
 var forward: bool = true
+var total_lenght: float = 0.0
 
-func setup(a: Vector2, b: Vector2):
-	start_pos = a
-	end_pos = b
-	
 
-func _process(delta):
-	var distance = start_pos.distance_to(end_pos)
-	var step = (speed * delta) / distance
+func setup_with_curve(curve: Curve2D):
+	flight_rout = curve
+	total_lenght = curve.get_baked_length()
+	position = curve.get_point_position(0)
  
+func _process(delta):
 	if forward:
-		t += step
-		if t >= 1.0:
-			t = 1.0
+		t += speed * delta
+		if t >= total_lenght:
 			forward = false
 	else:
-		t -= step
-		if t <= 0.0:
-			t = 0.0
+		t -= speed * delta
+		if t <= 0:
 			forward = true
-   
-	position = start_pos.lerp(end_pos, t)
  
- ## поворот самолета (ХУЙ)*
-	var look_target = end_pos if forward else start_pos
-	look_at(look_target)
+	var new_pos = flight_rout.sample_baked(t)
+	look_at(new_pos + (new_pos - position))
+	position = new_pos
