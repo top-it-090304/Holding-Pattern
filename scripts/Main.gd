@@ -9,6 +9,7 @@ var airport_points: Array[Vector2] = []
 var selected_airport = null
 var pred_line: Line2D
 
+
 func _ready():
  ## мнимая линия
 	pred_line = Line2D.new()
@@ -58,3 +59,5 @@ func _on_airport_selected(airport):
 ## вызов новой точки после таймера
 func _on_spawn_timer_timeout():
 	spawn_airport()
+	
+	

@@ -28,5 +28,6 @@ func create_line(airport_a, airport_b):
  
  ## добавляем самолет с маршрутом кривой
 	var plane = plane_scene.instantiate()
+	plane.z_index = -1
 	add_child(plane)
 	plane.setup_with_curve(curve)

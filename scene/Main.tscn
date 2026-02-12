@@ -35,4 +35,12 @@ position = Vector2(602, 318)
 [node name="Marker2D6" type="Marker2D" parent="AirportSpawn" unique_id=233310926]
 position = Vector2(1093, 120)
 
+[node name="CanvasLayer" type="CanvasLayer" parent="AirportSpawn" unique_id=351356812]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="AirportSpawn/CanvasLayer" unique_id=1473477333]
+offset_left = 164.0
+offset_top = 85.0
+offset_right = 204.0
+offset_bottom = 125.0
+
 [connection signal="timeout" from="Timer" to="." method="_on_spawn_timer_timeout"]
