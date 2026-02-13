@@ -11,18 +11,14 @@ func setup_with_curve(curve: Curve2D):
 
 func _process(delta):
 	if not flight_path: return
-
-
-
-	var slow_speed = speed * (0.2 + 0.5 * sin(t * PI))
  
 	if forward:
-		t += slow_speed * delta
+		t += speed * delta
 		if t >= 1.0:
 			t = 1.0
 			arrival()
 	else:
-		t -= slow_speed * delta
+		t -= speed * delta
 		if t <= 0.0:
 			t = 0.0
 			arrival()

@@ -11,16 +11,14 @@ var pred_line: Line2D
 
 
 func _ready():
- ## мнимая линия
 	pred_line = Line2D.new()
 	pred_line.width = 2.0
 	pred_line.default_color = Color.WHITE
 	add_child(pred_line)
-	if selected_airport == null:
-		pred_line.clear_points()
+	
 		
 
- ## точки спавна аэропортов
+
 	for child in spawn_points_node.get_children():
 		if child is Marker2D:
 			airport_points.append(child.global_position)
@@ -37,7 +35,6 @@ func _process(_delta):
 
 func spawn_airport():
 	if airport_points.is_empty():
-		push_error("Нет точек")
 		return
 
 	var inst = airport_scene.instantiate()
@@ -56,7 +53,7 @@ func _on_airport_selected(airport):
   
 		selected_airport = null
 
-## вызов новой точки после таймера
+
 func _on_spawn_timer_timeout():
 	spawn_airport()
 	
