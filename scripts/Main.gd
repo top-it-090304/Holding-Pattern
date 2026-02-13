@@ -5,6 +5,7 @@ extends Node2D
 
 @onready var spawn_points_node := $AirportSpawn
 var airport_points: Array[Vector2] = []
+var points = []
 
 var selected_airport = null
 var pred_line: Line2D
@@ -16,9 +17,6 @@ func _ready():
 	pred_line.default_color = Color.WHITE
 	add_child(pred_line)
 	
-		
-
-
 	for child in spawn_points_node.get_children():
 		if child is Marker2D:
 			airport_points.append(child.global_position)

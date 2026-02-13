@@ -12,9 +12,11 @@ func create_line(airport_a, airport_b):
 	var curve = Curve2D.new()
 	var p0 = airport_a.position
 	var p2 = airport_b.position
+	var k = []
  
 	var mid = (p0 + p2) / 2
 	var offset = (p2 - p0).rotated(90).normalized() * (p0.distance_to(p2) * 0.2)
+	print(offset)
 	var p1_a = mid + offset
  
 	var control_relative = p1_a - p0
