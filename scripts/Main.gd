@@ -1,7 +1,7 @@
 extends Node2D
 
-@export var airport_scene: PackedScene = preload("res://scene/Airport.tscn")
-@export var route_scene: PackedScene = preload("res://scene/Route.tscn")
+var airport_scene = load("res://scene/Airport.tscn")
+var route_scene = load("res://scene/Route.tscn")
 
 @onready var spawn_points_node := $AirportSpawn
 var airport_points: Array[Vector2] = []
@@ -47,12 +47,29 @@ func _on_airport_selected(airport):
 		if selected_airport != airport:
 			var route = route_scene.instantiate()
 			add_child(route)
-			route.create_line(selected_airport, airport)
+			route.create_line(selected_airport, airport, line_color)
   
 		selected_airport = null
 
 
 func _on_spawn_timer_timeout():
 	spawn_airport()
-	
-	
+
+signal color_changed(new_color)
+
+var line_color = Color(1, 1, 0, 0.7)
+
+func _on_yb_toggled(on_toggled: bool):
+	line_color = Color(1, 1, 0, 0.7)
+	color_changed.emit(line_color)
+	print("yb toggled")
+
+func _on_bb_toggled(on_toggled: bool):
+	line_color = Color(0, 0, 1, 0.7)
+	color_changed.emit(line_color)
+	print("bb toggled")
+
+func _on_rb_toggled(on_toggled: bool):
+	line_color = Color(1, 0, 0, 0.7)
+	color_changed.emit(line_color)
+	print("rb toggled")

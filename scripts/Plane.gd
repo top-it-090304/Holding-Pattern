@@ -14,14 +14,12 @@ func _process(delta):
  
 	if forward:
 		t += speed * delta
-		print(t)
 		if t >= 1.0:
 			t = 1.0
 			arrival()
 			print("Reload")
 	else:
 		t -= speed * delta
-		print(t)
 		
 		if t <= 0.0:
 			t = 0.0

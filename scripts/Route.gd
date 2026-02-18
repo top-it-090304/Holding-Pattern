@@ -2,12 +2,17 @@ extends Node2D
 
 # Используем load, чтобы избежать ошибки instantiate на null
 var plane_scene = load("res://scene/Plane.tscn")
+@onready var buttons_script = $"/root/Main"
 
-func create_line(airport_a, airport_b):
+func _ready():
+	buttons_script.color_changed.connect(create_line)
+
+func create_line(airport_a, airport_b, new_color):
+	
 	var line = Line2D.new()
 	add_child(line)
 	line.width = 4.0
-	line.default_color = Color(0.3, 0.7, 1.0, 0.5)
+	line.default_color = new_color
 	line.z_index = -1
  
 	var curve = Curve2D.new()
