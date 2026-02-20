@@ -1,10 +1,6 @@
 extends Node2D
 
 var plane_scene = load("res://scene/Plane.tscn")
-@onready var buttons_script = $"/root/Main"
-
-func _ready():
-	buttons_script.color_changed.connect(create_line)
 
 func create_line(airport_a, airport_b, new_color):
 	
@@ -19,7 +15,6 @@ func create_line(airport_a, airport_b, new_color):
 	var p2 = airport_b.position
  
 	var mid = (p0 + p2) / 2
-	# PI/2 — это 90 градусов в радианах
 	var offset = (p2 - p0).rotated(PI/2).normalized() * (p0.distance_to(p2) * 0.2)
 	var p1_a = mid + offset
  
