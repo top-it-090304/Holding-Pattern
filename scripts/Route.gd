@@ -1,6 +1,5 @@
 extends Node2D
 
-# Используем load, чтобы избежать ошибки instantiate на null
 var plane_scene = load("res://scene/Plane.tscn")
 @onready var buttons_script = $"/root/Main"
 

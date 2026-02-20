@@ -45,7 +45,7 @@ position = Vector2(602, 318)
 [node name="Marker2D6" type="Marker2D" parent="AirportSpawn" unique_id=233310926]
 position = Vector2(1093, 120)
 
-[node name="yb" type="Button" parent="." unique_id=1877033529]
+[node name="YellowButton" type="Button" parent="." unique_id=1877033529]
 modulate = Color(1, 1, 0, 1)
 offset_left = 491.0
 offset_top = 450.0
@@ -58,7 +58,7 @@ button_group = SubResource("ButtonGroup_hr7lf")
 icon = ExtResource("3_hr7lf")
 flat = true
 
-[node name="bb" type="Button" parent="." unique_id=1888030756]
+[node name="BlueButton" type="Button" parent="." unique_id=1888030756]
 modulate = Color(0, 0, 1, 1)
 offset_left = 572.0
 offset_top = 449.0
@@ -70,7 +70,7 @@ button_group = SubResource("ButtonGroup_yiwpq")
 icon = ExtResource("3_hr7lf")
 flat = true
 
-[node name="rb" type="Button" parent="." unique_id=1218500919]
+[node name="RedButton" type="Button" parent="." unique_id=1218500919]
 modulate = Color(1, 0, 0, 1)
 offset_left = 647.0
 offset_top = 448.0
@@ -83,6 +83,6 @@ icon = ExtResource("3_hr7lf")
 flat = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_spawn_timer_timeout"]
-[connection signal="toggled" from="yb" to="." method="_on_yb_toggled"]
-[connection signal="toggled" from="bb" to="." method="_on_bb_toggled"]
-[connection signal="toggled" from="rb" to="." method="_on_rb_toggled"]
+[connection signal="toggled" from="YellowButton" to="." method="_on_yb_toggled"]
+[connection signal="toggled" from="BlueButton" to="." method="_on_bb_toggled"]
+[connection signal="toggled" from="RedButton" to="." method="_on_rb_toggled"]
