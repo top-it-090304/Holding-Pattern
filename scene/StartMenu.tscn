@@ -1,26 +1,15 @@
 [gd_scene format=3 uid="uid://dggwktu3dwg6x"]
 
 [ext_resource type="Script" uid="uid://cuexgr5rra0ub" path="res://scripts/start_menu.gd" id="1_lj036"]
-[ext_resource type="Texture2D" uid="uid://qrsbytgaea84" path="res://objects/field_blue.png" id="2_mm3wi"]
+[ext_resource type="Texture2D" uid="uid://b7vw4ixae8fem" path="res://objects/Без имени-2.png" id="2_mm3wi"]
 
 [node name="Control" type="Control" unique_id=1201501265]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_lj036")
 
-[node name="FieldBlue" type="Sprite2D" parent="." unique_id=1982066001]
-position = Vector2(347, 173)
-scale = Vector2(0.60781246, 0.6027778)
-texture = ExtResource("2_mm3wi")
-
-[node name="FieldBlue" type="Sprite2D" parent="FieldBlue" unique_id=1257722183]
-position = Vector2(1919.1775, 9.124439)
-scale = Vector2(0.9962799, 1.0033858)
-texture = ExtResource("2_mm3wi")
-
-[node name="FieldBlue2" type="Sprite2D" parent="." unique_id=73601628]
-position = Vector2(584, 974)
-scale = Vector2(0.60781246, 0.6027778)
+[node name="БезИмени2" type="Sprite2D" parent="." unique_id=1576056635]
+position = Vector2(1525, 770)
 texture = ExtResource("2_mm3wi")
 
 [node name="Play" type="Button" parent="." unique_id=1056440167]
