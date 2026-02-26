@@ -5,9 +5,9 @@ extends Control
 
 
 var positions = {
- "main": Vector2(576, 324),
- "settings": Vector2(576, 1480), ## камера вниз
- "stats": Vector2(2530, 199)    ## камера вправо
+ "main": Vector2(0, 0),
+ "settings": Vector2(0, 1120), ## камера вниз
+ "stats": Vector2(1770, 0)    ## камера вправо
 }
 
 var target_pos = Vector2(576, 324)

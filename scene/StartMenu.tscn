@@ -1,40 +1,45 @@
 [gd_scene format=3 uid="uid://dggwktu3dwg6x"]
 
 [ext_resource type="Script" uid="uid://cuexgr5rra0ub" path="res://scripts/start_menu.gd" id="1_lj036"]
-[ext_resource type="Texture2D" uid="uid://b7vw4ixae8fem" path="res://objects/Без имени-2.png" id="2_mm3wi"]
+[ext_resource type="VideoStream" uid="uid://bcdgggwsggb64" path="res://video/background_menu.ogv" id="2_mm3wi"]
 
 [node name="Control" type="Control" unique_id=1201501265]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_lj036")
 
-[node name="БезИмени2" type="Sprite2D" parent="." unique_id=1576056635]
-position = Vector2(1525, 770)
-texture = ExtResource("2_mm3wi")
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="." unique_id=723470213]
+layout_mode = 0
+offset_left = -1275.0
+offset_top = -952.0
+offset_right = 2965.0
+offset_bottom = 1808.0
+stream = ExtResource("2_mm3wi")
+autoplay = true
+loop = true
 
 [node name="Play" type="Button" parent="." unique_id=1056440167]
 layout_mode = 0
-offset_left = 483.0
-offset_top = 132.0
-offset_right = 713.0
-offset_bottom = 230.0
+offset_left = -113.0
+offset_top = -203.0
+offset_right = 117.0
+offset_bottom = -105.0
 
 [node name="Settings" type="Button" parent="." unique_id=1150483765]
 layout_mode = 0
-offset_left = 456.0
-offset_top = 246.0
-offset_right = 737.0
-offset_bottom = 338.0
+offset_left = -150.0
+offset_top = -56.0
+offset_right = 131.0
+offset_bottom = 36.0
 
 [node name="Stats" type="Button" parent="." unique_id=1338606621]
 layout_mode = 0
-offset_left = 453.0
-offset_top = 357.0
-offset_right = 746.0
-offset_bottom = 446.0
+offset_left = -152.0
+offset_top = 91.0
+offset_right = 141.0
+offset_bottom = 180.0
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1333308016]
-position = Vector2(579, 330)
 
 [connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Settings" to="." method="_on_settings_pressed"]
