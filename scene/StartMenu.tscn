@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://dggwktu3dwg6x"]
+
+[ext_resource type="Script" uid="uid://cuexgr5rra0ub" path="res://scripts/start_menu.gd" id="1_lj036"]
+[ext_resource type="Texture2D" uid="uid://qrsbytgaea84" path="res://objects/field_blue.png" id="2_mm3wi"]
+
+[node name="Control" type="Control" unique_id=1201501265]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_lj036")
+
+[node name="FieldBlue" type="Sprite2D" parent="." unique_id=1982066001]
+position = Vector2(347, 173)
+scale = Vector2(0.60781246, 0.6027778)
+texture = ExtResource("2_mm3wi")
+
+[node name="FieldBlue" type="Sprite2D" parent="FieldBlue" unique_id=1257722183]
+position = Vector2(1919.1775, 9.124439)
+scale = Vector2(0.9962799, 1.0033858)
+texture = ExtResource("2_mm3wi")
+
+[node name="FieldBlue2" type="Sprite2D" parent="." unique_id=73601628]
+position = Vector2(584, 974)
+scale = Vector2(0.60781246, 0.6027778)
+texture = ExtResource("2_mm3wi")
+
+[node name="Play" type="Button" parent="." unique_id=1056440167]
+layout_mode = 0
+offset_left = 483.0
+offset_top = 132.0
+offset_right = 713.0
+offset_bottom = 230.0
+
+[node name="Settings" type="Button" parent="." unique_id=1150483765]
+layout_mode = 0
+offset_left = 456.0
+offset_top = 246.0
+offset_right = 737.0
+offset_bottom = 338.0
+
+[node name="Stats" type="Button" parent="." unique_id=1338606621]
+layout_mode = 0
+offset_left = 453.0
+offset_top = 357.0
+offset_right = 746.0
+offset_bottom = 446.0
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1333308016]
+position = Vector2(579, 330)
+
+[connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="Stats" to="." method="_on_stats_pressed"]
