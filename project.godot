@@ -11,9 +11,15 @@ config_version=5
 [application]
 
 config/name="Air Rout"
-run/main_scene="uid://w3majmenhb7r"
+run/main_scene="uid://dggwktu3dwg6x"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://objects/icon.svg"
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/stretch/mode="canvas_items"
 
 [physics]
 
