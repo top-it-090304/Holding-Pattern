@@ -4,6 +4,7 @@ var flight_path: Curve2D
 var t: float = 0.0         
 var speed: float = 0.4     
 var forward: bool = true
+var color_name: String = "yellow"  # Добавляем переменную для цвета
 
 func setup_with_curve(curve: Curve2D):
 	flight_path = curve
@@ -17,14 +18,12 @@ func _process(delta):
 		if t >= 1.0:
 			t = 1.0
 			arrival()
-			print("Reload")
 	else:
 		t -= speed * delta
 		
 		if t <= 0.0:
 			t = 0.0
 			arrival()
-
 
 	var dist = t * flight_path.get_baked_length()
 	var new_pos = flight_path.sample_baked(dist)
@@ -38,4 +37,9 @@ func arrival():
 	await get_tree().create_timer(0.8).timeout
 	set_process(true)
 	
-	
+	# При "прибытии" самолёта уменьшаем счётчик
+	if has_node("/root/Main"):
+		var main = $"/root/Main"
+		# Уменьшаем счётчик самолётов для этого цвета
+		main.color_limits[color_name]["current_planes"] -= 1
+		main.update_ui()
