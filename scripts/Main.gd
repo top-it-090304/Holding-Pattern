@@ -10,8 +10,7 @@ var selected_airport = null
 var is_drawing: bool = false
 var pred_line: Line2D
 
-var line_color = Color(1, 1, 0, 0.7)
-signal color_changed(new_color)
+var lines_data = GameData.lines_data
 
 func _ready():
 	pred_line = Line2D.new()
@@ -58,7 +57,7 @@ func check_airopotr():
 func create_route(a, b):
 	var route = route_scene.instantiate()
 	add_child(route)
-	route.create_line(a, b, line_color)
+	route.create_line(a, b, lines_data)
 
 func stop_draw():
 	selected_airport = null
@@ -79,16 +78,16 @@ func _on_airport_selected(airport):
 
 ## кнопки
 func _on_yb_toggled(_t):
-	line_color = Color(1, 1, 0, 0.7)
-	color_changed.emit(line_color)
+	lines_data["current color"] = "yellow"
+	lines_data["current hex color"] = Color(1, 1, 0, 0.7)
 
 func _on_bb_toggled(_t):
-	line_color = Color(0, 0, 1, 0.7)
-	color_changed.emit(line_color)
+	lines_data["current color"] = "blue"
+	lines_data["current hex color"] = Color(0, 0, 1, 0.7)
 
 func _on_rb_toggled(_t):
-	line_color = Color(1, 0, 0, 0.7)
-	color_changed.emit(line_color)
+	lines_data["current color"] = "red"
+	lines_data["current hex color"] = Color(1, 0, 0, 0.7)
 
 func _on_spawn_timer_timeout():
 	spawn_airport()

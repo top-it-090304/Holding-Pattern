@@ -49,10 +49,10 @@ position = Vector2(1843, 208)
 
 [node name="YellowButton" type="Button" parent="." unique_id=1877033529]
 modulate = Color(1, 1, 0, 1)
-offset_left = 883.0
-offset_top = 991.00006
-offset_right = 1091.0
-offset_bottom = 1199.0
+offset_left = 879.99994
+offset_top = 967.0
+offset_right = 1088.0
+offset_bottom = 1175.0
 scale = Vector2(0.36157924, 0.36157924)
 toggle_mode = true
 button_pressed = true
@@ -63,10 +63,10 @@ flat = true
 
 [node name="BlueButton" type="Button" parent="." unique_id=1888030756]
 modulate = Color(0, 0, 1, 1)
-offset_left = 965.0
-offset_top = 995.0
+offset_left = 965.00006
+offset_top = 968.00006
 offset_right = 1173.0
-offset_bottom = 1203.0
+offset_bottom = 1176.0
 scale = Vector2(0.38400003, 0.38400003)
 toggle_mode = true
 action_mode = 0
@@ -76,10 +76,10 @@ flat = true
 
 [node name="RedButton" type="Button" parent="." unique_id=1218500919]
 modulate = Color(1, 0, 0, 1)
-offset_left = 1055.0
-offset_top = 985.0
-offset_right = 1263.0
-offset_bottom = 1193.0
+offset_left = 1057.0
+offset_top = 964.0
+offset_right = 1265.0
+offset_bottom = 1172.0
 scale = Vector2(0.4, 0.4)
 toggle_mode = true
 action_mode = 0

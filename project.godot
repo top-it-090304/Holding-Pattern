@@ -11,10 +11,14 @@ config_version=5
 [application]
 
 config/name="Air Rout"
-run/main_scene="uid://dggwktu3dwg6x"
+run/main_scene="uid://w3majmenhb7r"
 config/features=PackedStringArray("4.6", "Forward Plus")
 run/max_fps=60
 config/icon="res://objects/icon.svg"
+
+[autoload]
+
+GameData="*uid://b8gyqpk7m3yjq"
 
 [display]
 
