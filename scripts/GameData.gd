@@ -1,8 +1,20 @@
 extends Node
 
+var start_planes: int = 4
+
 var lines_data = {
-	"current color" = "yellow",  "current hex color" = Color(1, 1, 0, 0.7),
-	"yellow planes count" = 0,  "is yellow" = false,  "yellow curves" = [],
-	"blue planes count"  =  0,  "is blue"  =  false,  "blue curves"  =  [],
-	"red planes count"  =   0,  "is red"  =   false,  "red curves"   =  []
+	"current color" = "yellow",
+	"current hex color" = Color(1, 1, 0, 0.7),
+ 
+	"yellow planes count" = 0,
+	"in yellow" = false,
+	"yellow curves" = [],
+
+	"blue planes count" = 0,
+	"in blue" = false,
+	"blue curves" = [],
+ 
+	"red planes count" = 0,
+	"in red" = false,
+	"red curves" = []
 }
