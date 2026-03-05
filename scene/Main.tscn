@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://ck4unu555lgo2" path="res://objects/Button_red.png" id="5_s5yxy"]
 [ext_resource type="Texture2D" uid="uid://d3tsmkamneqhh" path="res://objects/count_fly1.png" id="6_o6q0f"]
 [ext_resource type="Script" uid="uid://c44tchjyc16q0" path="res://scripts/Fly_add.gd" id="7_s5yxy"]
+[ext_resource type="Texture2D" uid="uid://bi886ahq5qb1a" path="res://objects/Fly.png" id="8_eik88"]
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_hr7lf"]
 allow_unpress = true
@@ -97,6 +98,12 @@ offset_bottom = 983.0
 mouse_filter = 0
 texture = ExtResource("6_o6q0f")
 script = ExtResource("7_s5yxy")
+
+[node name="TextureFly" type="TextureRect" parent="." unique_id=1382701883]
+visible = false
+offset_right = 52.0
+offset_bottom = 40.0
+texture = ExtResource("8_eik88")
 
 [connection signal="timeout" from="Timer" to="." method="_on_spawn_timer_timeout"]
 [connection signal="toggled" from="YellowButton" to="." method="_on_yb_toggled"]
