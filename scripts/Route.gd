@@ -2,12 +2,11 @@ extends Node2D
 
 var plane_scene = load("res://scene/Plane.tscn")
 var my_curves: Array[Curve2D] = []
-var lines_data = GameData.lines_data
 
 func _ready():
 	add_to_group("routes")
 
-func create_line(airport_a, airport_b):
+func create_line(airport_a, airport_b, lines_data):
 	var line = Line2D.new()
 	add_child(line)
 	line.width = 6.0
@@ -32,28 +31,13 @@ func create_line(airport_a, airport_b):
 	my_curves.append(curve)
 	
 	var color_name = lines_data["current color"]
-	
-	var route_data = {
-		"curve": curve,
-		"start_airport": airport_a,
-		"end_airport": airport_b,
-		"color": color_name
-	}
-	
-	lines_data[color_name + "_routes"].append(route_data)
-	
-	if not lines_data["in_" + color_name]:
-		spawn_plane(route_data, 0.0)
-		lines_data["in_" + color_name] = true
+	if lines_data["in " + color_name] == false:
+		if not lines_data["in " + color_name]:
+			spawn_plane(curve, 0.0)
+			lines_data["in " + color_name] = true
 
-func spawn_plane(route_data: Dictionary, start_t: float):
+func spawn_plane(curve: Curve2D, start_t: float):
 	GameData.start_planes -= 1
 	var plane = plane_scene.instantiate()
 	add_child(plane)
-	
-	plane.current_route = route_data
-	plane.color = route_data["color"]
-	plane.t = start_t
-	
-	lines_data[route_data["color"] + "_planes"].append(plane)
-	plane.setup_with_route(route_data, start_t)
+	plane.setup_with_curve(curve, start_t)

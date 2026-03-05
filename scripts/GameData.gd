@@ -5,20 +5,16 @@ var start_planes: int = 5
 var lines_data = {
 	"current color" = "yellow",
 	"current hex color" = Color(1, 1, 0, 0.7),
-	"active colors" = ["yellow", "blue", "red"],
+ 
+	"yellow planes count" = 0,
+	"in yellow" = false,
+	"yellow curves" = [],
 
-	"in_yellow" = false,
-	"yellow_routes" = [],  # теперь храним словари с данными о маршрутах
-	"yellow_airports" = [],
-	"yellow_planes" = [],
-	
-	"in_blue" = false,
-	"blue_routes" = [],
-	"blue_airports" = [],
-	"blue_planes" = [],
-	
-	"in_red" = false,
-	"red_routes" = [],
-	"red_airports" = [],
-	"red_planes" = [],
+	"blue planes count" = 0,
+	"in blue" = false,
+	"blue curves" = [],
+ 
+	"red planes count" = 0,
+	"in red" = false,
+	"red curves" = []
 }
