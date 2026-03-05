@@ -15,9 +15,8 @@ func _create_ghost():
 	ghost_plane = Sprite2D.new()
 	ghost_plane.texture = texture
 	ghost_plane.modulate = Color(1, 1, 1, 0.5)
-	ghost_plane.scale = Vector2(0.5, 0.5)
 	ghost_plane.top_level = true
-	add_child(ghost_plane)
+	get_tree().root.add_child(ghost_plane)
 
 func _process(_delta):
 	if is_dragging and ghost_plane:
@@ -26,19 +25,25 @@ func _process(_delta):
 func _drop_plane():
 	is_dragging = false
 	var mouse_pos = get_global_mouse_position()
-	var routes = get_tree().get_nodes_in_group("routes")
-	var success = false
+	var found_route = null
+	var curve_ = null
+	var t_ = 0.0
+	var min_dist = 60.0
+
+	for route in get_tree().get_nodes_in_group("routes"):
+		for curve in route.my_curves:
+			var offset = curve.get_closest_offset(mouse_pos)
+			var point_on_curve = curve.sample_baked(offset)
+			var dist = mouse_pos.distance_to(point_on_curve)
+			
+			if dist < min_dist:
+				min_dist = dist
+				found_route = route
+				curve_ = curve
+				t_ = offset / curve.get_baked_length()
+
+	if found_route and curve_:
+		found_route.spawn_plane(curve_, t_)
+		print("самолет появился")
 	
-	for route in routes:
-		if not route.my_curves.is_empty():
-			var first_point = route.my_curves[0].get_point_position(0)
-			if mouse_pos.distance_to(first_point) < 50:
-				if route.add_plane_button():
-					success = true
-					print("-1 самолет", GameData.start_planes)
-					break
-	
-	if not success:
-		print("самолеты кончится")
-		
 	ghost_plane.queue_free()
