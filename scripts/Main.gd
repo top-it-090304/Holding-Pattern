@@ -57,7 +57,7 @@ func check_airopotr():
 func create_route(a, b):
 	var route = route_scene.instantiate()
 	add_child(route)
-	route.create_line(a, b, lines_data)
+	route.create_line(a, b)
 
 func stop_draw():
 	selected_airport = null
