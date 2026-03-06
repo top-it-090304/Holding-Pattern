@@ -14,7 +14,7 @@ var lines_data = GameData.lines_data
 
 func _ready():
 	pred_line = Line2D.new()
-	pred_line.width = 3.0
+	pred_line.width = 6.0
 	pred_line.default_color = Color(1, 1, 1, 0.5)
 	pred_line.z_index = 10
 	add_child(pred_line)
