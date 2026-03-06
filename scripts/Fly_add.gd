@@ -2,7 +2,7 @@ extends TextureRect
 
 var is_dragging = false
 var ghost_plane: Sprite2D
-@onready var fly_node = $"../TextureFly"
+@onready var fly_node = $"../TextureFlyGhost"
 
 func _gui_input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:

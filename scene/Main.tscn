@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://ck4unu555lgo2" path="res://objects/Button_red.png" id="5_s5yxy"]
 [ext_resource type="Texture2D" uid="uid://7ire7onvi2fn" path="res://objects/count_fly.png" id="6_eik88"]
 [ext_resource type="Script" uid="uid://c44tchjyc16q0" path="res://scripts/Fly_add.gd" id="7_s5yxy"]
-[ext_resource type="Texture2D" uid="uid://bi886ahq5qb1a" path="res://objects/Fly.png" id="8_eik88"]
+[ext_resource type="Texture2D" uid="uid://dirl28ic4l46t" path="res://objects/Fly_ghost.png" id="8_eik88"]
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_hr7lf"]
 allow_unpress = true
@@ -91,18 +91,20 @@ icon = ExtResource("5_s5yxy")
 flat = true
 
 [node name="PlaneIcon" type="TextureRect" parent="." unique_id=1910985803]
-offset_left = 785.0
-offset_top = 910.0
-offset_right = 855.0
-offset_bottom = 983.0
+offset_left = 772.0
+offset_top = 888.0
+offset_right = 872.0
+offset_bottom = 988.0
 mouse_filter = 0
 texture = ExtResource("6_eik88")
 script = ExtResource("7_s5yxy")
 
-[node name="TextureFly" type="TextureRect" parent="." unique_id=1382701883]
+[node name="TextureFlyGhost" type="TextureRect" parent="." unique_id=1382701883]
 visible = false
-offset_right = 52.0
-offset_bottom = 40.0
+offset_left = -106.0
+offset_top = 3.0
+offset_right = -31.0
+offset_bottom = 63.0
 texture = ExtResource("8_eik88")
 
 [connection signal="timeout" from="Timer" to="." method="_on_spawn_timer_timeout"]

@@ -6,8 +6,11 @@ var pulse_radius = 0.0
 var pulse_alpha = 1.0
 var pulse_color = Color.WHITE
 
-var is_highlighted = false
-var highlight_color = Color.WHITE
+
+var stroke_ = false
+var stroke_radius = 0.0
+var stroke_color = Color.WHITE
+var current_max_radius = 25.0
 
 func _input_event(_viewport, event, _shape_idx):
 	if event is InputEventMouseButton and event.pressed:
@@ -17,9 +20,14 @@ func _input_event(_viewport, event, _shape_idx):
 
 
 func set_highlight(active: bool, color: Color = Color.WHITE):
-	is_highlighted = active
-	highlight_color = color
-	queue_redraw()
+	stroke_color = color
+	if active and not stroke_:
+		stroke_ = true
+		var tween = create_tween()
+		tween.tween_property(self, "stroke_radius", current_max_radius, 0.15).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+	elif not active and stroke_:
+		stroke_ = false
+		
 
 
 func activate_pulse():
@@ -39,8 +47,8 @@ func _process(_delta):
 
 func _draw():
 	## обводка
-	if is_highlighted:
-		draw_arc(Vector2.ZERO, 15.0, 15.0, PI*2, 64, highlight_color, 5.0, true)
+	if stroke_:
+		draw_arc(Vector2.ZERO, 15.0, 15.0, PI*2, 64, stroke_color, 5.0, true)
 		
 	## всплеск
 	if pulse_radius > 0:
