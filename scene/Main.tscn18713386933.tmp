@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://w3majmenhb7r"]
+
+[ext_resource type="Script" uid="uid://sp2ta70qytu6" path="res://scripts/Main.gd" id="1_nbc6x"]
+[ext_resource type="Texture2D" uid="uid://260ks3uaf8tu" path="res://objects/field.png" id="2_h6nst"]
+
+[node name="Main" type="Node2D" unique_id=699429658]
+script = ExtResource("1_nbc6x")
+
+[node name="Map" type="Sprite2D" parent="." unique_id=570708504]
+z_index = -1
+position = Vector2(573, 321.5)
+scale = Vector2(0.9046875, 0.8958333)
+texture = ExtResource("2_h6nst")
+
+[node name="Timer" type="Timer" parent="." unique_id=1871435388]
+autostart = true
+
+[node name="AirportSpawn" type="Node2D" parent="." unique_id=2036406742]
+
+[node name="Marker2D" type="Marker2D" parent="AirportSpawn" unique_id=803476185]
+position = Vector2(491, 133)
+
+[node name="Marker2D2" type="Marker2D" parent="AirportSpawn" unique_id=1551095940]
+position = Vector2(292, 591)
+
+[node name="Marker2D3" type="Marker2D" parent="AirportSpawn" unique_id=501649119]
+position = Vector2(200, 224)
+
+[node name="Marker2D4" type="Marker2D" parent="AirportSpawn" unique_id=332095736]
+position = Vector2(961, 426)
+
+[node name="Marker2D5" type="Marker2D" parent="AirportSpawn" unique_id=2052956240]
+position = Vector2(602, 318)
+
+[node name="Marker2D6" type="Marker2D" parent="AirportSpawn" unique_id=233310926]
+position = Vector2(1093, 120)
+
+[connection signal="timeout" from="Timer" to="." method="_on_spawn_timer_timeout"]
