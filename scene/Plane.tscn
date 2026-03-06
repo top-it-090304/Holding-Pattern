@@ -4,6 +4,6 @@
 [ext_resource type="Script" uid="uid://xpvr5u4nrccq" path="res://scripts/Plane.gd" id="1_y8oyu"]
 
 [node name="Plane" type="Sprite2D" unique_id=2066481645]
-scale = Vector2(0.46666664, 0.4666667)
+scale = Vector2(0.4583333, 0.45833334)
 texture = ExtResource("1_jl0la")
 script = ExtResource("1_y8oyu")

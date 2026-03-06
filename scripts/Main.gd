@@ -79,15 +79,15 @@ func _on_airport_selected(airport):
 ## кнопки
 func _on_yb_toggled(_t):
 	lines_data["current color"] = "yellow"
-	lines_data["current hex color"] = Color(1, 1, 0, 0.7)
+	lines_data["current hex color"] = Color(1.0, 0.812, 0.039, 1.0)
 
 func _on_bb_toggled(_t):
 	lines_data["current color"] = "blue"
-	lines_data["current hex color"] = Color(0, 0, 1, 0.7)
+	lines_data["current hex color"] = Color(0.0, 0.323, 0.983, 1.0)
 
 func _on_rb_toggled(_t):
 	lines_data["current color"] = "red"
-	lines_data["current hex color"] = Color(1, 0, 0, 0.7)
+	lines_data["current hex color"] = Color(1.0, 0.0, 0.0, 1.0)
 
 func _on_spawn_timer_timeout():
 	spawn_airport()

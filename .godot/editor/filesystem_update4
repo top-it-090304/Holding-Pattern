@@ -1,2 +1,6 @@
 res://scene/Main.tscn
 res://scene/Plane.tscn
+res://scripts/GameData.gd
+res://scripts/Route.gd
+res://scripts/Plane.gd
+res://scripts/Main.gd

@@ -37,7 +37,8 @@ func create_line(airport_a, airport_b):
 		"curve": curve,
 		"start_airport": airport_a,
 		"end_airport": airport_b,
-		"color": color_name
+		"color": color_name,
+		"route_color": GameData.color_values[color_name]
 	}
 	
 	lines_data[color_name + "_routes"].append(route_data)

@@ -9,7 +9,8 @@ var color: String
 func setup_with_route(route_data: Dictionary, start_t: float = 0.0):
 	current_route = route_data
 	t = start_t
-	color = route_data["color"]
+	if route_data.has("route_color"):
+		modulate = route_data["route_color"]
 	
 	var dist = t * current_route["curve"].get_baked_length()
 	position = current_route["curve"].sample_baked(dist)
