@@ -14,6 +14,20 @@ func setup_with_route(route_data: Dictionary, start_t: float = 0.0):
 	
 	var dist = t * current_route["curve"].get_baked_length()
 	position = current_route["curve"].sample_baked(dist)
+	
+	play_spawn_effect()
+	
+func play_spawn_effect():
+	## анимация масштаба
+	scale = Vector2.ZERO
+	var tween = create_tween().set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+	tween.tween_property(self, "scale", Vector2(0.46, 0.46), 0.6)
+	
+	## вспышка
+	var final_color = modulate
+	modulate = Color.WHITE
+	var flash = create_tween()
+	flash.tween_property(self, "modulate", final_color, 0.3)
 
 func _process(delta):
 	if not current_route: return

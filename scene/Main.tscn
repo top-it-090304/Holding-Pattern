@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://ck4unu555lgo2" path="res://objects/Button_red.png" id="5_s5yxy"]
 [ext_resource type="Texture2D" uid="uid://7ire7onvi2fn" path="res://objects/count_fly.png" id="6_eik88"]
 [ext_resource type="Script" uid="uid://c44tchjyc16q0" path="res://scripts/Fly_add.gd" id="7_s5yxy"]
-[ext_resource type="Texture2D" uid="uid://dirl28ic4l46t" path="res://objects/Fly_ghost.png" id="8_eik88"]
+[ext_resource type="Texture2D" uid="uid://bi886ahq5qb1a" path="res://objects/Fly.png" id="8_eik88"]
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_hr7lf"]
 allow_unpress = true
@@ -91,10 +91,10 @@ icon = ExtResource("5_s5yxy")
 flat = true
 
 [node name="PlaneIcon" type="TextureRect" parent="." unique_id=1910985803]
-offset_left = 760.0
-offset_top = 894.0
-offset_right = 860.0
-offset_bottom = 994.0
+offset_left = 785.0
+offset_top = 910.0
+offset_right = 855.0
+offset_bottom = 983.0
 mouse_filter = 0
 texture = ExtResource("6_eik88")
 script = ExtResource("7_s5yxy")
