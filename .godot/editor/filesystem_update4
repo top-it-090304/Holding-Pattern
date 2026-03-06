@@ -6,3 +6,4 @@ res://scripts/Route.gd
 res://scene/Plane.tscn
 res://scene/Airport.tscn
 res://scripts/Fly_add.gd
+res://scripts/GameData.gd

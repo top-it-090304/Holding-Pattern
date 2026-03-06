@@ -2,7 +2,9 @@ extends TextureRect
 
 var is_dragging = false
 var ghost_plane: Sprite2D
-@onready var fly_node = $"../TextureFlyGhost"
+@onready var fly_count = $"../TextureFlyGhost"
+
+
 
 func _gui_input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
@@ -14,12 +16,15 @@ func _gui_input(event):
 
 func _create_ghost():
 	ghost_plane = Sprite2D.new()
-	ghost_plane.texture = fly_node.texture
+	ghost_plane.texture = fly_count.texture
 	ghost_plane.modulate = Color(1, 1, 1, 0.5)
 	ghost_plane.top_level = true
 	get_tree().root.add_child(ghost_plane)
 
 func _process(_delta):
+	if GameData.start_planes == 0:
+		texture = load("res://objects/count_fly_Zero.png")
+		print("tex")
 	if is_dragging and ghost_plane:
 		ghost_plane.global_position = get_global_mouse_position()
 

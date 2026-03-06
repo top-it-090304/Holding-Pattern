@@ -1,6 +1,6 @@
 extends Node
 
-var start_planes: int = 5
+var start_planes: int = 3
 
 var lines_data = {
 	"current color" = "yellow",

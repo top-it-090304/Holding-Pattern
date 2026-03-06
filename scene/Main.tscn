@@ -36,19 +36,19 @@ autostart = true
 position = Vector2(927, 155)
 
 [node name="Marker2D2" type="Marker2D" parent="AirportSpawn" unique_id=1551095940]
-position = Vector2(426, 1019)
+position = Vector2(408, 923)
 
 [node name="Marker2D3" type="Marker2D" parent="AirportSpawn" unique_id=501649119]
 position = Vector2(238, 386)
 
 [node name="Marker2D4" type="Marker2D" parent="AirportSpawn" unique_id=332095736]
-position = Vector2(1607, 714)
+position = Vector2(1607, 681)
 
 [node name="Marker2D5" type="Marker2D" parent="AirportSpawn" unique_id=2052956240]
 position = Vector2(1044, 512)
 
 [node name="Marker2D6" type="Marker2D" parent="AirportSpawn" unique_id=233310926]
-position = Vector2(1843, 208)
+position = Vector2(1891, 172)
 
 [node name="YellowButton" type="Button" parent="." unique_id=1877033529]
 modulate = Color(1, 1, 0, 1)
@@ -90,22 +90,27 @@ button_group = SubResource("ButtonGroup_mnmej")
 icon = ExtResource("5_s5yxy")
 flat = true
 
-[node name="PlaneIcon" type="TextureRect" parent="." unique_id=1910985803]
-offset_left = 772.0
-offset_top = 888.0
-offset_right = 872.0
-offset_bottom = 988.0
+[node name="CountFly" type="TextureRect" parent="." unique_id=1910985803]
+texture_filter = 6
+offset_left = 801.0
+offset_top = 907.0
+offset_right = 865.0
+offset_bottom = 971.0
 mouse_filter = 0
 texture = ExtResource("6_eik88")
+expand_mode = 1
 script = ExtResource("7_s5yxy")
 
 [node name="TextureFlyGhost" type="TextureRect" parent="." unique_id=1382701883]
-visible = false
-offset_left = -106.0
-offset_top = 3.0
-offset_right = -31.0
-offset_bottom = 63.0
+offset_left = -82.0
+offset_top = 4.0
+offset_right = -8.0
+offset_bottom = 64.0
 texture = ExtResource("8_eik88")
+
+[node name="CountFlyZero" type="TextureRect" parent="." unique_id=28308419]
+offset_right = 40.0
+offset_bottom = 40.0
 
 [connection signal="timeout" from="Timer" to="." method="_on_spawn_timer_timeout"]
 [connection signal="toggled" from="YellowButton" to="." method="_on_yb_toggled"]
