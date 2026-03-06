@@ -51,6 +51,7 @@ func check_airopotr():
 	var mouse_pos = get_global_mouse_position()
 	for airport in get_tree().get_nodes_in_group("airports"):
 		if airport != selected_airport and airport.global_position.distance_to(mouse_pos) < 50:
+			airport.activate_pulse()
 			create_route(selected_airport, airport)
 			selected_airport = airport 
 
