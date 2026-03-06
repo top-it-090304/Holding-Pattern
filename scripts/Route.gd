@@ -59,3 +59,7 @@ func spawn_plane(route_data: Dictionary, start_t: float):
 	
 	lines_data[route_data["color"] + "_planes"].append(plane)
 	plane.setup_with_route(route_data, start_t)
+	
+	var CountPlane = get_tree().get_first_node_in_group("countPlane")
+	if CountPlane:
+		CountPlane.on_plane_spawned()

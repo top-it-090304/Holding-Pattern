@@ -2,7 +2,7 @@ extends TextureRect
 
 var is_dragging = false
 var ghost_plane: Sprite2D
-@onready var fly_count = $"../TextureFlyGhost"
+@onready var fly_count = $"../TexturePlaneGhost"
 
 
 
@@ -24,7 +24,6 @@ func _create_ghost():
 func _process(_delta):
 	if GameData.start_planes == 0:
 		texture = load("res://objects/count_fly_Zero.png")
-		print("tex")
 	if is_dragging and ghost_plane:
 		ghost_plane.global_position = get_global_mouse_position()
 

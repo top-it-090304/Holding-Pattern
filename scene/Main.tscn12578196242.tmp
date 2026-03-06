@@ -6,9 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://c32r7a0jfkk6t" path="res://objects/Button_blue.png" id="4_o6q0f"]
 [ext_resource type="Texture2D" uid="uid://ck4unu555lgo2" path="res://objects/Button_red.png" id="5_s5yxy"]
 [ext_resource type="Texture2D" uid="uid://7ire7onvi2fn" path="res://objects/count_fly.png" id="6_eik88"]
-[ext_resource type="Script" uid="uid://c44tchjyc16q0" path="res://scripts/Plane_add.gd" id="7_s5yxy"]
+[ext_resource type="Script" uid="uid://c44tchjyc16q0" path="res://scripts/Fly_add.gd" id="7_s5yxy"]
 [ext_resource type="Texture2D" uid="uid://dirl28ic4l46t" path="res://objects/Fly_ghost.png" id="8_eik88"]
-[ext_resource type="Script" uid="uid://dj87sysn61exl" path="res://scripts/Plane_count.gd" id="9_pnqar"]
+[ext_resource type="Script" uid="uid://qgd8xa0w8uhv" path="res://scripts/CountFly.gd" id="9_pnqar"]
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_hr7lf"]
 allow_unpress = true
@@ -18,9 +18,6 @@ allow_unpress = true
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_mnmej"]
 allow_unpress = true
-
-[sub_resource type="LabelSettings" id="LabelSettings_pnqar"]
-font_size = 23
 
 [node name="Main" type="Node2D" unique_id=699429658]
 script = ExtResource("1_nbc6x")
@@ -105,23 +102,22 @@ texture = ExtResource("6_eik88")
 expand_mode = 1
 script = ExtResource("7_s5yxy")
 
-[node name="TexturePlaneGhost" type="TextureRect" parent="." unique_id=1382701883]
+[node name="TextureFlyGhost" type="TextureRect" parent="." unique_id=1382701883]
 offset_left = -82.0
 offset_top = 4.0
 offset_right = -8.0
 offset_bottom = 64.0
 texture = ExtResource("8_eik88")
 
-[node name="CountPlaneZero" type="TextureRect" parent="." unique_id=28308419]
+[node name="CountFlyZero" type="TextureRect" parent="." unique_id=28308419]
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="CountPlane" type="Label" parent="." unique_id=328349660]
-offset_left = 861.0
-offset_top = 894.0
-offset_right = 881.0
-offset_bottom = 917.0
-label_settings = SubResource("LabelSettings_pnqar")
+[node name="Count" type="Label" parent="." unique_id=910028606]
+offset_left = 858.0
+offset_top = 901.0
+offset_right = 882.0
+offset_bottom = 924.0
 script = ExtResource("9_pnqar")
 
 [connection signal="timeout" from="Timer" to="." method="_on_spawn_timer_timeout"]
