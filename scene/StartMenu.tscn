@@ -1,0 +1,89 @@
+[gd_scene format=3 uid="uid://dggwktu3dwg6x"]
+
+[ext_resource type="Script" uid="uid://cuexgr5rra0ub" path="res://scripts/start_menu.gd" id="1_lj036"]
+[ext_resource type="Texture2D" uid="uid://cccbojxrikyly" path="res://objects/Button_plau.png" id="3_8t8u8"]
+[ext_resource type="Texture2D" uid="uid://ciblyc6hoov27" path="res://objects/Button_settings.png" id="4_pbb8y"]
+[ext_resource type="Texture2D" uid="uid://dpsupjio5bj4q" path="res://objects/Button_stats.png" id="5_4vtxv"]
+[ext_resource type="Texture2D" uid="uid://rh1mnwc0fljj" path="res://objects/Button_exit.png" id="6_pbb8y"]
+[ext_resource type="Texture2D" uid="uid://drq8s8w5wm0k5" path="res://objects/Button_back.png" id="7_4vtxv"]
+[ext_resource type="Texture2D" uid="uid://dhgy00ifet6ci" path="res://objects/Button_back_right.png" id="8_akhuw"]
+
+[node name="Control" type="Control" unique_id=1201501265]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_lj036")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="." unique_id=723470213]
+layout_mode = 0
+offset_left = -1274.0
+offset_top = -952.0
+offset_right = 2966.0
+offset_bottom = 1808.0
+autoplay = true
+loop = true
+
+[node name="Play" type="Button" parent="." unique_id=1056440167]
+layout_mode = 0
+offset_left = -265.0
+offset_top = -149.0
+offset_right = 101.0
+offset_bottom = -48.0
+pivot_offset = Vector2(150, 40)
+icon = ExtResource("3_8t8u8")
+flat = true
+
+[node name="Settings" type="Button" parent="." unique_id=1150483765]
+layout_mode = 0
+offset_left = -265.0
+offset_top = -53.0
+offset_right = 244.0
+offset_bottom = 52.0
+pivot_offset = Vector2(150, 40)
+icon = ExtResource("4_pbb8y")
+flat = true
+
+[node name="Stats" type="Button" parent="." unique_id=1338606621]
+layout_mode = 0
+offset_left = -265.0
+offset_top = 42.0
+offset_right = 244.0
+offset_bottom = 147.0
+pivot_offset = Vector2(150, 40)
+icon = ExtResource("5_4vtxv")
+flat = true
+
+[node name="Exit" type="Button" parent="." unique_id=959969849]
+layout_mode = 0
+offset_left = -258.0
+offset_top = 138.0
+offset_right = 95.0
+offset_bottom = 238.0
+icon = ExtResource("6_pbb8y")
+flat = true
+
+[node name="Back_down" type="Button" parent="." unique_id=1307795110]
+layout_mode = 0
+offset_left = -944.0
+offset_top = 598.0
+offset_right = -860.0
+offset_bottom = 687.0
+icon = ExtResource("7_4vtxv")
+flat = true
+
+[node name="Back_right" type="Button" parent="." unique_id=1563972719]
+layout_mode = 0
+offset_left = 964.0
+offset_top = -538.0
+offset_right = 1070.0
+offset_bottom = -449.0
+icon = ExtResource("8_akhuw")
+flat = true
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1333308016]
+
+[connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="Stats" to="." method="_on_stats_pressed"]
+[connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="Back_down" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="Back_right" to="." method="_on_back_pressed"]

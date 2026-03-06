@@ -1,0 +1,111 @@
+[gd_scene format=3 uid="uid://w3majmenhb7r"]
+
+[ext_resource type="Script" uid="uid://sp2ta70qytu6" path="res://scripts/Main.gd" id="1_nbc6x"]
+[ext_resource type="Texture2D" uid="uid://qrsbytgaea84" path="res://objects/field_blue.png" id="2_h6nst"]
+[ext_resource type="Texture2D" uid="uid://d3hmyd7fm44gt" path="res://objects/Button_yellow.png" id="3_mnmej"]
+[ext_resource type="Texture2D" uid="uid://c32r7a0jfkk6t" path="res://objects/Button_blue.png" id="4_o6q0f"]
+[ext_resource type="Texture2D" uid="uid://ck4unu555lgo2" path="res://objects/Button_red.png" id="5_s5yxy"]
+[ext_resource type="Texture2D" uid="uid://7ire7onvi2fn" path="res://objects/count_fly.png" id="6_eik88"]
+[ext_resource type="Script" uid="uid://c44tchjyc16q0" path="res://scripts/Fly_add.gd" id="7_s5yxy"]
+[ext_resource type="Texture2D" uid="uid://dirl28ic4l46t" path="res://objects/Fly_ghost.png" id="8_eik88"]
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_hr7lf"]
+allow_unpress = true
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_yiwpq"]
+allow_unpress = true
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_mnmej"]
+allow_unpress = true
+
+[node name="Main" type="Node2D" unique_id=699429658]
+script = ExtResource("1_nbc6x")
+
+[node name="Map" type="Sprite2D" parent="." unique_id=570708504]
+z_index = -1
+position = Vector2(961.0001, 498.00003)
+scale = Vector2(0.9966798, 0.9296296)
+texture = ExtResource("2_h6nst")
+
+[node name="Timer" type="Timer" parent="." unique_id=1871435388]
+autostart = true
+
+[node name="AirportSpawn" type="Node2D" parent="." unique_id=2036406742]
+
+[node name="Marker2D" type="Marker2D" parent="AirportSpawn" unique_id=803476185]
+position = Vector2(927, 155)
+
+[node name="Marker2D2" type="Marker2D" parent="AirportSpawn" unique_id=1551095940]
+position = Vector2(426, 1019)
+
+[node name="Marker2D3" type="Marker2D" parent="AirportSpawn" unique_id=501649119]
+position = Vector2(238, 386)
+
+[node name="Marker2D4" type="Marker2D" parent="AirportSpawn" unique_id=332095736]
+position = Vector2(1607, 714)
+
+[node name="Marker2D5" type="Marker2D" parent="AirportSpawn" unique_id=2052956240]
+position = Vector2(1044, 512)
+
+[node name="Marker2D6" type="Marker2D" parent="AirportSpawn" unique_id=233310926]
+position = Vector2(1843, 208)
+
+[node name="YellowButton" type="Button" parent="." unique_id=1877033529]
+modulate = Color(1, 1, 0, 1)
+offset_left = 883.99994
+offset_top = 900.99994
+offset_right = 1092.0
+offset_bottom = 1109.0
+scale = Vector2(0.36157924, 0.36157924)
+toggle_mode = true
+button_pressed = true
+action_mode = 0
+button_group = SubResource("ButtonGroup_hr7lf")
+icon = ExtResource("3_mnmej")
+flat = true
+
+[node name="BlueButton" type="Button" parent="." unique_id=1888030756]
+modulate = Color(0, 0, 1, 1)
+offset_left = 965.0
+offset_top = 900.0
+offset_right = 1173.0
+offset_bottom = 1108.0
+scale = Vector2(0.38400003, 0.38400003)
+toggle_mode = true
+action_mode = 0
+button_group = SubResource("ButtonGroup_yiwpq")
+icon = ExtResource("4_o6q0f")
+flat = true
+
+[node name="RedButton" type="Button" parent="." unique_id=1218500919]
+modulate = Color(1, 0, 0, 1)
+offset_left = 1055.0
+offset_top = 892.0
+offset_right = 1263.0
+offset_bottom = 1100.0
+scale = Vector2(0.4, 0.4)
+toggle_mode = true
+action_mode = 0
+button_group = SubResource("ButtonGroup_mnmej")
+icon = ExtResource("5_s5yxy")
+flat = true
+
+[node name="PlaneIcon" type="TextureRect" parent="." unique_id=1910985803]
+offset_left = 760.0
+offset_top = 894.0
+offset_right = 860.0
+offset_bottom = 994.0
+mouse_filter = 0
+texture = ExtResource("6_eik88")
+script = ExtResource("7_s5yxy")
+
+[node name="TextureFly" type="TextureRect" parent="." unique_id=1382701883]
+visible = false
+offset_right = 52.0
+offset_bottom = 40.0
+texture = ExtResource("8_eik88")
+
+[connection signal="timeout" from="Timer" to="." method="_on_spawn_timer_timeout"]
+[connection signal="toggled" from="YellowButton" to="." method="_on_yb_toggled"]
+[connection signal="toggled" from="BlueButton" to="." method="_on_bb_toggled"]
+[connection signal="toggled" from="RedButton" to="." method="_on_rb_toggled"]
