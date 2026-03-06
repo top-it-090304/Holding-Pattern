@@ -3,6 +3,7 @@ extends Node2D
 var plane_scene = load("res://scene/Plane.tscn")
 var my_curves: Array[Curve2D] = []
 var lines_data = GameData.lines_data
+var route_data
 
 func _ready():
 	add_to_group("routes")
@@ -33,12 +34,12 @@ func create_line(airport_a, airport_b):
 	
 	var color_name = lines_data["current color"]
 	
-	var route_data = {
-		"curve": curve,
-		"start_airport": airport_a,
-		"end_airport": airport_b,
-		"color": color_name,
-		"route_color": GameData.color_values[color_name]
+	route_data = {
+		"curve" = curve,
+		"start_airport" = airport_a,
+		"end_airport" = airport_b,
+		"color" = color_name,
+		"route_color" = GameData.color_values[color_name]
 	}
 	
 	lines_data[color_name + "_routes"].append(route_data)

@@ -27,7 +27,7 @@ func _drop_plane():
 	is_dragging = false
 	var mouse_pos = get_global_mouse_position()
 	var found_route = null
-	var curve_ = null
+	var route_data_ = null
 	var t_ = 0.0
 	var min_dist = 60.0
 
@@ -40,11 +40,11 @@ func _drop_plane():
 			if dist < min_dist:
 				min_dist = dist
 				found_route = route
-				curve_ = curve
+				route_data_ = route.route_data
 				t_ = offset / curve.get_baked_length()
 
-	if found_route and curve_:
-		found_route.spawn_plane(curve_, t_)
+	if found_route and route_data_:
+		found_route.spawn_plane(route_data_, t_)
 		print("самолет появился")
 	
 	ghost_plane.queue_free()

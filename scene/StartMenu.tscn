@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://dggwktu3dwg6x"]
 
 [ext_resource type="Script" uid="uid://cuexgr5rra0ub" path="res://scripts/start_menu.gd" id="1_lj036"]
-[ext_resource type="VideoStream" uid="uid://bcdgggwsggb64" path="res://video/background_menu.ogv" id="2_mm3wi"]
 [ext_resource type="Texture2D" uid="uid://cccbojxrikyly" path="res://objects/Button_plau.png" id="3_8t8u8"]
 [ext_resource type="Texture2D" uid="uid://ciblyc6hoov27" path="res://objects/Button_settings.png" id="4_pbb8y"]
 [ext_resource type="Texture2D" uid="uid://dpsupjio5bj4q" path="res://objects/Button_stats.png" id="5_4vtxv"]
@@ -13,16 +12,6 @@
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_lj036")
-
-[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="." unique_id=723470213]
-layout_mode = 0
-offset_left = -1274.0
-offset_top = -952.0
-offset_right = 2966.0
-offset_bottom = 1808.0
-stream = ExtResource("2_mm3wi")
-autoplay = true
-loop = true
 
 [node name="Play" type="Button" parent="." unique_id=1056440167]
 layout_mode = 0
