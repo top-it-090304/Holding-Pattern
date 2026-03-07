@@ -7,6 +7,7 @@
 radius = 15.033297
 
 [node name="Airport" type="Area2D" unique_id=1138182898]
+z_index = 1
 script = ExtResource("1_qo1ey")
 
 [node name="Point" type="Sprite2D" parent="." unique_id=1225630992]
