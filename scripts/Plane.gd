@@ -67,7 +67,8 @@ func _process(delta):
 	var dist = t * baked_length
 	var new_pos = curve.sample_baked(dist)
 	
-	look_at(new_pos)
+	if current_speed > 1.0:
+		look_at(new_pos)
 	position = new_pos
 
 func switch_to_next_route(arrived_at_end: bool):
