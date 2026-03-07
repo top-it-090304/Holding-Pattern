@@ -1,3 +1,5 @@
 res://scripts/Main.gd
 res://scene/Main.tscn
 res://scripts/Airport.gd
+res://scripts/Plane_add.gd
+res://scripts/Plane.gd
