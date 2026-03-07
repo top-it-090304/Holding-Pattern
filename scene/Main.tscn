@@ -49,7 +49,7 @@ position = Vector2(238, 386)
 position = Vector2(1607, 681)
 
 [node name="Marker2D5" type="Marker2D" parent="AirportSpawn" unique_id=2052956240]
-position = Vector2(1044, 512)
+position = Vector2(1032, 486)
 
 [node name="Marker2D6" type="Marker2D" parent="AirportSpawn" unique_id=233310926]
 position = Vector2(1891, 172)
@@ -106,6 +106,7 @@ expand_mode = 1
 script = ExtResource("7_s5yxy")
 
 [node name="TexturePlaneGhost" type="TextureRect" parent="." unique_id=1382701883]
+visible = false
 offset_left = -82.0
 offset_top = 4.0
 offset_right = -8.0

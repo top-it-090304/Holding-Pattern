@@ -17,7 +17,7 @@ var pulse_color = Color.WHITE
 var stroke = false
 var stroke_radius = 0.0
 var stroke_color = Color.WHITE
-var current_max_radius = 12.0
+var current_max_radius = 10.0
 
 func _ready():
 	my_shape = GameData.ShapeType.values().pick_random()
@@ -73,8 +73,7 @@ func _input_event(_viewport, event, _shape_idx):
 			activate_pulse()
 			airport_selected.emit(self)
 
-
-
+## пассажиры
 func add_pasenger():
 	pass
 
