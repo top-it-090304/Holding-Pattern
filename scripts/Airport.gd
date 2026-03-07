@@ -33,11 +33,14 @@ func _ready():
 func _draw():
 	if stroke_radius > 0:
 		draw_arc(Vector2.ZERO, stroke_radius, 0, PI*2, 64, stroke_color, 15.0, true)
-	
+		
+		
+		
 	if pulse_radius > 0:
 		var p_color = pulse_color
 		p_color.a = pulse_alpha
 		draw_arc(Vector2.ZERO, pulse_radius, 0, PI*2, 64, p_color, 3.0, true)
+	
 
 
 ## обводки
@@ -49,7 +52,8 @@ func set_stroke(active: bool):
 		tween.tween_property(self, "stroke_radius", current_max_radius, 0.15).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
 	elif not active and stroke:
 		stroke = false
-		tween.tween_property(self, "stroke_radius", 0.4, 0.4)
+		tween.tween_property(self, "stroke_radius", 0.5, 0.5)
+		
 
 func activate_pulse():
 	pulse_color = GameData.lines_data["current hex color"]

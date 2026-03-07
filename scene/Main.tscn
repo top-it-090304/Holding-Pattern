@@ -96,10 +96,10 @@ flat = true
 
 [node name="CountFly" type="TextureRect" parent="." unique_id=1910985803]
 texture_filter = 6
-offset_left = 801.0
-offset_top = 907.0
-offset_right = 865.0
-offset_bottom = 971.0
+offset_left = 793.0
+offset_top = 905.0
+offset_right = 864.0
+offset_bottom = 976.0
 mouse_filter = 0
 texture = ExtResource("6_eik88")
 expand_mode = 1
