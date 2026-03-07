@@ -15,8 +15,7 @@ var lines_data = GameData.lines_data
 func _ready():
 	pred_line = Line2D.new()
 	pred_line.width = 6.0
-	pred_line.default_color = Color(1, 1, 1, 0.5)
-	pred_line.z_index = 10
+	pred_line.z_index = -1
 	add_child(pred_line)
  
 	for child in spawn_points_node.get_children():
@@ -35,7 +34,7 @@ func _input(event):
 func _process(_delta):
 	if is_drawing and selected_airport:
 		var current_color = GameData.lines_data["current hex color"]
-		pred_line.default_color = Color(current_color.r, current_color.g, current_color.b, 0.5)
+		pred_line.default_color = Color(current_color.r, current_color.g, current_color.b)
 		
 		selected_airport.set_highlight(true, current_color)
 		

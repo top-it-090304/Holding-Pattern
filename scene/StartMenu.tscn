@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dggwktu3dwg6x"]
 
 [ext_resource type="Script" uid="uid://cuexgr5rra0ub" path="res://scripts/start_menu.gd" id="1_lj036"]
+[ext_resource type="Texture2D" uid="uid://qrsbytgaea84" path="res://objects/field_blue.png" id="2_akhuw"]
 [ext_resource type="Texture2D" uid="uid://cccbojxrikyly" path="res://objects/Button_plau.png" id="3_8t8u8"]
 [ext_resource type="Texture2D" uid="uid://ciblyc6hoov27" path="res://objects/Button_settings.png" id="4_pbb8y"]
 [ext_resource type="Texture2D" uid="uid://dpsupjio5bj4q" path="res://objects/Button_stats.png" id="5_4vtxv"]
@@ -12,6 +13,11 @@
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_lj036")
+
+[node name="FieldBlue" type="Sprite2D" parent="." unique_id=654303762]
+position = Vector2(880.5, 524)
+scale = Vector2(1.8421875, 1.8555555)
+texture = ExtResource("2_akhuw")
 
 [node name="Play" type="Button" parent="." unique_id=1056440167]
 layout_mode = 0
