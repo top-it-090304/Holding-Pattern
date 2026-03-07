@@ -36,7 +36,7 @@ func _process(_delta):
 		var current_color = GameData.lines_data["current hex color"]
 		pred_line.default_color = Color(current_color.r, current_color.g, current_color.b)
 		
-		selected_airport.set_highlight(true, current_color)
+		selected_airport.set_stroke(true)
 		
 		line_draw(selected_airport.global_position, get_global_mouse_position())
 		check_airopotr()
@@ -53,7 +53,7 @@ func line_draw(p0: Vector2, p2: Vector2):
 
 func check_airopotr():
 	var mouse_pos = get_global_mouse_position()
-	var current_color = GameData.lines_data["current hex color"]
+	
 	
 	for airport in get_tree().get_nodes_in_group("airports"):
 		if airport != selected_airport and airport.global_position.distance_to(mouse_pos) < 50:
@@ -61,7 +61,7 @@ func check_airopotr():
 			create_route(selected_airport, airport)
 			
 			selected_airport = airport
-			selected_airport.set_highlight(true, current_color)
+			selected_airport.set_stroke(true)
 
 func create_route(a, b):
 	var route = route_scene.instantiate()
@@ -70,7 +70,7 @@ func create_route(a, b):
 
 func stop_draw():
 	for airport in get_tree().get_nodes_in_group("airports"):
-		airport.set_highlight(false)
+		airport.set_stroke(false)
 	selected_airport = null
 	is_drawing = false
 	pred_line.clear_points()

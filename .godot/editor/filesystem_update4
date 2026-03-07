@@ -1,5 +1,5 @@
-res://scripts/Main.gd
 res://scene/Main.tscn
+res://scripts/GameData.gd
 res://scripts/Airport.gd
-res://scripts/Plane_add.gd
-res://scripts/Plane.gd
+res://scene/Airport.tscn
+res://scripts/Main.gd

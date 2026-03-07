@@ -2,25 +2,27 @@ extends Node
 
 var start_planes: int = 3
 
-var lines_data = {
-	"current color" = "yellow",
-	"current hex color" = Color(1.0, 0.812, 0.039, 1.0),
-	"active colors" = ["yellow", "blue", "red"],
+enum ShapeType { CIRCLE, SQUARE, TRIANGLE }
 
-	"in_yellow" = false,
-	"yellow_routes" = [],
-	"yellow_airports" = [],
-	"yellow_planes" = [],
+var lines_data = {
+	"current color" : "yellow",
+	"current hex color" : Color(1.0, 0.812, 0.039, 1.0),
+	"active colors" : ["yellow", "blue", "red"],
+
+	"in_yellow" : false,
+	"yellow_routes" : [],
+	"yellow_airports" : [],
+	"yellow_planes" : [],
 	
-	"in_blue" = false,
-	"blue_routes" = [],
-	"blue_airports" = [],
-	"blue_planes" = [],
+	"in_blue" : false,
+	"blue_routes" : [],
+	"blue_airports" : [],
+	"blue_planes" : [],
 	
-	"in_red" = false,
-	"red_routes" = [],
-	"red_airports" = [],
-	"red_planes" = [],
+	"in_red" : false,
+	"red_routes" : [],
+	"red_airports" : [],
+	"red_planes" : [],
 }
 
 var color_values = {
