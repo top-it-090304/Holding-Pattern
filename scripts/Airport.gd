@@ -31,20 +31,36 @@ func _ready():
 			sprite.texture = Triangle
 
 func _draw():
-	if stroke_radius > 0:
-		draw_arc(Vector2.ZERO, stroke_radius, 0, PI*2, 64, stroke_color, 15.0, true)
-		
-		
+	if stroke_radius > 3:
+		_draw_shape_outline(stroke_radius, stroke_color, 15.0)
 		
 	if pulse_radius > 0:
 		var p_color = pulse_color
 		p_color.a = pulse_alpha
 		draw_arc(Vector2.ZERO, pulse_radius, 0, PI*2, 64, p_color, 3.0, true)
+		
+## контур обводка
+func _draw_shape_outline(radius: float, color: Color, line_width: float):
+	match my_shape:
+		GameData.ShapeType.CIRCLE:
+			draw_arc(Vector2.ZERO, radius, 0, PI*2, 64, color, line_width, true)
+			
+		GameData.ShapeType.SQUARE:
+			var rect = Rect2(Vector2(-radius, -radius), Vector2(radius * 2, radius * 2))
+			draw_rect(rect, color, false, line_width)
+			
+		GameData.ShapeType.TRIANGLE:
+			var sf = radius * 0.10 
+			var points = PackedVector2Array([
+				Vector2(0, -12) * sf,
+				Vector2(11, 8) * sf,
+				Vector2(-11, 8) * sf,
+				Vector2(0, -12) * sf
+			])
+			draw_polyline(points, color, line_width, true)
 	
-
-
 ## обводки
-func set_stroke(active: bool):
+func draw_stroke(active: bool):
 	stroke_color = GameData.lines_data["current hex color"]
 	var tween = create_tween()
 	if active and not stroke:

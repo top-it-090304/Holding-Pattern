@@ -1,6 +1,3 @@
 res://scene/Main.tscn
-res://scripts/GameData.gd
 res://scripts/Airport.gd
-res://scene/Airport.tscn
 res://scripts/Main.gd
-res://scripts/Plane.gd
