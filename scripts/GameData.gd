@@ -1,6 +1,6 @@
 extends Node
 
-var start_planes: int = 3
+var start_planes: int = 4
 
 enum ShapeType { CIRCLE, SQUARE, TRIANGLE }
 

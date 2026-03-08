@@ -7,7 +7,7 @@ var route_data
 
 func _ready():
 	add_to_group("routes")
-
+	
 func create_line(airport_a, airport_b):
 	var line = Line2D.new()
 	add_child(line)
@@ -20,7 +20,12 @@ func create_line(airport_a, airport_b):
 	var curve = Curve2D.new()
 	var p0 = airport_a.position
 	var p2 = airport_b.position
- 
+	
+	if p2.x > p0.x:
+		var C = p0
+		p0 = p2
+		p2 = C
+		
 	var mid = (p0 + p2) / 2
 	var offset = (p2 - p0).rotated(PI/2).normalized() * (p0.distance_to(p2) * 0.2)
 	var control_relative = (mid + offset) - p0

@@ -41,8 +41,16 @@ func _process(_delta):
 		line_draw(selected_airport.global_position, get_global_mouse_position())
 		check_airopotr()
 
-func line_draw(p0: Vector2, p2: Vector2):
+func line_draw(pos1: Vector2, pos2: Vector2):
 	var curve = Curve2D.new()
+	var p0 = pos1
+	var p2 = pos2
+	
+	if p2.x > p0.x:
+		var C = p0
+		p0 = p2
+		p2 = C
+		
 	var mid = (p0 + p2) / 2
 	var offset = (p2 - p0).rotated(PI/2).normalized() * (p0.distance_to(p2) * 0.2)
 	var control_point = (mid + offset) - p0
