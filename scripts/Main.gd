@@ -25,6 +25,12 @@ func _ready():
  
 	for i in range(3):
 		spawn_airport()
+		
+	var passenger_timer = Timer.new()
+	passenger_timer.wait_time = 1.0 # Каждые 3 секунды появляется пассажир
+	passenger_timer.autostart = true
+	passenger_timer.timeout.connect(_on_passenger_timer_timeout)
+	add_child(passenger_timer)
 
 func _input(event):
 	if event is InputEventMouseButton:
@@ -94,6 +100,16 @@ func spawn_airport():
 func _on_airport_selected(airport):
 	selected_airport = airport
 	is_drawing = true
+	
+func _on_passenger_timer_timeout():
+	var airports = get_tree().get_nodes_in_group("airports")
+	if airports.is_empty(): return
+	
+	# Выбираем случайную станцию
+	var random_airport = airports.pick_random()
+	
+	# Спавним на ней пассажира
+	random_airport.spawn_passenger()
 
 ## кнопки
 func _on_yb_toggled(_t):

@@ -32,15 +32,18 @@ func _ready():
 
 func _draw():
 	if stroke_radius > 3:
-		_draw_shape_outline(stroke_radius, stroke_color, 15.0)
+		_draw_stroke(stroke_radius, stroke_color, 15.0)
 		
 	if pulse_radius > 0:
 		var p_color = pulse_color
 		p_color.a = pulse_alpha
 		draw_arc(Vector2.ZERO, pulse_radius, 0, PI*2, 64, p_color, 3.0, true)
 		
+	_draw_passengers()
+	
+		
 ## контур обводка
-func _draw_shape_outline(radius: float, color: Color, line_width: float):
+func _draw_stroke(radius: float, color: Color, line_width: float):
 	match my_shape:
 		GameData.ShapeType.CIRCLE:
 			draw_arc(Vector2.ZERO, radius, 0, PI*2, 64, color, line_width, true)
@@ -90,8 +93,64 @@ func _input_event(_viewport, event, _shape_idx):
 			airport_selected.emit(self)
 
 ## пассажиры
-func add_pasenger():
-	pass
+func spawn_passenger():
+	var current_shapes = []
+	for shape in GameData.ShapeType.values():
+		if shape != my_shape:
+			current_shapes.append(shape)
+	
+	var passenger_shape = current_shapes.pick_random()
+	passengers.append(passenger_shape)
+	queue_redraw()
 
-func remove_pasenger():
+
+	
+	
+func _draw_passengers():
+	var start_pos = Vector2(22, -8) 
+	var spacing = 12
+	var max_in_row = 7
+	var passenger_color = Color(0.282, 0.188, 0.188, 1.0)
+	var p_size = 5.5
+	
+	
+	for i in range(passengers.size()):
+		var shape = passengers[i]
+		var row = int(i / max_in_row)
+		var col = i % max_in_row
+		var pos
+		var revers_col
+		
+		if i == 6:
+			start_pos = Vector2(23, -4)
+			pos = start_pos + Vector2(col * spacing, row * spacing)
+			
+		if i > 6:
+			start_pos = Vector2(10, -4)
+			revers_col = (max_in_row - 1) - col
+			pos = start_pos + Vector2(revers_col * spacing, row * spacing)
+			
+		if i < 6:
+			start_pos = Vector2(22, -8)
+			pos = start_pos + Vector2(col * spacing, row * spacing)
+			
+		if i > 12:
+			break
+		
+		
+		match shape:
+			GameData.ShapeType.CIRCLE:
+				draw_circle(pos, p_size, passenger_color)
+			GameData.ShapeType.SQUARE:
+				var rect = Rect2(pos - Vector2(p_size, p_size), Vector2(p_size * 2, p_size * 2))
+				draw_rect(rect, passenger_color, true)
+			GameData.ShapeType.TRIANGLE:
+				var points = PackedVector2Array([
+					pos + Vector2(0, -p_size * 1.2),
+					pos + Vector2(p_size * 1.1, p_size),
+					pos + Vector2(-p_size * 1.1, p_size)
+				])
+				draw_colored_polygon(points, passenger_color)
+				
+func remove_passenger():
 	pass
