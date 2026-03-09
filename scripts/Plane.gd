@@ -7,6 +7,9 @@ var current_speed: float = 0.0
 var forward: bool = true
 var color: String
 
+var cargo: Array = []
+var max_seats: int = 6
+
 func setup_with_route(route_data: Dictionary, start_t: float = 0.0):
 	current_route = route_data
 	t = start_t
@@ -74,6 +77,9 @@ func _process(delta):
 func switch_to_next_route(arrived_at_end: bool):
 	var arrived_airport = current_route["end_airport"] if arrived_at_end else current_route["start_airport"]
 	
+	_upload_passenger(arrived_airport)
+	_load_passenger(arrived_airport)
+	
 	var next_route = null
 	for route_data_item in GameData.lines_data[color + "_routes"]:
 		if route_data_item != current_route:
@@ -84,7 +90,6 @@ func switch_to_next_route(arrived_at_end: bool):
 	## остановка
 	set_process(false)
 	current_speed = 0.0
-	await get_tree().create_timer(0.8).timeout
 	
 	if next_route == null:
 		forward = !forward
@@ -99,3 +104,40 @@ func switch_to_next_route(arrived_at_end: bool):
 	
 	start_plane(3.5)
 	set_process(true)
+	
+
+	
+func _upload_passenger(airport):
+	var in_cargo_size = cargo.size()
+	cargo = cargo.filter(func(p_shape): return p_shape != airport.my_shape)
+	
+	if cargo.size() < in_cargo_size:
+		print("пассажир перевезен")
+		queue_redraw()
+	
+func _load_passenger(airport):
+	if cargo.size() >= max_seats:
+		return
+	
+		
+	var line_shapes = GameData.lines_data[color + "_shapes"]
+	
+	var i = 0
+	while (i < airport.passengers.size()) and (cargo.size() < max_seats):
+		var p_shape = airport.passengers[i]
+		
+		if p_shape in line_shapes:
+			cargo.append(p_shape)
+			airport.passengers.remove_at(i)
+			print("пассажир взят")
+			await get_tree().create_timer(0.4).timeout
+			print(cargo.size())
+		else:
+			i += 1
+			
+	if cargo.size() > 0:
+		airport.queue_redraw()
+		queue_redraw()
+		
+ 	
+	

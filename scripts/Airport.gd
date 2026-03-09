@@ -108,10 +108,10 @@ func spawn_passenger():
 	
 func _draw_passengers():
 	var start_pos = Vector2(22, -8) 
-	var spacing = 12
+	var spacing = 13
 	var max_in_row = 7
 	var passenger_color = Color(0.282, 0.188, 0.188, 1.0)
-	var p_size = 5.5
+	var p_size = 5.8
 	
 	
 	for i in range(passengers.size()):
@@ -124,11 +124,13 @@ func _draw_passengers():
 		if i == 6:
 			start_pos = Vector2(23, -4)
 			pos = start_pos + Vector2(col * spacing, row * spacing)
+			passenger_color = Color(0.282, 0.188, 0.188, 0.863)
 			
 		if i > 6:
 			start_pos = Vector2(10, -4)
 			revers_col = (max_in_row - 1) - col
 			pos = start_pos + Vector2(revers_col * spacing, row * spacing)
+			passenger_color = Color(0.282, 0.188, 0.188, 0.737)
 			
 		if i < 6:
 			start_pos = Vector2(22, -8)
@@ -152,5 +154,3 @@ func _draw_passengers():
 				])
 				draw_colored_polygon(points, passenger_color)
 				
-func remove_passenger():
-	pass

@@ -23,6 +23,10 @@ var lines_data = {
 	"red_routes" : [],
 	"red_airports" : [],
 	"red_planes" : [],
+	
+	"yellow_shapes" : [],
+	"blue_shapes" : [],
+	"red_shapes" : []
 }
 
 var color_values = {

@@ -27,7 +27,7 @@ func _ready():
 		spawn_airport()
 		
 	var passenger_timer = Timer.new()
-	passenger_timer.wait_time = 1.0 # Каждые 3 секунды появляется пассажир
+	passenger_timer.wait_time = 3.0 ## интервал 3 секунды
 	passenger_timer.autostart = true
 	passenger_timer.timeout.connect(_on_passenger_timer_timeout)
 	add_child(passenger_timer)
@@ -105,10 +105,10 @@ func _on_passenger_timer_timeout():
 	var airports = get_tree().get_nodes_in_group("airports")
 	if airports.is_empty(): return
 	
-	# Выбираем случайную станцию
+	## случайная станция
 	var random_airport = airports.pick_random()
 	
-	# Спавним на ней пассажира
+	## cпавним пассажира
 	random_airport.spawn_passenger()
 
 ## кнопки
