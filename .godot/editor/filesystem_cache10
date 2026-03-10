@@ -1,5 +1,5 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1773040152
+::res://::1773146391
 README.md::TextFile::-1::1772984189::0::1::::<><><>0<>0<><>::
 ::res://objects/::1772984190
 Button_back.png::CompressedTexture2D::8387540010691606486::1772984190::1772984190::1::::<><><>0<>0<>2d2180ee6105d089f0fbf987f7057c41<>res://.godot/imported/Button_back.png-2b42bea38150265258c7603c5b615a84.ctex::
@@ -21,18 +21,18 @@ point_circle.png::CompressedTexture2D::2463295048874587113::1772984190::17729841
 point_square.png::CompressedTexture2D::3035362445859863573::1772984190::1772984190::1::::<><><>0<>0<>3812491d2219c24e5839bf1368c66d3d<>res://.godot/imported/point_square.png-0b2166815af6b2eab67b56e113b3fc6c.ctex::
 point_triangle.png::CompressedTexture2D::4381682583129908021::1772984190::1772984190::1::::<><><>0<>0<>d2fa75b17059b2899b202013d8f7b930<>res://.godot/imported/point_triangle.png-27b6d08fc35e70f98e29b27b1fb82844.ctex::
 Без имени-2.png::CompressedTexture2D::4677203630533447856::1772984190::1772984190::1::::<><><>0<>0<>ab3b65ef8e32bfa1e003ac113ba2476b<>res://.godot/imported/Без имени-2.png-ebff4abe49bbaea07e414c8ade389924.ctex::
-::res://scene/::1773036861
+::res://scene/::1773054582
 Airport.tscn::PackedScene::9044950788431919948::1772984190::0::1::::<><><>0<>0<><>::uid://cr3b3fq783vb7::::res://scripts/Airport.gd<>uid://bbdidywjb2jq4::::res://objects/point_circle.png
-Main.tscn::PackedScene::1602686232510779485::1773036861::0::1::::<><><>0<>0<><>::uid://sp2ta70qytu6::::res://scripts/Main.gd<>uid://qrsbytgaea84::::res://objects/field_blue.png<>uid://d3hmyd7fm44gt::::res://objects/Button_yellow.png<>uid://c32r7a0jfkk6t::::res://objects/Button_blue.png<>uid://ck4unu555lgo2::::res://objects/Button_red.png<>uid://7ire7onvi2fn::::res://objects/count_fly.png<>uid://c44tchjyc16q0::::res://scripts/Plane_add.gd<>uid://dirl28ic4l46t::::res://objects/Fly_ghost.png<>uid://dj87sysn61exl::::res://scripts/Plane_count.gd
+Main.tscn::PackedScene::1602686232510779485::1773052217::0::1::::<><><>0<>0<><>::uid://sp2ta70qytu6::::res://scripts/Main.gd<>uid://qrsbytgaea84::::res://objects/field_blue.png<>uid://d3hmyd7fm44gt::::res://objects/Button_yellow.png<>uid://c32r7a0jfkk6t::::res://objects/Button_blue.png<>uid://ck4unu555lgo2::::res://objects/Button_red.png<>uid://7ire7onvi2fn::::res://objects/count_fly.png<>uid://c44tchjyc16q0::::res://scripts/Plane_add.gd<>uid://dirl28ic4l46t::::res://objects/Fly_ghost.png<>uid://dj87sysn61exl::::res://scripts/Plane_count.gd
 Plane.tscn::PackedScene::8967907250646510459::1772984190::0::1::::<><><>0<>0<><>::uid://bi886ahq5qb1a::::res://objects/Fly.png<>uid://xpvr5u4nrccq::::res://scripts/Plane.gd
 Route.tscn::PackedScene::6335886151115605325::1772984190::0::1::::<><><>0<>0<><>::uid://d2rry8prdqye8::::res://scripts/Route.gd
-StartMenu.tscn::PackedScene::7594136041328581933::1772984190::0::1::::<><><>0<>0<><>::uid://cuexgr5rra0ub::::res://scripts/start_menu.gd<>uid://qrsbytgaea84::::res://objects/field_blue.png<>uid://cccbojxrikyly::::res://objects/Button_plau.png<>uid://ciblyc6hoov27::::res://objects/Button_settings.png<>uid://dpsupjio5bj4q::::res://objects/Button_stats.png<>uid://rh1mnwc0fljj::::res://objects/Button_exit.png<>uid://drq8s8w5wm0k5::::res://objects/Button_back.png<>uid://dhgy00ifet6ci::::res://objects/Button_back_right.png
-::res://scripts/::1773036861
-Airport.gd::GDScript::6023965294401308806::1773036751::0::1::::<>Area2D<><>0<>0<><>::
-GameData.gd::GDScript::4716525375570796354::1772984189::0::1::::<>Node<><>0<>0<><>::
-Main.gd::GDScript::1296038191276341363::1773036861::0::1::::<>Node2D<><>0<>0<><>::
-Plane.gd::GDScript::1646616093262383316::1772984189::0::1::::<>Sprite2D<><>0<>0<><>::
+StartMenu.tscn::PackedScene::7594136041328581933::1773054582::0::1::::<><><>0<>0<><>::uid://cuexgr5rra0ub::::res://scripts/start_menu.gd<>uid://qrsbytgaea84::::res://objects/field_blue.png<>uid://cccbojxrikyly::::res://objects/Button_plau.png<>uid://ciblyc6hoov27::::res://objects/Button_settings.png<>uid://dpsupjio5bj4q::::res://objects/Button_stats.png<>uid://rh1mnwc0fljj::::res://objects/Button_exit.png<>uid://drq8s8w5wm0k5::::res://objects/Button_back.png<>uid://dhgy00ifet6ci::::res://objects/Button_back_right.png
+::res://scripts/::1773054582
+Airport.gd::GDScript::6023965294401308806::1773042267::0::1::::<>Area2D<><>0<>0<><>::
+GameData.gd::GDScript::4716525375570796354::1773040360::0::1::::<>Node<><>0<>0<><>::
+Main.gd::GDScript::1296038191276341363::1773042393::0::1::::<>Node2D<><>0<>0<><>::
+Plane.gd::GDScript::1646616093262383316::1773045900::0::1::::<>Sprite2D<><>0<>0<><>::
 Plane_add.gd::GDScript::6869342364868119269::1772984189::0::1::::<>TextureRect<><>0<>0<><>::
 Plane_count.gd::GDScript::7861062486764379401::1772984189::0::1::::<>Label<><>0<>0<><>::
-Route.gd::GDScript::9090532056275630105::1772984189::0::1::::<>Node2D<><>0<>0<><>::
-start_menu.gd::GDScript::6186283896796381373::1772984189::0::1::::<>Control<><>0<>0<><>::
+Route.gd::GDScript::9090532056275630105::1773040531::0::1::::<>Node2D<><>0<>0<><>::
+start_menu.gd::GDScript::6186283896796381373::1773054582::0::1::::<>Control<><>0<>0<><>::

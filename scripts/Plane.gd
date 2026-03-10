@@ -90,6 +90,7 @@ func switch_to_next_route(arrived_at_end: bool):
 	## остановка
 	set_process(false)
 	current_speed = 0.0
+	await get_tree().create_timer(1.6).timeout
 	
 	if next_route == null:
 		forward = !forward
@@ -104,14 +105,13 @@ func switch_to_next_route(arrived_at_end: bool):
 	
 	start_plane(3.5)
 	set_process(true)
-	
 
 	
 func _upload_passenger(airport):
-	var in_cargo_size = cargo.size()
+	var initial_cargo_size = cargo.size()
 	cargo = cargo.filter(func(p_shape): return p_shape != airport.my_shape)
 	
-	if cargo.size() < in_cargo_size:
+	if cargo.size() < initial_cargo_size:
 		print("пассажир перевезен")
 		queue_redraw()
 	
@@ -130,7 +130,8 @@ func _load_passenger(airport):
 			cargo.append(p_shape)
 			airport.passengers.remove_at(i)
 			print("пассажир взят")
-			await get_tree().create_timer(0.4).timeout
+			
+			await get_tree().create_timer(0.3).timeout
 			print(cargo.size())
 		else:
 			i += 1
