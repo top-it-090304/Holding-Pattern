@@ -141,7 +141,7 @@ func _load_passenger(airport):
 
 
 func _draw():
-	var p_size = 12.0
+	var p_size = 6.0
 	var spacing = 13.0
 	var start_offset = Vector2(-44, 0)
 	
@@ -154,19 +154,23 @@ func _draw():
 		
 		match shape:
 			GameData.ShapeType.CIRCLE:
-				draw_circle(pos, p_size / 2.0, p_color, true)
+				draw_circle(pos, p_size, p_color, true, 32.0, true)
 			
 			GameData.ShapeType.SQUARE:
-				var rect = Rect2(pos - Vector2(p_size/2, p_size/2), Vector2(p_size, p_size))
+				var rect = Rect2(pos - Vector2(p_size, p_size), Vector2(p_size, p_size))
 				draw_rect(rect, p_color, true)
 			
 			GameData.ShapeType.TRIANGLE:
-				var side = p_size * 1.2
+				var side = p_size * 1.1 
 				var h = side * sqrt(3) / 2
+				
 				var points = PackedVector2Array([
 					pos + Vector2(0, -h/2),
 					pos + Vector2(side/2, h/2),
 					pos + Vector2(-side/2, h/2)
 				])
-				draw_colored_polygon(points, p_color)
+				draw_colored_polygon(points, p_color, PackedVector2Array(), null)
+				
+				points.append(points[0])
+				draw_polyline(points, p_color, 0.5, true)
 		

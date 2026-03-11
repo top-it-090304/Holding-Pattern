@@ -3,3 +3,4 @@ res://scripts/Main.gd
 res://scripts/Plane.gd
 res://scene/Main.tscn
 res://scene/Airport.tscn
+res://scripts/Airport.gd

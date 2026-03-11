@@ -142,15 +142,23 @@ func _draw_passengers():
 		
 		match shape:
 			GameData.ShapeType.CIRCLE:
-				draw_circle(pos, p_size, passenger_color)
+				draw_circle(pos, p_size, passenger_color, true, 16.0, true)
+				
 			GameData.ShapeType.SQUARE:
 				var rect = Rect2(pos - Vector2(p_size, p_size), Vector2(p_size * 2, p_size * 2))
 				draw_rect(rect, passenger_color, true)
+				
 			GameData.ShapeType.TRIANGLE:
+				var side = p_size * 2.2
+				var h = side * sqrt(3) / 2
+				
 				var points = PackedVector2Array([
-					pos + Vector2(0, -p_size * 1.2),
-					pos + Vector2(p_size * 1.1, p_size),
-					pos + Vector2(-p_size * 1.1, p_size)
+					pos + Vector2(0, -h/2),
+					pos + Vector2(side/2, h/2),
+					pos + Vector2(-side/2, h/2)
 				])
-				draw_colored_polygon(points, passenger_color)
+				draw_colored_polygon(points, passenger_color, PackedVector2Array(), null)
+				
+				points.append(points[0])
+				draw_polyline(points, passenger_color, 0.5, true)
 				
