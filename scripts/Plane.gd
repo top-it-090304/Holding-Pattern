@@ -112,16 +112,15 @@ func _upload_passenger(airport):
 	cargo = cargo.filter(func(p_shape): return p_shape != airport.my_shape)
 	
 	if cargo.size() < initial_cargo_size:
-		print("пассажир перевезен")
+		print("пассажиры перевезены")
 		queue_redraw()
 	
 func _load_passenger(airport):
-	if cargo.size() >= max_seats:
-		return
-	
-		
 	var line_shapes = GameData.lines_data[color + "_shapes"]
 	
+	if cargo.size() >= max_seats:
+		return
+
 	var i = 0
 	while (i < airport.passengers.size()) and (cargo.size() < max_seats):
 		var p_shape = airport.passengers[i]
@@ -139,6 +138,30 @@ func _load_passenger(airport):
 	if cargo.size() > 0:
 		airport.queue_redraw()
 		queue_redraw()
-		
- 	
+
+
+func _draw():
+	var p_size = 12.0
+	var spacing = 13.0
+	var start_offset = Vector2(-44, 0)
 	
+
+	var p_color = Color(18.892, 18.892, 18.892, 0.475)
+
+	for i in range(cargo.size()):
+		var shape = cargo[i]
+		var pos = start_offset + Vector2(i * spacing, 0)
+		
+		match shape:
+			GameData.ShapeType.CIRCLE:
+				draw_circle(pos, p_size / 2, p_color)
+			GameData.ShapeType.SQUARE:
+				draw_rect(Rect2(pos - Vector2(p_size/2, p_size/2), Vector2(p_size, p_size)), p_color)
+			GameData.ShapeType.TRIANGLE:
+				var points = PackedVector2Array([
+					pos + Vector2(0, -p_size/2),
+					pos + Vector2(p_size/2, p_size/2),
+					pos + Vector2(-p_size/2, p_size/2)
+				])
+				draw_colored_polygon(points, p_color)
+		
