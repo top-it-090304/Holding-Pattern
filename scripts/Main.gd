@@ -67,11 +67,11 @@ func line_draw(pos1: Vector2, pos2: Vector2):
 
 func check_airopotr():
 	var mouse_pos = get_global_mouse_position()
-
 	
 	for airport in get_tree().get_nodes_in_group("airports"):
-		if (airport != selected_airport and airport.global_position.distance_to(mouse_pos) < 50 and airport not in lines_data[lines_data["current color"] + "_airports"]) or (airport != selected_airport and airport.global_position.distance_to(mouse_pos) < 50 and len(lines_data[lines_data["current color"] + "_airports"]) > 2 and airport == lines_data[lines_data["current color"] + "_airports"][0]):
+		
 
+		if airport != selected_airport and airport.global_position.distance_to(mouse_pos) < 50 and ((len(lines_data[lines_data["current color"] + "_airports"]) >= 3 and airport == lines_data[lines_data["current color"] + "_airports"][0]) or (airport not in lines_data[lines_data["current color"] + "_airports"])):
 			airport.activate_pulse() 
 			
 			if not lines_data["in_" + lines_data["current color"]]:
@@ -104,7 +104,13 @@ func spawn_airport():
 	add_child(inst)
 
 func _on_airport_selected(airport):
+	if lines_data["in_" + lines_data["current color"]] and airport == lines_data[lines_data["current color"] + "_airports"][0]:
+		var a = lines_data[lines_data["current color"] + "_airports"][0]
+		lines_data[lines_data["current color"] + "_airports"][0] = lines_data[lines_data["current color"] + "_airports"][-1]
+		lines_data[lines_data["current color"] + "_airports"][-1] = a
+	
 	selected_airport = airport
+	
 	is_drawing = true
 	
 func _on_passenger_timer_timeout():

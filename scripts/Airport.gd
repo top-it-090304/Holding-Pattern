@@ -19,6 +19,9 @@ var stroke_radius = 0.0
 var stroke_color = Color.WHITE
 var current_max_radius = 10.0
 
+var lines_data = GameData.lines_data
+
+
 func _ready():
 	my_shape = GameData.ShapeType.values().pick_random()
 	
@@ -87,10 +90,21 @@ func _process(_delta):
 		queue_redraw()
 
 func _input_event(_viewport, event, _shape_idx):
+	var current_color = lines_data["current color"]
+	var permission = false
 	if event is InputEventMouseButton and event.pressed:
-		if event.button_index == MOUSE_BUTTON_LEFT:
-			activate_pulse()
-			airport_selected.emit(self)
+		if (event.button_index == MOUSE_BUTTON_LEFT):
+			if not(lines_data["in_" + current_color]):
+				permission = true
+			elif lines_data[current_color + "_airports"][0] == lines_data[current_color + "_airports"][-1]:
+				permission = false
+			elif self == lines_data[current_color + "_airports"][0] or self == lines_data[current_color + "_airports"][-1]:
+				permission = true
+			
+			if permission:
+				activate_pulse()
+				airport_selected.emit(self)
+				permission = false
 
 ## пассажиры
 func spawn_passenger():
