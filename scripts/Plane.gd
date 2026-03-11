@@ -154,14 +154,19 @@ func _draw():
 		
 		match shape:
 			GameData.ShapeType.CIRCLE:
-				draw_circle(pos, p_size / 2, p_color)
+				draw_circle(pos, p_size / 2.0, p_color, true)
+			
 			GameData.ShapeType.SQUARE:
-				draw_rect(Rect2(pos - Vector2(p_size/2, p_size/2), Vector2(p_size, p_size)), p_color)
+				var rect = Rect2(pos - Vector2(p_size/2, p_size/2), Vector2(p_size, p_size))
+				draw_rect(rect, p_color, true)
+			
 			GameData.ShapeType.TRIANGLE:
+				var side = p_size * 1.2
+				var h = side * sqrt(3) / 2
 				var points = PackedVector2Array([
-					pos + Vector2(0, -p_size/2),
-					pos + Vector2(p_size/2, p_size/2),
-					pos + Vector2(-p_size/2, p_size/2)
+					pos + Vector2(0, -h/2),
+					pos + Vector2(side/2, h/2),
+					pos + Vector2(-side/2, h/2)
 				])
 				draw_colored_polygon(points, p_color)
 		
