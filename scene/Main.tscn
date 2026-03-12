@@ -32,6 +32,7 @@ scale = Vector2(1.5696938, 1.3333333)
 texture = ExtResource("2_pnqar")
 
 [node name="Timer" type="Timer" parent="." unique_id=1871435388]
+wait_time = 10.0
 autostart = true
 
 [node name="YellowButton" type="Button" parent="." unique_id=1877033529]
@@ -109,12 +110,22 @@ script = ExtResource("9_pnqar")
 [node name="Zone1" type="Node2D" parent="AirportSpawn" unique_id=1864947882]
 
 [node name="Marker2D" type="Marker2D" parent="AirportSpawn/Zone1" unique_id=742221597]
-position = Vector2(876, 561)
+position = Vector2(1276, 703)
 
 [node name="Marker2D2" type="Marker2D" parent="AirportSpawn/Zone1" unique_id=1955253413]
-position = Vector2(1028, 506)
+position = Vector2(1624, 648)
+
+[node name="Marker2D3" type="Marker2D" parent="AirportSpawn/Zone1" unique_id=373765363]
+position = Vector2(1223, 217)
+
+[node name="Marker2D4" type="Marker2D" parent="AirportSpawn/Zone1" unique_id=1847718117]
+position = Vector2(1490, 316)
+
+[node name="Marker2D5" type="Marker2D" parent="AirportSpawn/Zone1" unique_id=347037959]
+position = Vector2(1099, 418)
 
 [node name="Zone0" type="Node2D" parent="AirportSpawn" unique_id=1711069226]
+visible = false
 
 [node name="Marker2D" type="Marker2D" parent="AirportSpawn/Zone0" unique_id=1839943611]
 position = Vector2(-156, 284)
@@ -132,7 +143,7 @@ position = Vector2(452, 400)
 position = Vector2(1104, 176)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=273851256]
-position = Vector2(972, 496)
+position = Vector2(1642, 461)
 
 [connection signal="timeout" from="Timer" to="." method="_on_spawn_timer_timeout"]
 [connection signal="toggled" from="YellowButton" to="." method="_on_yb_toggled"]

@@ -4,17 +4,25 @@ var airport_scene = load("res://scene/Airport.tscn")
 var route_scene = load("res://scene/Route.tscn")
 
 
-var airport_points: Array[Vector2] = []
+
 
 @onready var spawn_points := $AirportSpawn
 @onready var camera := $Camera2D
+
+var start_shapes = [
+	GameData.ShapeType.CIRCLE,
+	GameData.ShapeType.SQUARE,
+	GameData.ShapeType.TRIANGLE
+]
+
 var all_zones: Array = []
 var active_airport: Array[Vector2] = []
+var airport_points: Array[Vector2] = []
 
 var current_phase: int = 0
 var max_phases: int = 0
 
-var target_zoom := Vector2(1.0, 1.0)
+var target_zoom := Vector2(2.0, 2.0)
 
 var selected_airport = null
 var is_drawing: bool = false
@@ -38,9 +46,6 @@ func _ready():
 		
 	max_phases = all_zones.size()
 	unlock_next_phase()
-	
-	for i in range(3):
-		spawn_airport()
 		
 	var passenger_timer = Timer.new()
 	passenger_timer.wait_time = 3.0
@@ -49,11 +54,13 @@ func _ready():
 	add_child(passenger_timer)
 	
 	var phase_timer = Timer.new()
-	phase_timer.wait_time = 5.0 ## таймер на новую зону
+	phase_timer.wait_time = 2500.0 ## таймер на новую зону
 	phase_timer.autostart = true
 	phase_timer.timeout.connect(_on_phase_timer_timeout)
 	add_child(phase_timer)
 	
+	for i in range(3):
+		spawn_airport()
 func _on_phase_timer_timeout():
 	unlock_next_phase()
 
@@ -84,7 +91,7 @@ func _process(delta):
 		line_draw(selected_airport.global_position, get_global_mouse_position())
 		check_airopotr()
 	if camera:
-		var zoom_speed = 0.02 ## скорость камеры
+		var zoom_speed = 0.01 ## скорость камеры
 		camera.zoom = camera.zoom.lerp(target_zoom, zoom_speed * delta)
 
 
@@ -140,6 +147,10 @@ func spawn_airport():
 	if active_airport.is_empty(): return
 	var inst = airport_scene.instantiate()
 	inst.position = active_airport.pop_back()
+	
+	if not start_shapes.is_empty():
+		inst.forced_shape = start_shapes.pop_front()
+		
 	inst.add_to_group("airports")
 	inst.airport_selected.connect(_on_airport_selected)
 	add_child(inst)

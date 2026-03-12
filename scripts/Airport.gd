@@ -8,6 +8,7 @@ const Square = preload("res://objects/point_square.png")
 const Triangle = preload("res://objects/point_triangle.png")
 
 var my_shape: GameData.ShapeType
+var forced_shape = null
 var passengers: Array = []
 
 var pulse_radius = 0.0
@@ -23,7 +24,10 @@ var lines_data = GameData.lines_data
 
 
 func _ready():
-	my_shape = GameData.ShapeType.values().pick_random()
+	if forced_shape != null:
+		my_shape = forced_shape
+	else:
+		my_shape = GameData.ShapeType.values().pick_random()
 	
 	match my_shape:
 		GameData.ShapeType.CIRCLE:
