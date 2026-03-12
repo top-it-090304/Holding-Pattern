@@ -84,7 +84,8 @@ func _process(delta):
 		line_draw(selected_airport.global_position, get_global_mouse_position())
 		check_airopotr()
 	if camera:
-		camera.zoom = camera.zoom.lerp(target_zoom, 0.5 * delta)
+		var zoom_speed = 0.02 ## скорость камеры
+		camera.zoom = camera.zoom.lerp(target_zoom, zoom_speed * delta)
 
 
 func line_draw(pos1: Vector2, pos2: Vector2):
