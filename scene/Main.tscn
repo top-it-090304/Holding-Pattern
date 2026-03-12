@@ -92,10 +92,11 @@ expand_mode = 1
 script = ExtResource("7_s5yxy")
 
 [node name="TexturePlaneGhost" type="TextureRect" parent="." unique_id=1382701883]
-offset_left = 2850.0
-offset_top = -416.0
-offset_right = 2924.0
-offset_bottom = -356.0
+visible = false
+offset_left = 2871.0
+offset_top = -344.0
+offset_right = 2945.0
+offset_bottom = -284.0
 texture = ExtResource("8_eik88")
 
 [node name="CountPlaneZero" type="TextureRect" parent="." unique_id=28308419]

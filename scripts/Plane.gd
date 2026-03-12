@@ -154,7 +154,7 @@ func _draw():
 		
 		match shape:
 			GameData.ShapeType.CIRCLE:
-				draw_circle(pos, p_size, p_color, true, 32.0, true)
+				draw_circle(pos, p_size, p_color,32.0)
 			
 			GameData.ShapeType.SQUARE:
 				var rect = Rect2(pos - Vector2(p_size, p_size), Vector2(p_size, p_size))

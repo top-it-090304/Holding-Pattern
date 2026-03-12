@@ -49,7 +49,7 @@ func _draw():
 		var color_with_alpha = pulse_color
 		color_with_alpha.a = pulse_alpha * 0.5
 		
-		draw_circle(Vector2.ZERO, pulse_radius, color_with_alpha, true, 64, true)
+		draw_circle(Vector2.ZERO, pulse_radius, color_with_alpha, 64)
 		
 	_draw_passengers()
 	
@@ -98,11 +98,13 @@ func _draw_stroke(radius: float, color: Color, line_width: float):
 ## обводки
 func draw_stroke(active: bool):
 	stroke_color = GameData.lines_data["current hex color"]
-	var tween = create_tween()
+	
 	if active and not stroke:
+		var tween = create_tween()
 		stroke = true
 		tween.tween_property(self, "stroke_radius", current_max_radius, 0.15).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
 	elif not active and stroke:
+		var tween = create_tween()
 		stroke = false
 		tween.tween_property(self, "stroke_radius", 0.5, 0.5)
 		
@@ -201,7 +203,7 @@ func _draw_passengers():
 		match shape:
 			GameData.ShapeType.CIRCLE:
 				var radius = (p_size) * current_scale
-				draw_circle(pos, radius, passenger_color, true, 16.0, true)
+				draw_circle(pos, radius, passenger_color, 16.0)
 				
 			GameData.ShapeType.SQUARE:
 				var current_size = p_size * current_scale
