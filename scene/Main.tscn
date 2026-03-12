@@ -27,8 +27,8 @@ script = ExtResource("1_nbc6x")
 
 [node name="Map" type="Sprite2D" parent="." unique_id=570708504]
 z_index = -1
-position = Vector2(961.0001, 498.00003)
-scale = Vector2(0.9966798, 0.9296296)
+position = Vector2(1002.99994, 503.99997)
+scale = Vector2(1.5696938, 1.3333333)
 texture = ExtResource("2_h6nst")
 
 [node name="Timer" type="Timer" parent="." unique_id=1871435388]
@@ -106,23 +106,24 @@ script = ExtResource("9_pnqar")
 
 [node name="AirportSpawn" type="Node2D" parent="." unique_id=2036406742]
 
-[node name="Marker2D" type="Marker2D" parent="AirportSpawn" unique_id=803476185]
-position = Vector2(933, 98)
+[node name="Zone1" type="Node2D" parent="AirportSpawn" unique_id=1864947882]
 
-[node name="Marker2D2" type="Marker2D" parent="AirportSpawn" unique_id=1551095940]
-position = Vector2(408, 923)
+[node name="Marker2D" type="Marker2D" parent="AirportSpawn/Zone1" unique_id=742221597]
+position = Vector2(876, 561)
 
-[node name="Marker2D3" type="Marker2D" parent="AirportSpawn" unique_id=501649119]
-position = Vector2(238, 386)
+[node name="Marker2D2" type="Marker2D" parent="AirportSpawn/Zone1" unique_id=1955253413]
+position = Vector2(1028, 506)
 
-[node name="Marker2D4" type="Marker2D" parent="AirportSpawn" unique_id=332095736]
-position = Vector2(1607, 681)
+[node name="Zone0" type="Node2D" parent="AirportSpawn" unique_id=1711069226]
 
-[node name="Marker2D5" type="Marker2D" parent="AirportSpawn" unique_id=2052956240]
-position = Vector2(1032, 486)
+[node name="Marker2D" type="Marker2D" parent="AirportSpawn/Zone0" unique_id=1839943611]
+position = Vector2(-156, 284)
 
-[node name="Marker2D6" type="Marker2D" parent="AirportSpawn" unique_id=233310926]
-position = Vector2(1891, 189)
+[node name="Marker2D2" type="Marker2D" parent="AirportSpawn/Zone0" unique_id=1177709909]
+position = Vector2(-112, 128)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=273851256]
+position = Vector2(972, 496)
 
 [connection signal="timeout" from="Timer" to="." method="_on_spawn_timer_timeout"]
 [connection signal="toggled" from="YellowButton" to="." method="_on_yb_toggled"]

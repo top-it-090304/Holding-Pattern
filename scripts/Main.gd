@@ -3,8 +3,18 @@ extends Node2D
 var airport_scene = load("res://scene/Airport.tscn")
 var route_scene = load("res://scene/Route.tscn")
 
-@onready var spawn_points_node := $AirportSpawn
+
 var airport_points: Array[Vector2] = []
+
+@onready var spawn_points := $AirportSpawn
+@onready var camera := $Camera2D
+var all_zones: Array = []
+var active_airport: Array[Vector2] = []
+
+var current_phase: int = 0
+var max_phases: int = 0
+
+var target_zoom := Vector2(1.0, 1.0)
 
 var selected_airport = null
 var is_drawing: bool = false
@@ -18,26 +28,53 @@ func _ready():
 	pred_line.z_index = -1
 	add_child(pred_line)
  
-	for child in spawn_points_node.get_children():
-		if child is Marker2D:
-			airport_points.append(child.global_position)
-	airport_points.shuffle()
- 
+	for zone_node in spawn_points.get_children():
+		var zone_points: Array[Vector2] = []
+		for marker in zone_node.get_children():
+			if marker is Marker2D:
+				zone_points.append(marker.global_position)
+		zone_points.shuffle()
+		all_zones.append(zone_points)
+		
+	max_phases = all_zones.size()
+	unlock_next_phase()
+	
 	for i in range(3):
 		spawn_airport()
 		
 	var passenger_timer = Timer.new()
-	passenger_timer.wait_time = 3.0 ## интервал 3 секунды
+	passenger_timer.wait_time = 3.0
 	passenger_timer.autostart = true
 	passenger_timer.timeout.connect(_on_passenger_timer_timeout)
 	add_child(passenger_timer)
+	
+	var phase_timer = Timer.new()
+	phase_timer.wait_time = 5.0 ## таймер на новую зону
+	phase_timer.autostart = true
+	phase_timer.timeout.connect(_on_phase_timer_timeout)
+	add_child(phase_timer)
+	
+func _on_phase_timer_timeout():
+	unlock_next_phase()
+
+func unlock_next_phase():
+	if current_phase < max_phases:
+		active_airport.append_array(all_zones[current_phase])
+		active_airport.shuffle()
+		
+		var zoom_value = 1.0 - (current_phase * 0.15) 
+		target_zoom = Vector2(zoom_value, zoom_value)
+		
+		print("Открыта фаза: ", current_phase, ". Точек доступно: ", active_airport.size())
+		current_phase += 1
+
 
 func _input(event):
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and not event.pressed:
 			stop_draw()
 
-func _process(_delta):
+func _process(delta):
 	if is_drawing and selected_airport:
 		var current_color = GameData.lines_data["current hex color"]
 		pred_line.default_color = Color(current_color.r, current_color.g, current_color.b)
@@ -46,6 +83,9 @@ func _process(_delta):
 		
 		line_draw(selected_airport.global_position, get_global_mouse_position())
 		check_airopotr()
+	if camera:
+		camera.zoom = camera.zoom.lerp(target_zoom, 0.5 * delta)
+
 
 func line_draw(pos1: Vector2, pos2: Vector2):
 	var curve = Curve2D.new()
@@ -67,11 +107,11 @@ func line_draw(pos1: Vector2, pos2: Vector2):
 
 func check_airopotr():
 	var mouse_pos = get_global_mouse_position()
-
 	
 	for airport in get_tree().get_nodes_in_group("airports"):
-		if (airport != selected_airport and airport.global_position.distance_to(mouse_pos) < 50 and airport not in lines_data[lines_data["current color"] + "_airports"]) or (airport != selected_airport and airport.global_position.distance_to(mouse_pos) < 50 and len(lines_data[lines_data["current color"] + "_airports"]) > 2 and airport == lines_data[lines_data["current color"] + "_airports"][0]):
+		
 
+		if airport != selected_airport and airport.global_position.distance_to(mouse_pos) < 50 and ((len(lines_data[lines_data["current color"] + "_airports"]) >= 3 and airport == lines_data[lines_data["current color"] + "_airports"][0]) or (airport not in lines_data[lines_data["current color"] + "_airports"])):
 			airport.activate_pulse() 
 			
 			if not lines_data["in_" + lines_data["current color"]]:
@@ -96,15 +136,21 @@ func stop_draw():
 	pred_line.clear_points()
 
 func spawn_airport():
-	if airport_points.is_empty(): return
+	if active_airport.is_empty(): return
 	var inst = airport_scene.instantiate()
-	inst.position = airport_points.pop_back()
+	inst.position = active_airport.pop_back()
 	inst.add_to_group("airports")
 	inst.airport_selected.connect(_on_airport_selected)
 	add_child(inst)
 
 func _on_airport_selected(airport):
+	if lines_data["in_" + lines_data["current color"]] and airport == lines_data[lines_data["current color"] + "_airports"][0]:
+		var a = lines_data[lines_data["current color"] + "_airports"][0]
+		lines_data[lines_data["current color"] + "_airports"][0] = lines_data[lines_data["current color"] + "_airports"][-1]
+		lines_data[lines_data["current color"] + "_airports"][-1] = a
+	
 	selected_airport = airport
+	
 	is_drawing = true
 	
 func _on_passenger_timer_timeout():
