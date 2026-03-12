@@ -10,10 +10,12 @@ const Triangle = preload("res://objects/point_triangle.png")
 var my_shape: GameData.ShapeType
 var forced_shape = null
 var passengers: Array = []
+var new_passenger_scale: float = 1.0
 
 var pulse_radius = 0.0
 var pulse_alpha = 1.0
 var pulse_color = Color.WHITE
+
 
 var stroke = false
 var stroke_radius = 0.0
@@ -36,19 +38,43 @@ func _ready():
 			sprite.texture = Square
 		GameData.ShapeType.TRIANGLE:
 			sprite.texture = Triangle
+	
+	spawn_animation()
 
 func _draw():
 	if stroke_radius > 3:
 		_draw_stroke(stroke_radius, stroke_color, 15.0)
 		
-	if pulse_radius > 0:
-		var p_color = pulse_color
-		p_color.a = pulse_alpha
-		draw_arc(Vector2.ZERO, pulse_radius, 0, PI*2, 64, p_color, 3.0, true)
+	if pulse_radius and pulse_alpha > 0:
+		var color_with_alpha = pulse_color
+		color_with_alpha.a = pulse_alpha * 0.5
+		
+		draw_circle(Vector2.ZERO, pulse_radius, color_with_alpha, true, 64, true)
 		
 	_draw_passengers()
 	
-		
+func spawn_animation():
+	sprite.scale = Vector2.ZERO
+	var tween_pop = create_tween().set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+	tween_pop.tween_property(sprite, "scale", Vector2(0.46, 0.46), 1.0)
+	
+	pulse_color = Color(0.502, 0.502, 0.502, 0.522)
+	pulse_alpha = 1.0
+	pulse_radius = 0.0
+	
+	var tween = create_tween().set_parallel(true)
+	
+	tween.tween_method(_animation_spawn_, 0.0, 45.0, 1.0).set_trans(Tween.TRANS_SINE)
+	tween.tween_property(self, "pulse_alpha", 0.0, 0.8)
+	
+func _animation_spawn_(value: float):
+	pulse_radius = value
+	queue_redraw()
+	
+func animation_pulse(new_radius: float):
+	pulse_radius = new_radius
+	queue_redraw()
+	
 ## контур обводка
 func _draw_stroke(radius: float, color: Color, line_width: float):
 	match my_shape:
@@ -119,11 +145,20 @@ func spawn_passenger():
 	
 	var passenger_shape = current_shapes.pick_random()
 	passengers.append(passenger_shape)
+	
+	new_passenger_scale = 0.0
+	
+	var tween = create_tween().set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+	
+	tween.tween_method(_animation_spawn_pass_, 0.0, 1.0, 0.3).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
 	queue_redraw()
+	
+func _animation_spawn_pass_(value: float):
+	new_passenger_scale = value
+	queue_redraw()
+	
 
 
-	
-	
 func _draw_passengers():
 	var start_pos = Vector2(22, -8) 
 	var spacing = 13
@@ -138,6 +173,11 @@ func _draw_passengers():
 		var col = i % max_in_row
 		var pos
 		var revers_col
+		
+		var current_scale = 1.0
+		if i == passengers.size() - 1:
+			current_scale = new_passenger_scale
+		
 		
 		if i == 6:
 			start_pos = Vector2(23, -4)
@@ -160,20 +200,22 @@ func _draw_passengers():
 		
 		match shape:
 			GameData.ShapeType.CIRCLE:
-				draw_circle(pos, p_size, passenger_color, true, 16.0, true)
+				var radius = (p_size) * current_scale
+				draw_circle(pos, radius, passenger_color, true, 16.0, true)
 				
 			GameData.ShapeType.SQUARE:
-				var rect = Rect2(pos - Vector2(p_size, p_size), Vector2(p_size * 2, p_size * 2))
+				var current_size = p_size * current_scale
+				var rect = Rect2(pos - Vector2(current_size, current_size), Vector2(current_size * 2, current_size * 2))
 				draw_rect(rect, passenger_color, true)
 				
 			GameData.ShapeType.TRIANGLE:
-				var side = p_size * 2.2
-				var h = side * sqrt(3) / 2
+				var current_size = p_size * current_scale * 2
+				var h = current_size * sqrt(3) / 2
 				
 				var points = PackedVector2Array([
 					pos + Vector2(0, -h/2),
-					pos + Vector2(side/2, h/2),
-					pos + Vector2(-side/2, h/2)
+					pos + Vector2(current_size/2, h/2),
+					pos + Vector2(-current_size/2, h/2)
 				])
 				draw_colored_polygon(points, passenger_color, PackedVector2Array(), null)
 				
