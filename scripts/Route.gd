@@ -13,7 +13,7 @@ func create_line(airport_a, airport_b):
 	add_child(line)
 	line.width = 6.0
 	line.default_color = lines_data["current hex color"]
-	line.z_index = -1
+	line.z_index = 0
 	line.begin_cap_mode = Line2D.LINE_CAP_ROUND
 	line.end_cap_mode = Line2D.LINE_CAP_ROUND
  

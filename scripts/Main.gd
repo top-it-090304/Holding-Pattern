@@ -3,9 +3,6 @@ extends Node2D
 var airport_scene = load("res://scene/Airport.tscn")
 var route_scene = load("res://scene/Route.tscn")
 
-
-
-
 @onready var spawn_points := $AirportSpawn
 @onready var camera := $Camera2D
 
@@ -22,7 +19,7 @@ var airport_points: Array[Vector2] = []
 var current_phase: int = 0
 var max_phases: int = 0
 
-var target_zoom := Vector2(2.0, 2.0)
+var target_zoom := Vector2(1.5, 1.5)
 
 var selected_airport = null
 var is_drawing: bool = false
@@ -33,7 +30,7 @@ var lines_data = GameData.lines_data
 func _ready():
 	pred_line = Line2D.new()
 	pred_line.width = 6.0
-	pred_line.z_index = -1
+	pred_line.z_index = 0
 	add_child(pred_line)
  
 	for zone_node in spawn_points.get_children():
@@ -54,7 +51,7 @@ func _ready():
 	add_child(passenger_timer)
 	
 	var phase_timer = Timer.new()
-	phase_timer.wait_time = 2500.0 ## таймер на новую зону
+	phase_timer.wait_time = 120.0 ## таймер на новую зону
 	phase_timer.autostart = true
 	phase_timer.timeout.connect(_on_phase_timer_timeout)
 	add_child(phase_timer)
@@ -69,7 +66,7 @@ func unlock_next_phase():
 		active_airport.append_array(all_zones[current_phase])
 		active_airport.shuffle()
 		
-		var zoom_value = 1.0 - (current_phase * 0.15) 
+		var zoom_value = 1.5 - (current_phase * 0.15) 
 		target_zoom = Vector2(zoom_value, zoom_value)
 		
 		print("Открыта фаза: ", current_phase, ". Точек доступно: ", active_airport.size())
