@@ -1,7 +1,5 @@
 extends Sprite2D
 
-signal passengers_delivery
-
 var current_route: Dictionary
 var t: float = 0.0         
 var target_speed: float = 90.0

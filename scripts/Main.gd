@@ -9,6 +9,7 @@ var route_scene = load("res://scene/Route.tscn")
 @onready var score_label = $UI/ScorePack/Score
 
 var passengers_delivery: int = 0
+var passenger_timer: Timer
 
 var start_shapes = [
 	GameData.ShapeType.CIRCLE,
@@ -53,7 +54,7 @@ func _ready():
 	Events.passengers_delivery.connect(_on_passengers_delivery)
 	animate_score()
 		
-	var passenger_timer = Timer.new()
+	passenger_timer = Timer.new()
 	passenger_timer.wait_time = 3.0
 	passenger_timer.autostart = true
 	passenger_timer.timeout.connect(_on_passenger_timer_timeout)
@@ -109,7 +110,16 @@ func unlock_next_phase():
 		target_zoom = Vector2(zoom_value, zoom_value)
 		
 		current_phase += 1
+		if passenger_timer:
+			
+			var new_speed = max(1.0, 0.3 - (current_phase * 0.5))
+			passenger_timer.wait_time = new_speed
+			print(new_speed)
+			passenger_timer.start()
 
+	
+	
+	
 
 func _input(event):
 	if event is InputEventMouseButton:
