@@ -19,6 +19,7 @@ config/icon="res://objects/icon.svg"
 [autoload]
 
 GameData="*uid://b8gyqpk7m3yjq"
+Events="*uid://sgyghjllpleo"
 
 [display]
 

@@ -1,9 +1,10 @@
+TextureRect
+Label
+Control
 CanvasLayer
 Node2D
 Marker2D
 Sprite2D
 Camera2D
-Label
-TextureRect
 TextureButton
 VideoStreamPlayer

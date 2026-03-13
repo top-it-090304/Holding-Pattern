@@ -5,6 +5,10 @@ var route_scene = load("res://scene/Route.tscn")
 
 @onready var spawn_points := $AirportSpawn
 @onready var camera := $Camera2D
+@onready var score_pack = $UI/ScorePack
+@onready var score_label = $UI/ScorePack/Score
+
+var passengers_delivery: int = 0
 
 var start_shapes = [
 	GameData.ShapeType.CIRCLE,
@@ -43,6 +47,9 @@ func _ready():
 		
 	max_phases = all_zones.size()
 	unlock_next_phase()
+	
+	Events.passengers_delivery.connect(_on_passengers_delivery)
+	animate_score()
 		
 	var passenger_timer = Timer.new()
 	passenger_timer.wait_time = 3.0
@@ -58,8 +65,37 @@ func _ready():
 	
 	for i in range(3):
 		spawn_airport()
+		
+	score_pack.scale = Vector2.ZERO
+	score_pack.modulate.a = 0
+	get_tree().create_timer(1.0).timeout.connect(animate_score)
+	
+func _process(delta):
+	if is_drawing and selected_airport:
+		var current_color = GameData.lines_data["current hex color"]
+		pred_line.default_color = Color(current_color.r, current_color.g, current_color.b)
+		
+		selected_airport.draw_stroke(true)
+		
+		line_draw(selected_airport.global_position, get_global_mouse_position())
+		check_airport()
+	if camera:
+		var zoom_speed = 0.03 ## скорость камеры
+		camera.zoom = camera.zoom.lerp(target_zoom, zoom_speed * delta)
+	
+func animate_score():
+	var tween = create_tween().set_parallel(true)
+	tween.tween_property(score_pack, "scale", Vector2.ONE, 0.6).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+	
+	tween.tween_property(score_pack, "modulate:a", 1.0, 0.4)
+
+func _on_passengers_delivery():
+	passengers_delivery += 1
+	score_label.text = str(passengers_delivery)
+	
 func _on_phase_timer_timeout():
 	unlock_next_phase()
+	
 
 func unlock_next_phase():
 	if current_phase < max_phases:
@@ -78,18 +114,7 @@ func _input(event):
 		if event.button_index == MOUSE_BUTTON_LEFT and not event.pressed:
 			stop_draw()
 
-func _process(delta):
-	if is_drawing and selected_airport:
-		var current_color = GameData.lines_data["current hex color"]
-		pred_line.default_color = Color(current_color.r, current_color.g, current_color.b)
-		
-		selected_airport.draw_stroke(true)
-		
-		line_draw(selected_airport.global_position, get_global_mouse_position())
-		check_airopotr()
-	if camera:
-		var zoom_speed = 0.03 ## скорость камеры
-		camera.zoom = camera.zoom.lerp(target_zoom, zoom_speed * delta)
+
 
 
 func line_draw(pos1: Vector2, pos2: Vector2):
@@ -110,7 +135,7 @@ func line_draw(pos1: Vector2, pos2: Vector2):
 	curve.add_point(p2)
 	pred_line.points = curve.get_baked_points()
 
-func check_airopotr():
+func check_airport():
 	var mouse_pos = get_global_mouse_position()
 	
 	for airport in get_tree().get_nodes_in_group("airports"):

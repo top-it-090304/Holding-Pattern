@@ -2,3 +2,6 @@ res://scene/Airport.tscn
 res://scripts/Airport.gd
 res://scene/Main.tscn
 res://scripts/Main.gd
+res://scripts/Plane_add.gd
+res://scripts/Plane.gd
+res://scripts/Events.gd

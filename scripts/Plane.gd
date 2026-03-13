@@ -1,5 +1,7 @@
 extends Sprite2D
 
+signal passengers_delivery
+
 var current_route: Dictionary
 var t: float = 0.0         
 var target_speed: float = 90.0
@@ -112,6 +114,7 @@ func _upload_passenger(airport):
 	cargo = cargo.filter(func(p_shape): return p_shape != airport.my_shape)
 	
 	if cargo.size() < initial_cargo_size:
+		Events.passengers_delivery.emit()
 		queue_redraw()
 	
 func _load_passenger(airport):
