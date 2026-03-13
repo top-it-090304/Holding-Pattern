@@ -112,7 +112,6 @@ func _upload_passenger(airport):
 	cargo = cargo.filter(func(p_shape): return p_shape != airport.my_shape)
 	
 	if cargo.size() < initial_cargo_size:
-		print("пассажиры перевезены")
 		queue_redraw()
 	
 func _load_passenger(airport):
@@ -128,10 +127,8 @@ func _load_passenger(airport):
 		if p_shape in line_shapes:
 			cargo.append(p_shape)
 			airport.passengers.remove_at(i)
-			print("пассажир взят")
-			
+
 			await get_tree().create_timer(0.3).timeout
-			print(cargo.size())
 		else:
 			i += 1
 			

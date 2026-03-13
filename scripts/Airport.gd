@@ -199,11 +199,10 @@ func _draw_passengers():
 		if i > 12:
 			break
 		
-		
 		match shape:
 			GameData.ShapeType.CIRCLE:
 				var radius = (p_size) * current_scale
-				draw_circle(pos, radius, passenger_color, 16.0)
+				draw_circle(pos, radius, passenger_color,true,  16.0, true)
 				
 			GameData.ShapeType.SQUARE:
 				var current_size = p_size * current_scale

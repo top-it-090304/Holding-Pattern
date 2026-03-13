@@ -19,7 +19,7 @@ var airport_points: Array[Vector2] = []
 var current_phase: int = 0
 var max_phases: int = 0
 
-var target_zoom := Vector2(1.5, 1.5)
+var target_zoom := Vector2(1.9, 1.9)
 
 var selected_airport = null
 var is_drawing: bool = false
@@ -51,7 +51,7 @@ func _ready():
 	add_child(passenger_timer)
 	
 	var phase_timer = Timer.new()
-	phase_timer.wait_time = 120.0 ## таймер на новую зону
+	phase_timer.wait_time = 150.0 ## таймер на новую зону
 	phase_timer.autostart = true
 	phase_timer.timeout.connect(_on_phase_timer_timeout)
 	add_child(phase_timer)
@@ -66,10 +66,10 @@ func unlock_next_phase():
 		active_airport.append_array(all_zones[current_phase])
 		active_airport.shuffle()
 		
-		var zoom_value = 1.5 - (current_phase * 0.15) 
+		var zoom_value = 1.9 - (current_phase * 0.15)
+		
 		target_zoom = Vector2(zoom_value, zoom_value)
 		
-		print("Открыта фаза: ", current_phase, ". Точек доступно: ", active_airport.size())
 		current_phase += 1
 
 
@@ -88,7 +88,7 @@ func _process(delta):
 		line_draw(selected_airport.global_position, get_global_mouse_position())
 		check_airopotr()
 	if camera:
-		var zoom_speed = 0.01 ## скорость камеры
+		var zoom_speed = 0.03 ## скорость камеры
 		camera.zoom = camera.zoom.lerp(target_zoom, zoom_speed * delta)
 
 
@@ -164,12 +164,16 @@ func _on_airport_selected(airport):
 	
 func _on_passenger_timer_timeout():
 	var airports = get_tree().get_nodes_in_group("airports")
+	airports.shuffle()
+	for airport in airports:
+		if airport.passengers.size() < 9:
+			airport.spawn_passenger()
+			return
+			
 	if airports.is_empty(): return
-	
-	## случайная станция
 	var random_airport = airports.pick_random()
-	
-	## cпавним пассажира
+	if random_airport.passengers.size() >= 9:
+		return
 	random_airport.spawn_passenger()
 
 ## кнопки
