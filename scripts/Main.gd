@@ -182,6 +182,8 @@ func _on_passenger_timer_timeout():
 func game_over(_failed_airport):
 	print("stop")
 	get_tree().paused = true
+	$UI.visible = false
+	
 	camera.process_mode = Node.PROCESS_MODE_ALWAYS
 	var tween = create_tween().set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
 	tween.set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)

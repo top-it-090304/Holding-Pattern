@@ -63,7 +63,7 @@ func _draw():
 		var progress = current_time / max_time
 		var danger_radius = 20.0
 		var danger_color = Color(0.553, 0.553, 0.553, 0.78)
-		draw_arc(Vector2.ZERO, danger_radius, -PI/2, -PI/2 + (TAU * progress), 32, danger_color, 22.0, true)
+		draw_arc(Vector2.ZERO, danger_radius, -PI/2, -PI/2 + (TAU * progress), 64, danger_color, 22.0, true)
 		
 	
 func spawn_animation():

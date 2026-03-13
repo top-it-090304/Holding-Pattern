@@ -1,5 +1,4 @@
-res://scene/Route.tscn
-res://scripts/Airport.gd
-res://scripts/Main.gd
-res://scene/Main.tscn
 res://scene/Airport.tscn
+res://scripts/Airport.gd
+res://scene/Main.tscn
+res://scripts/Main.gd
