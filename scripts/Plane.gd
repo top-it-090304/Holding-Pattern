@@ -154,11 +154,11 @@ func _draw():
 				draw_circle(pos, p_size, p_color,32.0)
 			
 			GameData.ShapeType.SQUARE:
-				var rect = Rect2(pos - Vector2(p_size, p_size), Vector2(p_size, p_size))
+				var rect = Rect2(pos - Vector2(p_size, p_size), Vector2(p_size*2, p_size*2))
 				draw_rect(rect, p_color, true)
 			
 			GameData.ShapeType.TRIANGLE:
-				var side = p_size * 1.1 
+				var side = p_size * 2.2
 				var h = side * sqrt(3) / 2
 				
 				var points = PackedVector2Array([

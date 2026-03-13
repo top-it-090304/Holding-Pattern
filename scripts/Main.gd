@@ -30,7 +30,7 @@ var lines_data = GameData.lines_data
 func _ready():
 	pred_line = Line2D.new()
 	pred_line.width = 6.0
-	pred_line.z_index = 0
+	pred_line.z_index = -1
 	add_child(pred_line)
  
 	for zone_node in spawn_points.get_children():

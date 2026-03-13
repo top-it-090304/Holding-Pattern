@@ -26,6 +26,7 @@ font_size = 23
 script = ExtResource("1_nbc6x")
 
 [node name="Map" type="Sprite2D" parent="." unique_id=1367451836]
+z_index = -1
 position = Vector2(1418, 391)
 scale = Vector2(1.09375, 1)
 texture = ExtResource("2_pnqar")
