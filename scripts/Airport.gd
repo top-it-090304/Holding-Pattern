@@ -13,7 +13,7 @@ var forced_shape = null
 var passengers: Array = []
 var new_passenger_scale: float = 1.0
 
-var max_passengers: int = 3
+var max_passengers: int = 15
 var max_time: float = 45.0
 var current_time: float = 0.0
 var is_failed: bool = false
@@ -132,20 +132,16 @@ func activate_pulse():
 
 func _process(delta):
 	if is_failed: return
-	
-	# Если пассажиров много — таймер заполняется
 	if passengers.size() >= max_passengers:
 		current_time += delta
-		queue_redraw() # Перерисовываем индикатор
-		
-		# Если время вышло — игра окончена
+		queue_redraw()
+	
 		if current_time >= max_time:
 			is_failed = true
 			end_game.emit(self)
 			
-	# Если пассажиров забрали — таймер убывает (остывает)
 	elif current_time > 0:
-		current_time -= delta * 2.0 # Остывает в 2 раза быстрее, чем заполняется
+		current_time -= delta * 2.0 
 		current_time = max(0.0, current_time)
 		queue_redraw()
 		

@@ -32,6 +32,8 @@ var pred_line: Line2D
 var lines_data = GameData.lines_data
 
 func _ready():
+	score_pack.modulate.a = 0
+	score_pack.scale = Vector2(0.5, 0.5)
 	pred_line = Line2D.new()
 	pred_line.width = 6.0
 	pred_line.z_index = -1

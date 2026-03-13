@@ -113,13 +113,14 @@ func _upload_passenger(airport):
 	var initial_cargo_size = cargo.size()
 	cargo = cargo.filter(func(p_shape): return p_shape != airport.my_shape)
 	
-	if cargo.size() < initial_cargo_size:
-		Events.passengers_delivery.emit()
-		queue_redraw()
+	var score = initial_cargo_size - cargo.size()
+	if score > 0:
+		for i in range(score):
+			Events.passengers_delivery.emit()
+	queue_redraw()
 	
 func _load_passenger(airport):
 	var line_shapes = GameData.lines_data[color + "_shapes"]
-	
 	if cargo.size() >= max_seats:
 		return
 
