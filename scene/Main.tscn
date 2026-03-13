@@ -232,6 +232,7 @@ position = Vector2(2496, 342)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=273851256]
 position = Vector2(1613, 447)
+ignore_rotation = false
 zoom = Vector2(1.9, 1.9)
 
 [connection signal="timeout" from="Timer" to="." method="_on_spawn_timer_timeout"]

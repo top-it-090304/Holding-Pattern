@@ -150,7 +150,10 @@ func spawn_airport():
 		
 	inst.add_to_group("airports")
 	inst.airport_selected.connect(_on_airport_selected)
+	inst.end_game.connect(game_over)
 	add_child(inst)
+
+
 
 func _on_airport_selected(airport):
 	if lines_data["in_" + lines_data["current color"]] and airport == lines_data[lines_data["current color"] + "_airports"][0]:
@@ -175,6 +178,20 @@ func _on_passenger_timer_timeout():
 	if random_airport.passengers.size() >= 9:
 		return
 	random_airport.spawn_passenger()
+	
+func game_over(_failed_airport):
+	print("stop")
+	get_tree().paused = true
+	camera.process_mode = Node.PROCESS_MODE_ALWAYS
+	var tween = create_tween().set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
+	tween.set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
+	tween.set_parallel(true)
+	
+	tween.tween_property(camera, "global_position", _failed_airport.global_position, 2.5)
+	
+	var crash_zoom = Vector2(3.5, 3.5)
+	tween.tween_property(camera, "zoom", crash_zoom, 2.5)
+	tween.tween_property(camera, "rotation", 0.45, 2.5)
 
 ## кнопки
 func _on_yb_toggled(_t):

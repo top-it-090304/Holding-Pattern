@@ -2,6 +2,7 @@ extends Area2D
 @onready var sprite = $Point
 
 signal airport_selected(airport)
+signal end_game(airport)
 
 const Circle = preload("res://objects/point_circle.png")
 const Square = preload("res://objects/point_square.png")
@@ -11,6 +12,11 @@ var my_shape: GameData.ShapeType
 var forced_shape = null
 var passengers: Array = []
 var new_passenger_scale: float = 1.0
+
+var max_passengers: int = 3
+var max_time: float = 45.0
+var current_time: float = 0.0
+var is_failed: bool = false
 
 var pulse_radius = 0.0
 var pulse_alpha = 1.0
@@ -52,6 +58,13 @@ func _draw():
 		draw_circle(Vector2.ZERO, pulse_radius, color_with_alpha, 64)
 		
 	_draw_passengers()
+	
+	if current_time > 0:
+		var progress = current_time / max_time
+		var danger_radius = 20.0
+		var danger_color = Color(0.553, 0.553, 0.553, 0.78)
+		draw_arc(Vector2.ZERO, danger_radius, -PI/2, -PI/2 + (TAU * progress), 32, danger_color, 22.0, true)
+		
 	
 func spawn_animation():
 	sprite.scale = Vector2.ZERO
@@ -117,7 +130,25 @@ func activate_pulse():
 	tween.tween_property(self, "pulse_radius", 50.0, 0.4).set_trans(Tween.TRANS_SINE)
 	tween.tween_property(self, "pulse_alpha", 0.0, 0.4)
 
-func _process(_delta):
+func _process(delta):
+	if is_failed: return
+	
+	# Если пассажиров много — таймер заполняется
+	if passengers.size() >= max_passengers:
+		current_time += delta
+		queue_redraw() # Перерисовываем индикатор
+		
+		# Если время вышло — игра окончена
+		if current_time >= max_time:
+			is_failed = true
+			end_game.emit(self)
+			
+	# Если пассажиров забрали — таймер убывает (остывает)
+	elif current_time > 0:
+		current_time -= delta * 2.0 # Остывает в 2 раза быстрее, чем заполняется
+		current_time = max(0.0, current_time)
+		queue_redraw()
+		
 	if pulse_radius > 0 or stroke_radius > 0:
 		queue_redraw()
 
