@@ -86,27 +86,13 @@ icon = ExtResource("5_s5yxy")
 flat = true
 expand_icon = true
 
-[node name="TexturePlaneGhost" type="TextureRect" parent="UI" unique_id=1382701883]
-offset_left = -189.0
-offset_top = 24.0
-offset_right = -115.0
-offset_bottom = 84.0
-texture = ExtResource("8_eik88")
-
-[node name="CountPlaneZero" type="TextureRect" parent="UI" unique_id=28308419]
-offset_left = -71.0
-offset_top = -260.0
-offset_right = -31.0
-offset_bottom = -220.0
-metadata/_edit_use_anchors_ = true
-
-[node name="CountPlane" type="Control" parent="UI" unique_id=1520139293]
+[node name="CountPlanePack" type="Control" parent="UI" unique_id=1520139293]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="AddPlane" type="TextureRect" parent="UI/CountPlane" unique_id=1910985803]
+[node name="AddPlane" type="TextureRect" parent="UI/CountPlanePack" unique_id=1910985803]
 texture_filter = 6
 layout_mode = 0
 offset_left = 732.0
@@ -118,7 +104,15 @@ texture = ExtResource("6_eik88")
 expand_mode = 1
 script = ExtResource("7_s5yxy")
 
-[node name="Count" type="Label" parent="UI/CountPlane" unique_id=328349660]
+[node name="CountPlaneZero" type="TextureRect" parent="UI/CountPlanePack" unique_id=28308419]
+layout_mode = 0
+offset_left = -71.0
+offset_top = -260.0
+offset_right = -31.0
+offset_bottom = -220.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Count" type="Label" parent="UI/CountPlanePack" unique_id=328349660]
 layout_mode = 0
 offset_left = 800.0
 offset_top = 900.0
@@ -161,6 +155,13 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/bold_font_size = 32
 bbcode_enabled = true
 text = "[b]0[/b]"
+
+[node name="TexturePlaneGhost" type="TextureRect" parent="UI" unique_id=1382701883]
+offset_left = -189.0
+offset_top = 24.0
+offset_right = -115.0
+offset_bottom = 84.0
+texture = ExtResource("8_eik88")
 
 [node name="AirportSpawn" type="Node2D" parent="." unique_id=2036406742]
 
