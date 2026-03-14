@@ -203,6 +203,7 @@ position = Vector2(1509, 428)
 [node name="Zone1" type="Node2D" parent="AirportSpawn" unique_id=1491831296]
 
 [node name="Marker2D" type="Marker2D" parent="AirportSpawn/Zone1" unique_id=1876395399]
+position = Vector2(1479, 247)
 
 [node name="Marker2D2" type="Marker2D" parent="AirportSpawn/Zone1" unique_id=1121986686]
 position = Vector2(1323, 486)

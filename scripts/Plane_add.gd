@@ -8,9 +8,48 @@ func _process(_delta):
 	if GameData.start_planes == 0:
 		texture = load("res://objects/count_fly_Zero.png")
 	if is_dragging and is_instance_valid(ghost_plane):
-		ghost_plane.global_position = get_viewport().get_mouse_position()
-
-
+		var mouse_pos_viewport = get_viewport().get_mouse_position()
+		ghost_plane.global_position = mouse_pos_viewport
+		var canvas_transform = get_viewport().get_canvas_transform()
+		var mouse_pos_world = canvas_transform.affine_inverse() * mouse_pos_viewport
+		
+		var found_data = _get_closest_route_data(mouse_pos_world)
+		
+		if found_data:
+			## цвет по линии
+			ghost_plane.modulate = found_data.color
+			ghost_plane.modulate.a = 0.7
+			## поворот по линии
+			var curve = found_data.curve
+			var offset = curve.get_closest_offset(mouse_pos_world)
+			
+			var pos1 = curve.sample_baked(offset)
+			var pos2 = curve.sample_baked(offset + 2.0)
+			
+			var target_angle = (pos2 - pos1).angle()
+			ghost_plane.rotation = target_angle
+		else:
+			ghost_plane.modulate = Color(1, 1, 1, 0.5)
+			ghost_plane.rotation = 0
+			
+func _get_closest_route_data(world_pos):
+	var min_dist = 70.0
+	var closest_data = null
+	
+	for route in get_tree().get_nodes_in_group("routes"):
+		for curve in route.my_curves:
+			var offset = curve.get_closest_offset(world_pos)
+			var point = curve.sample_baked(offset)
+			var d = world_pos.distance_to(point)
+			
+			if d < min_dist:
+				min_dist = d
+				closest_data = {
+					"curve": curve,
+					"color": GameData.color_values[route.route_data.color]
+				}
+	return closest_data
+	
 func _gui_input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		if event.pressed and GameData.start_planes > 0:

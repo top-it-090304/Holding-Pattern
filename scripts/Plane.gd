@@ -9,6 +9,8 @@ var color: String
 
 var cargo: Array = []
 var max_seats: int = 6
+var if_load: bool = true
+
 
 func _process(delta):
 	if not current_route: return
