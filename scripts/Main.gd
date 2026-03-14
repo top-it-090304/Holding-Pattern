@@ -232,7 +232,7 @@ func _on_passenger_timer_timeout():
 			if randf() > 0.5:
 				_spawn_burst_two_passenger(2)
 			else:
-				_spawn_stack_passenger(3)
+				_spawn_stack_passenger(randi_range(3,4))
 		return 
 		
 	_spawn_one_passenger()

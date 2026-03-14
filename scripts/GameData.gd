@@ -1,7 +1,7 @@
 extends Node
 
 var start_planes: int = 4
-var max_passengers: int = 15
+var max_passengers: int = 7
 
 enum ShapeType { CIRCLE, SQUARE, TRIANGLE }
 
