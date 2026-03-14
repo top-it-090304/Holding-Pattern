@@ -34,6 +34,7 @@ var lines_data = GameData.lines_data
 
 func _ready():
 	score_pack.modulate.a = 0
+	score_pack.visible = false
 	score_pack.scale = Vector2(0.5, 0.5)
 	pred_line = Line2D.new()
 	pred_line.width = 6.0
@@ -95,6 +96,17 @@ func animate_score():
 func _on_passengers_delivery():
 	passengers_delivery += 1
 	score_label.text = str(passengers_delivery)
+	if passengers_delivery == 1:
+		_show_score()
+		
+func _show_score():
+	score_pack.visible = true
+	var tween = create_tween().set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
+	tween.set_parallel(true)
+	
+	tween.tween_property(score_pack, "modulate:a", 1.0, 0.5)
+	tween.tween_property(score_pack, "scale", Vector2(1.0,1.0), 0.2).from(Vector2(0.8, 0.8))
+	
 	
 func _on_phase_timer_timeout():
 	unlock_next_phase()

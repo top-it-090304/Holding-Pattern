@@ -165,15 +165,15 @@ expand_mode = 1
 
 [node name="Score" type="RichTextLabel" parent="UI/ScorePack" unique_id=477554173]
 layout_mode = 0
-offset_left = 46.0
-offset_top = 29.0
-offset_right = 160.0
-offset_bottom = 75.0
+offset_left = 47.0
+offset_top = 32.0
+offset_right = 161.0
+offset_bottom = 78.0
 theme_override_colors/default_color = Color(0.18039216, 0.15686275, 0.18039216, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/bold_font_size = 32
+theme_override_font_sizes/normal_font_size = 27
 bbcode_enabled = true
-text = "[b]0[/b]"
+text = "0"
 
 [node name="AirportSpawn" type="Node2D" parent="." unique_id=2036406742]
 

@@ -13,7 +13,7 @@ var forced_shape = null
 var passengers: Array = []
 var new_passenger_scale: float = 1.0
 
-var max_passengers: int = 7
+
 var max_time: float = 45.0
 var current_time: float = 0.0
 var is_failed: bool = false
@@ -132,7 +132,7 @@ func activate_pulse():
 
 func _process(delta):
 	if is_failed: return
-	if passengers.size() >= max_passengers:
+	if passengers.size() >= GameData.max_passengers:
 		current_time += delta
 		queue_redraw()
 	
