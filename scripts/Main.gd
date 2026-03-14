@@ -10,6 +10,9 @@ var route_scene = load("res://scene/Route.tscn")
 
 var passengers_delivery: int = 0
 var passenger_timer: Timer
+var skip_spawn: int = 0
+var storage_stack: bool = false
+var stack_chanse: float = 0.20
 
 var start_shapes = [
 	GameData.ShapeType.CIRCLE,
@@ -215,18 +218,54 @@ func _on_airport_selected(airport):
 	is_drawing = true
 	
 func _on_passenger_timer_timeout():
+	if not storage_stack and randf() < stack_chanse:
+		storage_stack = true
+		skip_spawn = 1
+		return
+		
+	if storage_stack:
+		skip_spawn += 1
+		if skip_spawn >= 3:
+			storage_stack = false
+			skip_spawn = 0
+			
+			if randf() > 0.5:
+				_spawn_burst_two_passenger(2)
+			else:
+				_spawn_stack_passenger(3)
+		return 
+		
+	_spawn_one_passenger()
+	
+func _spawn_burst_two_passenger(amount: int):
+	var target_airport = _get_airport_()
+	if not target_airport: return
+	
+	for i in range(amount):
+		if target_airport.passengers.size() < 9:
+			target_airport.spawn_passenger()
+			await get_tree().create_timer(0.2).timeout
+			
+func _spawn_stack_passenger(amount: int):
+	for i in range(amount):
+		var target_airport = _get_airport_()
+		if target_airport:
+			target_airport.spawn_passenger()
+			
+			await get_tree().create_timer(0.1).timeout
+			
+func _get_airport_():
 	var airports = get_tree().get_nodes_in_group("airports")
 	airports.shuffle()
-	for airport in airports:
-		if airport.passengers.size() < 9:
-			airport.spawn_passenger()
-			return
-			
-	if airports.is_empty(): return
-	var random_airport = airports.pick_random()
-	if random_airport.passengers.size() >= 9:
-		return
-	random_airport.spawn_passenger()
+	for a in airports:
+		if a.passengers.size() < 9:
+			return a
+	return null
+
+func _spawn_one_passenger():
+	var target = _get_airport_()
+	if target:
+		target.spawn_passenger()
 	
 func game_over(_failed_airport):
 	print("stop")
