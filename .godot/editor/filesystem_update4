@@ -1,2 +1,3 @@
 res://scene/Main.tscn
-res://scripts/Plane.gd
+res://scripts/Plane_add.gd
+res://scripts/Main.gd

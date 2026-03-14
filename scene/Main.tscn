@@ -26,6 +26,11 @@ font_size = 23
 [node name="Main" type="Node2D" unique_id=699429658]
 script = ExtResource("1_nbc6x")
 
+[node name="Camera2D" type="Camera2D" parent="." unique_id=273851256]
+position = Vector2(1613, 447)
+ignore_rotation = false
+zoom = Vector2(1.9, 1.9)
+
 [node name="Map" type="Sprite2D" parent="." unique_id=1367451836]
 z_index = -1
 position = Vector2(1418, 391)
@@ -89,37 +94,51 @@ expand_icon = true
 [node name="CountPlanePack" type="Control" parent="UI" unique_id=1520139293]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="AddPlane" type="TextureRect" parent="UI/CountPlanePack" unique_id=1910985803]
-texture_filter = 6
-layout_mode = 0
-offset_left = 732.0
-offset_top = 907.0
-offset_right = 803.0
-offset_bottom = 978.0
-mouse_filter = 0
-texture = ExtResource("6_eik88")
-expand_mode = 1
-script = ExtResource("7_s5yxy")
+offset_left = 685.0
+offset_top = 886.0
+offset_right = 813.0
+offset_bottom = 984.0
 
 [node name="CountPlaneZero" type="TextureRect" parent="UI/CountPlanePack" unique_id=28308419]
-layout_mode = 0
-offset_left = -71.0
-offset_top = -260.0
-offset_right = -31.0
-offset_bottom = -220.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -8.34375
+anchor_top = -6.520408
+anchor_right = -6.74375
+anchor_bottom = -5.1454067
+offset_bottom = -6.1035156e-05
 metadata/_edit_use_anchors_ = true
 
 [node name="Count" type="Label" parent="UI/CountPlanePack" unique_id=328349660]
 layout_mode = 0
-offset_left = 800.0
-offset_top = 900.0
-offset_right = 820.0
-offset_bottom = 932.0
+offset_left = 110.0
+offset_top = 6.0
+offset_right = 133.0
+offset_bottom = 38.0
 label_settings = SubResource("LabelSettings_pnqar")
 script = ExtResource("9_pnqar")
+
+[node name="TexturePlaneGhost" type="TextureRect" parent="UI/CountPlanePack" unique_id=1382701883]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = -123.0
+offset_top = 936.0
+offset_right = -49.0
+offset_bottom = 996.0
+texture = ExtResource("8_eik88")
+
+[node name="AddPlane" type="TextureRect" parent="UI/CountPlanePack" unique_id=1910985803]
+texture_filter = 6
+layout_mode = 1
+anchors_preset = -1
+offset_left = 44.0
+offset_top = 18.0
+offset_right = 115.0
+offset_bottom = 89.0
+mouse_filter = 0
+texture = ExtResource("6_eik88")
+expand_mode = 1
+script = ExtResource("7_s5yxy")
 
 [node name="ScorePack" type="Control" parent="UI" unique_id=1916879007]
 layout_mode = 3
@@ -155,13 +174,6 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/bold_font_size = 32
 bbcode_enabled = true
 text = "[b]0[/b]"
-
-[node name="TexturePlaneGhost" type="TextureRect" parent="UI" unique_id=1382701883]
-offset_left = -189.0
-offset_top = 24.0
-offset_right = -115.0
-offset_bottom = 84.0
-texture = ExtResource("8_eik88")
 
 [node name="AirportSpawn" type="Node2D" parent="." unique_id=2036406742]
 
@@ -279,11 +291,6 @@ position = Vector2(717, 189)
 
 [node name="Marker2D5" type="Marker2D" parent="AirportSpawn/Zone6" unique_id=1541567105]
 position = Vector2(2496, 342)
-
-[node name="Camera2D" type="Camera2D" parent="." unique_id=273851256]
-position = Vector2(1613, 447)
-ignore_rotation = false
-zoom = Vector2(1.9, 1.9)
 
 [connection signal="timeout" from="Timer" to="." method="_on_spawn_timer_timeout"]
 [connection signal="toggled" from="UI/YellowButton" to="." method="_on_yb_toggled"]
