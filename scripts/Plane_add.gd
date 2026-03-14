@@ -17,7 +17,7 @@ func _process(_delta):
 		
 		if found_data:
 			## цвет по линии
-			ghost_plane.modulate = found_data.color
+			ghost_plane.modulate = ghost_plane.modulate.lerp(found_data.color, 0.15)
 			ghost_plane.modulate.a = 0.7
 			## поворот по линии
 			var curve = found_data.curve
@@ -27,13 +27,13 @@ func _process(_delta):
 			var pos2 = curve.sample_baked(offset + 2.0)
 			
 			var target_angle = (pos2 - pos1).angle()
-			ghost_plane.rotation = target_angle
+			ghost_plane.rotation = lerp_angle(ghost_plane.rotation, target_angle, 0.15)
 		else:
 			ghost_plane.modulate = Color(1, 1, 1, 0.5)
 			ghost_plane.rotation = 0
 			
 func _get_closest_route_data(world_pos):
-	var min_dist = 70.0
+	var min_dist = 30.0
 	var closest_data = null
 	
 	for route in get_tree().get_nodes_in_group("routes"):
@@ -65,7 +65,7 @@ func _create_ghost():
 	get_parent().add_child(ghost_plane)
 	ghost_plane.top_level = true
 	ghost_plane.z_index = 11
-	ghost_plane.scale = Vector2(1.0,1.0)
+	ghost_plane.scale = Vector2(1.1,1.1)
 	ghost_plane.global_position = get_viewport().get_mouse_position()
 	
 
