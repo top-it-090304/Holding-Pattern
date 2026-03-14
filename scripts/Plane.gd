@@ -10,34 +10,6 @@ var color: String
 var cargo: Array = []
 var max_seats: int = 6
 
-func setup_with_route(route_data: Dictionary, start_t: float = 0.0):
-	current_route = route_data
-	t = start_t
-	if route_data.has("route_color"):
-		modulate = route_data["route_color"]
-	
-	var curve = current_route["curve"]
-	var dist = t * curve.get_baked_length()
-	position = curve.sample_baked(dist)
-	
-	play_spawn_effect()
-	start_plane(3.5)
-
-func play_spawn_effect():
-	scale = Vector2.ZERO
-	var tween = create_tween().set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
-	tween.tween_property(self, "scale", Vector2(0.46, 0.46), 0.6)
-	
-	var final_color = modulate
-	modulate = Color.WHITE
-	var flash = create_tween()
-	flash.tween_property(self, "modulate", final_color, 0.3)
-
-
-func start_plane(duration: float):
-	var tween = create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
-	tween.tween_property(self, "current_speed", target_speed, duration)
-
 func _process(delta):
 	if not current_route: return
 	
@@ -70,9 +42,41 @@ func _process(delta):
 	var dist = t * baked_length
 	var new_pos = curve.sample_baked(dist)
 	
-	if current_speed > 0.1:
-		look_at(new_pos)
+	
+	if current_speed > 0.1 and position.distance_to(new_pos) > 0.05:
+		var target_angle = (new_pos - position).angle()
+		rotation = lerp_angle(rotation, target_angle, 8.0 * delta)
 	position = new_pos
+
+func setup_with_route(route_data: Dictionary, start_t: float = 0.0):
+	current_route = route_data
+	t = start_t
+	if route_data.has("route_color"):
+		modulate = route_data["route_color"]
+	
+	var curve = current_route["curve"]
+	var dist = t * curve.get_baked_length()
+	position = curve.sample_baked(dist)
+	
+	play_spawn_effect()
+	start_plane(3.5)
+
+func play_spawn_effect():
+	scale = Vector2.ZERO
+	var tween = create_tween().set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+	tween.tween_property(self, "scale", Vector2(0.46, 0.46), 0.6)
+	
+	var final_color = modulate
+	modulate = Color.WHITE
+	var flash = create_tween()
+	flash.tween_property(self, "modulate", final_color, 0.3)
+
+
+func start_plane(duration: float):
+	var tween = create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	tween.tween_property(self, "current_speed", target_speed, duration)
+
+
 
 func switch_to_next_route(arrived_at_end: bool):
 	var arrived_airport = current_route["end_airport"] if arrived_at_end else current_route["start_airport"]
