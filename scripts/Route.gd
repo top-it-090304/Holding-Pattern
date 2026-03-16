@@ -63,6 +63,7 @@ func create_line(airport_a, airport_b):
 			spawn_plane(route_data, 0.0)
 			lines_data["in_" + color_name] = true
 
+@warning_ignore("shadowed_variable")
 func spawn_plane(route_data: Dictionary, start_t: float):
 	GameData.start_planes -= 1
 	var plane = plane_scene.instantiate()

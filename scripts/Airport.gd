@@ -198,6 +198,7 @@ func _draw_passengers():
 	
 	for i in range(passengers.size()):
 		var shape = passengers[i]
+		@warning_ignore("integer_division")
 		var row = int(i / max_in_row)
 		var col = i % max_in_row
 		var pos

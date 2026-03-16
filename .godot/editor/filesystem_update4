@@ -5,3 +5,5 @@ res://scripts/Plane_add.gd
 res://scripts/Main.gd
 res://scripts/Route.gd
 res://scene/Airport.tscn
+res://scripts/Airport.gd
+res://scripts/Event.gd

@@ -7,6 +7,9 @@ var ghost_plane: Sprite2D
 func _process(_delta):
 	if GameData.start_planes == 0:
 		texture = load("res://objects/count_fly_Zero.png")
+	if GameData.start_planes > 0:
+		texture = load("res://objects/count_fly.png")
+	
 	if is_dragging and is_instance_valid(ghost_plane):
 		var mouse_pos_viewport = get_viewport().get_mouse_position()
 		ghost_plane.global_position = mouse_pos_viewport
