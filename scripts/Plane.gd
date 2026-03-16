@@ -17,12 +17,19 @@ func _input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		var mouse_pos = get_global_mouse_position()
 		if event.pressed:
+			var main_node = get_tree().root.get_node("Main")
+			if main_node and main_node.is_drawing:
+				return
+				
+			for airport in get_tree().get_nodes_in_group("airports"):
+				if mouse_pos.distance_to(airport.global_position) < 35.0:
+					return
 			if not is_transport_plane and mouse_pos.distance_to(global_position) < 40.0:
 				is_transport_plane = true
 				scale = Vector2(0.6, 0.6)
 				z_index = 10
 		elif not event.pressed and is_transport_plane:
-			_drop_plane()
+				_drop_plane()
 			
 func _process(delta):
 	if is_transport_plane:
