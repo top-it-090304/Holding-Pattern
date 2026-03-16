@@ -43,11 +43,9 @@ func create_line(airport_a, airport_b):
 	var shapes_list = GameData.lines_data[color_name + "_shapes"]
 	
 	if not airport_a.my_shape in shapes_list:
-		print("+ точка")
 		shapes_list.append(airport_a.my_shape)
 		
 	if not airport_b.my_shape in shapes_list:
-		print("+ точка")
 		shapes_list.append(airport_b.my_shape) 
 	
 	route_data = {

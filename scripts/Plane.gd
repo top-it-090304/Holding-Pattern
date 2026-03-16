@@ -6,13 +6,29 @@ var target_speed: float = 90.0
 var current_speed: float = 0.0  
 var forward: bool = true
 var color: String
+var is_transport_plane: bool = false
 
 var cargo: Array = []
 var max_seats: int = 6
 var if_load: bool = true
 
 
+func _input(event):
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
+		var mouse_pos = get_global_mouse_position()
+		if event.pressed:
+			if not is_transport_plane and mouse_pos.distance_to(global_position) < 40.0:
+				is_transport_plane = true
+				scale = Vector2(0.6, 0.6)
+				z_index = 10
+		elif not event.pressed and is_transport_plane:
+			_drop_plane()
+			
 func _process(delta):
+	if is_transport_plane:
+		_take_plane()
+		return
+		
 	if not current_route: return
 	
 	var curve = current_route["curve"]
@@ -81,6 +97,7 @@ func start_plane(duration: float):
 
 
 func switch_to_next_route(arrived_at_end: bool):
+
 	var arrived_airport = current_route["end_airport"] if arrived_at_end else current_route["start_airport"]
 	
 	_upload_passenger(arrived_airport)
@@ -178,4 +195,81 @@ func _draw():
 				
 				points.append(points[0])
 				draw_polyline(points, p_color, 0.5, true)
+				
+func _take_plane():
+	var canvas_transform = get_viewport().get_canvas_transform()
+	var mouse_pos_world = canvas_transform.affine_inverse() * get_viewport().get_mouse_position()
+	
+	global_position = mouse_pos_world
+	
+	var found_data = _get_closest_route_data(mouse_pos_world)
+	
+	if found_data:
 		
+		modulate = modulate.lerp(found_data.color_val, 0.2)
+		modulate.a = 0.7
+		
+		var curve = found_data.curve
+		@warning_ignore("shadowed_variable_base_class")
+		var offset = curve.get_closest_offset(mouse_pos_world)
+		var pos1 = curve.sample_baked(offset)
+		var pos2 = curve.sample_baked(offset + 2.0)
+		
+		var target_angle = (pos2 - pos1).angle()
+		rotation = lerp_angle(rotation, target_angle, 0.15)
+	else:
+		modulate = modulate.lerp(Color(0.6, 0.6, 0.6, 0.5), 0.1)
+		rotation = lerp_angle(rotation, 0, 0.1)
+
+func _get_closest_route_data(global_pos):
+	var min_dist = 30.0
+	var closest_data = null
+	
+	for route in get_tree().get_nodes_in_group("routes"):
+		for curve in route.my_curves:
+			@warning_ignore("shadowed_variable_base_class")
+			var offset = curve.get_closest_offset(global_pos)
+			var point = curve.sample_baked(offset)
+			var d = global_pos.distance_to(point)
+			
+			if d < min_dist:
+				min_dist = d
+				closest_data = {
+					"curve": curve,
+					"full_route_data": route.route_data,
+					"color_val": GameData.color_values[route.route_data.color]
+				}
+	return closest_data
+	
+	
+func _drop_plane():
+	is_transport_plane = false
+	
+	scale = Vector2(0.46, 0.46) 
+	z_index = 0
+	
+	var mouse_pos = get_global_mouse_position()
+	var found_data = _get_closest_route_data(mouse_pos)
+	
+	if found_data:
+		current_route = found_data.full_route_data.duplicate()
+		current_route["curve"] = found_data.curve
+		color = current_route.color
+		
+		modulate = found_data.color_val
+		modulate.a = 1.0
+		
+		var curve = found_data.curve
+		@warning_ignore("shadowed_variable_base_class")
+		var offset = curve.get_closest_offset(mouse_pos)
+		t = offset / curve.get_baked_length()
+		position = curve.sample_baked(offset)
+		
+		current_speed = target_speed
+		forward = true 
+	else:
+		GameData.start_planes += 1
+		for count_label in get_tree().get_nodes_in_group("countPlane"):
+			if count_label.has_method("update_counter"):
+				count_label.update_counter()
+		queue_free()

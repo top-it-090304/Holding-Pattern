@@ -129,7 +129,6 @@ func unlock_next_phase():
 			
 			var new_speed = max(1.0, 0.3 - (current_phase * 0.5))
 			passenger_timer.wait_time = new_speed
-			print(new_speed)
 			passenger_timer.start()
 
 	
@@ -176,7 +175,9 @@ func check_airport():
 			lines_data[lines_data["current color"] + "_airports"].append(airport)
 			
 			create_route(selected_airport, airport)
-			
+			if airport == lines_data[lines_data["current color"] + "_airports"][0]:
+				stop_draw()
+				break
 			selected_airport = airport
 			selected_airport.draw_stroke(true)
 
@@ -266,9 +267,8 @@ func _spawn_one_passenger():
 	var target = _get_airport_()
 	if target:
 		target.spawn_passenger()
-	
+	 
 func game_over(_failed_airport):
-	print("stop")
 	get_tree().paused = true
 	$UI.visible = false
 	
