@@ -176,7 +176,9 @@ func check_airport():
 			lines_data[lines_data["current color"] + "_airports"].append(airport)
 			
 			create_route(selected_airport, airport)
-			
+			if airport == lines_data[lines_data["current color"] + "_airports"][0]:
+				stop_draw()
+				break
 			selected_airport = airport
 			selected_airport.draw_stroke(true)
 
