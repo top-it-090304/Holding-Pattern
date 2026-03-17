@@ -129,6 +129,7 @@ func unlock_next_phase():
 			
 			var new_speed = max(1.0, 0.3 - (current_phase * 0.5))
 			passenger_timer.wait_time = new_speed
+			print(new_speed)
 			passenger_timer.start()
 
 	
@@ -163,11 +164,19 @@ func line_draw(pos1: Vector2, pos2: Vector2):
 
 func check_airport():
 	var mouse_pos = get_global_mouse_position()
+	var permission = false
 	
 	for airport in get_tree().get_nodes_in_group("airports"):
 		
-
 		if airport != selected_airport and airport.global_position.distance_to(mouse_pos) < 50 and ((len(lines_data[lines_data["current color"] + "_airports"]) >= 3 and airport == lines_data[lines_data["current color"] + "_airports"][0]) or (airport not in lines_data[lines_data["current color"] + "_airports"])):
+			permission = true
+		
+		for route in get_tree().get_nodes_in_group("routes"):
+			if selected_airport == route.route_data["start_airport"] and airport == route.route_data["end_airport"] or selected_airport == route.route_data["end_airport"] and airport == route.route_data["start_airport"]:
+				permission = false
+		
+		if permission:
+			permission = false
 			airport.activate_pulse() 
 			
 			if not lines_data["in_" + lines_data["current color"]]:
@@ -183,6 +192,7 @@ func check_airport():
 
 func create_route(a, b):
 	var route = route_scene.instantiate()
+	route.add_to_group("routes")
 	add_child(route)
 	route.create_line(a, b)
 
@@ -267,8 +277,9 @@ func _spawn_one_passenger():
 	var target = _get_airport_()
 	if target:
 		target.spawn_passenger()
-	 
+	
 func game_over(_failed_airport):
+	print("stop")
 	get_tree().paused = true
 	$UI.visible = false
 	
