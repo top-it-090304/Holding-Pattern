@@ -2,7 +2,10 @@
 
 [ext_resource type="Script" uid="uid://sp2ta70qytu6" path="res://scripts/Main.gd" id="1_nbc6x"]
 [ext_resource type="Texture2D" uid="uid://po01xbkyu0m5" path="res://objects/map3d.png" id="2_pnqar"]
+[ext_resource type="Texture2D" uid="uid://cccbojxrikyly" path="res://objects/Button_plau.png" id="3_764rb"]
+[ext_resource type="Texture2D" uid="uid://cya118am2kgj2" path="res://objects/Vinetka.png" id="3_aex65"]
 [ext_resource type="Texture2D" uid="uid://d3hmyd7fm44gt" path="res://objects/Button_yellow.png" id="3_mnmej"]
+[ext_resource type="Texture2D" uid="uid://ciblyc6hoov27" path="res://objects/Button_settings.png" id="4_aex65"]
 [ext_resource type="Texture2D" uid="uid://c32r7a0jfkk6t" path="res://objects/Button_blue.png" id="4_o6q0f"]
 [ext_resource type="Texture2D" uid="uid://ck4unu555lgo2" path="res://objects/Button_red.png" id="5_s5yxy"]
 [ext_resource type="Texture2D" uid="uid://7ire7onvi2fn" path="res://objects/count_fly.png" id="6_eik88"]
@@ -50,27 +53,38 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+texture = ExtResource("3_aex65")
 
 [node name="Control" type="Control" parent="GameOver" unique_id=1549837969]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 560.0
+offset_bottom = 343.0
 
 [node name="ScoreLabel" type="Label" parent="GameOver/Control" unique_id=878178107]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
 
-[node name="Restart" type="Button" parent="GameOver/Control" unique_id=1839325162]
+[node name="Restart" type="Button" parent="GameOver/Control" unique_id=2137488011]
 layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
+offset_left = 222.0
+offset_top = 565.0
+offset_right = 588.0
+offset_bottom = 666.0
+pivot_offset = Vector2(150, 40)
+icon = ExtResource("3_764rb")
+flat = true
 
-[node name="Menu" type="Button" parent="GameOver/Control" unique_id=114752138]
+[node name="Menu" type="Button" parent="GameOver/Control" unique_id=1409947932]
 layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
+offset_left = 220.0
+offset_top = 663.0
+offset_right = 729.0
+offset_bottom = 768.0
+pivot_offset = Vector2(150, 40)
+icon = ExtResource("4_aex65")
+flat = true
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=1579573212]
 layer = 2
@@ -325,6 +339,8 @@ position = Vector2(717, 189)
 position = Vector2(2496, 342)
 
 [connection signal="timeout" from="Timer" to="." method="_on_spawn_timer_timeout"]
+[connection signal="pressed" from="GameOver/Control/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="GameOver/Control/Menu" to="." method="_on_menu_pressed"]
 [connection signal="toggled" from="UI/YellowButton" to="." method="_on_yb_toggled"]
 [connection signal="toggled" from="UI/BlueButton" to="." method="_on_bb_toggled"]
 [connection signal="toggled" from="UI/RedButton" to="." method="_on_rb_toggled"]

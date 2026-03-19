@@ -7,6 +7,9 @@ var route_scene = load("res://scene/Route.tscn")
 @onready var camera := $Camera2D
 @onready var score_pack = $UI/ScorePack
 @onready var score_label = $UI/ScorePack/Score
+@onready var game_over_ui = $GameOverUI
+@onready var vignette = $GameOverUI/Vignette
+@onready var score_final_label = $GameOverUI/Content/ScoreLabel
 
 var passengers_delivery: int = 0
 var passenger_timer: Timer
@@ -282,7 +285,7 @@ func game_over(_failed_airport):
 	print("stop")
 	get_tree().paused = true
 	$UI.visible = false
-	
+	$GameOver.visible = true
 	camera.process_mode = Node.PROCESS_MODE_ALWAYS
 	var tween = create_tween().set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
 	tween.set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
@@ -293,7 +296,21 @@ func game_over(_failed_airport):
 	var crash_zoom = Vector2(3.5, 3.5)
 	tween.tween_property(camera, "zoom", crash_zoom, 2.5)
 	tween.tween_property(camera, "rotation", 0.45, 2.5)
+	
+	_setup_vignette(_failed_airport)
+	game_over_ui.visible = true
+	game_over_ui.modulate.a = 0
+	
 
+	tween.chain().tween_property(game_over_ui, "modulate:a", 1.0, 1.0)
+	
+
+	score_final_label.text = str(passengers_delivery)
+
+func _setup_vignette(_airport):
+	vignette.expand_mode = TextureRect.EXPAND_KEEP_SIZE
+	vignette.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	
 ## кнопки
 func _on_yb_toggled(_t):
 	lines_data["current color"] = "yellow"
@@ -306,6 +323,17 @@ func _on_bb_toggled(_t):
 func _on_rb_toggled(_t):
 	lines_data["current color"] = "red"
 	lines_data["current hex color"] = Color(1.0, 0.0, 0.0, 1.0)
+	
+func _on_restart_pressed():
+	get_tree().paused = false
+	$GameOver/Control/Restart.visible = true
+	get_tree().reload_current_scene()
+
+func _on_menu_pressed():
+	get_tree().paused = false
+	$GameOver/Control/Menu.visiable = true
+	get_tree().change_scene_to_file("res://scene/StartMenu.tscn")
+
 
 func _on_spawn_timer_timeout():
 	spawn_airport()
