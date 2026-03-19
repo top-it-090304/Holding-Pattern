@@ -20,9 +20,9 @@ scale = Vector2(1.8421875, 1.8555555)
 [node name="Play" type="Button" parent="." unique_id=1056440167]
 layout_mode = 0
 offset_left = -265.0
-offset_top = -149.0
+offset_top = -162.0
 offset_right = 101.0
-offset_bottom = -48.0
+offset_bottom = -61.0
 pivot_offset = Vector2(150, 40)
 icon = ExtResource("3_8t8u8")
 flat = true
@@ -30,9 +30,9 @@ flat = true
 [node name="Settings" type="Button" parent="." unique_id=1150483765]
 layout_mode = 0
 offset_left = -265.0
-offset_top = -53.0
+offset_top = -60.0
 offset_right = 244.0
-offset_bottom = 52.0
+offset_bottom = 45.0
 pivot_offset = Vector2(150, 40)
 icon = ExtResource("4_pbb8y")
 flat = true
@@ -50,9 +50,9 @@ flat = true
 [node name="Exit" type="Button" parent="." unique_id=959969849]
 layout_mode = 0
 offset_left = -258.0
-offset_top = 138.0
+offset_top = 144.0
 offset_right = 95.0
-offset_bottom = 238.0
+offset_bottom = 244.0
 icon = ExtResource("6_pbb8y")
 flat = true
 

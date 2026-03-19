@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" uid="uid://sp2ta70qytu6" path="res://scripts/Main.gd" id="1_nbc6x"]
 [ext_resource type="Texture2D" uid="uid://po01xbkyu0m5" path="res://objects/map3d.png" id="2_pnqar"]
-[ext_resource type="Texture2D" uid="uid://cccbojxrikyly" path="res://objects/Button_plau.png" id="3_764rb"]
 [ext_resource type="Texture2D" uid="uid://cya118am2kgj2" path="res://objects/Vinetka.png" id="3_aex65"]
 [ext_resource type="Texture2D" uid="uid://d3hmyd7fm44gt" path="res://objects/Button_yellow.png" id="3_mnmej"]
-[ext_resource type="Texture2D" uid="uid://ciblyc6hoov27" path="res://objects/Button_settings.png" id="4_aex65"]
+[ext_resource type="Texture2D" uid="uid://i5602sbm708r" path="res://objects/Restart.png" id="4_aex65"]
 [ext_resource type="Texture2D" uid="uid://c32r7a0jfkk6t" path="res://objects/Button_blue.png" id="4_o6q0f"]
+[ext_resource type="Texture2D" uid="uid://dmiia6t0baedq" path="res://objects/Menu.png" id="5_hrl0l"]
 [ext_resource type="Texture2D" uid="uid://ck4unu555lgo2" path="res://objects/Button_red.png" id="5_s5yxy"]
 [ext_resource type="Texture2D" uid="uid://7ire7onvi2fn" path="res://objects/count_fly.png" id="6_eik88"]
 [ext_resource type="Script" uid="uid://c44tchjyc16q0" path="res://scripts/Plane_add.gd" id="7_s5yxy"]
@@ -55,6 +55,7 @@ offset_right = 560.0
 offset_bottom = 343.0
 
 [node name="Vinetka" type="TextureRect" parent="GameOverUI/MainPack" unique_id=1163205481]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -68,29 +69,32 @@ texture = ExtResource("3_aex65")
 
 [node name="ScoreLabel" type="Label" parent="GameOverUI/MainPack" unique_id=878178107]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = 868.0
+offset_top = 89.0
+offset_right = 1133.0
+offset_bottom = 229.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 
 [node name="Restart" type="Button" parent="GameOverUI/MainPack" unique_id=2137488011]
 process_mode = 3
 layout_mode = 0
-offset_left = 222.0
-offset_top = 565.0
-offset_right = 588.0
-offset_bottom = 666.0
+offset_left = 383.0
+offset_top = 640.0
+offset_right = 913.0
+offset_bottom = 741.0
 pivot_offset = Vector2(150, 40)
-icon = ExtResource("3_764rb")
+icon = ExtResource("4_aex65")
 flat = true
 
 [node name="Menu" type="Button" parent="GameOverUI/MainPack" unique_id=1409947932]
 process_mode = 3
 layout_mode = 0
-offset_left = 220.0
-offset_top = 663.0
-offset_right = 729.0
-offset_bottom = 768.0
+offset_left = 379.0
+offset_top = 720.0
+offset_right = 888.0
+offset_bottom = 825.0
 pivot_offset = Vector2(150, 40)
-icon = ExtResource("4_aex65")
+icon = ExtResource("5_hrl0l")
 flat = true
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=1579573212]
