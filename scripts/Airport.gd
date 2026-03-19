@@ -48,6 +48,12 @@ func _ready():
 	spawn_animation()
 
 func _draw():
+	if current_time > 0:
+		var progress = current_time / max_time
+		var danger_radius = 20.0
+		var danger_color = Color(0.553, 0.553, 0.553, 0.78)
+		draw_arc(Vector2.ZERO, danger_radius, -PI/2, -PI/2 + (TAU * progress), 64, danger_color, 22.0, true)
+		
 	if stroke_radius > 3:
 		_draw_stroke(stroke_radius, stroke_color, 15.0)
 		
@@ -59,11 +65,7 @@ func _draw():
 		
 	_draw_passengers()
 	
-	if current_time > 0:
-		var progress = current_time / max_time
-		var danger_radius = 20.0
-		var danger_color = Color(0.553, 0.553, 0.553, 0.78)
-		draw_arc(Vector2.ZERO, danger_radius, -PI/2, -PI/2 + (TAU * progress), 64, danger_color, 22.0, true)
+	
 		
 	
 func spawn_animation():
