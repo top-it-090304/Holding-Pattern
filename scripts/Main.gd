@@ -347,6 +347,7 @@ func _on_rb_toggled(_t):
 func _on_restart_pressed():
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://scene/Main.tscn")
+	GameData.start_planes = 3
 
 func _on_menu_pressed():
 	get_tree().paused = false
