@@ -44,29 +44,33 @@ texture = ExtResource("2_pnqar")
 wait_time = 24.0
 autostart = true
 
-[node name="GameOver" type="CanvasLayer" parent="." unique_id=2125910932]
+[node name="GameOverUI" type="CanvasLayer" parent="." unique_id=2125910932]
 process_mode = 3
 
-[node name="TextureRect" type="TextureRect" parent="GameOver" unique_id=1163205481]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("3_aex65")
-
-[node name="Control" type="Control" parent="GameOver" unique_id=1549837969]
+[node name="MainPack" type="Control" parent="GameOverUI" unique_id=1549837969]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 560.0
 offset_bottom = 343.0
 
-[node name="ScoreLabel" type="Label" parent="GameOver/Control" unique_id=878178107]
+[node name="Vinetka" type="TextureRect" parent="GameOverUI/MainPack" unique_id=1163205481]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 1360.0
+offset_bottom = 697.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_aex65")
+
+[node name="ScoreLabel" type="Label" parent="GameOverUI/MainPack" unique_id=878178107]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
 
-[node name="Restart" type="Button" parent="GameOver/Control" unique_id=2137488011]
+[node name="Restart" type="Button" parent="GameOverUI/MainPack" unique_id=2137488011]
 layout_mode = 0
 offset_left = 222.0
 offset_top = 565.0
@@ -76,7 +80,7 @@ pivot_offset = Vector2(150, 40)
 icon = ExtResource("3_764rb")
 flat = true
 
-[node name="Menu" type="Button" parent="GameOver/Control" unique_id=1409947932]
+[node name="Menu" type="Button" parent="GameOverUI/MainPack" unique_id=1409947932]
 layout_mode = 0
 offset_left = 220.0
 offset_top = 663.0
@@ -339,8 +343,8 @@ position = Vector2(717, 189)
 position = Vector2(2496, 342)
 
 [connection signal="timeout" from="Timer" to="." method="_on_spawn_timer_timeout"]
-[connection signal="pressed" from="GameOver/Control/Restart" to="." method="_on_restart_pressed"]
-[connection signal="pressed" from="GameOver/Control/Menu" to="." method="_on_menu_pressed"]
+[connection signal="pressed" from="GameOverUI/MainPack/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="GameOverUI/MainPack/Menu" to="." method="_on_menu_pressed"]
 [connection signal="toggled" from="UI/YellowButton" to="." method="_on_yb_toggled"]
 [connection signal="toggled" from="UI/BlueButton" to="." method="_on_bb_toggled"]
 [connection signal="toggled" from="UI/RedButton" to="." method="_on_rb_toggled"]
