@@ -10,6 +10,7 @@ var route_scene = load("res://scene/Route.tscn")
 @onready var game_over_ui = $GameOverUI
 @onready var vinetka =  $GameOverUI/MainPack/Vinetka
 @onready var score_final_label = $GameOverUI/MainPack/ScoreLabel
+@onready var text_game_over = $GameOverUI/MainPack/Text
 @onready var main_pack = $GameOverUI/MainPack
 
 @onready var buttons = [$GameOverUI/MainPack/Restart, $GameOverUI/MainPack/Menu]
@@ -310,7 +311,8 @@ func game_over(_failed_airport):
 	
 	camera.process_mode = Node.PROCESS_MODE_ALWAYS
 	game_over_ui.show()
-	main_pack.modulate.a = 0.0
+	main_pack.self_modulate.a = 0.0
+	
 	
 	var tween = create_tween().set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
 	tween.set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
@@ -325,7 +327,8 @@ func game_over(_failed_airport):
 	tween.tween_interval(2.0)
 	
 	tween.tween_callback(func():score_final_label.text = str(passengers_delivery))
-	tween.tween_property(main_pack, "modulate:a", 1.0, 1.8)
+	tween.tween_property(main_pack, "self_modulate:a", 1.0, 1.8).from(0.0)
+	
 	
 func _setup_vignette(_airport):
 	vinetka.expand_mode = TextureRect.EXPAND_KEEP_SIZE

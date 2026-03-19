@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://dmiia6t0baedq" path="res://objects/Menu.png" id="5_hrl0l"]
 [ext_resource type="Texture2D" uid="uid://ck4unu555lgo2" path="res://objects/Button_red.png" id="5_s5yxy"]
 [ext_resource type="Texture2D" uid="uid://7ire7onvi2fn" path="res://objects/count_fly.png" id="6_eik88"]
+[ext_resource type="FontFile" uid="uid://bxu04q03hthlj" path="res://font/LFCurry.ttf" id="6_hrl0l"]
 [ext_resource type="Script" uid="uid://c44tchjyc16q0" path="res://scripts/Plane_add.gd" id="7_s5yxy"]
 [ext_resource type="Texture2D" uid="uid://dirl28ic4l46t" path="res://objects/Fly_ghost.png" id="8_eik88"]
 [ext_resource type="Script" uid="uid://dj87sysn61exl" path="res://scripts/Plane_count.gd" id="9_pnqar"]
@@ -47,37 +48,22 @@ autostart = true
 [node name="GameOverUI" type="CanvasLayer" parent="." unique_id=2125910932]
 process_mode = 3
 
-[node name="MainPack" type="Control" parent="GameOverUI" unique_id=1549837969]
+[node name="MainPack" type="CanvasGroup" parent="GameOverUI" unique_id=582818894]
 process_mode = 3
-layout_mode = 3
-anchors_preset = 0
-offset_right = 560.0
-offset_bottom = 343.0
 
 [node name="Vinetka" type="TextureRect" parent="GameOverUI/MainPack" unique_id=1163205481]
-visible = false
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -40.0
-offset_right = 1360.0
-offset_bottom = 697.0
+offset_top = -80.0
+offset_right = 1920.0
+offset_bottom = 1000.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_aex65")
 
-[node name="ScoreLabel" type="Label" parent="GameOverUI/MainPack" unique_id=878178107]
-layout_mode = 0
-offset_left = 868.0
-offset_top = 89.0
-offset_right = 1133.0
-offset_bottom = 229.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-
 [node name="Restart" type="Button" parent="GameOverUI/MainPack" unique_id=2137488011]
 process_mode = 3
-layout_mode = 0
 offset_left = 383.0
 offset_top = 640.0
 offset_right = 913.0
@@ -88,7 +74,6 @@ flat = true
 
 [node name="Menu" type="Button" parent="GameOverUI/MainPack" unique_id=1409947932]
 process_mode = 3
-layout_mode = 0
 offset_left = 379.0
 offset_top = 720.0
 offset_right = 888.0
@@ -96,6 +81,37 @@ offset_bottom = 825.0
 pivot_offset = Vector2(150, 40)
 icon = ExtResource("5_hrl0l")
 flat = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="GameOverUI/MainPack" unique_id=446887255]
+offset_left = 551.0
+offset_top = 28.0
+offset_right = 1340.0
+offset_bottom = 189.0
+theme_override_colors/default_color = Color(0.2, 0.1764706, 0.2, 1)
+theme_override_colors/font_outline_color = Color(0.2, 0.1764706, 0.2, 1)
+theme_override_constants/outline_size = 7
+theme_override_fonts/bold_font = ExtResource("6_hrl0l")
+theme_override_font_sizes/normal_font_size = 103
+bbcode_enabled = true
+text = "Игра окончена"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="GameOverUI/MainPack" unique_id=1830128502]
+offset_left = 412.0
+offset_top = 177.0
+offset_right = 1511.0
+offset_bottom = 325.0
+theme_override_colors/default_color = Color(0.2, 0.1764706, 0.2, 1)
+theme_override_font_sizes/normal_font_size = 28
+text = "Переполнение этого аэропорта привело к закрытию вашей авиакомпании.
+В вашей авиакомпании Перевезено пассажиров:"
+
+[node name="ScoreLabel" type="Label" parent="GameOverUI/MainPack" unique_id=878178107]
+offset_left = 1124.0
+offset_top = 216.0
+offset_right = 1165.0
+offset_bottom = 256.0
+theme_override_colors/font_color = Color(0.2, 0.1764706, 0.2, 1)
+theme_override_font_sizes/font_size = 28
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=1579573212]
 layer = 2

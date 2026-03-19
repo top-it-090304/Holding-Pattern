@@ -1,0 +1,6 @@
+[gd_resource type="Theme" format=3 uid="uid://c8xnikxnwoo8j"]
+
+[ext_resource type="FontFile" uid="uid://bxu04q03hthlj" path="res://font/LFCurry.ttf" id="1_7j002"]
+
+[resource]
+default_font = ExtResource("1_7j002")

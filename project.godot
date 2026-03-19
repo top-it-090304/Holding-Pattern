@@ -30,6 +30,10 @@ window/stretch/mode="canvas_items"
 window/stretch/aspect="ignore"
 window/vsync/vsync_mode=3
 
+[gui]
+
+theme/custom_font="uid://c8xnikxnwoo8j"
+
 [physics]
 
 3d/physics_engine="Jolt Physics"

@@ -1,9 +1,10 @@
-Button
+CanvasGroup
+RichTextLabel
 Label
+Button
 Control
 TextureRect
 CanvasLayer
-RichTextLabel
 Node2D
 Marker2D
 Sprite2D
