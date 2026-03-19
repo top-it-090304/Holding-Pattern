@@ -41,6 +41,37 @@ texture = ExtResource("2_pnqar")
 wait_time = 24.0
 autostart = true
 
+[node name="GameOver" type="CanvasLayer" parent="." unique_id=2125910932]
+process_mode = 3
+
+[node name="TextureRect" type="TextureRect" parent="GameOver" unique_id=1163205481]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="Control" parent="GameOver" unique_id=1549837969]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ScoreLabel" type="Label" parent="GameOver/Control" unique_id=878178107]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Restart" type="Button" parent="GameOver/Control" unique_id=1839325162]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+
+[node name="Menu" type="Button" parent="GameOver/Control" unique_id=114752138]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+
 [node name="UI" type="CanvasLayer" parent="." unique_id=1579573212]
 layer = 2
 

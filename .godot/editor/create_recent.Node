@@ -1,8 +1,9 @@
-RichTextLabel
-TextureRect
+Button
 Label
 Control
+TextureRect
 CanvasLayer
+RichTextLabel
 Node2D
 Marker2D
 Sprite2D

@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bbdidywjb2jq4" path="res://objects/point_circle.png" id="2_qo1ey"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qo1ey"]
-radius = 29.017237
+radius = 15.033297
 
 [node name="Airport" type="Area2D" unique_id=1138182898]
 z_index = 1
