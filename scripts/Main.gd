@@ -327,7 +327,7 @@ func game_over(_failed_airport):
 	tween.tween_interval(2.0)
 	
 	tween.tween_callback(func():score_final_label.text = str(passengers_delivery))
-	tween.tween_property(main_pack, "self_modulate:a", 1.0, 1.8).from(0.0)
+	tween.tween_property(main_pack, "self_modulate:a", 1.0, 3.0).from(0.0)
 	
 	
 func _setup_vignette(_airport):
