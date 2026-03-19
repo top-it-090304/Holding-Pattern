@@ -129,12 +129,12 @@ func _load_passenger(airport):
 		return
 
 	var i = 0
-	while (i < airport.passengers.size()) and (cargo.size() < max_seats):
-		var p_shape = airport.passengers[i]
+	while (i < airport.passenger_manager.passengers.size()) and (cargo.size() < max_seats):
+		var p_shape = airport.passenger_manager.passengers[i]
 		
 		if p_shape in line_shapes:
 			cargo.append(p_shape)
-			airport.passengers.remove_at(i)
+			airport.passenger_manager.passengers.remove_at(i)
 
 			await get_tree().create_timer(0.3).timeout
 		else:

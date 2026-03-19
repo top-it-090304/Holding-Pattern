@@ -47,7 +47,6 @@ autostart = true
 
 [node name="GameOverUI" type="CanvasLayer" parent="." unique_id=2125910932]
 process_mode = 3
-visible = false
 
 [node name="MainPack" type="CanvasGroup" parent="GameOverUI" unique_id=582818894]
 process_mode = 3
