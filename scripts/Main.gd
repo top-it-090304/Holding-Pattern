@@ -301,11 +301,12 @@ func game_over(_failed_airport):
 	
 	var crash_zoom = Vector2(3.5, 3.5)
 	tween.tween_property(camera, "zoom", crash_zoom, 2.5)
-	tween.tween_property(camera, "rotation", 0.45, 2.5)
+	tween.tween_property(camera, "rotation", 0.45, 1.5)
 	
-	var appearance = tween.wait_time()
-	appearance.tween_callback(func():score_final_label.text = str(passengers_delivery))
-	appearance.tween_property(main_pack, "modulate:a", 1.0, 1.0)
+	tween.tween_interval(2.0)
+	
+	tween.tween_callback(func():score_final_label.text = str(passengers_delivery))
+	tween.tween_property(main_pack, "modulate:a", 1.0, 1.2)
 	
 func _setup_vignette(_airport):
 	vinetka.expand_mode = TextureRect.EXPAND_KEEP_SIZE
@@ -326,7 +327,7 @@ func _on_rb_toggled(_t):
 	
 func _on_restart_pressed():
 	get_tree().paused = false
-	get_tree().reload_current_scene()
+	get_tree().change_scene_to_file("res://scene/Main.tscn")
 
 func _on_menu_pressed():
 	get_tree().paused = false
