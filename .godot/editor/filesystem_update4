@@ -1,3 +1,4 @@
 res://scene/Main.tscn
 res://scripts/Main.gd
 res://scripts/GameData.gd
+res://scene/StartMenu.tscn

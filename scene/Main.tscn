@@ -48,6 +48,7 @@ autostart = true
 process_mode = 3
 
 [node name="MainPack" type="Control" parent="GameOverUI" unique_id=1549837969]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 0
 offset_right = 560.0
@@ -71,6 +72,7 @@ offset_right = 40.0
 offset_bottom = 23.0
 
 [node name="Restart" type="Button" parent="GameOverUI/MainPack" unique_id=2137488011]
+process_mode = 3
 layout_mode = 0
 offset_left = 222.0
 offset_top = 565.0
@@ -81,6 +83,7 @@ icon = ExtResource("3_764rb")
 flat = true
 
 [node name="Menu" type="Button" parent="GameOverUI/MainPack" unique_id=1409947932]
+process_mode = 3
 layout_mode = 0
 offset_left = 220.0
 offset_top = 663.0

@@ -12,6 +12,19 @@ var route_scene = load("res://scene/Route.tscn")
 @onready var score_final_label = $GameOverUI/MainPack/ScoreLabel
 @onready var main_pack = $GameOverUI/MainPack
 
+@onready var buttons = [$GameOverUI/MainPack/Restart, $GameOverUI/MainPack/Menu]
+
+var hover_scale = Vector2(1.2, 1.2)
+var normal_scale = Vector2(1.0, 1.0)
+var faded_alpha = Color(1, 1, 1, 0.3)
+var normal_alpha = Color(1, 1, 1, 1.0)
+var scale_hovered = Vector2(1.15, 1.15)
+var scale_others = Vector2(0.85, 0.85)
+var scale_normal = Vector2(1.0, 1.0)
+var alpha_faded = Color(1, 1, 1, 0.4)
+var alpha_full = Color(1, 1, 1, 1.0)
+var duration = 0.12
+
 var passengers_delivery: int = 0
 var passenger_timer: Timer
 var skip_spawn: int = 0
@@ -82,6 +95,12 @@ func _ready():
 	score_pack.scale = Vector2.ZERO
 	score_pack.modulate.a = 0
 	get_tree().create_timer(1.0).timeout.connect(animate_score)
+	
+	for btn in buttons:
+		if is_instance_valid(btn):
+			btn.pivot_offset = btn.size / 2
+			btn.mouse_entered.connect(_on_button_hovered.bind(btn))
+			btn.mouse_exited.connect(_on_button_unhovered)
 	
 func _process(delta):
 	if is_drawing and selected_airport:
@@ -306,7 +325,7 @@ func game_over(_failed_airport):
 	tween.tween_interval(2.0)
 	
 	tween.tween_callback(func():score_final_label.text = str(passengers_delivery))
-	tween.tween_property(main_pack, "modulate:a", 1.0, 1.2)
+	tween.tween_property(main_pack, "modulate:a", 1.0, 1.8)
 	
 func _setup_vignette(_airport):
 	vinetka.expand_mode = TextureRect.EXPAND_KEEP_SIZE
@@ -333,6 +352,24 @@ func _on_menu_pressed():
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://scene/StartMenu.tscn")
 
+func _on_button_hovered(hovered_btn):
+	for btn in buttons:
+		if not is_instance_valid(btn): continue
+		var tween = create_tween().set_parallel(true).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT).set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
+		
+		if btn == hovered_btn:
+			tween.tween_property(btn, "scale", scale_hovered, duration)
+			tween.tween_property(btn, "modulate", alpha_full, duration)
+		else:
+			tween.tween_property(btn, "scale", scale_others, duration)
+			tween.tween_property(btn, "modulate", alpha_faded, duration)
+			
+func _on_button_unhovered():
+	for btn in buttons:
+		if not is_instance_valid(btn): continue
+		var tween = create_tween().set_parallel(true).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT).set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
+		tween.tween_property(btn, "scale", scale_normal, duration)
+		tween.tween_property(btn, "modulate", alpha_full, duration)
 
 func _on_spawn_timer_timeout():
 	spawn_airport()
