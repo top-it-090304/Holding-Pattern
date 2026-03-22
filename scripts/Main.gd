@@ -279,7 +279,7 @@ func _spawn_burst_two_passenger(amount: int):
 	if not target_airport: return
 	
 	for i in range(amount):
-		if target_airport.passengers.size() < 9:
+		if target_airport.passenger_manager.passengers.size() < 9:
 			target_airport.spawn_passenger()
 			await get_tree().create_timer(0.2).timeout
 			
@@ -295,7 +295,7 @@ func _get_airport_():
 	var airports = get_tree().get_nodes_in_group("airports")
 	airports.shuffle()
 	for a in airports:
-		if a.passengers.size() < 9:
+		if a.passenger_manager.passengers.size() < 9:
 			return a
 	return null
 
@@ -327,7 +327,7 @@ func game_over(_failed_airport):
 	tween.tween_interval(2.0)
 	
 	tween.tween_callback(func():score_final_label.text = str(passengers_delivery))
-	tween.tween_property(main_pack, "self_modulate:a", 1.0, 3.0).from(0.0)
+	tween.tween_property(main_pack, "self_modulate:a", 1.0, 1.8).from(0.0)
 	
 	
 func _setup_vignette(_airport):
