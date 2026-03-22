@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dggwktu3dwg6x"]
 
 [ext_resource type="Script" uid="uid://cuexgr5rra0ub" path="res://scripts/start_menu.gd" id="1_lj036"]
+[ext_resource type="Script" uid="uid://bj5771ufkrcb0" path="res://scripts/Background_menu.gd" id="2_akhuw"]
 [ext_resource type="Texture2D" uid="uid://cccbojxrikyly" path="res://objects/Button_plau.png" id="3_8t8u8"]
 [ext_resource type="Texture2D" uid="uid://ciblyc6hoov27" path="res://objects/Button_settings.png" id="4_pbb8y"]
 [ext_resource type="Texture2D" uid="uid://dpsupjio5bj4q" path="res://objects/Button_stats.png" id="5_4vtxv"]
@@ -12,10 +13,6 @@
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_lj036")
-
-[node name="FieldBlue" type="Sprite2D" parent="." unique_id=654303762]
-position = Vector2(880.5, 524)
-scale = Vector2(1.8421875, 1.8555555)
 
 [node name="Play" type="Button" parent="." unique_id=1056440167]
 layout_mode = 0
@@ -75,6 +72,29 @@ icon = ExtResource("8_akhuw")
 flat = true
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1333308016]
+
+[node name="Back" type="Node2D" parent="." unique_id=948381286]
+script = ExtResource("2_akhuw")
+
+[node name="Points" type="Node2D" parent="Back" unique_id=1009917509]
+
+[node name="Marker2D" type="Marker2D" parent="Back/Points" unique_id=1940000438]
+position = Vector2(292, -677)
+
+[node name="Marker2D2" type="Marker2D" parent="Back/Points" unique_id=513781829]
+position = Vector2(1146, 270)
+
+[node name="Marker2D3" type="Marker2D" parent="Back/Points" unique_id=1119795862]
+position = Vector2(-1093, 69)
+
+[node name="Marker2D4" type="Marker2D" parent="Back/Points" unique_id=342716418]
+position = Vector2(-188, 590)
+
+[node name="Marker2D5" type="Marker2D" parent="Back/Points" unique_id=1052467049]
+position = Vector2(-1108, -97)
+
+[node name="Marker2D6" type="Marker2D" parent="Back/Points" unique_id=892398252]
+position = Vector2(-816, -590)
 
 [connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Settings" to="." method="_on_settings_pressed"]
