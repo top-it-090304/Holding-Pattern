@@ -66,7 +66,7 @@ func _process(delta):
 	var new_pos = curve.sample_baked(dist)
 	
 	
-	if current_speed > 0.1 and position.distance_to(new_pos) > 0.05:
+	if current_speed > 0.1 and position.distance_to(new_pos) > 0.001:
 		var target_angle = (new_pos - position).angle()
 		rotation = lerp_angle(rotation, target_angle, 8.0 * delta)
 	position = new_pos
