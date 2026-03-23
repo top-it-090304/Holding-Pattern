@@ -8,18 +8,34 @@
 [ext_resource type="Texture2D" uid="uid://rh1mnwc0fljj" path="res://objects/Button_exit.png" id="6_pbb8y"]
 [ext_resource type="Texture2D" uid="uid://drq8s8w5wm0k5" path="res://objects/Button_back.png" id="7_4vtxv"]
 [ext_resource type="Texture2D" uid="uid://dhgy00ifet6ci" path="res://objects/Button_back_right.png" id="8_akhuw"]
-[ext_resource type="Texture2D" uid="uid://bjil8gjfbvr62" path="res://objects/point_square.png" id="9_ols7h"]
-[ext_resource type="Texture2D" uid="uid://cjn3vmepctv3a" path="res://objects/Background.png" id="10_v2vl7"]
 
 [node name="Control" type="Control" unique_id=1201501265]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_lj036")
 
-[node name="Background" type="Sprite2D" parent="." unique_id=526815342]
-position = Vector2(1309.5001, 769)
-scale = Vector2(2.3734376, 2.3703704)
-texture = ExtResource("10_v2vl7")
+[node name="Back" type="Node2D" parent="." unique_id=948381286]
+script = ExtResource("2_akhuw")
+
+[node name="Points" type="Node2D" parent="Back" unique_id=1009917509]
+
+[node name="Marker2D" type="Marker2D" parent="Back/Points" unique_id=1940000438]
+position = Vector2(292, -677)
+
+[node name="Marker2D2" type="Marker2D" parent="Back/Points" unique_id=513781829]
+position = Vector2(1146, 270)
+
+[node name="Marker2D3" type="Marker2D" parent="Back/Points" unique_id=1119795862]
+position = Vector2(-1187, 66)
+
+[node name="Marker2D4" type="Marker2D" parent="Back/Points" unique_id=342716418]
+position = Vector2(-263, 584)
+
+[node name="Marker2D5" type="Marker2D" parent="Back/Points" unique_id=1052467049]
+position = Vector2(-1105, -53)
+
+[node name="Marker2D6" type="Marker2D" parent="Back/Points" unique_id=892398252]
+position = Vector2(-618, -587)
 
 [node name="Play" type="Button" parent="." unique_id=1056440167]
 layout_mode = 0
@@ -79,37 +95,6 @@ icon = ExtResource("8_akhuw")
 flat = true
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1333308016]
-
-[node name="Back" type="Node2D" parent="." unique_id=948381286]
-script = ExtResource("2_akhuw")
-
-[node name="Points" type="Node2D" parent="Back" unique_id=1009917509]
-
-[node name="Marker2D" type="Marker2D" parent="Back/Points" unique_id=1940000438]
-position = Vector2(292, -677)
-
-[node name="Marker2D2" type="Marker2D" parent="Back/Points" unique_id=513781829]
-position = Vector2(1603, 781)
-
-[node name="Marker2D3" type="Marker2D" parent="Back/Points" unique_id=1119795862]
-position = Vector2(-1187, 66)
-
-[node name="Marker2D4" type="Marker2D" parent="Back/Points" unique_id=342716418]
-position = Vector2(-238, 817)
-
-[node name="Marker2D5" type="Marker2D" parent="Back/Points" unique_id=51962528]
-position = Vector2(-1195, 1111)
-
-[node name="Marker2D6" type="Marker2D" parent="Back/Points" unique_id=962952090]
-position = Vector2(39, 2286)
-
-[node name="Marker2D7" type="Marker2D" parent="Back/Points" unique_id=1580976034]
-position = Vector2(1283, 1216)
-
-[node name="PointSquare" type="Sprite2D" parent="." unique_id=704127309]
-visible = false
-position = Vector2(-243, 686)
-texture = ExtResource("9_ols7h")
 
 [connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Settings" to="." method="_on_settings_pressed"]

@@ -55,6 +55,7 @@ func _process(delta):
 		t += t_
 		if t >= 1.0:
 			t = 1.0
+			
 			switch_to_next_route(true)
 	else:
 		t -= t_

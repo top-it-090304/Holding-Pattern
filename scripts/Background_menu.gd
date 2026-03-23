@@ -1,51 +1,55 @@
 extends Node2D
 
-var airport_scene = preload("res://scene/Airport.tscn")
-var route_scene = preload("res://scene/Route.tscn")
-
-func _process(_delta):
-	var planes = get_tree().get_nodes_in_group("planes")
-	for p in planes:
-		if p.scale == Vector2(1, 1):
-			p.scale = Vector2(5, 5)
-			p.target_speed = 60.0
+@export var plane_speed: float = 250.0
 
 func _ready():
-	setup_menu_traffic()
-
-func setup_menu_traffic():
+	await get_tree().create_timer(0.1).timeout
+	
 	var points = $Points.get_children()
 	if points.size() < 2: return
+	_create_menu_route(points[0].global_position, points[1].global_position, Color(0.1, 0.5, 1.0, 0.8), 50.0)  # Синяя дуга
 	
-	# Создаем два невидимых аэропорта
-	var air1 = _create_hidden_airport(points[0].position)
-	var air2 = _create_hidden_airport(points[1].position)
-	var air3 = _create_hidden_airport(points[2].position)
-	var air4 = _create_hidden_airport(points[3].position)
-	var air5 = _create_hidden_airport(points[4].position)
-	var air6 = _create_hidden_airport(points[5].position)
+	if points.size() >= 3:
+		_create_menu_route(points[2].global_position, points[3].global_position, Color(1.0, 0.2, 0.2, 0.8), -80.0)
+		
+		_create_menu_route(points[3].global_position, points[4].global_position, Color(1.0, 0.2, 0.2, 0.8), -80.0) # Красная дуга (выгнута в другую сторону)
+	if points.size() >= 4:
+		_create_menu_route(points[5].global_position, points[6].global_position, Color(1.0, 0.8, 0.1, 0.8), -150.0)   # Желтая ПРЯМАЯ (высота = 0)
+
+func _create_menu_route(start_pos: Vector2, end_pos: Vector2, route_color: Color, arc_height: float = 0.0):
 	
+	var points_array = PackedVector2Array()
 	
-	air1.forced_shape = GameData.ShapeType.CIRCLE
-	air2.forced_shape = GameData.ShapeType.SQUARE
+	if arc_height == 0.0:
+		points_array.append(start_pos)
+		points_array.append(end_pos)
+	else:
+		# Кривая Безье (плавная дуга)
+		var mid = (start_pos + end_pos) / 2.0
+		var dir = (end_pos - start_pos).normalized()
+		var normal = Vector2(-dir.y, dir.x)
+		var control = mid + normal * arc_height*3
+		
+		var resolution = 64
+		for i in range(resolution + 1):
+			var t = float(i) / resolution
+			var q0 = start_pos.lerp(control, t)
+			var q1 = control.lerp(end_pos, t)
+			points_array.append(q0.lerp(q1, t))
 	
-	var route = route_scene.instantiate()
-	add_child(route)
+	var line = Line2D.new()
+	line.points = points_array
+	line.width = 12.0
+	line.default_color = route_color
+	add_child(line)
 	
 
-	GameData.lines_data["current hex color"] = Color(1.0, 0.804, 0.0, 1.0)
-	route.create_line(air1, air2)
+	var plane = Sprite2D.new()
+	plane.texture = load("res://objects/Fly.png")
+	plane.scale = Vector2(1.5, 1.5)
+	plane.modulate = route_color
 	
-	GameData.lines_data["current hex color"] = Color(1.0, 0.804, 0.0, 1.0)
-	route.create_line(air3, air4)
+	plane.set_script(preload("res://scripts/Menu_plane.gd"))
+	add_child(plane)
 	
-	GameData.lines_data["current hex color"] = Color(1.0, 0.804, 0.0, 1.0)
-	route.create_line(air5, air6)
-
-func _create_hidden_airport(pos):
-	var a = airport_scene.instantiate()
-	a.position = pos
-	add_child(a)
-	a.modulate.a = 0 
-	a.process_mode = Node.PROCESS_MODE_DISABLED 
-	return a
+	plane.start_flight(points_array, plane_speed)
