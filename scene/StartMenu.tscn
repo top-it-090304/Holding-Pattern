@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://dhgy00ifet6ci" path="res://objects/Button_back_right.png" id="8_akhuw"]
 [ext_resource type="Texture2D" uid="uid://bjil8gjfbvr62" path="res://objects/point_square.png" id="9_ols7h"]
 [ext_resource type="Texture2D" uid="uid://cjn3vmepctv3a" path="res://objects/Background.png" id="10_v2vl7"]
+[ext_resource type="Texture2D" uid="uid://v3a1y8lydq1x" path="res://objects/Menu/cards_1.png" id="11_4kmay"]
 
 [node name="Control" type="Control" unique_id=1201501265]
 layout_mode = 3
@@ -17,8 +18,8 @@ anchors_preset = 0
 script = ExtResource("1_lj036")
 
 [node name="Background" type="Sprite2D" parent="." unique_id=526815342]
-position = Vector2(1309.5001, 769)
-scale = Vector2(2.3734376, 2.3703704)
+position = Vector2(1599.4999, 1229.9999)
+scale = Vector2(2.675521, 3.224074)
 texture = ExtResource("10_v2vl7")
 
 [node name="Play" type="Button" parent="." unique_id=1056440167]
@@ -34,9 +35,9 @@ flat = true
 [node name="Settings" type="Button" parent="." unique_id=1150483765]
 layout_mode = 0
 offset_left = -265.0
-offset_top = -60.0
+offset_top = 41.0
 offset_right = 244.0
-offset_bottom = 45.0
+offset_bottom = 146.0
 pivot_offset = Vector2(150, 40)
 icon = ExtResource("4_pbb8y")
 flat = true
@@ -44,9 +45,9 @@ flat = true
 [node name="Stats" type="Button" parent="." unique_id=1338606621]
 layout_mode = 0
 offset_left = -265.0
-offset_top = 42.0
+offset_top = -59.0
 offset_right = 244.0
-offset_bottom = 147.0
+offset_bottom = 46.0
 pivot_offset = Vector2(150, 40)
 icon = ExtResource("5_4vtxv")
 flat = true
@@ -62,23 +63,36 @@ flat = true
 
 [node name="Back_down" type="Button" parent="." unique_id=1307795110]
 layout_mode = 0
-offset_left = -944.0
-offset_top = 598.0
-offset_right = -860.0
-offset_bottom = 687.0
+offset_left = -921.0
+offset_top = 1150.0
+offset_right = -837.0
+offset_bottom = 1239.0
 icon = ExtResource("7_4vtxv")
 flat = true
 
 [node name="Back_right" type="Button" parent="." unique_id=1563972719]
 layout_mode = 0
-offset_left = 964.0
-offset_top = -538.0
-offset_right = 1070.0
-offset_bottom = -449.0
+offset_left = 2275.0
+offset_top = 499.00012
+offset_right = 2381.0
+offset_bottom = 588.0001
+rotation = 0.6017329
 icon = ExtResource("8_akhuw")
 flat = true
 
+[node name="Map_1" type="Button" parent="." unique_id=227730114]
+z_index = 1
+layout_mode = 0
+offset_left = 2399.8516
+offset_top = 696.22314
+offset_right = 2742.4558
+offset_bottom = 1484.1494
+rotation = 0.6021386
+icon = ExtResource("11_4kmay")
+flat = true
+
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1333308016]
+ignore_rotation = false
 
 [node name="Back" type="Node2D" parent="." unique_id=948381286]
 script = ExtResource("2_akhuw")
@@ -89,25 +103,37 @@ script = ExtResource("2_akhuw")
 position = Vector2(292, -677)
 
 [node name="Marker2D2" type="Marker2D" parent="Back/Points" unique_id=513781829]
-position = Vector2(1603, 781)
+position = Vector2(1851, -34)
 
 [node name="Marker2D3" type="Marker2D" parent="Back/Points" unique_id=1119795862]
 position = Vector2(-1152, 38)
 
 [node name="Marker2D4" type="Marker2D" parent="Back/Points" unique_id=342716418]
-position = Vector2(-238, 817)
+position = Vector2(-331, 814)
 
 [node name="Marker2D5" type="Marker2D" parent="Back/Points" unique_id=51962528]
-position = Vector2(-1195, 1111)
+position = Vector2(-1145, 1685)
 
 [node name="Marker2D6" type="Marker2D" parent="Back/Points" unique_id=962952090]
-position = Vector2(39, 2286)
+position = Vector2(314, 2406)
 
 [node name="Marker2D7" type="Marker2D" parent="Back/Points" unique_id=1580976034]
-position = Vector2(1283, 1216)
+position = Vector2(1548, 1551)
+
+[node name="Marker2D8" type="Marker2D" parent="Back/Points" unique_id=2043917348]
+position = Vector2(-1157, -71)
+
+[node name="Marker2D9" type="Marker2D" parent="Back/Points" unique_id=713569536]
+position = Vector2(-448, -655)
+
+[node name="Marker2D10" type="Marker2D" parent="Back/Points" unique_id=2031596884]
+position = Vector2(3810, 1918)
+
+[node name="Marker2D11" type="Marker2D" parent="Back/Points" unique_id=878403298]
+position = Vector2(70, -639)
 
 [node name="PointSquare" type="Sprite2D" parent="." unique_id=704127309]
-position = Vector2(-243, 810)
+position = Vector2(-333, 813)
 texture = ExtResource("9_ols7h")
 
 [connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
@@ -116,3 +142,4 @@ texture = ExtResource("9_ols7h")
 [connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]
 [connection signal="pressed" from="Back_down" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="Back_right" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="Map_1" to="." method="_on_map_1_pressed"]

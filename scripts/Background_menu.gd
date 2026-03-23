@@ -7,15 +7,20 @@ func _ready():
 	
 	var points = $Points.get_children()
 	if points.size() < 2: return
-	_create_menu_route(points[0].global_position, points[1].global_position, Color(0.1, 0.5, 1.0, 0.8), 50.0)
+	_create_menu_route(points[0].global_position, points[1].global_position, Color(0.1, 0.5, 1.0, 0.8), 170.0)
 	
 	if points.size() >= 3:
-		_create_menu_route(points[2].global_position, points[3].global_position, Color(1.0, 0.2, 0.2, 0.8), -160.0)
+		_create_menu_route(points[2].global_position, points[3].global_position, Color(1.0, 0.2, 0.2, 0.8), -190.0)
+		_create_menu_route(points[3].global_position, points[4].global_position, Color(1.0, 0.2, 0.2, 0.8), 0.0)
 		
-		_create_menu_route(points[3].global_position, points[4].global_position, Color(1.0, 0.2, 0.2, 0.8), -80.0)
 	if points.size() >= 4:
-		_create_menu_route(points[5].global_position, points[6].global_position, Color(1.0, 0.8, 0.1, 0.8), -150.0)
-
+		_create_menu_route(points[5].global_position, points[6].global_position, Color(0.0, 0.624, 0.867, 1.0), -250.0)
+	
+	if points.size() >= 5:
+		_create_menu_route(points[7].global_position, points[8].global_position, Color(0.0, 0.639, 0.235, 1.0), 160.0)
+	
+	if points.size() >= 6:
+		_create_menu_route(points[9].global_position, points[10].global_position, Color(1.0, 0.8, 0.1, 0.8), 0.0)
 func _create_menu_route(start_pos: Vector2, end_pos: Vector2, route_color: Color, arc_height: float = 0.0):
 	
 	var points_array = PackedVector2Array()
@@ -24,11 +29,11 @@ func _create_menu_route(start_pos: Vector2, end_pos: Vector2, route_color: Color
 		points_array.append(start_pos)
 		points_array.append(end_pos)
 	else:
-		# Кривая Безье (плавная дуга)
+		
 		var mid = (start_pos + end_pos) / 2.0
 		var dir = (end_pos - start_pos).normalized()
 		var normal = Vector2(-dir.y, dir.x)
-		var control = mid + normal * arc_height*3
+		var control = mid + normal * arc_height
 		
 		var resolution = 64
 		for i in range(resolution + 1):
@@ -39,7 +44,7 @@ func _create_menu_route(start_pos: Vector2, end_pos: Vector2, route_color: Color
 	
 	var line = Line2D.new()
 	line.points = points_array
-	line.width = 12.0
+	line.width = 21.0
 	line.default_color = route_color
 	add_child(line)
 	

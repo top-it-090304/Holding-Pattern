@@ -21,7 +21,7 @@ func start_flight(points: PackedVector2Array, flight_speed: float):
 
 func _process(delta):
 	if path_points.size() < 2 or is_waiting: return
-	var stop_margin = 0.20
+	var stop_margin = 0.15
 	var dist_to_target = (1.0 - t) if forward else t
 	
 	if dist_to_target < stop_margin:

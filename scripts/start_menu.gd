@@ -7,16 +7,19 @@ extends Control
 
 var positions = {
 	"main": Vector2(0, 0),
-	"settings": Vector2(0, 1120), ## камера вниз
-	"stats": Vector2(1770, 0)    ## камера вправо
+	"play": Vector2(2800, 1420),
+	"settings": Vector2(0, 1620),
+	"stats": Vector2(1770, 0)
 }
-var anim_speed = 0.12
+
 
 var target_pos = Vector2(576, 324)
+var target_rotation: float = 0.0 
 
 func _ready():
 	target_pos = positions["main"]
 	camera.position = target_pos
+	target_rotation = 0.0
 	for btn in buttons:
 		btn.pivot_offset = btn.size / 2
 		btn.mouse_entered.connect(_on_button_hovered.bind(btn))
@@ -27,20 +30,26 @@ func _ready():
 		btn.mouse_exited.connect(_on_button_unhovered)
 
 func _process(delta):
-	camera.position = camera.position.lerp(target_pos, 5.0 * delta)
+	camera.position = camera.position.lerp(target_pos, 3.5 * delta)
+	camera.rotation = lerp_angle(camera.rotation, target_rotation, 3.0 * delta)
 
-# Сигналы кнопок
+## Сигналы кнопок
 func _on_play_pressed():
+	target_pos = positions["play"]
+	target_rotation = 0.60
+
+func _on_map_1_pressed():
 	get_tree().change_scene_to_file("res://scene/Main.tscn")
 
 func _on_settings_pressed():
 	target_pos = positions["settings"]
-
+	
 func _on_stats_pressed():
 	target_pos = positions["stats"]
 
 func _on_back_pressed():
 	target_pos = positions["main"]
+	target_rotation = 0.0
 
 
 func _on_exit_pressed():

@@ -4,3 +4,8 @@ res://scripts/Route.gd
 res://scripts/Menu_plane.gd
 res://scene/Plane.tscn
 res://scripts/Plane.gd
+res://scripts/start_menu.gd
+res://scene/Main.tscn
+res://scripts/GameData.gd
+res://scripts/PassengerManager.gd
+res://scripts/Airport.gd
