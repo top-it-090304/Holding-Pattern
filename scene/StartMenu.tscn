@@ -92,7 +92,7 @@ position = Vector2(292, -677)
 position = Vector2(1603, 781)
 
 [node name="Marker2D3" type="Marker2D" parent="Back/Points" unique_id=1119795862]
-position = Vector2(-1187, 66)
+position = Vector2(-1152, 38)
 
 [node name="Marker2D4" type="Marker2D" parent="Back/Points" unique_id=342716418]
 position = Vector2(-238, 817)
@@ -107,8 +107,7 @@ position = Vector2(39, 2286)
 position = Vector2(1283, 1216)
 
 [node name="PointSquare" type="Sprite2D" parent="." unique_id=704127309]
-visible = false
-position = Vector2(-243, 686)
+position = Vector2(-243, 810)
 texture = ExtResource("9_ols7h")
 
 [connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
