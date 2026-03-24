@@ -12,6 +12,9 @@ var max_seats: int = 6
 var if_load: bool = true
 var is_transport_plane: bool = false
 
+var is_waiting: bool = false
+var current_target_airport = null
+
 func _input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		var mouse_pos = get_global_mouse_position()
@@ -31,7 +34,7 @@ func _input(event):
 				_drop_plane()
 
 func _process(delta):
-	if is_transport_plane:
+	if is_transport_plane or !current_route or is_waiting:
 		_take_plane()
 		return
 	if not current_route: return
@@ -71,6 +74,21 @@ func _process(delta):
 		var target_angle = (new_pos - position).angle()
 		rotation = lerp_angle(rotation, target_angle, 8.0 * delta)
 	position = new_pos
+	
+	if (forward and t >= 1.0) or (not forward and t <= 0.0):
+		var airport = current_route["end_airport"] if forward else current_route["start_airport"]
+		_arrive_at_airport(airport)
+		
+func _arrive_at_airport(airport):
+	is_waiting = true
+	handle_passengers(airport)
+	
+	# Пауза на погрузку (как в оригинале)
+	await get_tree().create_timer(0.8).timeout 
+	
+	# Логика разворота или следования дальше
+	is_waiting = false
+	# Тут твой код смены forward или выбора следующей кривой
 
 func setup_with_route(route_data: Dictionary, start_t: float = 0.0):
 	current_route = route_data
@@ -246,8 +264,7 @@ func _get_closest_route_data(global_pos):
 					"color_val": GameData.color_values[route.route_data.color]
 				}
 	return closest_data
-	
-	
+
 func _drop_plane():
 	is_transport_plane = false
 	
@@ -279,4 +296,72 @@ func _drop_plane():
 			if count_label.has_method("update_counter"):
 				count_label.update_counter()
 		queue_free()
+
+func _get_lines_at_airport(airport) -> Array:
+	var lines_here = []
+	for c in GameData.lines_data["active colors"]:
+		var routes_key = c + "_routes"
+		if GameData.lines_data.has(routes_key):
+			for r in GameData.lines_data[routes_key]:
+				if r["start_airport"] == airport or r["end_airport"] == airport:
+					if not c in lines_here: lines_here.append(c)
+	return lines_here
+
+func _can_reach_transfer_hub(target_shape) -> bool:
+	var routes_key = color + "_routes"
+	if not GameData.lines_data.has(routes_key): return false
+	
+	for r in GameData.lines_data[routes_key]:
+		for a in [r["start_airport"], r["end_airport"]]:
+			for l_color in _get_lines_at_airport(a):
+				if l_color != color and target_shape in GameData.lines_data[l_color + "_shapes"]:
+					return true
+	return false
+
+func handle_passengers(airport):
+	var pm = airport.passenger_manager
+	if !pm: return
+	
+	var remaining_cargo = []
+	for p_shape in cargo:
+		if p_shape == airport.my_shape:
+			Events.passengers_delivery.emit()
+		else:
+			var on_my_line = p_shape in GameData.lines_data[color + "_shapes"]
+			var can_transfer_here = false
+			
+			if not on_my_line:
+				for l in _get_lines_at_airport(airport):
+					if l != color and p_shape in GameData.lines_data[l + "_shapes"]:
+						can_transfer_here = true
+						break
+			
+			if can_transfer_here:
+				pm.passengers.append(p_shape)
+			else:
+				remaining_cargo.append(p_shape)
+	
+	cargo = remaining_cargo
+	
+	var i = 0
+	while i < pm.passengers.size() and cargo.size() < max_seats:
+		var p_shape = pm.passengers[i]
+		var can_reach_directly = p_shape in GameData.lines_data[color + "_shapes"]
+		var can_help_transfer = false
 		
+		if not can_reach_directly:
+			can_help_transfer = _can_reach_transfer_hub(p_shape)
+		
+		var already_on_right_line = false
+		for l in _get_lines_at_airport(airport):
+			if p_shape in GameData.lines_data[l + "_shapes"] and l != color:
+				already_on_right_line = true
+		
+		if can_reach_directly or (can_help_transfer and not already_on_right_line):
+			cargo.append(p_shape)
+			pm.passengers.remove_at(i)
+		else:
+			i += 1
+	
+	airport.queue_redraw()
+	queue_redraw()
