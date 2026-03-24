@@ -381,8 +381,9 @@ func _on_spawn_timer_timeout():
 func clear_data():
 	var current_color = GameData.lines_data["current color"]
 	GameData.start_planes += len(GameData.lines_data[current_color + "_planes"])
-	for plane in GameData.lines_data[current_color + "_planes"]:
-		plane.queue_free()
+	if GameData.lines_data[current_color + "_planes"]:
+		for plane in GameData.lines_data[current_color + "_planes"]:
+			plane.queue_free()
 	get_tree().get_nodes_in_group("countPlane")[0].update_counter()
 	for route in GameData.lines_data[current_color + "_routes"]:
 		route["route"].queue_free()

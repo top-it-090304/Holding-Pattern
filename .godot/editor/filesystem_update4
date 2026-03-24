@@ -1,6 +1,2 @@
-res://scene/Main.tscn
-res://scripts/PassengerManager.gd
 res://scene/StartMenu.tscn
-res://scripts/start_menu.gd
-res://scripts/Level_select.gd
-res://scripts/Background_menu.gd
+res://scripts/Main.gd
