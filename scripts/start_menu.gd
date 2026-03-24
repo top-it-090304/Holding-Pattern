@@ -1,4 +1,4 @@
-extends Control
+extends Node2D
 
 @onready var camera = $Camera2D
 @onready var buttons = [$Play, $Settings, $Stats, $Exit]

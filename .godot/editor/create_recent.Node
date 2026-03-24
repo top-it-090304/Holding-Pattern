@@ -1,10 +1,11 @@
 Button
-Marker2D
-Node2D
+HBoxContainer
 CanvasGroup
+Node2D
+Control
+Marker2D
 RichTextLabel
 Label
-Control
 TextureRect
 CanvasLayer
 Sprite2D

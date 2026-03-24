@@ -67,7 +67,7 @@ func draw_passengers(drawer: Node2D):
 				drawer.draw_rect(rect, passenger_color, true)
 
 			GameData.ShapeType.TRIANGLE:
-				var size = p_size * current_scale * 2
+				var size = p_size * current_scale * 2.2
 				var h = size * sqrt(3) / 2
 
 				var points = PackedVector2Array([
