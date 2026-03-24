@@ -67,7 +67,7 @@ func _draw():
 		var danger_color = Color(0.553, 0.553, 0.553, 0.78)
 		draw_arc(Vector2.ZERO, danger_radius, -PI/2, -PI/2 + (TAU * progress), 64, danger_color, 22.0, true)
 		
-	
+
 func spawn_animation():
 	sprite.scale = Vector2.ZERO
 	var tween_pop = create_tween().set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)

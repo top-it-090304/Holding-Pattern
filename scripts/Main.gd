@@ -377,3 +377,21 @@ func _on_button_unhovered():
 
 func _on_spawn_timer_timeout():
 	spawn_airport()
+
+func clear_data():
+	var current_color = GameData.lines_data["current color"]
+	GameData.start_planes += len(GameData.lines_data[current_color + "_planes"])
+	for plane in GameData.lines_data[current_color + "_planes"]:
+		plane.queue_free()
+	get_tree().get_nodes_in_group("countPlane")[0].update_counter()
+	for route in GameData.lines_data[current_color + "_routes"]:
+		route["route"].queue_free()
+	GameData.lines_data["in_" + current_color] = false
+	GameData.lines_data[current_color + "_routes"].clear()
+	GameData.lines_data[current_color + "_airports"].clear()
+	GameData.lines_data[current_color + "_planes"].clear()
+	GameData.lines_data[current_color + "_shapes"].clear()
+
+func _on_clear_data_pressed() -> void:
+	clear_data()
+	print("button_pressed")

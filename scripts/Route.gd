@@ -51,6 +51,7 @@ func create_line(airport_a, airport_b):
 		shapes_list.append(airport_b.my_shape) 
 	
 	route_data = {
+		"route" = self,
 		"curve" = curve,
 		"start_airport" = airport_a,
 		"end_airport" = airport_b,
