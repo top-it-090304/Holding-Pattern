@@ -336,17 +336,23 @@ func _setup_vignette(_airport):
 	
 ## кнопки
 func _on_yb_toggled(_t):
+	$UI/ClearData.global_position = $UI/YellowButton.global_position
+	$UI/ClearData.position += Vector2(-15,-15)
 	lines_data["current color"] = "yellow"
 	lines_data["current hex color"] = Color(1.0, 0.812, 0.039, 1.0)
 
 func _on_bb_toggled(_t):
+	$UI/ClearData.global_position = $UI/BlueButton.global_position
+	$UI/ClearData.position += Vector2(-15,-15)
 	lines_data["current color"] = "blue"
 	lines_data["current hex color"] = Color(0.0, 0.323, 0.983, 1.0)
 
 func _on_rb_toggled(_t):
+	$UI/ClearData.global_position = $UI/RedButton.global_position
+	$UI/ClearData.position += Vector2(-15,-15)
 	lines_data["current color"] = "red"
 	lines_data["current hex color"] = Color(1.0, 0.0, 0.0, 1.0)
-	
+
 func _on_restart_pressed():
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://scene/Main.tscn")
