@@ -4,3 +4,4 @@ res://scripts/Airport.gd
 res://scripts/Main.gd
 res://scripts/Plane.gd
 res://scripts/GameData.gd
+res://scripts/PassengerManager.gd

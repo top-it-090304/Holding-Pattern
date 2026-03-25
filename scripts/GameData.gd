@@ -1,6 +1,6 @@
 extends Node
 
-var start_planes: int = 3
+var start_planes: int = 8
 var max_passengers: int = 7
 
 

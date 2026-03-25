@@ -38,6 +38,8 @@ var start_shapes = [
 	GameData.ShapeType.TRIANGLE
 ]
 
+
+
 var all_zones: Array = []
 var active_airport: Array[Vector2] = []
 var airport_points: Array[Vector2] = []
@@ -172,9 +174,6 @@ func _input(event):
 				set_line_stroke(false)
 				is_drawing = false
 				stop_draw()
-
-
-
 
 func line_draw(pos1: Vector2, pos2: Vector2):
 	var curve = Curve2D.new()

@@ -77,7 +77,6 @@ func draw_passengers(drawer: Node2D):
 					pos + Vector2(-size/2, h/2)
 				])
 				
-				
 				drawer.draw_colored_polygon(points, passenger_color)
 				
 				
