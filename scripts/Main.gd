@@ -166,9 +166,11 @@ func _input(event):
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT:
 			if event.pressed:
-				set_line_highlight(true)
+				is_drawing = true
+				set_line_stroke(true)
 			else:
-				set_line_highlight(false)
+				set_line_stroke(false)
+				is_drawing = false
 				stop_draw()
 
 
@@ -246,18 +248,22 @@ func spawn_airport():
 	inst.end_game.connect(game_over)
 	add_child(inst)
 	
-func set_line_highlight(is_active: bool):
+func set_line_stroke(is_active: bool):
+	if is_active and not is_drawing: 
+		return
 	var current_color = GameData.lines_data["current color"]
 	var hex_color = GameData.lines_data["current hex color"]
 	
 	var airports = []
+	if not GameData.lines_data.has(current_color + "_routes"): return
+	
 	for route in GameData.lines_data[current_color + "_routes"]:
 		if not route.start_airport in airports: airports.append(route.start_airport)
 		if not route.end_airport in airports: airports.append(route.end_airport)
 	
 	for a in airports:
 		if is_instance_valid(a):
-			a.toggle_highlight(is_active, hex_color)
+			a.toggle_stroke(is_active, hex_color)
 
 
 func _on_airport_selected(airport):
@@ -352,18 +358,21 @@ func _setup_vignette(_airport):
 	
 ## кнопки
 func _on_yb_toggled(_t):
+	set_line_stroke(false)
 	$UI/ClearData.global_position = $UI/YellowButton.global_position
 	$UI/ClearData.position += Vector2(-15,-15)
 	lines_data["current color"] = "yellow"
 	lines_data["current hex color"] = Color(1.0, 0.812, 0.039, 1.0)
 
 func _on_bb_toggled(_t):
+	set_line_stroke(false)
 	$UI/ClearData.global_position = $UI/BlueButton.global_position
 	$UI/ClearData.position += Vector2(-15,-15)
 	lines_data["current color"] = "blue"
 	lines_data["current hex color"] = Color(0.0, 0.323, 0.983, 1.0)
 
 func _on_rb_toggled(_t):
+	set_line_stroke(false)
 	$UI/ClearData.global_position = $UI/RedButton.global_position
 	$UI/ClearData.position += Vector2(-15,-15)
 	lines_data["current color"] = "red"
