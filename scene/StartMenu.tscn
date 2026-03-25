@@ -108,7 +108,7 @@ pivot_offset = Vector2(170, 390)
 theme_override_constants/separation = 100
 metadata/_edit_lock_ = true
 
-[node name="Map_3" type="Button" parent="LevelSelect/CardsPack" unique_id=2093832014]
+[node name="Map_1" type="Button" parent="LevelSelect/CardsPack" unique_id=227730114]
 z_index = 1
 layout_mode = 2
 icon = ExtResource("11_4kmay")
@@ -120,7 +120,7 @@ layout_mode = 2
 icon = ExtResource("11_4kmay")
 flat = true
 
-[node name="Map_1" type="Button" parent="LevelSelect/CardsPack" unique_id=227730114]
+[node name="Map_3" type="Button" parent="LevelSelect/CardsPack" unique_id=2093832014]
 z_index = 1
 layout_mode = 2
 icon = ExtResource("11_4kmay")

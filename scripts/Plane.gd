@@ -83,12 +83,8 @@ func _arrive_at_airport(airport):
 	is_waiting = true
 	handle_passengers(airport)
 	
-	# Пауза на погрузку (как в оригинале)
 	await get_tree().create_timer(0.8).timeout 
-	
-	# Логика разворота или следования дальше
 	is_waiting = false
-	# Тут твой код смены forward или выбора следующей кривой
 
 func setup_with_route(route_data: Dictionary, start_t: float = 0.0):
 	current_route = route_data

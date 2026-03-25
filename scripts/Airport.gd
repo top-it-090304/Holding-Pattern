@@ -109,6 +109,15 @@ func _draw_stroke(radius: float, color: Color, line_width: float):
 				Vector2(0, -12) * sf
 			])
 			draw_polyline(points, color, line_width, true)
+			
+	
+func toggle_highlight(active: bool, color: Color = Color.WHITE):
+	stroke_color = color
+	var tween = create_tween()
+	var target_r = 10.0 if active else 0.0
+	
+	tween.tween_property(self, "stroke_radius", target_r, 0.15).set_trans(Tween.TRANS_SINE)
+	
 	
 ## обводки
 func draw_stroke(active: bool):

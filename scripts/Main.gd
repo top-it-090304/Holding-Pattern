@@ -164,8 +164,12 @@ func unlock_next_phase():
 
 func _input(event):
 	if event is InputEventMouseButton:
-		if event.button_index == MOUSE_BUTTON_LEFT and not event.pressed:
-			stop_draw()
+		if event.button_index == MOUSE_BUTTON_LEFT:
+			if event.pressed:
+				set_line_highlight(true)
+			else:
+				set_line_highlight(false)
+				stop_draw()
 
 
 
@@ -241,7 +245,19 @@ func spawn_airport():
 	inst.airport_selected.connect(_on_airport_selected)
 	inst.end_game.connect(game_over)
 	add_child(inst)
-
+	
+func set_line_highlight(is_active: bool):
+	var current_color = GameData.lines_data["current color"]
+	var hex_color = GameData.lines_data["current hex color"]
+	
+	var airports = []
+	for route in GameData.lines_data[current_color + "_routes"]:
+		if not route.start_airport in airports: airports.append(route.start_airport)
+		if not route.end_airport in airports: airports.append(route.end_airport)
+	
+	for a in airports:
+		if is_instance_valid(a):
+			a.toggle_highlight(is_active, hex_color)
 
 
 func _on_airport_selected(airport):
