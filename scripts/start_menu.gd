@@ -3,7 +3,7 @@ extends Node2D
 @onready var camera = $Camera2D
 @onready var buttons = [$Play, $Settings, $Stats, $Exit]
 @onready var button = [$Back_right, $Back_down]
-
+@onready var high_score_1 = $LevelSelect/CardsPack/Map_1/Score1
 
 var positions = {
 	"main": Vector2(0, 0),
@@ -17,6 +17,7 @@ var target_pos = Vector2(576, 324)
 var target_rotation: float = 0.0 
 
 func _ready():
+	high_score_1.text = str(GameData.high_score)
 	target_pos = positions["main"]
 	camera.position = target_pos
 	target_rotation = 0.0

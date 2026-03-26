@@ -1,8 +1,10 @@
 extends Node
 
 var start_planes: int = 8
-var max_passengers: int = 7
+var max_passengers: int = 15
 
+var high_score: int = 0
+const SAVE_PATH = "user://savegame.cfg"
 
 enum ShapeType { CIRCLE, SQUARE, TRIANGLE }
 
@@ -36,3 +38,24 @@ var color_values = {
 	"blue": Color(0.0, 0.323, 0.983, 1.0),
 	"red": Color(1.0, 0.161, 0.118, 1.0)
 }
+
+
+
+func _ready():
+	load_highscore()
+
+func save_highscore(new_score: int):
+	if new_score > high_score:
+		high_score = new_score
+		var config = ConfigFile.new()
+		config.set_value("Progression", "high_score", high_score)
+		config.save(SAVE_PATH)
+
+func load_highscore():
+	var config = ConfigFile.new()
+	var err = config.load(SAVE_PATH)
+	
+	if err == OK:
+		high_score = config.get_value("Progression", "high_score", 0)
+	else:
+		high_score = 0

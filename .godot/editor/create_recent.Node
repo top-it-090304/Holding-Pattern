@@ -1,3 +1,4 @@
+Label
 Button
 HBoxContainer
 CanvasGroup
@@ -5,7 +6,6 @@ Node2D
 Control
 Marker2D
 RichTextLabel
-Label
 TextureRect
 CanvasLayer
 Sprite2D

@@ -114,6 +114,18 @@ layout_mode = 2
 icon = ExtResource("11_4kmay")
 flat = true
 
+[node name="Score1" type="Label" parent="LevelSelect/CardsPack/Map_1" unique_id=700402272]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.076000005
+anchor_right = 0.11800001
+offset_left = 101.580246
+offset_top = 674.44574
+offset_right = 127.300224
+offset_bottom = 716.69244
+theme_override_colors/font_color = Color(0.20392157, 0.18039216, 0.20392157, 1)
+theme_override_font_sizes/font_size = 26
+
 [node name="Map_2" type="Button" parent="LevelSelect/CardsPack" unique_id=606829218]
 z_index = 1
 layout_mode = 2

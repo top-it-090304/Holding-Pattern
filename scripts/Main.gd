@@ -350,6 +350,12 @@ func game_over(_failed_airport):
 	tween.tween_callback(func():score_final_label.text = str(passengers_delivery))
 	tween.tween_property(main_pack, "self_modulate:a", 1.0, 1.8).from(0.0)
 	
+	var current_score = int(score_label.text)
+	GameData.save_highscore(current_score)
+	
+	score_final_label.text = "Score: " + str(current_score)
+
+	
 	
 func _setup_vignette(_airport):
 	vinetka.expand_mode = TextureRect.EXPAND_KEEP_SIZE
@@ -385,6 +391,7 @@ func _on_restart_pressed():
 func _on_menu_pressed():
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://scene/StartMenu.tscn")
+	GameData.start_planes = 3
 
 func _on_button_hovered(hovered_btn):
 	for btn in buttons:

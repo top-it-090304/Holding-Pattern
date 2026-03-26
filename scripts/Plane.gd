@@ -325,7 +325,7 @@ func handle_passengers(airport):
 		else:
 			var on_my_line = p_shape in GameData.lines_data[color + "_shapes"]
 			var can_transfer_here = false
-			await get_tree().create_timer(0.3).timeout
+		
 			
 			if not on_my_line:
 				for l in _get_lines_at_airport(airport):
