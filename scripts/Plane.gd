@@ -81,9 +81,7 @@ func _process(delta):
 		
 func _arrive_at_airport(airport):
 	is_waiting = true
-	handle_passengers(airport)
-	
-	await get_tree().create_timer(0.8).timeout 
+	await handle_passengers(airport)
 	is_waiting = false
 
 func setup_with_route(route_data: Dictionary, start_t: float = 0.0):
@@ -327,6 +325,7 @@ func handle_passengers(airport):
 		else:
 			var on_my_line = p_shape in GameData.lines_data[color + "_shapes"]
 			var can_transfer_here = false
+			await get_tree().create_timer(0.3).timeout
 			
 			if not on_my_line:
 				for l in _get_lines_at_airport(airport):
