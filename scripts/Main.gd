@@ -160,9 +160,6 @@ func unlock_next_phase():
 			print(new_speed)
 			passenger_timer.start()
 
-	
-	
-	
 
 func _input(event):
 	if event is InputEventMouseButton:
@@ -365,21 +362,21 @@ func _setup_vignette(_airport):
 func _on_yb_toggled(_t):
 	set_line_stroke(false)
 	$UI/ClearData.global_position = $UI/YellowButton.global_position
-	$UI/ClearData.position += Vector2(-15,-15)
+	$UI/ClearData.position += Vector2(-75,-16)
 	lines_data["current color"] = "yellow"
 	lines_data["current hex color"] = Color(1.0, 0.812, 0.039, 1.0)
 
 func _on_bb_toggled(_t):
 	set_line_stroke(false)
 	$UI/ClearData.global_position = $UI/BlueButton.global_position
-	$UI/ClearData.position += Vector2(-15,-15)
+	$UI/ClearData.position += Vector2(-75,-16)
 	lines_data["current color"] = "blue"
 	lines_data["current hex color"] = Color(0.0, 0.323, 0.983, 1.0)
 
 func _on_rb_toggled(_t):
 	set_line_stroke(false)
 	$UI/ClearData.global_position = $UI/RedButton.global_position
-	$UI/ClearData.position += Vector2(-15,-15)
+	$UI/ClearData.position += Vector2(-75,-16)
 	lines_data["current color"] = "red"
 	lines_data["current hex color"] = Color(1.0, 0.0, 0.0, 1.0)
 

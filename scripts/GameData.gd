@@ -1,7 +1,7 @@
 extends Node
 
 var start_planes: int = 8
-var max_passengers: int = 7
+var max_passengers: int = 1
 
 var high_score: int = 0
 const SAVE_PATH = "user://savegame.cfg"
