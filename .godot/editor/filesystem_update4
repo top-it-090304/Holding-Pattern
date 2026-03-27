@@ -1,3 +1,2 @@
-res://scripts/Plane.gd
 res://scene/StartMenu.tscn
-res://scripts/GameData.gd
+res://scripts/Main.gd
