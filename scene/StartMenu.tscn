@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://dhgy00ifet6ci" path="res://objects/Button_back_right.png" id="8_akhuw"]
 [ext_resource type="Texture2D" uid="uid://bjil8gjfbvr62" path="res://objects/point_square.png" id="9_ols7h"]
 [ext_resource type="Texture2D" uid="uid://v3a1y8lydq1x" path="res://objects/Menu/cards_1.png" id="11_4kmay"]
+[ext_resource type="Texture2D" uid="uid://bsa0n1vap4l3" path="res://objects/name.png" id="12_upnxq"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_v2vl7"]
 load_path = "res://.godot/imported/Background.png-a00edbe00a3917e875d427caf1430931.ctex"
@@ -29,43 +30,39 @@ texture = SubResource("CompressedTexture2D_v2vl7")
 metadata/_edit_lock_ = true
 
 [node name="Play" type="Button" parent="." unique_id=1056440167]
-offset_left = -265.0
-offset_top = -162.0
-offset_right = 101.0
-offset_bottom = -61.0
+offset_left = -394.0
+offset_top = -104.0
+offset_right = -28.0
+offset_bottom = -3.0
 pivot_offset = Vector2(150, 40)
 icon = ExtResource("3_8t8u8")
 flat = true
-metadata/_edit_lock_ = true
 
 [node name="Settings" type="Button" parent="." unique_id=1150483765]
-offset_left = -265.0
-offset_top = 41.0
-offset_right = 244.0
-offset_bottom = 146.0
+offset_left = -394.0
+offset_top = 99.0
+offset_right = 115.0
+offset_bottom = 204.0
 pivot_offset = Vector2(150, 40)
 icon = ExtResource("4_pbb8y")
 flat = true
-metadata/_edit_lock_ = true
 
 [node name="Stats" type="Button" parent="." unique_id=1338606621]
-offset_left = -265.0
-offset_top = -59.0
-offset_right = 244.0
-offset_bottom = 46.0
+offset_left = -394.0
+offset_top = -1.0
+offset_right = 181.0
+offset_bottom = 104.0
 pivot_offset = Vector2(150, 40)
 icon = ExtResource("5_4vtxv")
 flat = true
-metadata/_edit_lock_ = true
 
 [node name="Exit" type="Button" parent="." unique_id=959969849]
-offset_left = -258.0
-offset_top = 144.0
-offset_right = 95.0
-offset_bottom = 244.0
+offset_left = -387.0
+offset_top = 202.0
+offset_right = -34.0
+offset_bottom = 302.0
 icon = ExtResource("6_pbb8y")
 flat = true
-metadata/_edit_lock_ = true
 
 [node name="Back_down" type="Button" parent="." unique_id=1307795110]
 offset_left = -921.0
@@ -181,6 +178,11 @@ position = Vector2(70, -639)
 position = Vector2(-333, 813)
 texture = ExtResource("9_ols7h")
 metadata/_edit_lock_ = true
+
+[node name="Name" type="Sprite2D" parent="." unique_id=1161887461]
+position = Vector2(137, -198.99998)
+scale = Vector2(0.9273128, 0.9273128)
+texture = ExtResource("12_upnxq")
 
 [connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Settings" to="." method="_on_settings_pressed"]

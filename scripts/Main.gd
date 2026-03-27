@@ -391,6 +391,7 @@ func _on_restart_pressed():
 
 func _on_menu_pressed():
 	get_tree().paused = false
+	clear_data()
 	get_tree().change_scene_to_file("res://scene/StartMenu.tscn")
 	GameData.start_planes = 3
 
