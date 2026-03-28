@@ -54,6 +54,7 @@ var is_drawing: bool = false
 var pred_line: Line2D
 
 var lines_data = GameData.lines_data
+var clear_data_twin: Tween
 
 func _ready():
 	$GameOverUI.visible = false
@@ -359,24 +360,22 @@ func _setup_vignette(_airport):
 	vinetka.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 	
 ## кнопки
-func _on_yb_toggled(_t):
+func _on_yb_toggled(is_pressed: bool):
+
 	set_line_stroke(false)
-	$UI/ClearData.global_position = $UI/YellowButton.global_position
-	$UI/ClearData.position += Vector2(-75,-16)
+	_animate_clear_button($UI/YellowButton, is_pressed)
 	lines_data["current color"] = "yellow"
 	lines_data["current hex color"] = Color(1.0, 0.812, 0.039, 1.0)
 
-func _on_bb_toggled(_t):
+func _on_bb_toggled(is_pressed: bool):
 	set_line_stroke(false)
-	$UI/ClearData.global_position = $UI/BlueButton.global_position
-	$UI/ClearData.position += Vector2(-75,-16)
+	_animate_clear_button($UI/BlueButton, is_pressed)
 	lines_data["current color"] = "blue"
 	lines_data["current hex color"] = Color(0.0, 0.323, 0.983, 1.0)
 
-func _on_rb_toggled(_t):
+func _on_rb_toggled(is_pressed: bool):
 	set_line_stroke(false)
-	$UI/ClearData.global_position = $UI/RedButton.global_position
-	$UI/ClearData.position += Vector2(-75,-16)
+	_animate_clear_button($UI/RedButton, is_pressed)
 	lines_data["current color"] = "red"
 	lines_data["current hex color"] = Color(1.0, 0.0, 0.0, 1.0)
 
@@ -428,6 +427,32 @@ func clear_data():
 	GameData.lines_data[current_color + "_airports"].clear()
 	GameData.lines_data[current_color + "_planes"].clear()
 	GameData.lines_data[current_color + "_shapes"].clear()
+	
+@warning_ignore("shadowed_variable_base_class")
+func _animate_clear_button(target_btn: Node, show: bool):
+	if is_instance_valid(clear_data_twin):
+		clear_data_twin.kill()
+		
+	var clear_btn = $UI/ClearData
+	clear_btn.visible = true
+	
+	var out_pos = target_btn.global_position + Vector2(-80, -16)
+	var in_pos = target_btn.global_position + Vector2(0, 0) 
+	
+	clear_data_twin = create_tween().set_parallel(true)
+	clear_data_twin.set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
+	
+	if show:
+		clear_btn.global_position = in_pos
+		clear_btn.modulate.a = 0.0
+		
+		clear_data_twin.tween_property(clear_btn, "global_position", out_pos, 0.1)
+		clear_data_twin.tween_property(clear_btn, "modulate:a", 1.0, 0.0)
+	else:
+		clear_data_twin.tween_property(clear_btn, "global_position", in_pos, 1)
+		clear_data_twin.tween_property(clear_btn, "modulate:a", 0.0, 0.1)
+		
+		clear_data_twin.chain().tween_callback(func(): clear_btn.visible = false)
 
 func _on_clear_data_pressed() -> void:
 	clear_data()
