@@ -47,7 +47,7 @@ var airport_points: Array[Vector2] = []
 var current_phase: int = 0
 var max_phases: int = 0
 
-var target_zoom := Vector2(1.9, 1.9)
+var target_zoom := Vector2(3.5, 3.5)
 
 var selected_airport = null
 var is_drawing: bool = false
@@ -88,7 +88,7 @@ func _ready():
 	add_child(passenger_timer)
 	
 	var phase_timer = Timer.new()
-	phase_timer.wait_time = 150.0 ## таймер на новую зону
+	phase_timer.wait_time = 60.0 ## таймер на новую зону
 	phase_timer.autostart = true
 	phase_timer.timeout.connect(_on_phase_timer_timeout)
 	add_child(phase_timer)
@@ -149,13 +149,12 @@ func unlock_next_phase():
 		active_airport.append_array(all_zones[current_phase])
 		active_airport.shuffle()
 		
-		var zoom_value = 1.9 - (current_phase * 0.15)
+		var zoom_value = 3.5 - (current_phase * 0.15)
 		
 		target_zoom = Vector2(zoom_value, zoom_value)
 		
 		current_phase += 1
 		if passenger_timer:
-			
 			var new_speed = max(1.0, 0.3 - (current_phase * 0.5))
 			passenger_timer.wait_time = new_speed
 			print(new_speed)
