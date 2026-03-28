@@ -211,10 +211,10 @@ script = ExtResource("9_pnqar")
 [node name="TexturePlaneGhost" type="TextureRect" parent="UI/CountPlanePack" unique_id=1382701883]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = -123.0
-offset_top = 936.0
-offset_right = -49.0
-offset_bottom = 996.0
+offset_left = -1352.0
+offset_top = -501.0
+offset_right = -1175.6333
+offset_bottom = -358.0
 texture = ExtResource("8_eik88")
 
 [node name="AddPlane" type="TextureRect" parent="UI/CountPlanePack" unique_id=1910985803]
