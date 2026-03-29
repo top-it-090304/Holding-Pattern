@@ -380,13 +380,15 @@ func _on_rb_toggled(is_pressed: bool):
 
 func _on_restart_pressed():
 	get_tree().paused = false
-	clear_data()
+	for color in GameData.lines_data["active colors"]:
+		clear_data(color)
 	get_tree().change_scene_to_file("res://scene/Main.tscn")
 	GameData.start_planes = 3
 
 func _on_menu_pressed():
 	get_tree().paused = false
-	clear_data()
+	for color in GameData.lines_data["active colors"]:
+		clear_data(color)
 	get_tree().change_scene_to_file("res://scene/StartMenu.tscn")
 	GameData.start_planes = 3
 
@@ -412,8 +414,7 @@ func _on_button_unhovered():
 func _on_spawn_timer_timeout():
 	spawn_airport()
 
-func clear_data():
-	var current_color = GameData.lines_data["current color"]
+func clear_data(current_color):
 	GameData.start_planes += len(GameData.lines_data[current_color + "_planes"])
 	if GameData.lines_data[current_color + "_planes"]:
 		for plane in GameData.lines_data[current_color + "_planes"]:
@@ -454,4 +455,13 @@ func _animate_clear_button(target_btn: Node, show: bool):
 		clear_data_twin.chain().tween_callback(func(): clear_btn.visible = false)
 
 func _on_clear_data_pressed() -> void:
-	clear_data()
+	clear_data(GameData.lines_data["current color"])
+
+
+func _on_week_timer_timeout() -> void:
+	$BonusPlane.show()
+	GameData.current_week += 1
+
+func _on_bonus_plane_pressed() -> void:
+	get_tree().get_nodes_in_group("countPlane")[0].add_bonus_planes(1)
+	$BonusPlane.hide()

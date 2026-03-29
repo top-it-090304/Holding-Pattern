@@ -2,6 +2,7 @@ extends Node
 
 var start_planes: int = 8
 var max_passengers: int = 10
+var current_week = 0
 
 var high_score: int = 0
 const SAVE_PATH = "user://savegame.cfg"
@@ -12,7 +13,7 @@ var lines_data = {
 	"current color" : "yellow",
 	"current hex color" : Color(1.0, 0.812, 0.039, 1.0),
 	"active colors" : ["yellow", "blue", "red"],
-
+	
 	"in_yellow" : false,
 	"yellow_routes" : [],
 	"yellow_airports" : [],

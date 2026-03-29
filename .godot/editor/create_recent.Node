@@ -1,9 +1,10 @@
+Button
+CanvasGroup
+Timer
 Marker2D
 Node2D
 Label
-Button
 HBoxContainer
-CanvasGroup
 Control
 RichTextLabel
 TextureRect
@@ -11,4 +12,3 @@ CanvasLayer
 Sprite2D
 Camera2D
 TextureButton
-VideoStreamPlayer
