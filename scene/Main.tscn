@@ -15,6 +15,10 @@
 [ext_resource type="Script" uid="uid://dj87sysn61exl" path="res://scripts/Plane_count.gd" id="9_pnqar"]
 [ext_resource type="Texture2D" uid="uid://c7ssbco7yvqas" path="res://objects/Man.png" id="10_3sxgj"]
 [ext_resource type="Texture2D" uid="uid://b6dnv4yl8clsx" path="res://objects/x.png" id="10_tuai4"]
+[ext_resource type="Texture2D" uid="uid://j3fkt31ohl73" path="res://objects/Button_lightblue.png" id="11_8cuns"]
+[ext_resource type="Texture2D" uid="uid://c7qd5n55f7i38" path="res://objects/Button_green.png" id="12_gjnlk"]
+[ext_resource type="Texture2D" uid="uid://u6cikl2agpmw" path="res://objects/Button_pink.png" id="13_kxuod"]
+[ext_resource type="Texture2D" uid="uid://cv01e42ixoce7" path="res://objects/Button_orange.png" id="14_1dr5g"]
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_hr7lf"]
 allow_unpress = true
@@ -177,6 +181,54 @@ icon = ExtResource("5_s5yxy")
 flat = true
 expand_icon = true
 
+[node name="LightBlueButton" type="Button" parent="UI" unique_id=915725534]
+offset_left = 2217.0
+offset_top = 680.0
+offset_right = 2320.0
+offset_bottom = 792.0
+disabled = true
+toggle_mode = true
+button_group = SubResource("ButtonGroup_hr7lf")
+icon = ExtResource("11_8cuns")
+flat = true
+expand_icon = true
+
+[node name="GreenButton" type="Button" parent="UI" unique_id=1585651091]
+offset_left = 2217.0
+offset_top = 784.0
+offset_right = 2312.0
+offset_bottom = 892.7681
+disabled = true
+toggle_mode = true
+button_group = SubResource("ButtonGroup_hr7lf")
+icon = ExtResource("12_gjnlk")
+flat = true
+expand_icon = true
+
+[node name="PinkButton" type="Button" parent="UI" unique_id=2095913022]
+offset_left = 2217.0
+offset_top = 892.0
+offset_right = 2311.0
+offset_bottom = 999.62317
+disabled = true
+toggle_mode = true
+button_group = SubResource("ButtonGroup_hr7lf")
+icon = ExtResource("13_kxuod")
+flat = true
+expand_icon = true
+
+[node name="OrangeButton" type="Button" parent="UI" unique_id=207546806]
+offset_left = 2220.0
+offset_top = 984.0
+offset_right = 2305.0
+offset_bottom = 1081.3188
+disabled = true
+toggle_mode = true
+button_group = SubResource("ButtonGroup_hr7lf")
+icon = ExtResource("14_1dr5g")
+flat = true
+expand_icon = true
+
 [node name="CountPlanePack" type="Control" parent="UI" unique_id=1520139293]
 layout_mode = 3
 anchor_left = 0.47300002
@@ -328,16 +380,39 @@ wait_time = 10.0
 autostart = true
 
 [node name="BonusPlane" type="CanvasGroup" parent="." unique_id=51213119]
+process_mode = 2
 visible = false
+
+[node name="Label" type="Label" parent="BonusPlane" unique_id=1375101979]
+modulate = Color(0, 0, 0, 1)
+offset_left = 1472.0
+offset_top = 344.0
+offset_right = 1723.0
+offset_bottom = 393.0
+text = "Неделя 1
+У вас появился новый самолёт"
 
 [node name="BonusPlane" type="Button" parent="BonusPlane" unique_id=616052821]
-offset_left = 1560.0
-offset_top = 416.0
-offset_right = 1640.0
-offset_bottom = 472.0
+offset_left = 1544.0
+offset_top = 392.0
+offset_right = 1632.0
+offset_bottom = 480.0
+icon = ExtResource("6_eik88")
+flat = true
+expand_icon = true
 
 [node name="BonusLine" type="CanvasGroup" parent="." unique_id=285606462]
+process_mode = 2
 visible = false
+
+[node name="Label" type="Label" parent="BonusLine" unique_id=2048112463]
+modulate = Color(0, 0, 0, 1)
+offset_left = 1472.0
+offset_top = 344.0
+offset_right = 1723.0
+offset_bottom = 393.0
+text = "Неделя 1
+У вас появился новый самолёт"
 
 [node name="BonusLine" type="Button" parent="BonusLine" unique_id=814182076]
 offset_left = 1448.0
@@ -352,5 +427,10 @@ offset_bottom = 584.0
 [connection signal="toggled" from="UI/YellowButton" to="." method="_on_yb_toggled"]
 [connection signal="toggled" from="UI/BlueButton" to="." method="_on_bb_toggled"]
 [connection signal="toggled" from="UI/RedButton" to="." method="_on_rb_toggled"]
+[connection signal="toggled" from="UI/LightBlueButton" to="." method="_on_lbb_toggled"]
+[connection signal="toggled" from="UI/GreenButton" to="." method="_on_gb_toggled"]
+[connection signal="toggled" from="UI/PinkButton" to="." method="_on_pb_toggled"]
+[connection signal="toggled" from="UI/OrangeButton" to="." method="_on_ob_toggled"]
 [connection signal="timeout" from="WeekTimer" to="." method="_on_week_timer_timeout"]
 [connection signal="pressed" from="BonusPlane/BonusPlane" to="." method="_on_bonus_plane_pressed"]
+[connection signal="pressed" from="BonusLine/BonusLine" to="." method="_on_bonus_line_pressed"]
