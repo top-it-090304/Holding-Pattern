@@ -416,6 +416,7 @@ func _on_menu_pressed():
 	for color in GameData.lines_data["active colors"]:
 		clear_data(color)
 	GameData.lines_data["active colors"] = ["yellow", "blue", "red"]
+	GameData.lines_data["inactive colors"] = ["light_blue", "green", "pink", "orange"]
 	get_tree().change_scene_to_file("res://scene/StartMenu.tscn")
 	GameData.start_planes = 3
 
@@ -500,6 +501,8 @@ func _on_bonus_plane_pressed() -> void:
 		get_tree().paused = false
 
 func _on_bonus_line_pressed() -> void:
+	var path = "res://objects/Button_" + GameData.lines_data["inactive colors"][0] + ".png"
+	inactive_buttons[0].icon = load(path)
 	GameData.lines_data["active colors"].append(GameData.lines_data["inactive colors"].pop_at(0))
 	inactive_buttons.pop_at(0).disabled = false
 	$BonusLine.hide()

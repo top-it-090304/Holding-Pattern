@@ -15,10 +15,7 @@
 [ext_resource type="Script" uid="uid://dj87sysn61exl" path="res://scripts/Plane_count.gd" id="9_pnqar"]
 [ext_resource type="Texture2D" uid="uid://c7ssbco7yvqas" path="res://objects/Man.png" id="10_3sxgj"]
 [ext_resource type="Texture2D" uid="uid://b6dnv4yl8clsx" path="res://objects/x.png" id="10_tuai4"]
-[ext_resource type="Texture2D" uid="uid://j3fkt31ohl73" path="res://objects/Button_lightblue.png" id="11_8cuns"]
-[ext_resource type="Texture2D" uid="uid://c7qd5n55f7i38" path="res://objects/Button_green.png" id="12_gjnlk"]
-[ext_resource type="Texture2D" uid="uid://u6cikl2agpmw" path="res://objects/Button_pink.png" id="13_kxuod"]
-[ext_resource type="Texture2D" uid="uid://cv01e42ixoce7" path="res://objects/Button_orange.png" id="14_1dr5g"]
+[ext_resource type="Texture2D" uid="uid://bc0trire67wgn" path="res://objects/Button_NULL.png" id="11_8cuns"]
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_hr7lf"]
 allow_unpress = true
@@ -28,6 +25,54 @@ allow_unpress = true
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_mnmej"]
 allow_unpress = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ob58h"]
+content_margin_left = 20.0
+content_margin_top = 20.0
+content_margin_right = 20.0
+content_margin_bottom = 20.0
+bg_color = Color(0.1, 0.1, 0.1, 0.3)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3hqfm"]
+content_margin_left = 20.0
+content_margin_top = 20.0
+content_margin_right = 20.0
+content_margin_bottom = 20.0
+bg_color = Color(0.1, 0.1, 0.1, 0.3)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_08k7p"]
+content_margin_left = 20.0
+content_margin_top = 20.0
+content_margin_right = 20.0
+content_margin_bottom = 20.0
+bg_color = Color(0.1, 0.1, 0.1, 0.3)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8cuns"]
+content_margin_left = 20.0
+content_margin_top = 20.0
+content_margin_right = 20.0
+content_margin_bottom = 20.0
+bg_color = Color(0.1, 0.1, 0.1, 0.3)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
 
 [sub_resource type="LabelSettings" id="LabelSettings_pnqar"]
 font_size = 32
@@ -184,12 +229,13 @@ expand_icon = true
 [node name="LightBlueButton" type="Button" parent="UI" unique_id=915725534]
 offset_left = 2217.0
 offset_top = 680.0
-offset_right = 2320.0
+offset_right = 2312.0
 offset_bottom = 792.0
+theme_override_icons/icon = ExtResource("11_8cuns")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_ob58h")
 disabled = true
 toggle_mode = true
 button_group = SubResource("ButtonGroup_hr7lf")
-icon = ExtResource("11_8cuns")
 flat = true
 expand_icon = true
 
@@ -198,10 +244,11 @@ offset_left = 2217.0
 offset_top = 784.0
 offset_right = 2312.0
 offset_bottom = 892.7681
+theme_override_icons/icon = ExtResource("11_8cuns")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_3hqfm")
 disabled = true
 toggle_mode = true
 button_group = SubResource("ButtonGroup_hr7lf")
-icon = ExtResource("12_gjnlk")
 flat = true
 expand_icon = true
 
@@ -210,10 +257,11 @@ offset_left = 2217.0
 offset_top = 892.0
 offset_right = 2311.0
 offset_bottom = 999.62317
+theme_override_icons/icon = ExtResource("11_8cuns")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_08k7p")
 disabled = true
 toggle_mode = true
 button_group = SubResource("ButtonGroup_hr7lf")
-icon = ExtResource("13_kxuod")
 flat = true
 expand_icon = true
 
@@ -222,10 +270,11 @@ offset_left = 2220.0
 offset_top = 984.0
 offset_right = 2305.0
 offset_bottom = 1081.3188
+theme_override_icons/icon = ExtResource("11_8cuns")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_8cuns")
 disabled = true
 toggle_mode = true
 button_group = SubResource("ButtonGroup_hr7lf")
-icon = ExtResource("14_1dr5g")
 flat = true
 expand_icon = true
 
@@ -411,8 +460,7 @@ offset_left = 1472.0
 offset_top = 344.0
 offset_right = 1723.0
 offset_bottom = 393.0
-text = "Неделя 1
-У вас появился новый самолёт"
+text = "Неделя 1"
 
 [node name="BonusLine" type="Button" parent="BonusLine" unique_id=814182076]
 offset_left = 1448.0
