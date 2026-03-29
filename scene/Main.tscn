@@ -323,6 +323,28 @@ position = Vector2(1808, 592)
 [node name="Marker2D" type="Marker2D" parent="AirportSpawn/Zone6" unique_id=837026390]
 position = Vector2(1272, 456)
 
+[node name="WeekTimer" type="Timer" parent="." unique_id=1788865495]
+wait_time = 10.0
+autostart = true
+
+[node name="BonusPlane" type="CanvasGroup" parent="." unique_id=51213119]
+visible = false
+
+[node name="BonusPlane" type="Button" parent="BonusPlane" unique_id=616052821]
+offset_left = 1560.0
+offset_top = 416.0
+offset_right = 1640.0
+offset_bottom = 472.0
+
+[node name="BonusLine" type="CanvasGroup" parent="." unique_id=285606462]
+visible = false
+
+[node name="BonusLine" type="Button" parent="BonusLine" unique_id=814182076]
+offset_left = 1448.0
+offset_top = 536.0
+offset_right = 1536.0
+offset_bottom = 584.0
+
 [connection signal="timeout" from="Timer" to="." method="_on_spawn_timer_timeout"]
 [connection signal="pressed" from="GameOverUI/MainPack/Restart" to="." method="_on_restart_pressed"]
 [connection signal="pressed" from="GameOverUI/MainPack/Menu" to="." method="_on_menu_pressed"]
@@ -330,3 +352,5 @@ position = Vector2(1272, 456)
 [connection signal="toggled" from="UI/YellowButton" to="." method="_on_yb_toggled"]
 [connection signal="toggled" from="UI/BlueButton" to="." method="_on_bb_toggled"]
 [connection signal="toggled" from="UI/RedButton" to="." method="_on_rb_toggled"]
+[connection signal="timeout" from="WeekTimer" to="." method="_on_week_timer_timeout"]
+[connection signal="pressed" from="BonusPlane/BonusPlane" to="." method="_on_bonus_plane_pressed"]
