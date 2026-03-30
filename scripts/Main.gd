@@ -499,16 +499,16 @@ func _on_week_timer_timeout() -> void:
 	Events.stop_plane_add.emit()
 	_stop_line_create()
 	get_tree().paused = true
-	$BonusPlane.show()
+	$UI/BonusPlane.show()
 	GameData.current_week += 1
-	$BonusPlane/Label.text = "Неделя " + str(GameData.current_week) + "\nУ вас появился новый самолёт"
-	$BonusLine/Label.text = "Неделя " + str(GameData.current_week)
+	$UI/BonusPlane/Label.text = "Неделя " + str(GameData.current_week) + "\nУ вас появился новый самолёт"
+	$UI/BonusLine/Label.text = "Неделя " + str(GameData.current_week)
 
 func _on_bonus_plane_pressed() -> void:
 	get_tree().get_nodes_in_group("countPlane")[0].add_bonus_planes(1)
-	$BonusPlane.hide()
+	$UI/BonusPlane.hide()
 	if GameData.lines_data["inactive colors"]:
-		$BonusLine.show()
+		$UI/BonusLine.show()
 	else: 
 		get_tree().paused = false
 
@@ -517,5 +517,5 @@ func _on_bonus_line_pressed() -> void:
 	inactive_buttons[0].icon = load(path)
 	GameData.lines_data["active colors"].append(GameData.lines_data["inactive colors"].pop_at(0))
 	inactive_buttons.pop_at(0).disabled = false
-	$BonusLine.hide()
+	$UI/BonusLine.hide()
 	get_tree().paused = false
