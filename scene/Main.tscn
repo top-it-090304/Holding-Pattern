@@ -92,7 +92,7 @@ scale = Vector2(1.1007812, 1)
 texture = ExtResource("2_pnqar")
 
 [node name="Timer" type="Timer" parent="." unique_id=1871435388]
-wait_time = 24.0
+wait_time = 5.0
 autostart = true
 
 [node name="GameOverUI" type="CanvasLayer" parent="." unique_id=2125910932]
@@ -425,7 +425,7 @@ position = Vector2(1808, 592)
 position = Vector2(1272, 456)
 
 [node name="WeekTimer" type="Timer" parent="." unique_id=1788865495]
-wait_time = 10.0
+wait_time = 2000.0
 autostart = true
 
 [node name="BonusPlane" type="CanvasGroup" parent="." unique_id=51213119]

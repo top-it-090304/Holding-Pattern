@@ -4,15 +4,15 @@
 [ext_resource type="Texture2D" uid="uid://bbdidywjb2jq4" path="res://objects/point_circle.png" id="2_qo1ey"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qo1ey"]
-radius = 24.020824
+radius = 23.086792
 
 [node name="Airport" type="Area2D" unique_id=1138182898]
 z_index = 1
 script = ExtResource("1_qo1ey")
 
 [node name="Point" type="Sprite2D" parent="." unique_id=1225630992]
-position = Vector2(-2.3841858e-07, -2.3841858e-07)
-scale = Vector2(0.45289853, 0.45289853)
+position = Vector2(4.7683716e-07, 4.7683716e-07)
+scale = Vector2(0.24750903, 0.24750903)
 texture = ExtResource("2_qo1ey")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=389386773]

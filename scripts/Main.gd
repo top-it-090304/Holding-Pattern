@@ -66,7 +66,7 @@ func _ready():
 	score_pack.visible = false
 	score_pack.scale = Vector2(0.5, 0.5)
 	pred_line = Line2D.new()
-	pred_line.width = 6.0
+	pred_line.width = 9.0
 	pred_line.z_index = -1
 	add_child(pred_line)
  

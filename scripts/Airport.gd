@@ -30,6 +30,7 @@ var lines_data = GameData.lines_data
 
 
 func _ready():
+	
 	if passenger_manager == null:
 		passenger_manager = preload("res://scripts/PassengerManager.gd").new()
 		add_child(passenger_manager)
@@ -48,10 +49,30 @@ func _ready():
 			sprite.texture = Triangle
 	
 	spawn_animation()
+	
+func _process(delta):
+	sprite.scale = Vector2(0.65, 0.65)
+	if is_failed: return
+	if passenger_manager.passengers.size() >= GameData.max_passengers:
+		current_time += delta
+		queue_redraw()
+	
+		if current_time >= max_time:
+			is_failed = true
+			end_game.emit(self)
+			
+	elif current_time > 0:
+		current_time -= delta * 2.0 
+		current_time = max(0.0, current_time)
+		queue_redraw()
+		
+	if pulse_radius > 0 or stroke_radius > 0:
+		queue_redraw()
+
 
 func _draw():
 	if stroke_radius > 3:
-		_draw_stroke(stroke_radius, stroke_color, 15.0)
+		_draw_stroke(stroke_radius, stroke_color, 25.0)
 		
 	if pulse_radius and pulse_alpha > 0:
 		var color_with_alpha = pulse_color
@@ -71,7 +92,7 @@ func _draw():
 func spawn_animation():
 	sprite.scale = Vector2.ZERO
 	var tween_pop = create_tween().set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
-	tween_pop.tween_property(sprite, "scale", Vector2(0.46, 0.46), 1.0)
+	tween_pop.tween_property(sprite, "scale", Vector2(0.65, 0.65), 1.0)
 	
 	pulse_color = Color(0.502, 0.502, 0.502, 0.522)
 	pulse_alpha = 1.0
@@ -140,24 +161,6 @@ func activate_pulse():
 	var tween = create_tween().set_parallel(true)
 	tween.tween_property(self, "pulse_radius", 50.0, 0.4).set_trans(Tween.TRANS_SINE)
 	tween.tween_property(self, "pulse_alpha", 0.0, 0.4)
-
-func _process(delta):
-	if is_failed: return
-	if passenger_manager.passengers.size() >= GameData.max_passengers:
-		current_time += delta
-		queue_redraw()
-	
-		if current_time >= max_time:
-			is_failed = true
-			end_game.emit(self)
-			
-	elif current_time > 0:
-		current_time -= delta * 2.0 
-		current_time = max(0.0, current_time)
-		queue_redraw()
-		
-	if pulse_radius > 0 or stroke_radius > 0:
-		queue_redraw()
 
 func _input_event(_viewport, event, _shape_idx):
 	var current_color = lines_data["current color"]
