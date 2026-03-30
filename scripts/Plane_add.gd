@@ -11,7 +11,7 @@ func _process(_delta):
 	if GameData.start_planes > 0:
 		texture = load("res://objects/count_fly.png")
 	if is_dragging and is_instance_valid(ghost_plane):
-		var mouse_pos_viewport = get_viewport().get_mouse_position()
+		var mouse_pos_viewport = get_viewport().get_mouse_position() + Vector2(0, -100)
 		ghost_plane.global_position = mouse_pos_viewport
 		var canvas_transform = get_viewport().get_canvas_transform()
 		var mouse_pos_world = canvas_transform.affine_inverse() * mouse_pos_viewport
@@ -59,6 +59,7 @@ func _gui_input(event):
 			is_dragging = true
 			_create_ghost()
 		elif not event.pressed and is_dragging:
+			is_dragging = false
 			_drop_plane()
 
 func _create_ghost():
@@ -69,7 +70,7 @@ func _create_ghost():
 	ghost_plane.top_level = true
 	ghost_plane.z_index = 11
 	ghost_plane.scale = Vector2(3.5, 3.5)
-	ghost_plane.global_position = get_viewport().get_mouse_position()
+	ghost_plane.global_position = get_viewport().get_mouse_position()  + Vector2(0.0, -100.0)
 	
 func _stop_plane_add():
 	if is_instance_valid(ghost_plane):
