@@ -50,7 +50,7 @@ var airport_points: Array[Vector2] = []
 var current_phase: int = 0
 var max_phases: int = 0
 
-var target_zoom := Vector2(3.5, 3.5)
+var target_zoom := Vector2(2.0, 2.0)
 
 var selected_airport = null
 var is_drawing: bool = false
@@ -159,7 +159,7 @@ func unlock_next_phase():
 		active_airport.append_array(all_zones[current_phase])
 		active_airport.shuffle()
 		
-		var zoom_value = 3.5 - (current_phase * 0.15)
+		var zoom_value = 2.0 - (current_phase * 0.15)
 		
 		target_zoom = Vector2(zoom_value, zoom_value)
 		

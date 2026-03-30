@@ -6,3 +6,4 @@ res://scene/Main.tscn
 res://scene/Airport.tscn
 res://scripts/Airport.gd
 res://scripts/PassengerManager.gd
+res://scripts/GameData.gd

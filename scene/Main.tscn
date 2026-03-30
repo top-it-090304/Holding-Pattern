@@ -83,7 +83,7 @@ script = ExtResource("1_nbc6x")
 [node name="Camera2D" type="Camera2D" parent="." unique_id=273851256]
 position = Vector2(1613, 447)
 ignore_rotation = false
-zoom = Vector2(3.5, 3.5)
+zoom = Vector2(2, 2)
 
 [node name="Map" type="Sprite2D" parent="." unique_id=1367451836]
 z_index = -1
