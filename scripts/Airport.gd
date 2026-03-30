@@ -24,7 +24,7 @@ var pulse_color = Color.WHITE
 var stroke = false
 var stroke_radius = 0.0
 var stroke_color = Color.WHITE
-var current_max_radius = 10.0
+var current_max_radius = 15.0
 
 var lines_data = GameData.lines_data
 
@@ -71,8 +71,8 @@ func _process(delta):
 
 
 func _draw():
-	if stroke_radius > 3:
-		_draw_stroke(stroke_radius, stroke_color, 24.0)
+	if stroke_radius > 11:
+		_draw_stroke(stroke_radius, stroke_color, 28.0)
 		
 	if pulse_radius and pulse_alpha > 0:
 		var color_with_alpha = pulse_color
@@ -122,7 +122,7 @@ func _draw_stroke(radius: float, color: Color, line_width: float):
 			draw_rect(rect, color, false, line_width)
 			
 		GameData.ShapeType.TRIANGLE:
-			var sf = radius * 0.10 
+			var sf = radius * 0.10 * 0.7
 			var points = PackedVector2Array([
 				Vector2(0, -12) * sf,
 				Vector2(11, 8) * sf,
