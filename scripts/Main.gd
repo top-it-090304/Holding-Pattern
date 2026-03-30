@@ -3,6 +3,7 @@ extends Node2D
 var airport_scene = load("res://scene/Airport.tscn")
 var route_scene = load("res://scene/Route.tscn")
 
+
 @onready var spawn_points := $AirportSpawn
 @onready var camera := $Camera2D
 @onready var score_pack = $UI/ScorePack
@@ -14,6 +15,8 @@ var route_scene = load("res://scene/Route.tscn")
 @onready var main_pack = $GameOverUI/MainPack
 
 @onready var buttons = [$GameOverUI/MainPack/Restart, $GameOverUI/MainPack/Menu]
+
+@onready var inactive_buttons = [$UI/LightBlueButton, $UI/GreenButton, $UI/PinkButton, $UI/OrangeButton]
 
 var hover_scale = Vector2(1.2, 1.2)
 var normal_scale = Vector2(1.0, 1.0)
@@ -352,15 +355,13 @@ func game_over(_failed_airport):
 	
 	score_final_label.text = "Score: " + str(current_score)
 
-	
-	
+
 func _setup_vignette(_airport):
 	vinetka.expand_mode = TextureRect.EXPAND_KEEP_SIZE
 	vinetka.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 	
 ## кнопки
 func _on_yb_toggled(is_pressed: bool):
-
 	set_line_stroke(false)
 	_animate_clear_button($UI/YellowButton, is_pressed)
 	lines_data["current color"] = "yellow"
@@ -378,10 +379,36 @@ func _on_rb_toggled(is_pressed: bool):
 	lines_data["current color"] = "red"
 	lines_data["current hex color"] = Color(1.0, 0.0, 0.0, 1.0)
 
+func _on_lbb_toggled(is_pressed: bool) -> void:
+	set_line_stroke(false)
+	_animate_clear_button($UI/LightBlueButton, is_pressed)
+	lines_data["current color"] = "light_blue"
+	lines_data["current hex color"] = Color(0.0, 0.627, 0.878, 1.0)
+
+func _on_gb_toggled(is_pressed: bool) -> void:
+	set_line_stroke(false)
+	_animate_clear_button($UI/GreenButton, is_pressed)
+	lines_data["current color"] = "green"
+	lines_data["current hex color"] = Color(0.0, 0.549, 0.141, 1.0)
+
+func _on_pb_toggled(is_pressed: bool) -> void:
+	set_line_stroke(false)
+	_animate_clear_button($UI/PinkButton, is_pressed)
+	lines_data["current color"] = "pink"
+	lines_data["current hex color"] = Color(1.0, 0.533, 0.639, 1.0)
+
+func _on_ob_toggled(is_pressed: bool) -> void:
+	set_line_stroke(false)
+	_animate_clear_button($UI/OrangeButton, is_pressed)
+	lines_data["current color"] = "orange"
+	lines_data["current hex color"] = Color(0.886, 0.396, 0.224, 1.0)
+
 func _on_restart_pressed():
 	get_tree().paused = false
 	for color in GameData.lines_data["active colors"]:
 		clear_data(color)
+	GameData.lines_data["active colors"] = ["yellow", "blue", "red"]
+	GameData.lines_data["inactive colors"] = ["light_blue", "green", "pink", "orange"]
 	get_tree().change_scene_to_file("res://scene/Main.tscn")
 	GameData.start_planes = 3
 
@@ -389,6 +416,8 @@ func _on_menu_pressed():
 	get_tree().paused = false
 	for color in GameData.lines_data["active colors"]:
 		clear_data(color)
+	GameData.lines_data["active colors"] = ["yellow", "blue", "red"]
+	GameData.lines_data["inactive colors"] = ["light_blue", "green", "pink", "orange"]
 	get_tree().change_scene_to_file("res://scene/StartMenu.tscn")
 	GameData.start_planes = 3
 
@@ -457,11 +486,26 @@ func _animate_clear_button(target_btn: Node, show: bool):
 func _on_clear_data_pressed() -> void:
 	clear_data(GameData.lines_data["current color"])
 
-
 func _on_week_timer_timeout() -> void:
+	Events.stop_plane_add.emit()
+	get_tree().paused = true
 	$BonusPlane.show()
 	GameData.current_week += 1
+	$BonusPlane/Label.text = "Неделя " + str(GameData.current_week) + "\nУ вас появился новый самолёт"
+	$BonusLine/Label.text = "Неделя " + str(GameData.current_week)
 
 func _on_bonus_plane_pressed() -> void:
 	get_tree().get_nodes_in_group("countPlane")[0].add_bonus_planes(1)
 	$BonusPlane.hide()
+	if GameData.lines_data["inactive colors"]:
+		$BonusLine.show()
+	else: 
+		get_tree().paused = false
+
+func _on_bonus_line_pressed() -> void:
+	var path = "res://objects/Button_" + GameData.lines_data["inactive colors"][0] + ".png"
+	inactive_buttons[0].icon = load(path)
+	GameData.lines_data["active colors"].append(GameData.lines_data["inactive colors"].pop_at(0))
+	inactive_buttons.pop_at(0).disabled = false
+	$BonusLine.hide()
+	get_tree().paused = false

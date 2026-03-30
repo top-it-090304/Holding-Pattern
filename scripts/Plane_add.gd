@@ -5,6 +5,7 @@ var ghost_plane: Sprite2D
 @onready var fly_count = %TexturePlaneGhost
 
 func _process(_delta):
+	Events.stop_plane_add.connect(_stop_plane_add)
 	if GameData.start_planes == 0:
 		texture = load("res://objects/count_fly_Zero.png")
 	if GameData.start_planes > 0:
@@ -70,7 +71,12 @@ func _create_ghost():
 	ghost_plane.scale = Vector2(2.0, 2.0)
 	ghost_plane.global_position = get_viewport().get_mouse_position()
 	
-
+func _stop_plane_add():
+	if is_instance_valid(ghost_plane):
+		ghost_plane.queue_free()
+	is_dragging = false
+	Input.set_default_cursor_shape(Input.CURSOR_ARROW)
+	
 
 func _drop_plane():
 	is_dragging = false
