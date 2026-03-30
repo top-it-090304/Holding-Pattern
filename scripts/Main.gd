@@ -3,6 +3,7 @@ extends Node2D
 var airport_scene = load("res://scene/Airport.tscn")
 var route_scene = load("res://scene/Route.tscn")
 
+
 @onready var spawn_points := $AirportSpawn
 @onready var camera := $Camera2D
 @onready var score_pack = $UI/ScorePack
@@ -49,7 +50,7 @@ var airport_points: Array[Vector2] = []
 var current_phase: int = 0
 var max_phases: int = 0
 
-var target_zoom := Vector2(3.5, 3.5)
+var target_zoom := Vector2(2.0, 2.0)
 
 var selected_airport = null
 var is_drawing: bool = false
@@ -65,7 +66,7 @@ func _ready():
 	score_pack.visible = false
 	score_pack.scale = Vector2(0.5, 0.5)
 	pred_line = Line2D.new()
-	pred_line.width = 6.0
+	pred_line.width = 9.0
 	pred_line.z_index = -1
 	add_child(pred_line)
  
@@ -109,10 +110,9 @@ func _ready():
 			btn.mouse_exited.connect(_on_button_unhovered)
 	
 func _process(delta):
-	if is_drawing and selected_airport:
+	if is_drawing and selected_airport and is_instance_valid(pred_line):
 		var current_color = GameData.lines_data["current hex color"]
 		pred_line.default_color = Color(current_color.r, current_color.g, current_color.b)
-		
 		selected_airport.draw_stroke(true)
 		
 		line_draw(selected_airport.global_position, get_global_mouse_position())
@@ -120,6 +120,14 @@ func _process(delta):
 	if camera:
 		var zoom_speed = 0.03 ## скорость камеры
 		camera.zoom = camera.zoom.lerp(target_zoom, zoom_speed * delta)
+		
+func _stop_line_create():
+	for airport in get_tree().get_nodes_in_group("airports"):
+		airport.draw_stroke(false)
+	selected_airport = null
+	is_drawing = false
+	if is_instance_valid(pred_line):
+		pred_line.clear_points()
 	
 func animate_score():
 	var tween = create_tween().set_parallel(true)
@@ -151,7 +159,7 @@ func unlock_next_phase():
 		active_airport.append_array(all_zones[current_phase])
 		active_airport.shuffle()
 		
-		var zoom_value = 3.5 - (current_phase * 0.15)
+		var zoom_value = 2.0 - (current_phase * 0.15)
 		
 		target_zoom = Vector2(zoom_value, zoom_value)
 		
@@ -175,6 +183,8 @@ func _input(event):
 				stop_draw()
 
 func line_draw(pos1: Vector2, pos2: Vector2):
+	if not is_instance_valid(pred_line):
+		return
 	var curve = Curve2D.new()
 	var p0 = pos1
 	var p2 = pos2
@@ -486,6 +496,8 @@ func _on_clear_data_pressed() -> void:
 	clear_data(GameData.lines_data["current color"])
 
 func _on_week_timer_timeout() -> void:
+	Events.stop_plane_add.emit()
+	_stop_line_create()
 	get_tree().paused = true
 	$BonusPlane.show()
 	GameData.current_week += 1

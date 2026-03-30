@@ -1,1 +1,13 @@
+<<<<<<< HEAD
 res://scene/Main.tscn
+=======
+res://scene/Route.tscn
+res://scripts/Route.gd
+res://scripts/Main.gd
+res://scene/Plane.tscn
+res://scene/Main.tscn
+res://scene/Airport.tscn
+res://scripts/Airport.gd
+res://scripts/PassengerManager.gd
+res://scripts/GameData.gd
+>>>>>>> 507f56e08dccc3754e943be9da1c294cb70819d6

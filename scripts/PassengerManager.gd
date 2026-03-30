@@ -23,10 +23,10 @@ func _animation_spawn_pass_(value: float):
 
 func draw_passengers(drawer: Node2D):
 	var start_pos = Vector2(22, -8)
-	var spacing = 13
-	var max_in_row = 7
-	var passenger_color = Color(0.282, 0.188, 0.188, 1.0)
-	var p_size = 5.8
+	var spacing = 15
+	var max_in_row = 5
+	var passenger_color = Color(0.173, 0.157, 0.173, 1.0)
+	var p_size = 7.0
 	
 	for i in range(passengers.size()):
 		var shape = passengers[i]
@@ -40,22 +40,22 @@ func draw_passengers(drawer: Node2D):
 		if i == passengers.size() - 1:
 			current_scale = new_passenger_scale
 		
-		if i == 6:
-			start_pos = Vector2(23, -4)
+		if i == 4:
+			start_pos = Vector2(27, -6)
 			pos = start_pos + Vector2(col * spacing, row * spacing)
 			passenger_color.a = 0.86
 		
-		elif i > 6:
-			start_pos = Vector2(10, -4)
+		elif i > 4:
+			start_pos = Vector2(11, -11)
 			revers_col = (max_in_row - 1) - col
 			pos = start_pos + Vector2(revers_col * spacing, row * spacing)
 			passenger_color.a = 0.73
 		
 		else:
-			start_pos = Vector2(22, -8)
+			start_pos = Vector2(26, -13)
 			pos = start_pos + Vector2(col * spacing, row * spacing)
 		
-		if i > 12:
+		if i > 7:
 			break
 		
 		match shape:
