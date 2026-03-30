@@ -425,7 +425,7 @@ position = Vector2(1808, 592)
 position = Vector2(1272, 456)
 
 [node name="WeekTimer" type="Timer" parent="." unique_id=1788865495]
-wait_time = 4.0
+wait_time = 10.0
 autostart = true
 
 [node name="BonusPlane" type="CanvasGroup" parent="." unique_id=51213119]
@@ -433,10 +433,6 @@ process_mode = 2
 visible = false
 
 [node name="Label" type="Label" parent="BonusPlane" unique_id=1375101979]
-<<<<<<< HEAD
-process_mode = 2
-=======
->>>>>>> a79096473aa7c61737198b01d9b75fdfffa9eff0
 modulate = Color(0, 0, 0, 1)
 offset_left = 1472.0
 offset_top = 344.0
@@ -446,10 +442,6 @@ text = "Неделя 1
 У вас появился новый самолёт"
 
 [node name="BonusPlane" type="Button" parent="BonusPlane" unique_id=616052821]
-<<<<<<< HEAD
-process_mode = 2
-=======
->>>>>>> a79096473aa7c61737198b01d9b75fdfffa9eff0
 offset_left = 1544.0
 offset_top = 392.0
 offset_right = 1632.0
@@ -463,10 +455,6 @@ process_mode = 2
 visible = false
 
 [node name="Label" type="Label" parent="BonusLine" unique_id=2048112463]
-<<<<<<< HEAD
-process_mode = 2
-=======
->>>>>>> a79096473aa7c61737198b01d9b75fdfffa9eff0
 modulate = Color(0, 0, 0, 1)
 offset_left = 1472.0
 offset_top = 344.0
@@ -475,7 +463,6 @@ offset_bottom = 393.0
 text = "Неделя 1"
 
 [node name="BonusLine" type="Button" parent="BonusLine" unique_id=814182076]
-process_mode = 2
 offset_left = 1448.0
 offset_top = 536.0
 offset_right = 1536.0

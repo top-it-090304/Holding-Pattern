@@ -1,7 +1,5 @@
-res://scene/Main.tscn
+res://scene/Route.tscn
+res://scripts/Route.gd
 res://scripts/Main.gd
-<<<<<<< HEAD
-res://scripts/Plane_add.gd
-res://scripts/Event.gd
-=======
->>>>>>> a79096473aa7c61737198b01d9b75fdfffa9eff0
+res://scene/Plane.tscn
+res://scene/Main.tscn

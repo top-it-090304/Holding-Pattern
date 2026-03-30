@@ -110,10 +110,9 @@ func _ready():
 			btn.mouse_exited.connect(_on_button_unhovered)
 	
 func _process(delta):
-	if is_drawing and selected_airport:
+	if is_drawing and selected_airport and is_instance_valid(pred_line):
 		var current_color = GameData.lines_data["current hex color"]
 		pred_line.default_color = Color(current_color.r, current_color.g, current_color.b)
-		
 		selected_airport.draw_stroke(true)
 		
 		line_draw(selected_airport.global_position, get_global_mouse_position())
@@ -121,6 +120,14 @@ func _process(delta):
 	if camera:
 		var zoom_speed = 0.03 ## скорость камеры
 		camera.zoom = camera.zoom.lerp(target_zoom, zoom_speed * delta)
+		
+func _stop_line_create():
+	for airport in get_tree().get_nodes_in_group("airports"):
+		airport.draw_stroke(false)
+	selected_airport = null
+	is_drawing = false
+	if is_instance_valid(pred_line):
+		pred_line.clear_points()
 	
 func animate_score():
 	var tween = create_tween().set_parallel(true)
@@ -176,6 +183,8 @@ func _input(event):
 				stop_draw()
 
 func line_draw(pos1: Vector2, pos2: Vector2):
+	if not is_instance_valid(pred_line):
+		return
 	var curve = Curve2D.new()
 	var p0 = pos1
 	var p2 = pos2
@@ -487,10 +496,8 @@ func _on_clear_data_pressed() -> void:
 	clear_data(GameData.lines_data["current color"])
 
 func _on_week_timer_timeout() -> void:
-<<<<<<< HEAD
 	Events.stop_plane_add.emit()
-=======
->>>>>>> a79096473aa7c61737198b01d9b75fdfffa9eff0
+	_stop_line_create()
 	get_tree().paused = true
 	$BonusPlane.show()
 	GameData.current_week += 1
