@@ -269,9 +269,9 @@ flat = true
 expand_icon = true
 
 [node name="OrangeButton" type="Button" parent="UI" unique_id=207546806]
-offset_left = 2289.0
+offset_left = 2290.0
 offset_top = 761.1449
-offset_right = 2369.0
+offset_right = 2370.0
 offset_bottom = 852.73914
 theme_override_colors/icon_disabled_color = Color(0.8901961, 0.8901961, 0.8901961, 1)
 theme_override_icons/icon = ExtResource("11_ob58h")
@@ -308,10 +308,10 @@ offset_bottom = -127.00003
 
 [node name="Count" type="Label" parent="UI/CountPlanePack" unique_id=328349660]
 layout_mode = 0
-offset_left = -1026.0
-offset_top = -744.0
-offset_right = -986.0
-offset_bottom = -699.0
+offset_left = -1012.0
+offset_top = -701.0
+offset_right = -972.0
+offset_bottom = -656.0
 label_settings = SubResource("LabelSettings_pnqar")
 script = ExtResource("9_pnqar")
 
@@ -332,10 +332,10 @@ anchor_left = -8.25
 anchor_top = -6.0610003
 anchor_right = -7.6250005
 anchor_bottom = -5.1120005
-offset_left = -56.0
-offset_top = -127.02197
-offset_right = -40.99994
-offset_bottom = -125.02396
+offset_left = -47.0
+offset_top = -93.02197
+offset_right = -31.999939
+offset_bottom = -91.02396
 mouse_filter = 0
 texture = ExtResource("6_eik88")
 expand_mode = 1
@@ -375,6 +375,48 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 36
 bbcode_enabled = true
 text = "0"
+
+[node name="BonusPlane" type="CanvasGroup" parent="UI" unique_id=51213119]
+process_mode = 2
+visible = false
+
+[node name="Label" type="Label" parent="UI/BonusPlane" unique_id=1375101979]
+modulate = Color(0, 0, 0, 1)
+offset_left = 869.0
+offset_top = 156.0
+offset_right = 1652.0
+offset_bottom = 297.0
+theme_override_font_sizes/font_size = 50
+text = "Неделя 1
+У вас появился новый самолёт"
+
+[node name="BonusPlane" type="Button" parent="UI/BonusPlane" unique_id=616052821]
+offset_left = 1037.0
+offset_top = 353.0
+offset_right = 1347.0
+offset_bottom = 663.0
+icon = ExtResource("6_eik88")
+flat = true
+expand_icon = true
+
+[node name="BonusLine" type="CanvasGroup" parent="UI" unique_id=285606462]
+process_mode = 2
+visible = false
+
+[node name="Label" type="Label" parent="UI/BonusLine" unique_id=2048112463]
+modulate = Color(0, 0, 0, 1)
+offset_left = 902.0
+offset_top = 254.0
+offset_right = 1153.0
+offset_bottom = 315.0
+theme_override_font_sizes/font_size = 76
+text = "Неделя 1"
+
+[node name="BonusLine" type="Button" parent="UI/BonusLine" unique_id=814182076]
+offset_left = 568.0
+offset_top = 737.0
+offset_right = 843.0
+offset_bottom = 887.0
 
 [node name="AirportSpawn" type="Node2D" parent="." unique_id=2036406742]
 
@@ -435,46 +477,6 @@ position = Vector2(1272, 456)
 wait_time = 2.0
 autostart = true
 
-[node name="BonusPlane" type="CanvasGroup" parent="." unique_id=51213119]
-process_mode = 2
-visible = false
-
-[node name="Label" type="Label" parent="BonusPlane" unique_id=1375101979]
-modulate = Color(0, 0, 0, 1)
-offset_left = 1472.0
-offset_top = 344.0
-offset_right = 1723.0
-offset_bottom = 393.0
-text = "Неделя 1
-У вас появился новый самолёт"
-
-[node name="BonusPlane" type="Button" parent="BonusPlane" unique_id=616052821]
-offset_left = 1544.0
-offset_top = 392.0
-offset_right = 1632.0
-offset_bottom = 480.0
-icon = ExtResource("6_eik88")
-flat = true
-expand_icon = true
-
-[node name="BonusLine" type="CanvasGroup" parent="." unique_id=285606462]
-process_mode = 2
-visible = false
-
-[node name="Label" type="Label" parent="BonusLine" unique_id=2048112463]
-modulate = Color(0, 0, 0, 1)
-offset_left = 1472.0
-offset_top = 344.0
-offset_right = 1723.0
-offset_bottom = 393.0
-text = "Неделя 1"
-
-[node name="BonusLine" type="Button" parent="BonusLine" unique_id=814182076]
-offset_left = 1448.0
-offset_top = 536.0
-offset_right = 1536.0
-offset_bottom = 584.0
-
 [connection signal="timeout" from="Timer" to="." method="_on_spawn_timer_timeout"]
 [connection signal="pressed" from="GameOverUI/MainPack/Restart" to="." method="_on_restart_pressed"]
 [connection signal="pressed" from="GameOverUI/MainPack/Menu" to="." method="_on_menu_pressed"]
@@ -486,6 +488,6 @@ offset_bottom = 584.0
 [connection signal="toggled" from="UI/GreenButton" to="." method="_on_gb_toggled"]
 [connection signal="toggled" from="UI/PinkButton" to="." method="_on_pb_toggled"]
 [connection signal="toggled" from="UI/OrangeButton" to="." method="_on_ob_toggled"]
+[connection signal="pressed" from="UI/BonusPlane/BonusPlane" to="." method="_on_bonus_plane_pressed"]
+[connection signal="pressed" from="UI/BonusLine/BonusLine" to="." method="_on_bonus_line_pressed"]
 [connection signal="timeout" from="WeekTimer" to="." method="_on_week_timer_timeout"]
-[connection signal="pressed" from="BonusPlane/BonusPlane" to="." method="_on_bonus_plane_pressed"]
-[connection signal="pressed" from="BonusLine/BonusLine" to="." method="_on_bonus_line_pressed"]

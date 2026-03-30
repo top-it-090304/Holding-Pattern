@@ -36,7 +36,7 @@ func _process(_delta):
 			ghost_plane.rotation = 0
 			
 func _get_closest_route_data(world_pos):
-	var min_dist = 30.0
+	var min_dist = 60.0
 	var closest_data = null
 	
 	for route in get_tree().get_nodes_in_group("routes"):
@@ -68,7 +68,7 @@ func _create_ghost():
 	get_parent().add_child(ghost_plane)
 	ghost_plane.top_level = true
 	ghost_plane.z_index = 11
-	ghost_plane.scale = Vector2(2.0, 2.0)
+	ghost_plane.scale = Vector2(3.5, 3.5)
 	ghost_plane.global_position = get_viewport().get_mouse_position()
 	
 func _stop_plane_add():

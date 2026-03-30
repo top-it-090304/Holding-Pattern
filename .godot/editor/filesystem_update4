@@ -1,1 +1,8 @@
 res://scene/Main.tscn
+res://scripts/GameData.gd
+res://scripts/Airport.gd
+res://scripts/Plane_count.gd
+res://scripts/Event.gd
+res://scripts/Plane_add.gd
+res://scripts/Main.gd
+res://scripts/PassengerManager.gd

@@ -41,18 +41,18 @@ func draw_passengers(drawer: Node2D):
 			current_scale = new_passenger_scale
 		
 		if i == 4:
-			start_pos = Vector2(27, -6)
+			start_pos = Vector2(32, -6)
 			pos = start_pos + Vector2(col * spacing, row * spacing)
 			passenger_color.a = 0.86
 		
 		elif i > 4:
-			start_pos = Vector2(11, -11)
+			start_pos = Vector2(15, -11)
 			revers_col = (max_in_row - 1) - col
 			pos = start_pos + Vector2(revers_col * spacing, row * spacing)
 			passenger_color.a = 0.73
 		
 		else:
-			start_pos = Vector2(26, -13)
+			start_pos = Vector2(30, -13)
 			pos = start_pos + Vector2(col * spacing, row * spacing)
 		
 		if i > 7:

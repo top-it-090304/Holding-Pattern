@@ -51,7 +51,7 @@ func _ready():
 	spawn_animation()
 	
 func _process(delta):
-	sprite.scale = Vector2(0.55, 0.55)
+	sprite.scale = Vector2(0.7, 0.7)
 	if is_failed: return
 	if passenger_manager.passengers.size() >= GameData.max_passengers:
 		current_time += delta
@@ -72,7 +72,7 @@ func _process(delta):
 
 func _draw():
 	if stroke_radius > 3:
-		_draw_stroke(stroke_radius, stroke_color, 30.0)
+		_draw_stroke(stroke_radius, stroke_color, 24.0)
 		
 	if pulse_radius and pulse_alpha > 0:
 		var color_with_alpha = pulse_color
@@ -92,7 +92,7 @@ func _draw():
 func spawn_animation():
 	sprite.scale = Vector2.ZERO
 	var tween_pop = create_tween().set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
-	tween_pop.tween_property(sprite, "scale", Vector2(0.55, 0.55), 1.0)
+	tween_pop.tween_property(sprite, "scale", Vector2(0.7, 0.7), 1.0)
 	
 	pulse_color = Color(0.502, 0.502, 0.502, 0.522)
 	pulse_alpha = 1.0
