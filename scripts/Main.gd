@@ -487,7 +487,10 @@ func _on_clear_data_pressed() -> void:
 	clear_data(GameData.lines_data["current color"])
 
 func _on_week_timer_timeout() -> void:
+<<<<<<< HEAD
 	Events.stop_plane_add.emit()
+=======
+>>>>>>> a79096473aa7c61737198b01d9b75fdfffa9eff0
 	get_tree().paused = true
 	$BonusPlane.show()
 	GameData.current_week += 1
