@@ -15,7 +15,7 @@
 [ext_resource type="Script" uid="uid://dj87sysn61exl" path="res://scripts/Plane_count.gd" id="9_pnqar"]
 [ext_resource type="Texture2D" uid="uid://c7ssbco7yvqas" path="res://objects/Man.png" id="10_3sxgj"]
 [ext_resource type="Texture2D" uid="uid://b6dnv4yl8clsx" path="res://objects/x.png" id="10_tuai4"]
-[ext_resource type="Texture2D" uid="uid://bc0trire67wgn" path="res://objects/Button_NULL.png" id="11_8cuns"]
+[ext_resource type="Texture2D" uid="uid://umrjde6u3mhk" path="res://objects/NULL_button.png" id="11_ob58h"]
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_hr7lf"]
 allow_unpress = true
@@ -27,11 +27,11 @@ allow_unpress = true
 allow_unpress = true
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ob58h"]
-content_margin_left = 24.0
-content_margin_top = 24.0
-content_margin_right = 24.0
-content_margin_bottom = 24.0
-bg_color = Color(0.101960786, 0.101960786, 0.101960786, 0.22745098)
+content_margin_left = 20.0
+content_margin_top = 20.0
+content_margin_right = 20.0
+content_margin_bottom = 20.0
+bg_color = Color(0.1, 0.1, 0.1, 0.3)
 corner_radius_top_left = 3
 corner_radius_top_right = 3
 corner_radius_bottom_right = 3
@@ -39,11 +39,11 @@ corner_radius_bottom_left = 3
 corner_detail = 5
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3hqfm"]
-content_margin_left = 24.0
-content_margin_top = 24.0
-content_margin_right = 24.0
-content_margin_bottom = 24.0
-bg_color = Color(0.101960786, 0.101960786, 0.101960786, 0.3019608)
+content_margin_left = 20.0
+content_margin_top = 20.0
+content_margin_right = 20.0
+content_margin_bottom = 20.0
+bg_color = Color(0.1, 0.1, 0.1, 0.3)
 corner_radius_top_left = 3
 corner_radius_top_right = 3
 corner_radius_bottom_right = 3
@@ -51,10 +51,10 @@ corner_radius_bottom_left = 3
 corner_detail = 5
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_08k7p"]
-content_margin_left = 24.0
-content_margin_top = 24.0
-content_margin_right = 24.0
-content_margin_bottom = 24.0
+content_margin_left = 20.0
+content_margin_top = 20.0
+content_margin_right = 20.0
+content_margin_bottom = 20.0
 bg_color = Color(0.1, 0.1, 0.1, 0.3)
 corner_radius_top_left = 3
 corner_radius_top_right = 3
@@ -63,10 +63,10 @@ corner_radius_bottom_left = 3
 corner_detail = 5
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8cuns"]
-content_margin_left = 24.0
-content_margin_top = 24.0
-content_margin_right = 24.0
-content_margin_bottom = 24.0
+content_margin_left = 20.0
+content_margin_top = 20.0
+content_margin_right = 20.0
+content_margin_bottom = 20.0
 bg_color = Color(0.1, 0.1, 0.1, 0.3)
 corner_radius_top_left = 3
 corner_radius_top_right = 3
@@ -227,19 +227,12 @@ flat = true
 expand_icon = true
 
 [node name="LightBlueButton" type="Button" parent="UI" unique_id=915725534]
-<<<<<<< HEAD
-offset_left = 2217.0
-offset_top = 680.0
-offset_right = 2312.0
-offset_bottom = 792.0
-theme_override_colors/icon_disabled_color = Color(1, 1, 1, 1)
-=======
-offset_left = 2279.0
-offset_top = 503.0
-offset_right = 2374.0
-offset_bottom = 615.0
->>>>>>> 507f56e08dccc3754e943be9da1c294cb70819d6
-theme_override_icons/icon = ExtResource("11_8cuns")
+offset_left = 2289.0
+offset_top = 515.3579
+offset_right = 2369.0
+offset_bottom = 609.6737
+theme_override_colors/icon_disabled_color = Color(0.89059, 0.89059, 0.8905901, 1)
+theme_override_icons/icon = ExtResource("11_ob58h")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_ob58h")
 disabled = true
 toggle_mode = true
@@ -248,19 +241,12 @@ flat = true
 expand_icon = true
 
 [node name="GreenButton" type="Button" parent="UI" unique_id=1585651091]
-<<<<<<< HEAD
-offset_left = 2217.0
-offset_top = 784.0
-offset_right = 2312.0
-offset_bottom = 892.7681
-theme_override_colors/icon_disabled_color = Color(1, 1, 1, 1)
-=======
-offset_left = 2279.0
-offset_top = 607.0
-offset_right = 2374.0
-offset_bottom = 715.7681
->>>>>>> 507f56e08dccc3754e943be9da1c294cb70819d6
-theme_override_icons/icon = ExtResource("11_8cuns")
+offset_left = 2289.0
+offset_top = 600.0
+offset_right = 2369.0
+offset_bottom = 691.59424
+theme_override_colors/icon_disabled_color = Color(0.8901961, 0.8901961, 0.8901961, 1)
+theme_override_icons/icon = ExtResource("11_ob58h")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_3hqfm")
 disabled = true
 toggle_mode = true
@@ -269,19 +255,12 @@ flat = true
 expand_icon = true
 
 [node name="PinkButton" type="Button" parent="UI" unique_id=2095913022]
-<<<<<<< HEAD
-offset_left = 2217.0
-offset_top = 892.0
-offset_right = 2311.0
-offset_bottom = 999.62317
-theme_override_colors/icon_disabled_color = Color(1, 1, 1, 1)
-=======
-offset_left = 2279.0
-offset_top = 715.0
-offset_right = 2373.0
-offset_bottom = 822.62317
->>>>>>> 507f56e08dccc3754e943be9da1c294cb70819d6
-theme_override_icons/icon = ExtResource("11_8cuns")
+offset_left = 2289.0
+offset_top = 680.0
+offset_right = 2368.0
+offset_bottom = 770.4493
+theme_override_colors/icon_disabled_color = Color(0.8901961, 0.8901961, 0.8901961, 1)
+theme_override_icons/icon = ExtResource("11_ob58h")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_08k7p")
 disabled = true
 toggle_mode = true
@@ -290,19 +269,12 @@ flat = true
 expand_icon = true
 
 [node name="OrangeButton" type="Button" parent="UI" unique_id=207546806]
-<<<<<<< HEAD
-offset_left = 2220.0
-offset_top = 984.0
-offset_right = 2310.0
-offset_bottom = 1088.0
-theme_override_colors/icon_disabled_color = Color(1, 1, 1, 1)
-=======
-offset_left = 2282.0
-offset_top = 807.0
-offset_right = 2367.0
-offset_bottom = 904.31885
->>>>>>> 507f56e08dccc3754e943be9da1c294cb70819d6
-theme_override_icons/icon = ExtResource("11_8cuns")
+offset_left = 2289.0
+offset_top = 761.1449
+offset_right = 2369.0
+offset_bottom = 852.73914
+theme_override_colors/icon_disabled_color = Color(0.8901961, 0.8901961, 0.8901961, 1)
+theme_override_icons/icon = ExtResource("11_ob58h")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_8cuns")
 disabled = true
 toggle_mode = true
@@ -460,7 +432,7 @@ position = Vector2(1808, 592)
 position = Vector2(1272, 456)
 
 [node name="WeekTimer" type="Timer" parent="." unique_id=1788865495]
-wait_time = 2000.0
+wait_time = 2.0
 autostart = true
 
 [node name="BonusPlane" type="CanvasGroup" parent="." unique_id=51213119]
