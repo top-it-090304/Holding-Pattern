@@ -82,7 +82,7 @@ func _stop_plane_add():
 func _drop_plane():
 	is_dragging = false
 	var canvas_transform = get_viewport().get_canvas_transform()
-	var mouse_pos = canvas_transform.affine_inverse() * get_viewport().get_mouse_position() + Vector2(0.0, -180.0)
+	var mouse_pos = canvas_transform.affine_inverse() * get_viewport().get_mouse_position() + Vector2(0.0, -90.0)
 	var found_route = null
 	var route_data_ = null
 	var t_ = 0.0
