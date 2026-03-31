@@ -50,7 +50,7 @@ var airport_points: Array[Vector2] = []
 var current_phase: int = 0
 var max_phases: int = 0
 
-var target_zoom := Vector2(2.0, 2.0)
+var target_zoom := Vector2(2.4, 2.4)
 
 var selected_airport = null
 var is_drawing: bool = false
@@ -91,7 +91,7 @@ func _ready():
 	add_child(passenger_timer)
 	
 	var phase_timer = Timer.new()
-	phase_timer.wait_time = 10.0 ## таймер на новую зону
+	phase_timer.wait_time = 100.0 ## таймер на новую зону
 	phase_timer.autostart = true
 	phase_timer.timeout.connect(_on_phase_timer_timeout)
 	add_child(phase_timer)
@@ -118,7 +118,7 @@ func _process(delta):
 		line_draw(selected_airport.global_position, get_global_mouse_position())
 		check_airport()
 	if camera:
-		var zoom_speed = 0.03 ## скорость камеры
+		var zoom_speed = 0.06 ## скорость камеры
 		camera.zoom = camera.zoom.lerp(target_zoom, zoom_speed * delta)
 		
 func _stop_line_create():
@@ -159,7 +159,7 @@ func unlock_next_phase():
 		active_airport.append_array(all_zones[current_phase])
 		active_airport.shuffle()
 		
-		var zoom_value = 2.0 - (current_phase * 0.15)
+		var zoom_value = max(2.4 - (current_phase * 0.3), 0.9)
 		
 		target_zoom = Vector2(zoom_value, zoom_value)
 		
