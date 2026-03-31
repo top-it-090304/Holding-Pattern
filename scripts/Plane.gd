@@ -28,7 +28,7 @@ func _input(event):
 					return
 			if not is_transport_plane and mouse_pos.distance_to(global_position) < 40.0:
 				is_transport_plane = true
-				scale = Vector2(0.6, 0.6)
+				scale = Vector2(0.8, 0.8)
 				z_index = 10
 		elif not event.pressed and is_transport_plane:
 				_drop_plane()
@@ -100,7 +100,7 @@ func setup_with_route(route_data: Dictionary, start_t: float = 0.0):
 func play_spawn_effect():
 	scale = Vector2.ZERO
 	var tween = create_tween().set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
-	tween.tween_property(self, "scale", Vector2(0.46, 0.46), 0.6)
+	tween.tween_property(self, "scale", Vector2(0.58, 0.58), 0.6)
 	
 	var final_color = modulate
 	modulate = Color.WHITE
@@ -262,7 +262,7 @@ func _get_closest_route_data(global_pos):
 func _drop_plane():
 	is_transport_plane = false
 	
-	scale = Vector2(0.46, 0.46) 
+	scale = Vector2(0.58, 0.58) 
 	z_index = 0
 	
 	var mouse_pos = get_global_mouse_position()

@@ -4,5 +4,7 @@
 [ext_resource type="Script" uid="uid://drc1682vcenaw" path="res://scripts/BigPlane.gd" id="2_82n2d"]
 
 [node name="FlyBig" type="Sprite2D" unique_id=1472733630]
+position = Vector2(-1, -1.1920929e-07)
+scale = Vector2(1.39, 1.39)
 texture = ExtResource("1_s6heu")
 script = ExtResource("2_82n2d")

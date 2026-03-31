@@ -8,7 +8,7 @@ var forward: bool = true
 var color: String
 
 var cargo: Array = []
-var max_seats: int = 12
+var max_seats: int = 8
 var if_load: bool = true
 var is_transport_plane: bool = false
 
@@ -100,7 +100,7 @@ func setup_with_route(route_data: Dictionary, start_t: float = 0.0):
 func play_spawn_effect():
 	scale = Vector2.ZERO
 	var tween = create_tween().set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
-	tween.tween_property(self, "scale", Vector2(0.46, 0.46), 0.6)
+	tween.tween_property(self, "scale", Vector2(0.58, 0.58), 0.6)
 	
 	var final_color = modulate
 	modulate = Color.WHITE
@@ -180,7 +180,7 @@ func _load_passenger(airport):
 
 
 func _draw():
-	var p_size = 6.0
+	var p_size = 6.1
 	var spacing = 13.0
 	var start_offset = Vector2(-44, 0)
 	
@@ -262,7 +262,7 @@ func _get_closest_route_data(global_pos):
 func _drop_plane():
 	is_transport_plane = false
 	
-	scale = Vector2(0.46, 0.46) 
+	scale = Vector2(0.58, 0.58) 
 	z_index = 0
 	
 	var mouse_pos = get_global_mouse_position()

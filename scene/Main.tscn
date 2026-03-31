@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://c7ssbco7yvqas" path="res://objects/Man.png" id="10_3sxgj"]
 [ext_resource type="Texture2D" uid="uid://b6dnv4yl8clsx" path="res://objects/x.png" id="10_tuai4"]
 [ext_resource type="Texture2D" uid="uid://umrjde6u3mhk" path="res://objects/NULL_button.png" id="11_ob58h"]
+[ext_resource type="Texture2D" uid="uid://bvq3rqkkfv8j3" path="res://objects/Bonus_Plane.png" id="14_gjnlk"]
 [ext_resource type="Texture2D" uid="uid://cw60yd0i354ir" path="res://objects/Bonus_bigPlane.png" id="16_08k7p"]
 [ext_resource type="Script" uid="uid://d3pmmn6uqag7c" path="res://scripts/Big_plane_add.gd" id="17_8cuns"]
 [ext_resource type="Script" uid="uid://wwsk4j87ohel" path="res://scripts/Big_plane_count.gd" id="18_8cuns"]
@@ -339,16 +340,16 @@ texture = ExtResource("8_eik88")
 texture_filter = 6
 layout_mode = 1
 anchors_preset = -1
-anchor_left = -8.25
-anchor_top = -6.0610003
-anchor_right = -7.6250005
-anchor_bottom = -5.1120005
+anchor_left = -8.3046875
+anchor_top = -6.173245
+anchor_right = -7.476563
+anchor_bottom = -4.958939
 offset_left = -47.0
 offset_top = -93.02197
 offset_right = -31.999939
 offset_bottom = -91.02396
 mouse_filter = 0
-texture = ExtResource("6_eik88")
+texture = ExtResource("14_gjnlk")
 expand_mode = 1
 script = ExtResource("7_s5yxy")
 metadata/_edit_use_anchors_ = true
