@@ -1,12 +1,12 @@
 Label
+Button
+CanvasGroup
 TextureRect
 Control
 Marker2D
 Node2D
-Button
 CheckButton
 RichTextLabel
-CanvasGroup
 Timer
 HBoxContainer
 CanvasLayer

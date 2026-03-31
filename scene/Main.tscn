@@ -8,7 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://c32r7a0jfkk6t" path="res://objects/Button_blue.png" id="4_o6q0f"]
 [ext_resource type="Texture2D" uid="uid://dmiia6t0baedq" path="res://objects/Menu.png" id="5_hrl0l"]
 [ext_resource type="Texture2D" uid="uid://ck4unu555lgo2" path="res://objects/Button_red.png" id="5_s5yxy"]
-[ext_resource type="Texture2D" uid="uid://7ire7onvi2fn" path="res://objects/count_fly.png" id="6_eik88"]
 [ext_resource type="FontFile" uid="uid://bxu04q03hthlj" path="res://font/LFCurry.ttf" id="6_hrl0l"]
 [ext_resource type="Script" uid="uid://c44tchjyc16q0" path="res://scripts/Plane_add.gd" id="7_s5yxy"]
 [ext_resource type="Texture2D" uid="uid://dirl28ic4l46t" path="res://objects/Fly_ghost.png" id="8_eik88"]
@@ -20,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://cw60yd0i354ir" path="res://objects/Bonus_bigPlane.png" id="16_08k7p"]
 [ext_resource type="Script" uid="uid://d3pmmn6uqag7c" path="res://scripts/Big_plane_add.gd" id="17_8cuns"]
 [ext_resource type="Script" uid="uid://wwsk4j87ohel" path="res://scripts/Big_plane_count.gd" id="18_8cuns"]
+[ext_resource type="Texture2D" uid="uid://rl5b1huph76s" path="res://objects/Bonus_line.png" id="20_gjnlk"]
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_hr7lf"]
 allow_unpress = true
@@ -100,7 +100,7 @@ wait_time = 25.0
 autostart = true
 
 [node name="WeekTimer" type="Timer" parent="." unique_id=1788865495]
-wait_time = 140.0
+wait_time = 20.0
 autostart = true
 
 [node name="GameOverUI" type="CanvasLayer" parent="." unique_id=2125910932]
@@ -318,7 +318,12 @@ offset_bottom = -127.00003
 metadata/_edit_use_anchors_ = true
 
 [node name="Count" type="Label" parent="UI/CountPlanePack" unique_id=328349660]
-layout_mode = 0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0859375
+anchor_top = -0.19387755
+anchor_right = 0.0859375
+anchor_bottom = -0.19387755
 offset_left = -1012.0
 offset_top = -701.0
 offset_right = -972.0
@@ -428,20 +433,28 @@ visible = false
 
 [node name="Label" type="Label" parent="UI/BonusPlane" unique_id=1375101979]
 modulate = Color(0, 0, 0, 1)
-offset_left = 869.0
-offset_top = 156.0
-offset_right = 1652.0
-offset_bottom = 297.0
-theme_override_font_sizes/font_size = 50
-text = "Неделя 1
-У вас появился новый самолёт"
+offset_left = 894.0
+offset_top = 163.0
+offset_right = 1221.0
+offset_bottom = 262.0
+theme_override_font_sizes/font_size = 72
+text = "Неделя 1"
+
+[node name="Label2" type="Label" parent="UI/BonusPlane" unique_id=1161013464]
+modulate = Color(0, 0, 0, 1)
+offset_left = 899.0
+offset_top = 282.0
+offset_right = 1710.0
+offset_bottom = 354.0
+theme_override_font_sizes/font_size = 36
+text = "У вас появился новый самолёт"
 
 [node name="BonusPlane" type="Button" parent="UI/BonusPlane" unique_id=616052821]
 offset_left = 1037.0
 offset_top = 353.0
-offset_right = 1347.0
-offset_bottom = 663.0
-icon = ExtResource("6_eik88")
+offset_right = 1297.0
+offset_bottom = 613.0
+icon = ExtResource("14_gjnlk")
 flat = true
 expand_icon = true
 
@@ -451,18 +464,51 @@ visible = false
 
 [node name="Label" type="Label" parent="UI/BonusLine" unique_id=2048112463]
 modulate = Color(0, 0, 0, 1)
-offset_left = 902.0
-offset_top = 254.0
-offset_right = 1153.0
-offset_bottom = 315.0
+offset_left = 1100.0
+offset_top = 226.0
+offset_right = 1445.0
+offset_bottom = 331.0
 theme_override_font_sizes/font_size = 76
 text = "Неделя 1"
 
 [node name="BonusLine" type="Button" parent="UI/BonusLine" unique_id=814182076]
-offset_left = 568.0
-offset_top = 737.0
-offset_right = 843.0
-offset_bottom = 887.0
+offset_left = 1172.0
+offset_top = 353.0
+offset_right = 1362.0
+offset_bottom = 543.0
+icon = ExtResource("20_gjnlk")
+flat = true
+
+[node name="BonusBigPlane" type="CanvasGroup" parent="UI" unique_id=1879012294]
+process_mode = 2
+visible = false
+
+[node name="Label" type="Label" parent="UI/BonusBigPlane" unique_id=37565533]
+modulate = Color(0, 0, 0, 1)
+offset_left = 1129.0
+offset_top = 307.0
+offset_right = 1643.0
+offset_bottom = 520.0
+theme_override_font_sizes/font_size = 76
+text = "Неделя 1
+"
+
+[node name="Bonus_big_plane" type="Button" parent="UI/BonusBigPlane" unique_id=567313454]
+offset_left = 1194.0
+offset_top = 433.0
+offset_right = 1384.0
+offset_bottom = 623.0
+icon = ExtResource("16_08k7p")
+flat = true
+
+[node name="Label2" type="Label" parent="UI/BonusBigPlane" unique_id=292885730]
+modulate = Color(0, 0, 0, 1)
+offset_left = 942.0
+offset_top = 656.0
+offset_right = 1630.0
+offset_bottom = 782.0
+theme_override_font_sizes/font_size = 32
+text = "Большой самолёт. Вмещает 8 пассажиров"
 
 [node name="AirportSpawn" type="Node2D" parent="." unique_id=2036406742]
 
@@ -626,3 +672,4 @@ position = Vector2(628, 948)
 [connection signal="toggled" from="UI/OrangeButton" to="." method="_on_ob_toggled"]
 [connection signal="pressed" from="UI/BonusPlane/BonusPlane" to="." method="_on_bonus_plane_pressed"]
 [connection signal="pressed" from="UI/BonusLine/BonusLine" to="." method="_on_bonus_line_pressed"]
+[connection signal="pressed" from="UI/BonusBigPlane/Bonus_big_plane" to="." method="_on_bonus_big_plane_pressed"]

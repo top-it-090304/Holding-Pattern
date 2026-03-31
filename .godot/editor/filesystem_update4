@@ -1,5 +1,3 @@
+res://scripts/Main.gd
 res://scene/Main.tscn
-res://scripts/Plane.gd
-res://scripts/BigPlane.gd
-res://scene/Plane.tscn
-res://scene/BigPlane.tscn
+res://scripts/GameData.gd
