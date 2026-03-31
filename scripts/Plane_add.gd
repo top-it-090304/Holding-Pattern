@@ -11,7 +11,7 @@ func _process(_delta):
 	if GameData.start_planes > 0:
 		texture = load("res://objects/count_fly.png")
 	if is_dragging and is_instance_valid(ghost_plane):
-		var mouse_pos_viewport = get_viewport().get_mouse_position() + Vector2(0, -100)
+		var mouse_pos_viewport = get_viewport().get_mouse_position() + Vector2(0, -180)
 		ghost_plane.global_position = mouse_pos_viewport
 		var canvas_transform = get_viewport().get_canvas_transform()
 		var mouse_pos_world = canvas_transform.affine_inverse() * mouse_pos_viewport
@@ -69,8 +69,8 @@ func _create_ghost():
 	get_parent().add_child(ghost_plane)
 	ghost_plane.top_level = true
 	ghost_plane.z_index = 11
-	ghost_plane.scale = Vector2(3.5, 3.5)
-	ghost_plane.global_position = get_viewport().get_mouse_position()  + Vector2(0.0, -100.0)
+	ghost_plane.scale = Vector2(4.0, 4.0)
+	ghost_plane.global_position = get_viewport().get_mouse_position()  + Vector2(0.0, -180.0)
 	
 func _stop_plane_add():
 	if is_instance_valid(ghost_plane):
@@ -82,7 +82,7 @@ func _stop_plane_add():
 func _drop_plane():
 	is_dragging = false
 	var canvas_transform = get_viewport().get_canvas_transform()
-	var mouse_pos = canvas_transform.affine_inverse() * get_viewport().get_mouse_position()
+	var mouse_pos = canvas_transform.affine_inverse() * get_viewport().get_mouse_position() + Vector2(0.0, -180.0)
 	var found_route = null
 	var route_data_ = null
 	var t_ = 0.0

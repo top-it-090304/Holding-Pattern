@@ -92,7 +92,11 @@ scale = Vector2(1.1007812, 1)
 texture = ExtResource("2_pnqar")
 
 [node name="Timer" type="Timer" parent="." unique_id=1871435388]
-wait_time = 5.0
+wait_time = 40.0
+autostart = true
+
+[node name="WeekTimer" type="Timer" parent="." unique_id=1788865495]
+wait_time = 20.0
 autostart = true
 
 [node name="GameOverUI" type="CanvasLayer" parent="." unique_id=2125910932]
@@ -423,16 +427,16 @@ offset_bottom = 887.0
 [node name="Zone0" type="Node2D" parent="AirportSpawn" unique_id=662884658]
 
 [node name="Marker2D" type="Marker2D" parent="AirportSpawn/Zone0" unique_id=1729326666]
-position = Vector2(1856, 336)
+position = Vector2(1962, 261)
 
 [node name="Marker2D2" type="Marker2D" parent="AirportSpawn/Zone0" unique_id=1626474285]
-position = Vector2(1320, 360)
+position = Vector2(1199, 269)
 
 [node name="Marker2D3" type="Marker2D" parent="AirportSpawn/Zone0" unique_id=1040067608]
-position = Vector2(1392, 536)
+position = Vector2(1371, 579)
 
 [node name="Marker2D4" type="Marker2D" parent="AirportSpawn/Zone0" unique_id=1809968008]
-position = Vector2(1888, 568)
+position = Vector2(2039, 591)
 
 [node name="Marker2D5" type="Marker2D" parent="AirportSpawn/Zone0" unique_id=1353930322]
 position = Vector2(1672, 368)
@@ -441,43 +445,40 @@ position = Vector2(1672, 368)
 position = Vector2(1788, 514)
 
 [node name="Marker2D7" type="Marker2D" parent="AirportSpawn/Zone0" unique_id=493332956]
-position = Vector2(1509, 428)
+position = Vector2(1375, 365)
 
 [node name="Zone1" type="Node2D" parent="AirportSpawn" unique_id=1084597291]
 
 [node name="Marker2D" type="Marker2D" parent="AirportSpawn/Zone1" unique_id=1234022837]
-position = Vector2(1384, 448)
+position = Vector2(1513, 543)
 
 [node name="Zone2" type="Node2D" parent="AirportSpawn" unique_id=2006067962]
 
 [node name="Marker2D" type="Marker2D" parent="AirportSpawn/Zone2" unique_id=1068687629]
-position = Vector2(1600, 577)
+position = Vector2(1570, 635)
 
 [node name="Zone3" type="Node2D" parent="AirportSpawn" unique_id=1090776262]
 
 [node name="Marker2D" type="Marker2D" parent="AirportSpawn/Zone3" unique_id=1430054449]
-position = Vector2(1488, 304)
+position = Vector2(1445, 247)
 
 [node name="Zone4" type="Node2D" parent="AirportSpawn" unique_id=824345253]
 
 [node name="Marker2D" type="Marker2D" parent="AirportSpawn/Zone4" unique_id=1705849948]
-position = Vector2(1640, 280)
+position = Vector2(1649, 238)
 
 [node name="Zone5" type="Node2D" parent="AirportSpawn" unique_id=9356500]
 
 [node name="Marker2D" type="Marker2D" parent="AirportSpawn/Zone5" unique_id=703783426]
-position = Vector2(1808, 592)
+position = Vector2(1788, 670)
 
 [node name="Zone6" type="Node2D" parent="AirportSpawn" unique_id=500401637]
 
 [node name="Marker2D" type="Marker2D" parent="AirportSpawn/Zone6" unique_id=837026390]
 position = Vector2(1272, 456)
 
-[node name="WeekTimer" type="Timer" parent="." unique_id=1788865495]
-wait_time = 20.0
-autostart = true
-
 [connection signal="timeout" from="Timer" to="." method="_on_spawn_timer_timeout"]
+[connection signal="timeout" from="WeekTimer" to="." method="_on_week_timer_timeout"]
 [connection signal="pressed" from="GameOverUI/MainPack/Restart" to="." method="_on_restart_pressed"]
 [connection signal="pressed" from="GameOverUI/MainPack/Menu" to="." method="_on_menu_pressed"]
 [connection signal="pressed" from="UI/ClearData" to="." method="_on_clear_data_pressed"]
@@ -490,4 +491,3 @@ autostart = true
 [connection signal="toggled" from="UI/OrangeButton" to="." method="_on_ob_toggled"]
 [connection signal="pressed" from="UI/BonusPlane/BonusPlane" to="." method="_on_bonus_plane_pressed"]
 [connection signal="pressed" from="UI/BonusLine/BonusLine" to="." method="_on_bonus_line_pressed"]
-[connection signal="timeout" from="WeekTimer" to="." method="_on_week_timer_timeout"]
