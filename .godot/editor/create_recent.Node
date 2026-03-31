@@ -1,11 +1,11 @@
+Marker2D
+Node2D
 Button
 CheckButton
 Label
 RichTextLabel
 CanvasGroup
 Timer
-Marker2D
-Node2D
 HBoxContainer
 Control
 TextureRect

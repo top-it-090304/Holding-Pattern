@@ -92,11 +92,11 @@ scale = Vector2(1.1007812, 1)
 texture = ExtResource("2_pnqar")
 
 [node name="Timer" type="Timer" parent="." unique_id=1871435388]
-wait_time = 40.0
+wait_time = 5.0
 autostart = true
 
 [node name="WeekTimer" type="Timer" parent="." unique_id=1788865495]
-wait_time = 20.0
+wait_time = 2000.0
 autostart = true
 
 [node name="GameOverUI" type="CanvasLayer" parent="." unique_id=2125910932]
@@ -426,56 +426,146 @@ offset_bottom = 887.0
 
 [node name="Zone0" type="Node2D" parent="AirportSpawn" unique_id=662884658]
 
-[node name="Marker2D" type="Marker2D" parent="AirportSpawn/Zone0" unique_id=1729326666]
-position = Vector2(1962, 261)
+[node name="Marker2D6" type="Marker2D" parent="AirportSpawn/Zone0" unique_id=1464045712]
+position = Vector2(970, 750)
 
-[node name="Marker2D2" type="Marker2D" parent="AirportSpawn/Zone0" unique_id=1626474285]
-position = Vector2(1199, 269)
+[node name="Marker2D7" type="Marker2D" parent="AirportSpawn/Zone0" unique_id=775064315]
+position = Vector2(2106, 220)
 
-[node name="Marker2D3" type="Marker2D" parent="AirportSpawn/Zone0" unique_id=1040067608]
-position = Vector2(1371, 579)
+[node name="Marker2D8" type="Marker2D" parent="AirportSpawn/Zone0" unique_id=1976112312]
+position = Vector2(1507, -2)
 
-[node name="Marker2D4" type="Marker2D" parent="AirportSpawn/Zone0" unique_id=1809968008]
-position = Vector2(2039, 591)
+[node name="Marker2D10" type="Marker2D" parent="AirportSpawn/Zone0" unique_id=1748029799]
+position = Vector2(725, -26)
 
-[node name="Marker2D5" type="Marker2D" parent="AirportSpawn/Zone0" unique_id=1353930322]
-position = Vector2(1672, 368)
+[node name="Marker2D11" type="Marker2D" parent="AirportSpawn/Zone0" unique_id=1339250828]
+position = Vector2(1467, 203)
 
-[node name="Marker2D6" type="Marker2D" parent="AirportSpawn/Zone0" unique_id=386854256]
-position = Vector2(1788, 514)
+[node name="Marker2D12" type="Marker2D" parent="AirportSpawn/Zone0" unique_id=81687929]
+position = Vector2(2679, 782)
 
-[node name="Marker2D7" type="Marker2D" parent="AirportSpawn/Zone0" unique_id=493332956]
-position = Vector2(1375, 365)
+[node name="Marker2D13" type="Marker2D" parent="AirportSpawn/Zone0" unique_id=637834047]
+position = Vector2(1361, 362)
+
+[node name="Marker2D14" type="Marker2D" parent="AirportSpawn/Zone0" unique_id=512675355]
+position = Vector2(2316, 37)
+
+[node name="Marker2D15" type="Marker2D" parent="AirportSpawn/Zone0" unique_id=847740902]
+position = Vector2(1911, 343)
+
+[node name="Marker2D16" type="Marker2D" parent="AirportSpawn/Zone0" unique_id=19428096]
+position = Vector2(2548, 536)
+
+[node name="Marker2D17" type="Marker2D" parent="AirportSpawn/Zone0" unique_id=1258296773]
+position = Vector2(2405, 383)
+
+[node name="Marker2D18" type="Marker2D" parent="AirportSpawn/Zone0" unique_id=835982865]
+position = Vector2(1329, 554)
+
+[node name="Marker2D19" type="Marker2D" parent="AirportSpawn/Zone0" unique_id=1089119739]
+position = Vector2(1777, 813)
+
+[node name="Marker2D20" type="Marker2D" parent="AirportSpawn/Zone0" unique_id=386211722]
+position = Vector2(1518, 682)
+
+[node name="Marker2D21" type="Marker2D" parent="AirportSpawn/Zone0" unique_id=1443767768]
+position = Vector2(1635, 343)
+
+[node name="Marker2D22" type="Marker2D" parent="AirportSpawn/Zone0" unique_id=2138527082]
+position = Vector2(2091, 651)
+
+[node name="Marker2D23" type="Marker2D" parent="AirportSpawn/Zone0" unique_id=499143608]
+position = Vector2(2154, 434)
+
+[node name="Marker2D24" type="Marker2D" parent="AirportSpawn/Zone0" unique_id=1227215791]
+position = Vector2(1098, 539)
+
+[node name="Marker2D25" type="Marker2D" parent="AirportSpawn/Zone0" unique_id=2132589228]
+position = Vector2(1238, 776)
+
+[node name="Marker2D26" type="Marker2D" parent="AirportSpawn/Zone0" unique_id=1138021792]
+position = Vector2(993, 194)
+
+[node name="Marker2D27" type="Marker2D" parent="AirportSpawn/Zone0" unique_id=2037701479]
+position = Vector2(562, 103)
+
+[node name="Marker2D28" type="Marker2D" parent="AirportSpawn/Zone0" unique_id=349056788]
+position = Vector2(787, 314)
+
+[node name="Marker2D29" type="Marker2D" parent="AirportSpawn/Zone0" unique_id=493518782]
+position = Vector2(822, 536)
+
+[node name="Marker2D30" type="Marker2D" parent="AirportSpawn/Zone0" unique_id=1942750639]
+position = Vector2(667, 644)
+
+[node name="Marker2D31" type="Marker2D" parent="AirportSpawn/Zone0" unique_id=1398883371]
+position = Vector2(1655, 86)
+
+[node name="Marker2D32" type="Marker2D" parent="AirportSpawn/Zone0" unique_id=763042134]
+position = Vector2(471, 613)
+
+[node name="Marker2D33" type="Marker2D" parent="AirportSpawn/Zone0" unique_id=1633037408]
+position = Vector2(483, 799)
+
+[node name="Marker2D37" type="Marker2D" parent="AirportSpawn/Zone0" unique_id=15773571]
+position = Vector2(534, 411)
+
+[node name="Marker2D38" type="Marker2D" parent="AirportSpawn/Zone0" unique_id=78314072]
+position = Vector2(611, 240)
+
+[node name="Marker2D39" type="Marker2D" parent="AirportSpawn/Zone0" unique_id=1741753548]
+position = Vector2(1213, 308)
+
+[node name="Marker2D40" type="Marker2D" parent="AirportSpawn/Zone0" unique_id=1136881423]
+position = Vector2(1067, 3)
+
+[node name="Marker2D41" type="Marker2D" parent="AirportSpawn/Zone0" unique_id=294930515]
+position = Vector2(1808, 471)
+
+[node name="Marker2D42" type="Marker2D" parent="AirportSpawn/Zone0" unique_id=308860139]
+position = Vector2(1791, 214)
+
+[node name="Marker2D43" type="Marker2D" parent="AirportSpawn/Zone0" unique_id=530022994]
+position = Vector2(1150, 890)
+
+[node name="Marker2D45" type="Marker2D" parent="AirportSpawn/Zone0" unique_id=498576890]
+position = Vector2(628, 948)
+
+[node name="Marker2D3" type="Marker2D" parent="AirportSpawn/Zone0" unique_id=861919530]
+position = Vector2(1541, 927)
+
+[node name="Marker2D4" type="Marker2D" parent="AirportSpawn/Zone0" unique_id=724271619]
+position = Vector2(1581, 534)
+
+[node name="Marker2D34" type="Marker2D" parent="AirportSpawn/Zone0" unique_id=1360977024]
+position = Vector2(1843, 685)
+
+[node name="Marker2D35" type="Marker2D" parent="AirportSpawn/Zone0" unique_id=836860896]
+position = Vector2(1946, 63)
+
+[node name="Marker2D36" type="Marker2D" parent="AirportSpawn/Zone0" unique_id=39529691]
+position = Vector2(1247, 157)
+
+[node name="Marker2D46" type="Marker2D" parent="AirportSpawn/Zone0" unique_id=545807082]
+position = Vector2(2539, 152)
 
 [node name="Zone1" type="Node2D" parent="AirportSpawn" unique_id=1084597291]
-
-[node name="Marker2D" type="Marker2D" parent="AirportSpawn/Zone1" unique_id=1234022837]
-position = Vector2(1513, 543)
+visible = false
 
 [node name="Zone2" type="Node2D" parent="AirportSpawn" unique_id=2006067962]
-
-[node name="Marker2D" type="Marker2D" parent="AirportSpawn/Zone2" unique_id=1068687629]
-position = Vector2(1570, 635)
+visible = false
 
 [node name="Zone3" type="Node2D" parent="AirportSpawn" unique_id=1090776262]
-
-[node name="Marker2D" type="Marker2D" parent="AirportSpawn/Zone3" unique_id=1430054449]
-position = Vector2(1445, 247)
+visible = false
 
 [node name="Zone4" type="Node2D" parent="AirportSpawn" unique_id=824345253]
-
-[node name="Marker2D" type="Marker2D" parent="AirportSpawn/Zone4" unique_id=1705849948]
-position = Vector2(1649, 238)
+visible = false
 
 [node name="Zone5" type="Node2D" parent="AirportSpawn" unique_id=9356500]
-
-[node name="Marker2D" type="Marker2D" parent="AirportSpawn/Zone5" unique_id=703783426]
-position = Vector2(1788, 670)
+visible = false
 
 [node name="Zone6" type="Node2D" parent="AirportSpawn" unique_id=500401637]
-
-[node name="Marker2D" type="Marker2D" parent="AirportSpawn/Zone6" unique_id=837026390]
-position = Vector2(1272, 456)
+visible = false
 
 [connection signal="timeout" from="Timer" to="." method="_on_spawn_timer_timeout"]
 [connection signal="timeout" from="WeekTimer" to="." method="_on_week_timer_timeout"]
