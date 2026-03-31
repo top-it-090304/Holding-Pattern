@@ -1,14 +1,14 @@
+Label
+TextureRect
+Control
 Marker2D
 Node2D
 Button
 CheckButton
-Label
 RichTextLabel
 CanvasGroup
 Timer
 HBoxContainer
-Control
-TextureRect
 CanvasLayer
 Sprite2D
 Camera2D

@@ -6,9 +6,9 @@ var ghost_plane: Sprite2D
 
 func _process(_delta):
 	Events.stop_plane_add.connect(_stop_plane_add)
-	if GameData.start_planes == 0:
+	if GameData.big_planes == 0:
 		texture = load("res://objects/count_fly_Zero.png")
-	if GameData.start_planes > 0:
+	if GameData.big_planes > 0:
 		texture = load("res://objects/count_fly.png")
 	if is_dragging and is_instance_valid(ghost_plane):
 		var mouse_pos_viewport = get_viewport().get_mouse_position() + Vector2(0, -180)
@@ -106,7 +106,7 @@ func _drop_plane():
 
 
 	if found_route and route_data_:
-		found_route.spawn_plane(route_data_, t_, false)
+		found_route.spawn_plane(route_data_, t_, true)
 		print("самолет появился")
 		
 	

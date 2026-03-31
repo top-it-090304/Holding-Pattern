@@ -1,6 +1,7 @@
 extends Node2D
 
 var plane_scene = load("res://scene/Plane.tscn")
+var big_plane_scene = load("res://scene/BigPlane.tscn")
 var my_curves: Array[Curve2D] = []
 var lines_data = GameData.lines_data
 var route_data
@@ -63,22 +64,38 @@ func create_line(airport_a, airport_b):
 	
 	if not lines_data["in_" + color_name]:
 		if GameData.start_planes > 0:
-			spawn_plane(route_data, 0.0)
+			spawn_plane(route_data, 0.0, false)
 			lines_data["in_" + color_name] = true
 
 @warning_ignore("shadowed_variable")
-func spawn_plane(route_data: Dictionary, start_t: float):
-	GameData.start_planes -= 1
-	var plane = plane_scene.instantiate()
-	add_child(plane)
-	
-	plane.current_route = route_data
-	plane.color = route_data["color"]
-	plane.t = start_t
-	
-	lines_data[route_data["color"] + "_planes"].append(plane)
-	plane.setup_with_route(route_data, start_t)
-	
-	var CountPlane = get_tree().get_first_node_in_group("countPlane")
-	if CountPlane:
-		CountPlane.on_plane_spawned()
+func spawn_plane(route_data: Dictionary, start_t: float, is_big: bool):
+	if not is_big:
+		GameData.start_planes -= 1
+		var plane = plane_scene.instantiate()
+		add_child(plane)
+		
+		plane.current_route = route_data
+		plane.color = route_data["color"]
+		plane.t = start_t
+		
+		lines_data[route_data["color"] + "_planes"].append(plane)
+		plane.setup_with_route(route_data, start_t)
+		
+		var CountPlane = get_tree().get_first_node_in_group("countPlane")
+		if CountPlane:
+			CountPlane.on_plane_spawned()
+	else:
+		GameData.big_planes -= 1
+		var plane = big_plane_scene.instantiate()
+		add_child(plane)
+		
+		plane.current_route = route_data
+		plane.color = route_data["color"]
+		plane.t = start_t
+		
+		lines_data[route_data["color"] + "_planes"].append(plane)
+		plane.setup_with_route(route_data, start_t)
+		
+		var CountPlane = get_tree().get_first_node_in_group("countBigPlane")
+		if CountPlane:
+			CountPlane.on_plane_spawned()
