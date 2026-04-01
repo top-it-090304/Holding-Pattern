@@ -382,37 +382,37 @@ func _on_yb_pressed():
 	lines_data["current color"] = "yellow"
 	lines_data["current hex color"] = Color(1.0, 0.812, 0.039, 1.0)
 
-func _on_bb_toggled():
+func _on_bb_pressed():
 	set_line_stroke(false)
 	_animate_clear_button($UI/BlueButton)
 	lines_data["current color"] = "blue"
 	lines_data["current hex color"] = Color(0.0, 0.323, 0.983, 1.0)
 
-func _on_rb_toggled():
+func _on_rb_pressed():
 	set_line_stroke(false)
 	_animate_clear_button($UI/RedButton)
 	lines_data["current color"] = "red"
 	lines_data["current hex color"] = Color(1.0, 0.0, 0.0, 1.0)
 
-func _on_lbb_toggled() -> void:
+func _on_lbb_pressed() -> void:
 	set_line_stroke(false)
 	_animate_clear_button($UI/LightBlueButton)
 	lines_data["current color"] = "light_blue"
 	lines_data["current hex color"] = Color(0.0, 0.627, 0.878, 1.0)
 
-func _on_gb_toggled() -> void:
+func _on_gb_pressed() -> void:
 	set_line_stroke(false)
 	_animate_clear_button($UI/GreenButton)
 	lines_data["current color"] = "green"
 	lines_data["current hex color"] = Color(0.0, 0.549, 0.141, 1.0)
 
-func _on_pb_toggled() -> void:
+func _on_pb_pressed() -> void:
 	set_line_stroke(false)
 	_animate_clear_button($UI/PinkButton)
 	lines_data["current color"] = "pink"
 	lines_data["current hex color"] = Color(1.0, 0.533, 0.639, 1.0)
 
-func _on_ob_toggled() -> void:
+func _on_ob_pressed() -> void:
 	set_line_stroke(false)
 	_animate_clear_button($UI/OrangeButton)
 	lines_data["current color"] = "orange"
