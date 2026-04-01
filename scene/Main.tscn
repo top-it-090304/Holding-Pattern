@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://umrjde6u3mhk" path="res://objects/NULL_button.png" id="11_ob58h"]
 [ext_resource type="Texture2D" uid="uid://bvq3rqkkfv8j3" path="res://objects/Bonus_Plane.png" id="14_gjnlk"]
 [ext_resource type="Texture2D" uid="uid://cw60yd0i354ir" path="res://objects/Bonus_bigPlane.png" id="16_08k7p"]
+[ext_resource type="Texture2D" uid="uid://dn6f8p3t56spw" path="res://objects/Fly_BIG_ghost.png" id="16_kxuod"]
 [ext_resource type="Script" uid="uid://d3pmmn6uqag7c" path="res://scripts/Big_plane_add.gd" id="17_8cuns"]
 [ext_resource type="Script" uid="uid://wwsk4j87ohel" path="res://scripts/Big_plane_count.gd" id="18_8cuns"]
 [ext_resource type="Texture2D" uid="uid://rl5b1huph76s" path="res://objects/Bonus_line.png" id="20_gjnlk"]
@@ -363,6 +364,15 @@ texture = ExtResource("14_gjnlk")
 expand_mode = 1
 script = ExtResource("7_s5yxy")
 metadata/_edit_use_anchors_ = true
+
+[node name="TextureBigPlaneGhost" type="TextureRect" parent="UI/CountPlanePack" unique_id=138101095]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = -1436.0
+offset_top = -457.0
+offset_right = -1224.8
+offset_bottom = -281.0
+texture = ExtResource("16_kxuod")
 
 [node name="CountBigPlanePack" type="Control" parent="UI" unique_id=700237397]
 layout_mode = 3

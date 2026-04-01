@@ -2,7 +2,7 @@ extends TextureRect
 
 var is_dragging = false
 var ghost_plane: Sprite2D
-@onready var fly_count = %TexturePlaneGhost
+@onready var fly_ghost = %TextureBigPlaneGhost
 
 func _process(_delta):
 	Events.stop_plane_add.connect(_stop_plane_add)
@@ -64,12 +64,12 @@ func _gui_input(event):
 
 func _create_ghost():
 	ghost_plane = Sprite2D.new()
-	ghost_plane.texture = fly_count.texture
+	ghost_plane.texture = fly_ghost.texture
 	ghost_plane.modulate = Color(1, 1, 1, 0.5)
 	get_parent().add_child(ghost_plane)
 	ghost_plane.top_level = true
 	ghost_plane.z_index = 11
-	ghost_plane.scale = Vector2(4.0, 4.0)
+	ghost_plane.scale = Vector2(2.2, 2.2)
 	ghost_plane.global_position = get_viewport().get_mouse_position()  + Vector2(0.0, -180.0)
 	
 func _stop_plane_add():

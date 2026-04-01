@@ -1,8 +1,8 @@
+TextureRect
 Marker2D
 Label
 Button
 CanvasGroup
-TextureRect
 Control
 Node2D
 CheckButton
