@@ -1,7 +1,7 @@
 extends Node
 
 var start_planes: int = 7
-var big_planes = 5
+var big_planes = 0
 var max_passengers: int = 1488
 var current_week = 1
 

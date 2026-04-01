@@ -9,7 +9,7 @@ func _process(_delta):
 	if GameData.big_planes == 0:
 		texture = load("res://objects/count_fly_Zero.png")
 	if GameData.big_planes > 0:
-		texture = load("res://objects/count_fly.png")
+		texture = load("res://objects/Bonus_bigPlane.png")
 	if is_dragging and is_instance_valid(ghost_plane):
 		var mouse_pos_viewport = get_viewport().get_mouse_position() + Vector2(0, -180)
 		ghost_plane.global_position = mouse_pos_viewport
@@ -55,7 +55,7 @@ func _get_closest_route_data(world_pos):
 	
 func _gui_input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
-		if event.pressed and GameData.start_planes > 0:
+		if event.pressed and GameData.big_planes > 0:
 			is_dragging = true
 			_create_ghost()
 		elif not event.pressed and is_dragging:
