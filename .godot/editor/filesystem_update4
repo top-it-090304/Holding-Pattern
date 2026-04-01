@@ -1,2 +1,3 @@
 res://scene/Main.tscn
 res://scripts/Big_plane_add.gd
+res://scripts/Main.gd
