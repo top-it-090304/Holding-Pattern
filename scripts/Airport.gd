@@ -2,6 +2,8 @@ extends Area2D
 @onready var sprite = $Point
 @onready var passenger_manager = get_node_or_null("PassengerManager")
 
+var CLICK_RADIUS : float = 40.0
+
 signal airport_selected(airport)
 signal end_game(airport)
 
@@ -30,7 +32,6 @@ var lines_data = GameData.lines_data
 
 
 func _ready():
-	
 	if passenger_manager == null:
 		passenger_manager = preload("res://scripts/PassengerManager.gd").new()
 		add_child(passenger_manager)
@@ -51,6 +52,7 @@ func _ready():
 	spawn_animation()
 	
 func _process(delta):
+	
 	sprite.scale = Vector2(0.7, 0.7)
 	if is_failed: return
 	if passenger_manager.passengers.size() >= GameData.max_passengers:
@@ -165,6 +167,7 @@ func activate_pulse():
 func _input_event(_viewport, event, _shape_idx):
 	var current_color = lines_data["current color"]
 	var permission = false
+	
 	if event is InputEventMouseButton and event.pressed:
 		if (event.button_index == MOUSE_BUTTON_LEFT):
 			if not(lines_data["in_" + current_color]):
@@ -179,6 +182,26 @@ func _input_event(_viewport, event, _shape_idx):
 				airport_selected.emit(self)
 				permission = false
 
+func _unhandled_input(event):
+	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		var dist = global_position.distance_to(get_global_mouse_position())
+		
+		if dist < CLICK_RADIUS:
+			var current_color = lines_data["current color"]
+			var permission = false
+			
+			if not(lines_data["in_" + current_color]):
+				permission = true
+			elif lines_data[current_color + "_airports"][0] == lines_data[current_color + "_airports"][-1]:
+				permission = false
+			elif self == lines_data[current_color + "_airports"][0] or self == lines_data[current_color + "_airports"][-1]:
+				permission = true
+			
+			if permission:
+				activate_pulse()
+				airport_selected.emit(self)
+				get_viewport().set_input_as_handled()
+				
 ## пассажиры
 func spawn_passenger():
 	passenger_manager.spawn_passenger(my_shape)
