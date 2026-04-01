@@ -87,13 +87,13 @@ func _ready():
 	animate_score()
 		
 	passenger_timer = Timer.new()
-	passenger_timer.wait_time = 4.0
+	passenger_timer.wait_time = 4.7
 	passenger_timer.autostart = true
 	passenger_timer.timeout.connect(_on_passenger_timer_timeout)
 	add_child(passenger_timer)
 	
 	var phase_timer = Timer.new()
-	phase_timer.wait_time = 100.0 ## таймер на новую зону
+	phase_timer.wait_time = 120.0 ## таймер на новую зону
 	phase_timer.autostart = true
 	phase_timer.timeout.connect(_on_phase_timer_timeout)
 	add_child(phase_timer)
@@ -166,10 +166,12 @@ func unlock_next_phase():
 		
 		current_phase += 1
 		if passenger_timer:
-			var new_speed = max(0.2, 4.0 - (current_phase * 0.5))
+			var new_speed = max(0.2, 4.7 - (current_phase * 0.5))
+			if new_speed == 3.7:
+				new_speed = 3.0
 			passenger_timer.wait_time = new_speed
 			passenger_timer.start()
-			print("Фаза: ", current_phase, "(ZOOM: ", target_zoom, "пассажиров/сек: ", new_speed)
+			print("Фаза: ", current_phase,"| ", "(ZOOM: ", target_zoom,"| ", "пассажиров/сек: ", new_speed)
 
 
 func _input(event):
