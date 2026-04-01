@@ -115,7 +115,6 @@ func _process(delta):
 	if is_drawing and selected_airport and is_instance_valid(pred_line):
 		var current_color = GameData.lines_data["current hex color"]
 		pred_line.default_color = Color(current_color.r, current_color.g, current_color.b)
-		selected_airport.draw_stroke(true)
 		
 		line_draw(selected_airport.global_position, get_global_mouse_position())
 		check_airport()
@@ -277,14 +276,19 @@ func set_line_stroke(is_active: bool):
 
 
 func _on_airport_selected(airport):
+	var current_color = lines_data["current color"]
 	if lines_data["in_" + lines_data["current color"]] and airport == lines_data[lines_data["current color"] + "_airports"][0]:
 		var a = lines_data[lines_data["current color"] + "_airports"][0]
 		lines_data[lines_data["current color"] + "_airports"][0] = lines_data[lines_data["current color"] + "_airports"][-1]
 		lines_data[lines_data["current color"] + "_airports"][-1] = a
 	
 	selected_airport = airport
-	
 	is_drawing = true
+	selected_airport.draw_stroke(true)
+	
+	for a in lines_data[current_color + "_airports"]:
+		if is_instance_valid(a):
+			a.draw_stroke(true)
 	
 func _on_passenger_timer_timeout():
 	if not storage_stack and randf() < stack_chanse:
@@ -470,12 +474,13 @@ func clear_data(current_color):
 	
 
 func _animate_clear_button(target_btn: Node):
-	var clear_btn = $UI/ClearData
-	
 	if active_button == target_btn:
 		_close_clear_animation(target_btn)
 		active_button = null
 		return
+		
+	if active_button != null:
+		_close_clear_animation(active_button)
 		
 	active_button = target_btn
 	_open_clear_animation(target_btn)
@@ -485,19 +490,20 @@ func _open_clear_animation(target_btn: Node):
 	if is_instance_valid(clear_data_twin):
 		clear_data_twin.kill()
 	
-	clear_btn.visible = true
 	var out_pos = target_btn.global_position + Vector2(-76, -15)
 	var in_pos = target_btn.global_position + Vector2(10, 10)
-	
-	if clear_btn.modulate.a < 0.1:
-		clear_btn.global_position = in_pos
 	
 	clear_data_twin = create_tween().set_parallel(true)
 	clear_data_twin.set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
 	
-	clear_data_twin.tween_property(clear_btn, "global_position", out_pos, 0.2)
-	clear_data_twin.tween_property(clear_btn, "modulate:a", 1.0, 0.1)
-
+	if clear_btn.modulate.a < 0.1 or not clear_btn.visible:
+		clear_btn.visible = true
+		clear_btn.global_position = in_pos
+		clear_btn.modulate.a = 0.0
+		clear_data_twin.tween_property(clear_btn, "modulate:a", 1.0, 0.1)
+		
+	clear_data_twin.tween_property(clear_btn, "global_position", out_pos, 0.25)
+	
 func _close_clear_animation(target_btn: Node):
 	var clear_btn = $UI/ClearData
 	if is_instance_valid(clear_data_twin):
