@@ -92,7 +92,7 @@ zoom = Vector2(2.4, 2.4)
 
 [node name="Map" type="Sprite2D" parent="." unique_id=1367451836]
 z_index = -1
-position = Vector2(1596, 391)
+position = Vector2(1452.0001, 401)
 scale = Vector2(1.1007812, 1)
 texture = ExtResource("2_pnqar")
 
@@ -101,7 +101,7 @@ wait_time = 25.0
 autostart = true
 
 [node name="WeekTimer" type="Timer" parent="." unique_id=1788865495]
-wait_time = 120.0
+wait_time = 140.0
 autostart = true
 
 [node name="GameOverUI" type="CanvasLayer" parent="." unique_id=2125910932]
@@ -341,10 +341,10 @@ metadata/_edit_use_anchors_ = true
 [node name="TexturePlaneGhost" type="TextureRect" parent="UI/CountPlanePack" unique_id=1382701883]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = -1408.0
-offset_top = -628.0
-offset_right = -1231.6333
-offset_bottom = -485.0
+offset_left = -1571.0
+offset_top = -632.0
+offset_right = -1394.6333
+offset_bottom = -489.0
 texture = ExtResource("8_eik88")
 
 [node name="AddPlane" type="TextureRect" parent="UI/CountPlanePack" unique_id=1910985803]
@@ -368,10 +368,10 @@ metadata/_edit_use_anchors_ = true
 [node name="TextureBigPlaneGhost" type="TextureRect" parent="UI/CountPlanePack" unique_id=138101095]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = -1436.0
-offset_top = -457.0
-offset_right = -1224.8
-offset_bottom = -281.0
+offset_left = -1588.0
+offset_top = -460.0
+offset_right = -1376.8
+offset_bottom = -284.0
 texture = ExtResource("16_kxuod")
 
 [node name="CountBigPlanePack" type="Control" parent="UI" unique_id=700237397]

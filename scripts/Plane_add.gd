@@ -69,7 +69,7 @@ func _create_ghost():
 	get_parent().add_child(ghost_plane)
 	ghost_plane.top_level = true
 	ghost_plane.z_index = 11
-	ghost_plane.scale = Vector2(4.0, 4.0)
+	ghost_plane.scale = Vector2(2.0, 2.0)
 	ghost_plane.global_position = get_viewport().get_mouse_position()  + Vector2(0.0, -180.0)
 	
 func _stop_plane_add():
