@@ -7,7 +7,7 @@ var ghost_plane: Sprite2D
 func _process(_delta):
 	Events.stop_plane_add.connect(_stop_plane_add)
 	if GameData.big_planes == 0:
-		texture = load("res://objects/count_fly_Zero.png")
+		texture = load("res://objects/count_fly_Zero_BIG.png")
 	if GameData.big_planes > 0:
 		texture = load("res://objects/Bonus_bigPlane.png")
 	if is_dragging and is_instance_valid(ghost_plane):
