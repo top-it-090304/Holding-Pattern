@@ -490,8 +490,8 @@ func _open_clear_animation(target_btn: Node):
 	if is_instance_valid(clear_data_twin):
 		clear_data_twin.kill()
 	
-	var out_pos = target_btn.global_position + Vector2(-76, -15)
-	var in_pos = target_btn.global_position + Vector2(10, 10)
+	var out_pos = target_btn.global_position + Vector2(-85, 10)
+	var in_pos = target_btn.global_position + Vector2(10, 0)
 	
 	clear_data_twin = create_tween().set_parallel(true)
 	clear_data_twin.set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
