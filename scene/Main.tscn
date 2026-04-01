@@ -100,7 +100,7 @@ wait_time = 25.0
 autostart = true
 
 [node name="WeekTimer" type="Timer" parent="." unique_id=1788865495]
-wait_time = 20.0
+wait_time = 120.0
 autostart = true
 
 [node name="GameOverUI" type="CanvasLayer" parent="." unique_id=2125910932]
@@ -117,23 +117,25 @@ texture = ExtResource("3_aex65")
 
 [node name="Restart" type="Button" parent="GameOverUI/MainPack" unique_id=2137488011]
 process_mode = 3
-offset_left = 383.0
-offset_top = 698.0
-offset_right = 913.0
-offset_bottom = 799.0
+offset_left = 247.0
+offset_top = 680.0
+offset_right = 1181.0594
+offset_bottom = 858.0
 pivot_offset = Vector2(150, 40)
 icon = ExtResource("4_aex65")
 flat = true
+expand_icon = true
 
 [node name="Menu" type="Button" parent="GameOverUI/MainPack" unique_id=1409947932]
 process_mode = 3
-offset_left = 379.0
-offset_top = 787.0
-offset_right = 888.0
-offset_bottom = 892.0
+offset_left = 243.0
+offset_top = 850.0
+offset_right = 887.7333
+offset_bottom = 983.0
 pivot_offset = Vector2(150, 40)
 icon = ExtResource("5_hrl0l")
 flat = true
+expand_icon = true
 
 [node name="RichTextLabel" type="RichTextLabel" parent="GameOverUI/MainPack" unique_id=446887255]
 offset_left = 656.0
@@ -519,7 +521,7 @@ text = "Большой самолёт. Вмещает 8 пассажиров"
 [node name="Zone0" type="Node2D" parent="AirportSpawn" unique_id=662884658]
 
 [node name="Marker2D13" type="Marker2D" parent="AirportSpawn/Zone0" unique_id=637834047]
-position = Vector2(1361, 362)
+position = Vector2(1363, 381)
 
 [node name="Marker2D15" type="Marker2D" parent="AirportSpawn/Zone0" unique_id=847740902]
 position = Vector2(1911, 343)
@@ -529,9 +531,6 @@ position = Vector2(1329, 554)
 
 [node name="Marker2D21" type="Marker2D" parent="AirportSpawn/Zone0" unique_id=1443767768]
 position = Vector2(1635, 343)
-
-[node name="Marker2D4" type="Marker2D" parent="AirportSpawn/Zone0" unique_id=724271619]
-position = Vector2(1581, 534)
 
 [node name="Marker2D41" type="Marker2D" parent="AirportSpawn/Zone0" unique_id=294930515]
 position = Vector2(1808, 471)
@@ -544,8 +543,11 @@ position = Vector2(1518, 682)
 [node name="Marker2D39" type="Marker2D" parent="AirportSpawn/Zone1" unique_id=1741753548]
 position = Vector2(1213, 308)
 
-[node name="Marker2D7" type="Marker2D" parent="AirportSpawn/Zone1" unique_id=775064315]
-position = Vector2(2047, 226)
+[node name="Marker2D" type="Marker2D" parent="AirportSpawn/Zone1" unique_id=948312932]
+position = Vector2(2032, 497)
+
+[node name="Marker2D4" type="Marker2D" parent="AirportSpawn/Zone1" unique_id=724271619]
+position = Vector2(1581, 534)
 
 [node name="Zone2" type="Node2D" parent="AirportSpawn" unique_id=2006067962]
 
@@ -567,6 +569,9 @@ position = Vector2(1098, 539)
 [node name="Marker2D22" type="Marker2D" parent="AirportSpawn/Zone2" unique_id=2138527082]
 position = Vector2(2091, 651)
 
+[node name="Marker2D7" type="Marker2D" parent="AirportSpawn/Zone2" unique_id=775064315]
+position = Vector2(2047, 226)
+
 [node name="Zone3" type="Node2D" parent="AirportSpawn" unique_id=1090776262]
 
 [node name="Marker2D31" type="Marker2D" parent="AirportSpawn/Zone3" unique_id=1398883371]
@@ -587,7 +592,7 @@ position = Vector2(1256, 163)
 position = Vector2(1150, 890)
 
 [node name="Marker2D8" type="Marker2D" parent="AirportSpawn/Zone4" unique_id=1976112312]
-position = Vector2(1482, 23)
+position = Vector2(1458, 38)
 
 [node name="Marker2D30" type="Marker2D" parent="AirportSpawn/Zone4" unique_id=1942750639]
 position = Vector2(667, 644)
