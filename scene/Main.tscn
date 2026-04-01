@@ -95,6 +95,7 @@ z_index = -1
 position = Vector2(1452.0001, 401)
 scale = Vector2(1.1007812, 1)
 texture = ExtResource("2_pnqar")
+metadata/_edit_lock_ = true
 
 [node name="Timer" type="Timer" parent="." unique_id=1871435388]
 wait_time = 25.0
@@ -547,9 +548,6 @@ position = Vector2(1808, 471)
 
 [node name="Zone1" type="Node2D" parent="AirportSpawn" unique_id=1084597291]
 
-[node name="Marker2D20" type="Marker2D" parent="AirportSpawn/Zone1" unique_id=386211722]
-position = Vector2(1518, 682)
-
 [node name="Marker2D39" type="Marker2D" parent="AirportSpawn/Zone1" unique_id=1741753548]
 position = Vector2(1213, 308)
 
@@ -582,13 +580,16 @@ position = Vector2(2091, 651)
 [node name="Marker2D7" type="Marker2D" parent="AirportSpawn/Zone2" unique_id=775064315]
 position = Vector2(2047, 226)
 
+[node name="Marker2D20" type="Marker2D" parent="AirportSpawn/Zone2" unique_id=386211722]
+position = Vector2(1575, 702)
+
 [node name="Zone3" type="Node2D" parent="AirportSpawn" unique_id=1090776262]
 
 [node name="Marker2D31" type="Marker2D" parent="AirportSpawn/Zone3" unique_id=1398883371]
 position = Vector2(1636, 124)
 
 [node name="Marker2D35" type="Marker2D" parent="AirportSpawn/Zone3" unique_id=836860896]
-position = Vector2(1946, 63)
+position = Vector2(1922, 106)
 
 [node name="Marker2D25" type="Marker2D" parent="AirportSpawn/Zone3" unique_id=2132589228]
 position = Vector2(1238, 776)
@@ -597,9 +598,6 @@ position = Vector2(1238, 776)
 position = Vector2(1256, 163)
 
 [node name="Zone4" type="Node2D" parent="AirportSpawn" unique_id=824345253]
-
-[node name="Marker2D43" type="Marker2D" parent="AirportSpawn/Zone4" unique_id=530022994]
-position = Vector2(1150, 890)
 
 [node name="Marker2D8" type="Marker2D" parent="AirportSpawn/Zone4" unique_id=1976112312]
 position = Vector2(1458, 38)
@@ -675,7 +673,10 @@ position = Vector2(822, 536)
 position = Vector2(562, 103)
 
 [node name="Marker2D45" type="Marker2D" parent="AirportSpawn/Zone6" unique_id=498576890]
-position = Vector2(628, 948)
+position = Vector2(774, 935)
+
+[node name="Marker2D43" type="Marker2D" parent="AirportSpawn/Zone6" unique_id=530022994]
+position = Vector2(1150, 890)
 
 [connection signal="timeout" from="Timer" to="." method="_on_spawn_timer_timeout"]
 [connection signal="timeout" from="WeekTimer" to="." method="_on_week_timer_timeout"]

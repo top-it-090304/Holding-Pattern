@@ -166,9 +166,22 @@ func unlock_next_phase():
 		
 		current_phase += 1
 		if passenger_timer:
-			var new_speed = max(0.2, 4.7 - (current_phase * 0.5))
+			var new_speed = max(0.001, 4.7 - (current_phase * 0.5))
 			if new_speed == 3.7:
 				new_speed = 3.0
+				
+			if current_phase == 3:
+				new_speed = 1.0
+				
+			if current_phase == 4:
+				new_speed = 0.5
+				
+			if current_phase == 5:
+				new_speed = 0.35
+				
+			if current_phase == 6:
+				new_speed = 0.1
+			
 			passenger_timer.wait_time = new_speed
 			passenger_timer.start()
 			print("Фаза: ", current_phase,"| ", "(ZOOM: ", target_zoom,"| ", "пассажиров/сек: ", new_speed)
