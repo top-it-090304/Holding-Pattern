@@ -108,7 +108,7 @@ wait_time = 25.0
 autostart = true
 
 [node name="WeekTimer" type="Timer" parent="." unique_id=1788865495]
-wait_time = 140.15
+wait_time = 20.0
 autostart = true
 
 [node name="GameOverUI" type="CanvasLayer" parent="." unique_id=2125910932]
@@ -519,7 +519,7 @@ texture = ExtResource("26_vq81u")
 process_mode = 2
 visible = false
 
-[node name="Label" type="Label" parent="UI/BonusPlane" unique_id=1375101979]
+[node name="Week" type="Label" parent="UI/BonusPlane" unique_id=1375101979]
 modulate = Color(0, 0, 0, 1)
 offset_left = 894.0
 offset_top = 163.0
@@ -531,72 +531,94 @@ text = "Неделя 1"
 [node name="Label2" type="Label" parent="UI/BonusPlane" unique_id=1161013464]
 modulate = Color(0, 0, 0, 1)
 offset_left = 899.0
-offset_top = 282.0
-offset_right = 1710.0
-offset_bottom = 354.0
+offset_top = 268.0
+offset_right = 1463.0
+offset_bottom = 318.0
 theme_override_font_sizes/font_size = 36
 text = "У вас появился новый самолёт"
 
 [node name="BonusPlane" type="Button" parent="UI/BonusPlane" unique_id=616052821]
-offset_left = 1037.0
-offset_top = 353.0
-offset_right = 1297.0
-offset_bottom = 613.0
+offset_left = 1096.0
+offset_top = 337.0
+offset_right = 1296.0
+offset_bottom = 537.0
 icon = ExtResource("14_gjnlk")
 flat = true
 expand_icon = true
 
-[node name="BonusLine" type="CanvasGroup" parent="UI" unique_id=285606462]
+[node name="Label3" type="Label" parent="UI/BonusPlane" unique_id=926944984]
+modulate = Color(0, 0, 0, 1)
+offset_left = 1121.0
+offset_top = 543.0
+offset_right = 1276.0
+offset_bottom = 593.0
+theme_override_font_sizes/font_size = 36
+text = "Самолёт"
+
+[node name="BonusPack1" type="CanvasGroup" parent="UI" unique_id=872760466]
 process_mode = 2
 visible = false
 
-[node name="Label" type="Label" parent="UI/BonusLine" unique_id=2048112463]
+[node name="Week" type="Label" parent="UI/BonusPack1" unique_id=2048112463]
 modulate = Color(0, 0, 0, 1)
-offset_left = 1100.0
-offset_top = 226.0
-offset_right = 1445.0
-offset_bottom = 331.0
-theme_override_font_sizes/font_size = 76
+offset_left = 894.0
+offset_top = 163.0
+offset_right = 1221.0
+offset_bottom = 262.0
+theme_override_font_sizes/font_size = 72
 text = "Неделя 1"
 
-[node name="BonusLine" type="Button" parent="UI/BonusLine" unique_id=814182076]
-offset_left = 1172.0
-offset_top = 353.0
-offset_right = 1362.0
-offset_bottom = 543.0
+[node name="Label3" type="Label" parent="UI/BonusPack1" unique_id=1382845839]
+modulate = Color(0, 0, 0, 1)
+offset_left = 895.0
+offset_top = 268.0
+offset_right = 1368.0
+offset_bottom = 348.0
+theme_override_font_sizes/font_size = 36
+text = "Что вам больше по душе?"
+
+[node name="BonusLine" type="Button" parent="UI/BonusPack1" unique_id=814182076]
+offset_left = 929.0
+offset_top = 337.0
+offset_right = 1119.0
+offset_bottom = 527.0
 icon = ExtResource("20_gjnlk")
 flat = true
 
-[node name="BonusBigPlane" type="CanvasGroup" parent="UI" unique_id=1879012294]
-process_mode = 2
-visible = false
-
-[node name="Label" type="Label" parent="UI/BonusBigPlane" unique_id=37565533]
-modulate = Color(0, 0, 0, 1)
-offset_left = 1129.0
-offset_top = 307.0
-offset_right = 1643.0
-offset_bottom = 520.0
-theme_override_font_sizes/font_size = 76
-text = "Неделя 1
-"
-
-[node name="Bonus_big_plane" type="Button" parent="UI/BonusBigPlane" unique_id=567313454]
-offset_left = 1194.0
-offset_top = 433.0
-offset_right = 1384.0
-offset_bottom = 623.0
+[node name="Bonus_big_plane" type="Button" parent="UI/BonusPack1" unique_id=567313454]
+offset_left = 1273.0
+offset_top = 337.0
+offset_right = 1463.0
+offset_bottom = 527.0
 icon = ExtResource("16_08k7p")
 flat = true
 
-[node name="Label2" type="Label" parent="UI/BonusBigPlane" unique_id=292885730]
+[node name="Label2" type="Label" parent="UI/BonusPack1" unique_id=292885730]
 modulate = Color(0, 0, 0, 1)
-offset_left = 942.0
-offset_top = 656.0
-offset_right = 1630.0
-offset_bottom = 782.0
-theme_override_font_sizes/font_size = 32
-text = "Большой самолёт. Вмещает 8 пассажиров"
+offset_left = 1207.0
+offset_top = 594.0
+offset_right = 1586.0
+offset_bottom = 639.0
+theme_override_font_sizes/font_size = 24
+text = "Вмещает 8 пассажиров"
+
+[node name="Label4" type="Label" parent="UI/BonusPack1" unique_id=15763828]
+modulate = Color(0, 0, 0, 1)
+offset_left = 1206.0
+offset_top = 542.0
+offset_right = 1534.0
+offset_bottom = 592.0
+theme_override_font_sizes/font_size = 36
+text = "Большой самолёт"
+
+[node name="Label5" type="Label" parent="UI/BonusPack1" unique_id=1749218780]
+modulate = Color(0, 0, 0, 1)
+offset_left = 968.0
+offset_top = 542.0
+offset_right = 1087.0
+offset_bottom = 592.0
+theme_override_font_sizes/font_size = 36
+text = "Линия"
 
 [node name="AirportSpawn" type="Node2D" parent="." unique_id=2036406742]
 metadata/_edit_lock_ = true
@@ -763,5 +785,5 @@ position = Vector2(1150, 890)
 [connection signal="pressed" from="UI/PinkButton" to="." method="_on_pb_pressed"]
 [connection signal="pressed" from="UI/OrangeButton" to="." method="_on_ob_pressed"]
 [connection signal="pressed" from="UI/BonusPlane/BonusPlane" to="." method="_on_bonus_plane_pressed"]
-[connection signal="pressed" from="UI/BonusLine/BonusLine" to="." method="_on_bonus_line_pressed"]
-[connection signal="pressed" from="UI/BonusBigPlane/Bonus_big_plane" to="." method="_on_bonus_big_plane_pressed"]
+[connection signal="pressed" from="UI/BonusPack1/BonusLine" to="." method="_on_bonus_line_pressed"]
+[connection signal="pressed" from="UI/BonusPack1/Bonus_big_plane" to="." method="_on_bonus_big_plane_pressed"]

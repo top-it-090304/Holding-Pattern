@@ -1,4 +1,2 @@
 res://scene/Main.tscn
-res://scripts/Week_day.gd
-res://scene/StartMenu.tscn
-res://scripts/Clock.gd
+res://scripts/Main.gd
