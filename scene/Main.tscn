@@ -22,6 +22,11 @@
 [ext_resource type="Script" uid="uid://d3pmmn6uqag7c" path="res://scripts/Big_plane_add.gd" id="17_8cuns"]
 [ext_resource type="Script" uid="uid://wwsk4j87ohel" path="res://scripts/Big_plane_count.gd" id="18_8cuns"]
 [ext_resource type="Texture2D" uid="uid://rl5b1huph76s" path="res://objects/Bonus_line.png" id="20_gjnlk"]
+[ext_resource type="Script" uid="uid://bsfmvdgi50hyw" path="res://scripts/Clock.gd" id="22_wosyn"]
+[ext_resource type="Texture2D" uid="uid://0ha25hwlwpxt" path="res://objects/Clock/Stroke.png" id="23_tgqhd"]
+[ext_resource type="Texture2D" uid="uid://bs2ppxd53lrw8" path="res://objects/Clock/Circle.png" id="24_puvaq"]
+[ext_resource type="Texture2D" uid="uid://deil82mhkcdr0" path="res://objects/Clock/Arrow.png" id="25_lcaa3"]
+[ext_resource type="Texture2D" uid="uid://cl6kwmwss60c8" path="res://objects/Clock/Riski.png" id="26_vq81u"]
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_hr7lf"]
 allow_unpress = true
@@ -176,14 +181,15 @@ layer = 2
 
 [node name="WeekDay" type="Label" parent="UI" unique_id=1252068619]
 z_index = 11
-offset_left = 2211.0
-offset_top = 33.0
-offset_right = 2265.0
-offset_bottom = 94.0
+offset_left = 2217.0
+offset_top = 27.0
+offset_right = 2271.0
+offset_bottom = 88.0
 pivot_offset = Vector2(27, 30)
 theme_override_colors/font_color = Color(0.18039216, 0.15686275, 0.18039216, 1)
-theme_override_font_sizes/font_size = 36
+theme_override_font_sizes/font_size = 42
 script = ExtResource("7_1dr5g")
+metadata/_edit_lock_ = true
 
 [node name="ClearData" type="Button" parent="UI" unique_id=993499150]
 anchors_preset = -1
@@ -431,17 +437,16 @@ metadata/_edit_use_anchors_ = true
 [node name="Man" type="TextureRect" parent="UI/ScorePack" unique_id=1258659211]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = -1.817
-anchor_top = -1.9580001
-anchor_right = -1.817
-anchor_bottom = -1.9580001
+anchor_left = -2.0256958
+anchor_top = -1.8843158
+anchor_right = -2.0256958
+anchor_bottom = -1.8843158
 offset_left = 561.95496
 offset_top = 191.01001
 offset_right = 660.95514
 offset_bottom = 290.01
 texture = ExtResource("10_3sxgj")
 expand_mode = 1
-metadata/_edit_use_anchors_ = true
 
 [node name="Score" type="RichTextLabel" parent="UI/ScorePack" unique_id=477554173]
 layout_mode = 0
@@ -455,6 +460,60 @@ theme_override_font_sizes/normal_font_size = 36
 bbcode_enabled = true
 text = "0"
 metadata/_edit_use_anchors_ = true
+
+[node name="Clock" type="Control" parent="UI" unique_id=429091267]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 2262.0
+offset_top = 6.0
+offset_right = 2383.0
+offset_bottom = 129.0
+pivot_offset = Vector2(118.605, 150.145)
+script = ExtResource("22_wosyn")
+metadata/_edit_lock_ = true
+
+[node name="Stroke" type="TextureRect" parent="UI/Clock" unique_id=1940797341]
+texture_filter = 4
+layout_mode = 0
+offset_left = 22.000015
+offset_top = 5.0
+offset_right = 131.00002
+offset_bottom = 114.0
+scale = Vector2(0.91999996, 0.91999996)
+texture = ExtResource("23_tgqhd")
+expand_mode = 1
+
+[node name="Circle" type="TextureRect" parent="UI/Clock" unique_id=653519266]
+texture_filter = 4
+layout_mode = 0
+offset_left = 28.500015
+offset_top = 12.0
+offset_right = 122.500015
+offset_bottom = 106.0
+scale = Vector2(0.91999996, 0.91999996)
+texture = ExtResource("24_puvaq")
+
+[node name="Arrow" type="TextureRect" parent="UI/Clock" unique_id=1894917565]
+texture_filter = 4
+layout_mode = 0
+offset_left = 67.770004
+offset_top = 31.985
+offset_right = 74.979996
+offset_bottom = 59.994965
+scale = Vector2(0.91999996, 0.91999996)
+pivot_offset = Vector2(3.805, 24.055)
+texture = ExtResource("25_lcaa3")
+expand_mode = 1
+
+[node name="Riski" type="TextureRect" parent="UI/Clock" unique_id=2024521355]
+texture_filter = 4
+layout_mode = 0
+offset_left = 34.000015
+offset_top = 16.0
+offset_right = 121.000015
+offset_bottom = 103.0
+scale = Vector2(0.91999996, 0.91999996)
+texture = ExtResource("26_vq81u")
 
 [node name="BonusPlane" type="CanvasGroup" parent="UI" unique_id=51213119]
 process_mode = 2
@@ -540,6 +599,7 @@ theme_override_font_sizes/font_size = 32
 text = "Большой самолёт. Вмещает 8 пассажиров"
 
 [node name="AirportSpawn" type="Node2D" parent="." unique_id=2036406742]
+metadata/_edit_lock_ = true
 
 [node name="Zone0" type="Node2D" parent="AirportSpawn" unique_id=662884658]
 
