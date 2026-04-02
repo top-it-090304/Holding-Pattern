@@ -1,5 +1,3 @@
 res://scene/Main.tscn
-res://scripts/Main.gd
-res://scripts/GameData.gd
-res://scripts/Plane.gd
-res://scripts/BigPlane.gd
+res://scripts/Week_day.gd
+res://scene/StartMenu.tscn

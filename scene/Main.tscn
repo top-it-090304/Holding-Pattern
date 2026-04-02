@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://dmiia6t0baedq" path="res://objects/Menu.png" id="5_hrl0l"]
 [ext_resource type="Texture2D" uid="uid://ck4unu555lgo2" path="res://objects/Button_red.png" id="5_s5yxy"]
 [ext_resource type="FontFile" uid="uid://bxu04q03hthlj" path="res://font/LFCurry.ttf" id="6_hrl0l"]
+[ext_resource type="Script" uid="uid://cp4srkpb0n5r7" path="res://scripts/Week_day.gd" id="7_1dr5g"]
 [ext_resource type="Script" uid="uid://c44tchjyc16q0" path="res://scripts/Plane_add.gd" id="7_s5yxy"]
 [ext_resource type="Texture2D" uid="uid://dirl28ic4l46t" path="res://objects/Fly_ghost.png" id="8_eik88"]
 [ext_resource type="Script" uid="uid://dj87sysn61exl" path="res://scripts/Plane_count.gd" id="9_pnqar"]
@@ -172,6 +173,17 @@ theme_override_font_sizes/font_size = 39
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=1579573212]
 layer = 2
+
+[node name="WeekDay" type="Label" parent="UI" unique_id=1252068619]
+z_index = 11
+offset_left = 2211.0
+offset_top = 33.0
+offset_right = 2265.0
+offset_bottom = 94.0
+pivot_offset = Vector2(27, 30)
+theme_override_colors/font_color = Color(0.18039216, 0.15686275, 0.18039216, 1)
+theme_override_font_sizes/font_size = 36
+script = ExtResource("7_1dr5g")
 
 [node name="ClearData" type="Button" parent="UI" unique_id=993499150]
 anchors_preset = -1
