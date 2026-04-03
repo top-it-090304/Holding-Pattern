@@ -21,7 +21,7 @@ config/icon="res://objects/icon.svg"
 GameData="*uid://b8gyqpk7m3yjq"
 Events="*uid://sgyghjllpleo"
 PassengerManager="*uid://df4q5iax1l1bg"
-Global="*uid://bfj3ylvc3w1s5"
+SoundManager="*uid://8y3cbqmy8wsy"
 
 [display]
 

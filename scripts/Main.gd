@@ -541,6 +541,7 @@ func _on_clear_data_pressed() -> void:
 	clear_data(GameData.lines_data["current color"])
 
 func _on_week_timer_timeout() -> void:
+	SoundManager.play("new_week")
 	Events.stop_plane_add.emit()
 	_stop_line_create()
 	get_tree().paused = true
