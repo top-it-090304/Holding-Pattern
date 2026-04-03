@@ -5,11 +5,15 @@ var sounds = {
 	
 }
 
+func _ready():
+	process_mode = Node.PROCESS_MODE_ALWAYS
+
 func play(sound_name: String, volume: float = 0.0, pitch: float = 1.0):
-	print("звук")
 	if sounds.has(sound_name):
 		var player = AudioStreamPlayer.new()
 		add_child(player)
+		
+		player.process_mode = Node.PROCESS_MODE_ALWAYS
 		
 		player.stream = sounds[sound_name]
 		player.volume_db = volume
