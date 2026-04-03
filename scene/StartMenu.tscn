@@ -196,3 +196,4 @@ texture = ExtResource("12_upnxq")
 [connection signal="pressed" from="Back_right" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="LevelSelect/CardsPack/Map_1" to="." method="_on_map_1_pressed"]
 [connection signal="pressed" from="LevelSelect/CardsPack/Map_1" to="LevelSelect" method="_on_card_pressed"]
+[connection signal="pressed" from="LevelSelect/CardsPack/Map_2" to="." method="_on_map_2_pressed"]
