@@ -2,3 +2,4 @@ res://scene/Main.tscn
 res://scripts/GameData.gd
 res://scripts/Week_day.gd
 res://scripts/Clock.gd
+res://scripts/Main.gd
