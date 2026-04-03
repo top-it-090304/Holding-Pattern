@@ -3,3 +3,4 @@ res://scripts/Sound_manegers.gd
 res://scripts/Main.gd
 res://scripts/SoundManager.gd
 res://scripts/BigPlane.gd
+res://scripts/start_menu.gd

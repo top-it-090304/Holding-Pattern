@@ -85,10 +85,7 @@ func _on_button_hovered(hovered_btn):
   			## увеличение
 			tween.tween_property(btn, "scale", scale_hovered, duration)
 			tween.tween_property(btn, "modulate", alpha_full, duration)
-		else:
-   		## засвет
-			tween.tween_property(btn, "scale", scale_others, duration)
-			tween.tween_property(btn, "modulate", alpha_faded, duration)
+	
 			
 	for btn in button:
 		var tween = create_tween().set_parallel(true).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
