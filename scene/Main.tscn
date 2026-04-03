@@ -625,10 +625,10 @@ text = "Большой самолёт"
 
 [node name="Label5" type="Label" parent="UI/BonusPack1" unique_id=1749218780]
 modulate = Color(0, 0, 0, 1)
-offset_left = 646.0
-offset_top = 845.0
-offset_right = 765.0
-offset_bottom = 895.0
+offset_left = 653.00006
+offset_top = 845.00006
+offset_right = 772.00006
+offset_bottom = 895.00006
 scale = Vector2(1.92, 1.92)
 theme_override_font_sizes/font_size = 36
 text = "Линия"
