@@ -1,6 +1,6 @@
 extends Label
 
-var day_time: float = 20.0
+var day_time: float = 20.27
 var days = ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс"]
 var current_day_index = 0
 

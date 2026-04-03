@@ -27,6 +27,7 @@
 [ext_resource type="Texture2D" uid="uid://bs2ppxd53lrw8" path="res://objects/Clock/Circle.png" id="24_puvaq"]
 [ext_resource type="Texture2D" uid="uid://deil82mhkcdr0" path="res://objects/Clock/Arrow.png" id="25_lcaa3"]
 [ext_resource type="Texture2D" uid="uid://cl6kwmwss60c8" path="res://objects/Clock/Riski.png" id="26_vq81u"]
+[ext_resource type="Texture2D" uid="uid://cel3fq7keunyb" path="res://objects/Bonus_BG.png" id="27_puvaq"]
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_hr7lf"]
 allow_unpress = true
@@ -108,7 +109,7 @@ wait_time = 25.0
 autostart = true
 
 [node name="WeekTimer" type="Timer" parent="." unique_id=1788865495]
-wait_time = 20.0
+wait_time = 142.0
 autostart = true
 
 [node name="GameOverUI" type="CanvasLayer" parent="." unique_id=2125910932]
@@ -500,6 +501,7 @@ offset_left = 67.770004
 offset_top = 31.985
 offset_right = 74.979996
 offset_bottom = 59.994965
+rotation = -0.06981317
 scale = Vector2(0.91999996, 0.91999996)
 pivot_offset = Vector2(3.805, 24.055)
 texture = ExtResource("25_lcaa3")
@@ -518,6 +520,11 @@ texture = ExtResource("26_vq81u")
 [node name="BonusPlane" type="CanvasGroup" parent="UI" unique_id=51213119]
 process_mode = 2
 visible = false
+
+[node name="TextureRect" type="TextureRect" parent="UI/BonusPlane" unique_id=20693807]
+offset_right = 2400.0
+offset_bottom = 1082.0
+texture = ExtResource("27_puvaq")
 
 [node name="Week" type="Label" parent="UI/BonusPlane" unique_id=1375101979]
 modulate = Color(0, 0, 0, 1)
@@ -558,6 +565,11 @@ text = "Самолёт"
 [node name="BonusPack1" type="CanvasGroup" parent="UI" unique_id=872760466]
 process_mode = 2
 visible = false
+
+[node name="TextureRect" type="TextureRect" parent="UI/BonusPack1" unique_id=1516139610]
+offset_right = 2403.0
+offset_bottom = 1082.0
+texture = ExtResource("27_puvaq")
 
 [node name="Week" type="Label" parent="UI/BonusPack1" unique_id=2048112463]
 modulate = Color(0, 0, 0, 1)
