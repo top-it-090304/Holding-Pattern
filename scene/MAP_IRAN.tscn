@@ -113,7 +113,7 @@ wait_time = 25.0
 autostart = true
 
 [node name="WeekTimer" type="Timer" parent="." unique_id=1788865495]
-wait_time = 142.0
+wait_time = 10.0
 autostart = true
 
 [node name="GameOverUI" type="CanvasLayer" parent="." unique_id=2125910932]
@@ -678,6 +678,140 @@ scale = Vector2(1.92, 1.92)
 theme_override_font_sizes/font_size = 36
 text = "Линия"
 
+[node name="BonusPack2" type="CanvasGroup" parent="UI" unique_id=1308716047]
+process_mode = 2
+visible = false
+
+[node name="TextureRect" type="TextureRect" parent="UI/BonusPack2" unique_id=1305809693]
+offset_right = 2403.0
+offset_bottom = 1082.0
+texture = ExtResource("27_lm8cf")
+
+[node name="Week" type="Label" parent="UI/BonusPack2" unique_id=1792034121]
+modulate = Color(0, 0, 0, 1)
+offset_left = 678.0
+offset_top = 27.0
+offset_right = 1367.0
+offset_bottom = 235.0
+theme_override_font_sizes/font_size = 145
+text = "Неделя 1"
+
+[node name="Label3" type="Label" parent="UI/BonusPack2" unique_id=37517557]
+modulate = Color(0, 0, 0, 1)
+offset_left = 685.0
+offset_top = 214.0
+offset_right = 1552.0
+offset_bottom = 305.0
+theme_override_font_sizes/font_size = 58
+text = "Что бы вы хотели приобрести для
+вашей авиакомпании?"
+
+[node name="BonusLine" type="Button" parent="UI/BonusPack2" unique_id=1317542881]
+offset_left = 581.0
+offset_top = 502.0
+offset_right = 771.0
+offset_bottom = 692.0
+scale = Vector2(1.92, 1.92)
+icon = ExtResource("28_44qpc")
+flat = true
+
+[node name="BonusBigAirport" type="Button" parent="UI/BonusPack2" unique_id=225102442]
+offset_left = 1537.0
+offset_top = 502.0
+offset_right = 1727.0
+offset_bottom = 692.0
+scale = Vector2(1.92, 1.92)
+icon = ExtResource("20_tu5oa")
+flat = true
+expand_icon = true
+
+[node name="Label4" type="Label" parent="UI/BonusPack2" unique_id=2138321959]
+modulate = Color(0, 0, 0, 1)
+offset_left = 1304.0001
+offset_top = 848.0
+offset_right = 1744.0001
+offset_bottom = 898.0
+scale = Vector2(1.92, 1.92)
+theme_override_font_sizes/font_size = 36
+text = "Расширенный аэропорт"
+
+[node name="Label5" type="Label" parent="UI/BonusPack2" unique_id=19492462]
+modulate = Color(0, 0, 0, 1)
+offset_left = 653.00006
+offset_top = 845.00006
+offset_right = 772.00006
+offset_bottom = 895.00006
+scale = Vector2(1.92, 1.92)
+theme_override_font_sizes/font_size = 36
+text = "Линия"
+
+[node name="BonusPack3" type="CanvasGroup" parent="UI" unique_id=1186692116]
+process_mode = 2
+visible = false
+
+[node name="TextureRect" type="TextureRect" parent="UI/BonusPack3" unique_id=137020262]
+offset_right = 2403.0
+offset_bottom = 1082.0
+texture = ExtResource("27_lm8cf")
+
+[node name="Week" type="Label" parent="UI/BonusPack3" unique_id=2082801235]
+modulate = Color(0, 0, 0, 1)
+offset_left = 678.0
+offset_top = 27.0
+offset_right = 1367.0
+offset_bottom = 235.0
+theme_override_font_sizes/font_size = 145
+text = "Неделя 1"
+
+[node name="Label3" type="Label" parent="UI/BonusPack3" unique_id=1667868767]
+modulate = Color(0, 0, 0, 1)
+offset_left = 685.0
+offset_top = 214.0
+offset_right = 1552.0
+offset_bottom = 305.0
+theme_override_font_sizes/font_size = 58
+text = "Что бы вы хотели приобрести для
+вашей авиакомпании?"
+
+[node name="Bonus_big_plane" type="Button" parent="UI/BonusPack3" unique_id=573369319]
+offset_left = 1537.0
+offset_top = 502.0
+offset_right = 1727.0
+offset_bottom = 692.0
+scale = Vector2(1.92, 1.92)
+icon = ExtResource("17_r4a12")
+flat = true
+
+[node name="BonusBigAirport" type="Button" parent="UI/BonusPack3" unique_id=700501353]
+offset_left = 581.0
+offset_top = 502.0
+offset_right = 771.0
+offset_bottom = 692.0
+scale = Vector2(1.92, 1.92)
+icon = ExtResource("20_tu5oa")
+flat = true
+expand_icon = true
+
+[node name="Label4" type="Label" parent="UI/BonusPack3" unique_id=939164863]
+modulate = Color(0, 0, 0, 1)
+offset_left = 347.00006
+offset_top = 848.0
+offset_right = 787.00006
+offset_bottom = 898.0
+scale = Vector2(1.92, 1.92)
+theme_override_font_sizes/font_size = 36
+text = "Расширенный аэропорт"
+
+[node name="Label5" type="Label" parent="UI/BonusPack3" unique_id=736083981]
+modulate = Color(0, 0, 0, 1)
+offset_left = 1413.0001
+offset_top = 854.0
+offset_right = 1741.0001
+offset_bottom = 904.0
+scale = Vector2(1.92, 1.92)
+theme_override_font_sizes/font_size = 36
+text = "Большой самолёт"
+
 [node name="AirportSpawn" type="Node2D" parent="." unique_id=2036406742]
 metadata/_edit_lock_ = true
 
@@ -845,3 +979,7 @@ position = Vector2(1150, 890)
 [connection signal="pressed" from="UI/BonusPlane/BonusPlane" to="." method="_on_bonus_plane_pressed"]
 [connection signal="pressed" from="UI/BonusPack1/BonusLine" to="." method="_on_bonus_line_pressed"]
 [connection signal="pressed" from="UI/BonusPack1/Bonus_big_plane" to="." method="_on_bonus_big_plane_pressed"]
+[connection signal="pressed" from="UI/BonusPack2/BonusLine" to="." method="_on_bonus_line_pressed"]
+[connection signal="pressed" from="UI/BonusPack2/BonusBigAirport" to="." method="_on_bonus_big_airport_pressed"]
+[connection signal="pressed" from="UI/BonusPack3/Bonus_big_plane" to="." method="_on_bonus_big_plane_pressed"]
+[connection signal="pressed" from="UI/BonusPack3/BonusBigAirport" to="." method="_on_bonus_big_airport_pressed"]

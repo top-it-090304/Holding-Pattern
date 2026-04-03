@@ -1,0 +1,8 @@
+res://scene/MAP_IRAN.tscn
+res://scene/MAP_SIBIR.tscn
+res://scripts/start_menu.gd
+res://scene/StartMenu.tscn
+res://scripts/MAP_SIBIR.gd
+res://scripts/GameData.gd
+res://scripts/Big_airport_add.gd
+res://scripts/MAP_IRAN.gd
