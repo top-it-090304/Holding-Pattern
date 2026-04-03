@@ -180,18 +180,6 @@ theme_override_font_sizes/font_size = 39
 [node name="UI" type="CanvasLayer" parent="." unique_id=1579573212]
 layer = 2
 
-[node name="WeekDay" type="Label" parent="UI" unique_id=1252068619]
-z_index = 11
-offset_left = 2217.0
-offset_top = 27.0
-offset_right = 2271.0
-offset_bottom = 88.0
-pivot_offset = Vector2(27, 30)
-theme_override_colors/font_color = Color(0.18039216, 0.15686275, 0.18039216, 1)
-theme_override_font_sizes/font_size = 42
-script = ExtResource("7_1dr5g")
-metadata/_edit_lock_ = true
-
 [node name="ClearData" type="Button" parent="UI" unique_id=993499150]
 anchors_preset = -1
 anchor_left = 0.33900002
@@ -516,6 +504,19 @@ offset_right = 121.000015
 offset_bottom = 103.0
 scale = Vector2(0.91999996, 0.91999996)
 texture = ExtResource("26_vq81u")
+
+[node name="WeekDay" type="Label" parent="UI/Clock" unique_id=1252068619]
+z_index = 11
+layout_mode = 0
+offset_left = -45.0
+offset_top = 21.0
+offset_right = 9.0
+offset_bottom = 82.0
+pivot_offset = Vector2(27, 30)
+theme_override_colors/font_color = Color(0.18039216, 0.15686275, 0.18039216, 1)
+theme_override_font_sizes/font_size = 42
+script = ExtResource("7_1dr5g")
+metadata/_edit_lock_ = true
 
 [node name="BonusPlane" type="CanvasGroup" parent="UI" unique_id=51213119]
 process_mode = 2
