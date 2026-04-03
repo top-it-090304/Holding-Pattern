@@ -1,3 +1,7 @@
 res://scene/Main.tscn
 res://scripts/SoundManager.gd
 res://scene/StartMenu.tscn
+res://scene/MAP_IRAN.tscn
+res://scripts/start_menu.gd
+res://scripts/MAP_SIBIR.gd
+res://scene/MAP_SIBIR.tscn

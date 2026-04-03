@@ -1,33 +1,33 @@
 [gd_scene format=3 uid="uid://w3majmenhb7r"]
 
-[ext_resource type="Script" uid="uid://sp2ta70qytu6" path="res://scripts/Main.gd" id="1_nbc6x"]
-[ext_resource type="Texture2D" uid="uid://po01xbkyu0m5" path="res://objects/map3d.png" id="2_pnqar"]
-[ext_resource type="Texture2D" uid="uid://cya118am2kgj2" path="res://objects/Vinetka.png" id="3_aex65"]
-[ext_resource type="Texture2D" uid="uid://d3hmyd7fm44gt" path="res://objects/Button_yellow.png" id="3_mnmej"]
-[ext_resource type="Texture2D" uid="uid://i5602sbm708r" path="res://objects/Restart.png" id="4_aex65"]
-[ext_resource type="Texture2D" uid="uid://c32r7a0jfkk6t" path="res://objects/Button_blue.png" id="4_o6q0f"]
-[ext_resource type="Texture2D" uid="uid://dmiia6t0baedq" path="res://objects/Menu.png" id="5_hrl0l"]
-[ext_resource type="Texture2D" uid="uid://ck4unu555lgo2" path="res://objects/Button_red.png" id="5_s5yxy"]
-[ext_resource type="FontFile" uid="uid://bxu04q03hthlj" path="res://font/LFCurry.ttf" id="6_hrl0l"]
-[ext_resource type="Script" uid="uid://cp4srkpb0n5r7" path="res://scripts/Week_day.gd" id="7_1dr5g"]
-[ext_resource type="Script" uid="uid://c44tchjyc16q0" path="res://scripts/Plane_add.gd" id="7_s5yxy"]
-[ext_resource type="Texture2D" uid="uid://dirl28ic4l46t" path="res://objects/Fly_ghost.png" id="8_eik88"]
-[ext_resource type="Script" uid="uid://dj87sysn61exl" path="res://scripts/Plane_count.gd" id="9_pnqar"]
-[ext_resource type="Texture2D" uid="uid://c7ssbco7yvqas" path="res://objects/Man.png" id="10_3sxgj"]
-[ext_resource type="Texture2D" uid="uid://b6dnv4yl8clsx" path="res://objects/x.png" id="10_tuai4"]
-[ext_resource type="Texture2D" uid="uid://umrjde6u3mhk" path="res://objects/NULL_button.png" id="11_ob58h"]
-[ext_resource type="Texture2D" uid="uid://bvq3rqkkfv8j3" path="res://objects/Bonus_Plane.png" id="14_gjnlk"]
-[ext_resource type="Texture2D" uid="uid://cw60yd0i354ir" path="res://objects/Bonus_bigPlane.png" id="16_08k7p"]
-[ext_resource type="Texture2D" uid="uid://dn6f8p3t56spw" path="res://objects/Fly_BIG_ghost.png" id="16_kxuod"]
-[ext_resource type="Script" uid="uid://d3pmmn6uqag7c" path="res://scripts/Big_plane_add.gd" id="17_8cuns"]
-[ext_resource type="Script" uid="uid://wwsk4j87ohel" path="res://scripts/Big_plane_count.gd" id="18_8cuns"]
-[ext_resource type="Texture2D" uid="uid://rl5b1huph76s" path="res://objects/Bonus_line.png" id="20_gjnlk"]
-[ext_resource type="Script" uid="uid://bsfmvdgi50hyw" path="res://scripts/Clock.gd" id="22_wosyn"]
-[ext_resource type="Texture2D" uid="uid://0ha25hwlwpxt" path="res://objects/Clock/Stroke.png" id="23_tgqhd"]
-[ext_resource type="Texture2D" uid="uid://bs2ppxd53lrw8" path="res://objects/Clock/Circle.png" id="24_puvaq"]
-[ext_resource type="Texture2D" uid="uid://deil82mhkcdr0" path="res://objects/Clock/Arrow.png" id="25_lcaa3"]
-[ext_resource type="Texture2D" uid="uid://cl6kwmwss60c8" path="res://objects/Clock/Riski.png" id="26_vq81u"]
-[ext_resource type="Texture2D" uid="uid://cel3fq7keunyb" path="res://objects/Bonus_BG.png" id="27_puvaq"]
+[ext_resource type="Script" uid="uid://sp2ta70qytu6" path="res://scripts/MAP_IRAN.gd" id="1_1hfpl"]
+[ext_resource type="Texture2D" uid="uid://po01xbkyu0m5" path="res://objects/map3d.png" id="2_4vfsl"]
+[ext_resource type="Texture2D" uid="uid://cya118am2kgj2" path="res://objects/Vinetka.png" id="3_ts4wl"]
+[ext_resource type="Texture2D" uid="uid://i5602sbm708r" path="res://objects/Restart.png" id="4_ap85m"]
+[ext_resource type="Texture2D" uid="uid://dmiia6t0baedq" path="res://objects/Menu.png" id="5_tu5oa"]
+[ext_resource type="FontFile" uid="uid://bxu04q03hthlj" path="res://font/LFCurry.ttf" id="6_1yydk"]
+[ext_resource type="Texture2D" uid="uid://b6dnv4yl8clsx" path="res://objects/x.png" id="7_jad85"]
+[ext_resource type="Texture2D" uid="uid://d3hmyd7fm44gt" path="res://objects/Button_yellow.png" id="8_6pevr"]
+[ext_resource type="Texture2D" uid="uid://c32r7a0jfkk6t" path="res://objects/Button_blue.png" id="9_l8fvx"]
+[ext_resource type="Texture2D" uid="uid://ck4unu555lgo2" path="res://objects/Button_red.png" id="10_u63k7"]
+[ext_resource type="Texture2D" uid="uid://umrjde6u3mhk" path="res://objects/NULL_button.png" id="11_0q2b8"]
+[ext_resource type="Script" uid="uid://dj87sysn61exl" path="res://scripts/Plane_count.gd" id="12_qmeo3"]
+[ext_resource type="Texture2D" uid="uid://dirl28ic4l46t" path="res://objects/Fly_ghost.png" id="13_smxhb"]
+[ext_resource type="Texture2D" uid="uid://bvq3rqkkfv8j3" path="res://objects/Bonus_Plane.png" id="14_d42c7"]
+[ext_resource type="Script" uid="uid://c44tchjyc16q0" path="res://scripts/Plane_add.gd" id="15_qfpcn"]
+[ext_resource type="Texture2D" uid="uid://dn6f8p3t56spw" path="res://objects/Fly_BIG_ghost.png" id="16_54xju"]
+[ext_resource type="Texture2D" uid="uid://cw60yd0i354ir" path="res://objects/Bonus_bigPlane.png" id="17_r4a12"]
+[ext_resource type="Script" uid="uid://d3pmmn6uqag7c" path="res://scripts/Big_plane_add.gd" id="18_3t1ax"]
+[ext_resource type="Script" uid="uid://wwsk4j87ohel" path="res://scripts/Big_plane_count.gd" id="19_jsff0"]
+[ext_resource type="Texture2D" uid="uid://c7ssbco7yvqas" path="res://objects/Man.png" id="20_j2cc6"]
+[ext_resource type="Script" uid="uid://bsfmvdgi50hyw" path="res://scripts/Clock.gd" id="21_t388w"]
+[ext_resource type="Texture2D" uid="uid://0ha25hwlwpxt" path="res://objects/Clock/Stroke.png" id="22_2hy6f"]
+[ext_resource type="Texture2D" uid="uid://bs2ppxd53lrw8" path="res://objects/Clock/Circle.png" id="23_lqeuv"]
+[ext_resource type="Texture2D" uid="uid://deil82mhkcdr0" path="res://objects/Clock/Arrow.png" id="24_88v1a"]
+[ext_resource type="Texture2D" uid="uid://cl6kwmwss60c8" path="res://objects/Clock/Riski.png" id="25_og6mj"]
+[ext_resource type="Script" uid="uid://cp4srkpb0n5r7" path="res://scripts/Week_day.gd" id="26_prp3o"]
+[ext_resource type="Texture2D" uid="uid://cel3fq7keunyb" path="res://objects/Bonus_BG.png" id="27_lm8cf"]
+[ext_resource type="Texture2D" uid="uid://rl5b1huph76s" path="res://objects/Bonus_line.png" id="28_44qpc"]
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_hr7lf"]
 allow_unpress = true
@@ -89,8 +89,8 @@ corner_detail = 5
 [sub_resource type="LabelSettings" id="LabelSettings_pnqar"]
 font_size = 32
 
-[node name="Main" type="Node2D" unique_id=699429658]
-script = ExtResource("1_nbc6x")
+[node name="MAP_IRAN" type="Node2D" unique_id=699429658]
+script = ExtResource("1_1hfpl")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=273851256]
 position = Vector2(1613, 447)
@@ -101,7 +101,7 @@ zoom = Vector2(2.4, 2.4)
 z_index = -1
 position = Vector2(1452.0001, 401)
 scale = Vector2(1.1007812, 1)
-texture = ExtResource("2_pnqar")
+texture = ExtResource("2_4vfsl")
 metadata/_edit_lock_ = true
 
 [node name="Timer" type="Timer" parent="." unique_id=1871435388]
@@ -122,7 +122,7 @@ process_mode = 3
 [node name="Vinetka" type="TextureRect" parent="GameOverUI/MainPack" unique_id=1163205481]
 offset_right = 2405.0
 offset_bottom = 1080.0
-texture = ExtResource("3_aex65")
+texture = ExtResource("3_ts4wl")
 
 [node name="Restart" type="Button" parent="GameOverUI/MainPack" unique_id=2137488011]
 process_mode = 3
@@ -131,7 +131,7 @@ offset_top = 680.0
 offset_right = 1181.0594
 offset_bottom = 858.0
 pivot_offset = Vector2(150, 40)
-icon = ExtResource("4_aex65")
+icon = ExtResource("4_ap85m")
 flat = true
 expand_icon = true
 
@@ -142,7 +142,7 @@ offset_top = 850.0
 offset_right = 887.7333
 offset_bottom = 983.0
 pivot_offset = Vector2(150, 40)
-icon = ExtResource("5_hrl0l")
+icon = ExtResource("5_tu5oa")
 flat = true
 expand_icon = true
 
@@ -154,7 +154,7 @@ offset_bottom = 225.0
 theme_override_colors/default_color = Color(0.2, 0.1764706, 0.2, 1)
 theme_override_colors/font_outline_color = Color(0.2, 0.1764706, 0.2, 1)
 theme_override_constants/outline_size = 7
-theme_override_fonts/bold_font = ExtResource("6_hrl0l")
+theme_override_fonts/bold_font = ExtResource("6_1yydk")
 theme_override_font_sizes/normal_font_size = 149
 bbcode_enabled = true
 text = "Игра окончена"
@@ -191,7 +191,7 @@ offset_top = -787.88007
 offset_right = 1476.5991
 offset_bottom = -772.80005
 scale = Vector2(1.52, 1.52)
-icon = ExtResource("10_tuai4")
+icon = ExtResource("7_jad85")
 flat = true
 
 [node name="YellowButton" type="Button" parent="UI" unique_id=1877033529]
@@ -211,7 +211,7 @@ toggle_mode = true
 button_pressed = true
 action_mode = 0
 button_group = SubResource("ButtonGroup_hr7lf")
-icon = ExtResource("3_mnmej")
+icon = ExtResource("8_6pevr")
 flat = true
 expand_icon = true
 
@@ -226,7 +226,7 @@ scale = Vector2(0.48, 0.48)
 toggle_mode = true
 action_mode = 0
 button_group = SubResource("ButtonGroup_yiwpq")
-icon = ExtResource("4_o6q0f")
+icon = ExtResource("9_l8fvx")
 flat = true
 expand_icon = true
 
@@ -241,7 +241,7 @@ scale = Vector2(0.48, 0.48)
 toggle_mode = true
 action_mode = 0
 button_group = SubResource("ButtonGroup_mnmej")
-icon = ExtResource("5_s5yxy")
+icon = ExtResource("10_u63k7")
 flat = true
 expand_icon = true
 
@@ -252,7 +252,7 @@ offset_right = 2346.0002
 offset_bottom = 619.3158
 scale = Vector2(1.48, 1.48)
 theme_override_colors/icon_disabled_color = Color(0.89059, 0.89059, 0.8905901, 1)
-theme_override_icons/icon = ExtResource("11_ob58h")
+theme_override_icons/icon = ExtResource("11_0q2b8")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_ob58h")
 disabled = true
 toggle_mode = true
@@ -267,7 +267,7 @@ offset_right = 2346.0002
 offset_bottom = 739.59436
 scale = Vector2(1.48, 1.48)
 theme_override_colors/icon_disabled_color = Color(0.8901961, 0.8901961, 0.8901961, 1)
-theme_override_icons/icon = ExtResource("11_ob58h")
+theme_override_icons/icon = ExtResource("11_0q2b8")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_3hqfm")
 disabled = true
 toggle_mode = true
@@ -282,7 +282,7 @@ offset_right = 2345.0002
 offset_bottom = 858.4494
 scale = Vector2(1.48, 1.48)
 theme_override_colors/icon_disabled_color = Color(0.8901961, 0.8901961, 0.8901961, 1)
-theme_override_icons/icon = ExtResource("11_ob58h")
+theme_override_icons/icon = ExtResource("11_0q2b8")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_08k7p")
 disabled = true
 toggle_mode = true
@@ -297,7 +297,7 @@ offset_right = 2346.0002
 offset_bottom = 977.73926
 scale = Vector2(1.48, 1.48)
 theme_override_colors/icon_disabled_color = Color(0.8901961, 0.8901961, 0.8901961, 1)
-theme_override_icons/icon = ExtResource("11_ob58h")
+theme_override_icons/icon = ExtResource("11_0q2b8")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_8cuns")
 disabled = true
 toggle_mode = true
@@ -343,7 +343,7 @@ offset_right = -972.0
 offset_bottom = -656.0
 theme_override_font_sizes/font_size = 26
 label_settings = SubResource("LabelSettings_pnqar")
-script = ExtResource("9_pnqar")
+script = ExtResource("12_qmeo3")
 metadata/_edit_use_anchors_ = true
 
 [node name="TexturePlaneGhost" type="TextureRect" parent="UI/CountPlanePack" unique_id=1382701883]
@@ -353,7 +353,7 @@ offset_left = -1571.0
 offset_top = -632.0
 offset_right = -1394.6333
 offset_bottom = -489.0
-texture = ExtResource("8_eik88")
+texture = ExtResource("13_smxhb")
 
 [node name="AddPlane" type="TextureRect" parent="UI/CountPlanePack" unique_id=1910985803]
 texture_filter = 6
@@ -368,9 +368,9 @@ offset_top = -93.02197
 offset_right = -31.999939
 offset_bottom = -91.02396
 mouse_filter = 0
-texture = ExtResource("14_gjnlk")
+texture = ExtResource("14_d42c7")
 expand_mode = 1
-script = ExtResource("7_s5yxy")
+script = ExtResource("15_qfpcn")
 metadata/_edit_use_anchors_ = true
 
 [node name="TextureBigPlaneGhost" type="TextureRect" parent="UI/CountPlanePack" unique_id=138101095]
@@ -380,7 +380,7 @@ offset_left = -1588.0
 offset_top = -460.0
 offset_right = -1376.8
 offset_bottom = -284.0
-texture = ExtResource("16_kxuod")
+texture = ExtResource("16_54xju")
 
 [node name="CountBigPlanePack" type="Control" parent="UI" unique_id=700237397]
 layout_mode = 3
@@ -400,9 +400,9 @@ offset_top = -61.00003
 offset_right = 125.99999
 offset_bottom = 57.99997
 mouse_filter = 0
-texture = ExtResource("16_08k7p")
+texture = ExtResource("17_r4a12")
 expand_mode = 1
-script = ExtResource("17_8cuns")
+script = ExtResource("18_3t1ax")
 
 [node name="Count" type="Label" parent="UI/CountBigPlanePack" unique_id=1827244918]
 layout_mode = 0
@@ -411,7 +411,7 @@ offset_top = 416.0
 offset_right = 242.0
 offset_bottom = 464.0
 theme_override_font_sizes/font_size = 26
-script = ExtResource("18_8cuns")
+script = ExtResource("19_jsff0")
 
 [node name="ScorePack" type="Control" parent="UI" unique_id=1916879007]
 layout_mode = 3
@@ -434,7 +434,7 @@ offset_left = 561.95496
 offset_top = 191.01001
 offset_right = 660.95514
 offset_bottom = 290.01
-texture = ExtResource("10_3sxgj")
+texture = ExtResource("20_j2cc6")
 expand_mode = 1
 
 [node name="Score" type="RichTextLabel" parent="UI/ScorePack" unique_id=477554173]
@@ -463,7 +463,7 @@ offset_top = 6.0
 offset_right = 2383.0
 offset_bottom = 129.0
 pivot_offset = Vector2(118.605, 150.145)
-script = ExtResource("22_wosyn")
+script = ExtResource("21_t388w")
 metadata/_edit_lock_ = true
 
 [node name="Stroke" type="TextureRect" parent="UI/Clock" unique_id=1940797341]
@@ -474,7 +474,7 @@ offset_top = 5.0
 offset_right = 131.00002
 offset_bottom = 114.0
 scale = Vector2(0.91999996, 0.91999996)
-texture = ExtResource("23_tgqhd")
+texture = ExtResource("22_2hy6f")
 expand_mode = 1
 
 [node name="Circle" type="TextureRect" parent="UI/Clock" unique_id=653519266]
@@ -485,7 +485,7 @@ offset_top = 12.0
 offset_right = 122.500015
 offset_bottom = 106.0
 scale = Vector2(0.91999996, 0.91999996)
-texture = ExtResource("24_puvaq")
+texture = ExtResource("23_lqeuv")
 
 [node name="Arrow" type="TextureRect" parent="UI/Clock" unique_id=1894917565]
 texture_filter = 4
@@ -496,7 +496,7 @@ offset_right = 74.979996
 offset_bottom = 59.994965
 scale = Vector2(0.91999996, 0.91999996)
 pivot_offset = Vector2(3.805, 24.055)
-texture = ExtResource("25_lcaa3")
+texture = ExtResource("24_88v1a")
 expand_mode = 1
 
 [node name="Riski" type="TextureRect" parent="UI/Clock" unique_id=2024521355]
@@ -507,7 +507,7 @@ offset_top = 16.0
 offset_right = 121.000015
 offset_bottom = 103.0
 scale = Vector2(0.91999996, 0.91999996)
-texture = ExtResource("26_vq81u")
+texture = ExtResource("25_og6mj")
 
 [node name="WeekDay" type="Label" parent="UI/Clock" unique_id=1252068619]
 z_index = 11
@@ -519,7 +519,7 @@ offset_bottom = 82.0
 pivot_offset = Vector2(27, 30)
 theme_override_colors/font_color = Color(0.18039216, 0.15686275, 0.18039216, 1)
 theme_override_font_sizes/font_size = 42
-script = ExtResource("7_1dr5g")
+script = ExtResource("26_prp3o")
 metadata/_edit_lock_ = true
 
 [node name="BonusPlane" type="CanvasGroup" parent="UI" unique_id=51213119]
@@ -529,7 +529,7 @@ visible = false
 [node name="TextureRect" type="TextureRect" parent="UI/BonusPlane" unique_id=20693807]
 offset_right = 2400.0
 offset_bottom = 1082.0
-texture = ExtResource("27_puvaq")
+texture = ExtResource("27_lm8cf")
 
 [node name="Week" type="Label" parent="UI/BonusPlane" unique_id=1375101979]
 modulate = Color(0, 0, 0, 1)
@@ -557,7 +557,7 @@ offset_top = 398.0
 offset_right = 1242.0
 offset_bottom = 598.0
 scale = Vector2(1.8, 1.8)
-icon = ExtResource("14_gjnlk")
+icon = ExtResource("14_d42c7")
 flat = true
 expand_icon = true
 
@@ -578,7 +578,7 @@ visible = false
 [node name="TextureRect" type="TextureRect" parent="UI/BonusPack1" unique_id=1516139610]
 offset_right = 2403.0
 offset_bottom = 1082.0
-texture = ExtResource("27_puvaq")
+texture = ExtResource("27_lm8cf")
 
 [node name="Week" type="Label" parent="UI/BonusPack1" unique_id=2048112463]
 modulate = Color(0, 0, 0, 1)
@@ -605,7 +605,7 @@ offset_top = 502.0
 offset_right = 771.0
 offset_bottom = 692.0
 scale = Vector2(1.92, 1.92)
-icon = ExtResource("20_gjnlk")
+icon = ExtResource("28_44qpc")
 flat = true
 
 [node name="Bonus_big_plane" type="Button" parent="UI/BonusPack1" unique_id=567313454]
@@ -614,7 +614,7 @@ offset_top = 502.0
 offset_right = 1727.0
 offset_bottom = 692.0
 scale = Vector2(1.92, 1.92)
-icon = ExtResource("16_08k7p")
+icon = ExtResource("17_r4a12")
 flat = true
 
 [node name="Label4" type="Label" parent="UI/BonusPack1" unique_id=15763828]
