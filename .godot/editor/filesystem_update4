@@ -1,2 +1,3 @@
 res://scene/Main.tscn
 res://scripts/SoundManager.gd
+res://scene/StartMenu.tscn

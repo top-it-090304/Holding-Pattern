@@ -164,7 +164,7 @@ position = Vector2(-1389, 1840)
 position = Vector2(314, 2302)
 
 [node name="Marker2D7" type="Marker2D" parent="Back/Points" unique_id=1580976034]
-position = Vector2(1297, 1704)
+position = Vector2(1655, 1677)
 
 [node name="Marker2D8" type="Marker2D" parent="Back/Points" unique_id=2043917348]
 position = Vector2(-1378, -64)
@@ -173,7 +173,7 @@ position = Vector2(-1378, -64)
 position = Vector2(-448, -655)
 
 [node name="Marker2D10" type="Marker2D" parent="Back/Points" unique_id=2031596884]
-position = Vector2(3810, 1918)
+position = Vector2(4173, 2162)
 
 [node name="Marker2D11" type="Marker2D" parent="Back/Points" unique_id=878403298]
 position = Vector2(70, -639)
