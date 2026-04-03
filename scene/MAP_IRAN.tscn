@@ -20,8 +20,12 @@
 [ext_resource type="Script" uid="uid://d3pmmn6uqag7c" path="res://scripts/Big_plane_add.gd" id="18_3t1ax"]
 [ext_resource type="Script" uid="uid://wwsk4j87ohel" path="res://scripts/Big_plane_count.gd" id="19_jsff0"]
 [ext_resource type="Texture2D" uid="uid://c7ssbco7yvqas" path="res://objects/Man.png" id="20_j2cc6"]
+[ext_resource type="Texture2D" uid="uid://gegyo2242mki" path="res://objects/Bonus_airport.png" id="20_tu5oa"]
+[ext_resource type="Script" uid="uid://c7hrg251scscx" path="res://scripts/Big_airport_add.gd" id="21_1yydk"]
 [ext_resource type="Script" uid="uid://bsfmvdgi50hyw" path="res://scripts/Clock.gd" id="21_t388w"]
 [ext_resource type="Texture2D" uid="uid://0ha25hwlwpxt" path="res://objects/Clock/Stroke.png" id="22_2hy6f"]
+[ext_resource type="Script" uid="uid://dwoegard4rl6r" path="res://scripts/Big_airport_count.gd" id="22_jad85"]
+[ext_resource type="Texture2D" uid="uid://g6xobvgi7ovh" path="res://objects/black_circle.png" id="23_6pevr"]
 [ext_resource type="Texture2D" uid="uid://bs2ppxd53lrw8" path="res://objects/Clock/Circle.png" id="23_lqeuv"]
 [ext_resource type="Texture2D" uid="uid://deil82mhkcdr0" path="res://objects/Clock/Arrow.png" id="24_88v1a"]
 [ext_resource type="Texture2D" uid="uid://cl6kwmwss60c8" path="res://objects/Clock/Riski.png" id="25_og6mj"]
@@ -412,6 +416,43 @@ offset_right = 242.0
 offset_bottom = 464.0
 theme_override_font_sizes/font_size = 26
 script = ExtResource("19_jsff0")
+
+[node name="CountBigAirportPack" type="Control" parent="UI" unique_id=691729685]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 34.0
+offset_top = 40.0
+offset_right = 130.0
+offset_bottom = 114.0
+
+[node name="AddBigAirport" type="TextureRect" parent="UI/CountBigAirportPack" unique_id=1286384483]
+layout_mode = 0
+offset_left = 60.0
+offset_top = 529.0
+offset_right = 180.0
+offset_bottom = 649.0
+texture = ExtResource("20_tu5oa")
+expand_mode = 1
+script = ExtResource("21_1yydk")
+
+[node name="Count" type="Label" parent="UI/CountBigAirportPack" unique_id=2029327872]
+layout_mode = 0
+offset_left = 160.0
+offset_top = 511.0
+offset_right = 207.0
+offset_bottom = 559.0
+theme_override_font_sizes/font_size = 26
+script = ExtResource("22_jad85")
+
+[node name="TextureRect" type="TextureRect" parent="UI/CountBigAirportPack" unique_id=529263599]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0.36078432)
+layout_mode = 0
+offset_left = -456.0
+offset_top = 138.0
+offset_right = -336.0
+offset_bottom = 258.0
+texture = ExtResource("23_6pevr")
 
 [node name="ScorePack" type="Control" parent="UI" unique_id=1916879007]
 layout_mode = 3

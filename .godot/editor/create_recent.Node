@@ -1,8 +1,8 @@
 TextureRect
+Control
 Label
 CanvasGroup
 Sprite2D
-Control
 Marker2D
 Button
 Node2D
