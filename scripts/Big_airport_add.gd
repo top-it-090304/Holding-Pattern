@@ -70,10 +70,10 @@ func _drop_plane():
 		var dist = mouse_pos.distance_to(airport.position)
 		
 		if dist < min_dist:
-			print("hui")
 			var tween = create_tween().set_parallel(true).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
 			tween.tween_property(airport, "scale", Vector2(1.35, 1.35), 0.25)
 			GameData.big_airports -= 1
+			
 			var CountAirport = get_tree().get_first_node_in_group("countBigAirport")
 			if CountAirport:
 				CountAirport.on_plane_spawned()

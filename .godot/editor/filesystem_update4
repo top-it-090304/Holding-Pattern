@@ -1,2 +1,3 @@
+res://scripts/MAP_IRAN.gd
 res://scene/MAP_IRAN.tscn
-res://scripts/GameData.gd
+res://scripts/Big_airport_add.gd

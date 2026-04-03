@@ -1,10 +1,10 @@
+CanvasGroup
+Button
 TextureRect
 Control
 Label
-CanvasGroup
 Sprite2D
 Marker2D
-Button
 Node2D
 CheckButton
 RichTextLabel
