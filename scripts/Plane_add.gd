@@ -4,8 +4,10 @@ var is_dragging = false
 var ghost_plane: Sprite2D
 @onready var fly_ghost = %TexturePlaneGhost
 
+func _ready():
+		Events.stop_plane_add.connect(_stop_plane_add)
+		
 func _process(_delta):
-	Events.stop_plane_add.connect(_stop_plane_add)
 	if GameData.start_planes == 0:
 		texture = load("res://objects/count_fly_Zero.png")
 	if GameData.start_planes > 0:
@@ -29,11 +31,13 @@ func _process(_delta):
 			var pos1 = curve.sample_baked(offset)
 			var pos2 = curve.sample_baked(offset + 2.0)
 			
-			var target_angle = (pos2 - pos1).angle()
-			ghost_plane.rotation = lerp_angle(ghost_plane.rotation, target_angle, 0.9)
+			var direction = pos2 - pos1
+			if direction.length() > 0.1:
+				var target_angle = direction.angle() 
+				ghost_plane.rotation = lerp_angle(ghost_plane.rotation, target_angle, 10.0 * _delta)
 		else:
 			ghost_plane.modulate = Color(1, 1, 1, 0.5)
-			ghost_plane.rotation = 0
+			ghost_plane.rotation = lerp_angle(ghost_plane.rotation, 0, 10.0 * _delta)
 			
 func _get_closest_route_data(world_pos):
 	var min_dist = 60.0
