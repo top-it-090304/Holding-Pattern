@@ -190,11 +190,11 @@ anchor_left = 0.339
 anchor_top = 0.886
 anchor_right = 0.361
 anchor_bottom = 0.935
-offset_left = 1461.4
-offset_top = -787.88
-offset_right = 1476.6
-offset_bottom = -772.8
-scale = Vector2(1.52, 1.52)
+offset_left = 1465.4
+offset_top = -676.88
+offset_right = 1480.6
+offset_bottom = -661.8
+scale = Vector2(1.4, 1.4)
 icon = ExtResource("6_1numj")
 flat = true
 
@@ -206,11 +206,11 @@ anchor_left = 0.341
 anchor_top = 0.892865
 anchor_right = 0.384828
 anchor_bottom = 1.00994
-offset_left = 1451.6
-offset_top = -807.294
-offset_right = 1586.41
-offset_bottom = -663.737
-scale = Vector2(0.48, 0.48)
+offset_left = 1455.6
+offset_top = -696.294
+offset_right = 1590.41
+offset_bottom = -552.737
+scale = Vector2(0.442105, 0.442105)
 toggle_mode = true
 button_pressed = true
 action_mode = 0
@@ -222,11 +222,11 @@ expand_icon = true
 [node name="BlueButton" type="Button" parent="UI"]
 modulate = Color(0, 0, 1, 1)
 texture_filter = 6
-offset_left = 2270.0
-offset_top = 283.0
-offset_right = 2510.0
-offset_bottom = 553.0
-scale = Vector2(0.48, 0.48)
+offset_left = 2275.0
+offset_top = 380.0
+offset_right = 2515.0
+offset_bottom = 650.0
+scale = Vector2(0.442105, 0.442105)
 toggle_mode = true
 action_mode = 0
 button_group = SubResource("ButtonGroup_37v68")
@@ -237,11 +237,11 @@ expand_icon = true
 [node name="RedButton" type="Button" parent="UI"]
 modulate = Color(1, 0, 0, 1)
 texture_filter = 6
-offset_left = 2271.0
-offset_top = 414.0
-offset_right = 2541.0
-offset_bottom = 684.0
-scale = Vector2(0.48, 0.48)
+offset_left = 2276.0
+offset_top = 496.0
+offset_right = 2546.0
+offset_bottom = 766.0
+scale = Vector2(0.442105, 0.442105)
 toggle_mode = true
 action_mode = 0
 button_group = SubResource("ButtonGroup_ococl")
@@ -250,11 +250,11 @@ flat = true
 expand_icon = true
 
 [node name="LightBlueButton" type="Button" parent="UI"]
-offset_left = 2266.0
-offset_top = 525.0
-offset_right = 2346.0
-offset_bottom = 619.316
-scale = Vector2(1.48, 1.48)
+offset_left = 2273.0
+offset_top = 598.0
+offset_right = 2353.0
+offset_bottom = 692.316
+scale = Vector2(1.36316, 1.36316)
 theme_override_colors/icon_disabled_color = Color(0.89059, 0.89059, 0.89059, 1)
 theme_override_icons/icon = ExtResource("10_to4wy")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_c8urr")
@@ -265,11 +265,11 @@ flat = true
 expand_icon = true
 
 [node name="GreenButton" type="Button" parent="UI"]
-offset_left = 2266.0
-offset_top = 648.0
-offset_right = 2346.0
-offset_bottom = 739.594
-scale = Vector2(1.48, 1.48)
+offset_left = 2273.0
+offset_top = 712.0
+offset_right = 2353.0
+offset_bottom = 803.594
+scale = Vector2(1.36316, 1.36316)
 theme_override_colors/icon_disabled_color = Color(0.890196, 0.890196, 0.890196, 1)
 theme_override_icons/icon = ExtResource("10_to4wy")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_32jyh")
@@ -280,11 +280,11 @@ flat = true
 expand_icon = true
 
 [node name="PinkButton" type="Button" parent="UI"]
-offset_left = 2266.0
-offset_top = 768.0
-offset_right = 2345.0
-offset_bottom = 858.449
-scale = Vector2(1.48, 1.48)
+offset_left = 2273.0
+offset_top = 824.0
+offset_right = 2352.0
+offset_bottom = 914.449
+scale = Vector2(1.36316, 1.36316)
 theme_override_colors/icon_disabled_color = Color(0.890196, 0.890196, 0.890196, 1)
 theme_override_icons/icon = ExtResource("10_to4wy")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_hwh2q")
@@ -295,11 +295,11 @@ flat = true
 expand_icon = true
 
 [node name="OrangeButton" type="Button" parent="UI"]
-offset_left = 2266.0
-offset_top = 886.145
-offset_right = 2346.0
-offset_bottom = 977.739
-scale = Vector2(1.48, 1.48)
+offset_left = 2272.0
+offset_top = 934.0
+offset_right = 2352.0
+offset_bottom = 1025.59
+scale = Vector2(1.36316, 1.36316)
 theme_override_colors/icon_disabled_color = Color(0.890196, 0.890196, 0.890196, 1)
 theme_override_icons/icon = ExtResource("10_to4wy")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_wcfiu")
@@ -678,6 +678,140 @@ scale = Vector2(1.92, 1.92)
 theme_override_font_sizes/font_size = 36
 text = "Линия"
 
+[node name="BonusPack2" type="CanvasGroup" parent="UI"]
+process_mode = 2
+visible = false
+
+[node name="TextureRect" type="TextureRect" parent="UI/BonusPack2"]
+offset_right = 2403.0
+offset_bottom = 1082.0
+texture = ExtResource("26_dc07v")
+
+[node name="Week" type="Label" parent="UI/BonusPack2"]
+modulate = Color(0, 0, 0, 1)
+offset_left = 678.0
+offset_top = 27.0
+offset_right = 1367.0
+offset_bottom = 235.0
+theme_override_font_sizes/font_size = 145
+text = "Неделя 1"
+
+[node name="Label3" type="Label" parent="UI/BonusPack2"]
+modulate = Color(0, 0, 0, 1)
+offset_left = 685.0
+offset_top = 214.0
+offset_right = 1552.0
+offset_bottom = 305.0
+theme_override_font_sizes/font_size = 58
+text = "Что бы вы хотели приобрести для
+вашей авиакомпании?"
+
+[node name="BonusLine" type="Button" parent="UI/BonusPack2"]
+offset_left = 581.0
+offset_top = 502.0
+offset_right = 771.0
+offset_bottom = 692.0
+scale = Vector2(1.92, 1.92)
+icon = ExtResource("27_yh4fj")
+flat = true
+
+[node name="BonusBigAirport" type="Button" parent="UI/BonusPack2"]
+offset_left = 1537.0
+offset_top = 502.0
+offset_right = 1727.0
+offset_bottom = 692.0
+scale = Vector2(1.92, 1.92)
+icon = ExtResource("20_1numj")
+flat = true
+expand_icon = true
+
+[node name="Label4" type="Label" parent="UI/BonusPack2"]
+modulate = Color(0, 0, 0, 1)
+offset_left = 1304.0
+offset_top = 848.0
+offset_right = 1744.0
+offset_bottom = 898.0
+scale = Vector2(1.92, 1.92)
+theme_override_font_sizes/font_size = 36
+text = "Расширенный аэропорт"
+
+[node name="Label5" type="Label" parent="UI/BonusPack2"]
+modulate = Color(0, 0, 0, 1)
+offset_left = 653.0
+offset_top = 845.0
+offset_right = 772.0
+offset_bottom = 895.0
+scale = Vector2(1.92, 1.92)
+theme_override_font_sizes/font_size = 36
+text = "Линия"
+
+[node name="BonusPack3" type="CanvasGroup" parent="UI"]
+process_mode = 2
+visible = false
+
+[node name="TextureRect" type="TextureRect" parent="UI/BonusPack3"]
+offset_right = 2403.0
+offset_bottom = 1082.0
+texture = ExtResource("26_dc07v")
+
+[node name="Week" type="Label" parent="UI/BonusPack3"]
+modulate = Color(0, 0, 0, 1)
+offset_left = 678.0
+offset_top = 27.0
+offset_right = 1367.0
+offset_bottom = 235.0
+theme_override_font_sizes/font_size = 145
+text = "Неделя 1"
+
+[node name="Label3" type="Label" parent="UI/BonusPack3"]
+modulate = Color(0, 0, 0, 1)
+offset_left = 685.0
+offset_top = 214.0
+offset_right = 1552.0
+offset_bottom = 305.0
+theme_override_font_sizes/font_size = 58
+text = "Что бы вы хотели приобрести для
+вашей авиакомпании?"
+
+[node name="Bonus_big_plane" type="Button" parent="UI/BonusPack3"]
+offset_left = 1537.0
+offset_top = 502.0
+offset_right = 1727.0
+offset_bottom = 692.0
+scale = Vector2(1.92, 1.92)
+icon = ExtResource("16_wcfiu")
+flat = true
+
+[node name="BonusBigAirport" type="Button" parent="UI/BonusPack3"]
+offset_left = 581.0
+offset_top = 502.0
+offset_right = 771.0
+offset_bottom = 692.0
+scale = Vector2(1.92, 1.92)
+icon = ExtResource("20_1numj")
+flat = true
+expand_icon = true
+
+[node name="Label4" type="Label" parent="UI/BonusPack3"]
+modulate = Color(0, 0, 0, 1)
+offset_left = 347.0
+offset_top = 848.0
+offset_right = 787.0
+offset_bottom = 898.0
+scale = Vector2(1.92, 1.92)
+theme_override_font_sizes/font_size = 36
+text = "Расширенный аэропорт"
+
+[node name="Label5" type="Label" parent="UI/BonusPack3"]
+modulate = Color(0, 0, 0, 1)
+offset_left = 1413.0
+offset_top = 854.0
+offset_right = 1741.0
+offset_bottom = 904.0
+scale = Vector2(1.92, 1.92)
+theme_override_font_sizes/font_size = 36
+text = "Большой самолёт"
+
 [node name="AirportSpawn" type="Node2D" parent="."]
 metadata/_edit_lock_ = true
 
@@ -697,6 +831,9 @@ position = Vector2(1683, 483)
 
 [node name="Marker2D4" type="Marker2D" parent="AirportSpawn/Zone0"]
 position = Vector2(1490, 350)
+
+[node name="Marker2D6" type="Marker2D" parent="AirportSpawn/Zone0"]
+position = Vector2(1222, 467)
 
 [node name="Zone1" type="Node2D" parent="AirportSpawn"]
 
@@ -823,3 +960,19 @@ position = Vector2(1631, -115)
 
 [node name="Marker2D6" type="Marker2D" parent="AirportSpawn/Zone6"]
 position = Vector2(2386, -93)
+
+[connection signal="timeout" from="Timer" to="." method="_on_spawn_timer_timeout"]
+[connection signal="timeout" from="WeekTimer" to="." method="_on_week_timer_timeout"]
+[connection signal="pressed" from="GameOverUI/MainPack/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="GameOverUI/MainPack/Menu" to="." method="_on_menu_pressed"]
+[connection signal="pressed" from="UI/ClearData" to="." method="_on_clear_data_pressed"]
+[connection signal="pressed" from="UI/YellowButton" to="." method="_on_yb_pressed"]
+[connection signal="pressed" from="UI/BlueButton" to="." method="_on_bb_pressed"]
+[connection signal="pressed" from="UI/RedButton" to="." method="_on_rb_pressed"]
+[connection signal="pressed" from="UI/LightBlueButton" to="." method="_on_lbb_pressed"]
+[connection signal="pressed" from="UI/GreenButton" to="." method="_on_gb_pressed"]
+[connection signal="pressed" from="UI/PinkButton" to="." method="_on_pb_pressed"]
+[connection signal="pressed" from="UI/OrangeButton" to="." method="_on_ob_pressed"]
+[connection signal="pressed" from="UI/BonusPlane/BonusPlane" to="." method="_on_bonus_plane_pressed"]
+[connection signal="pressed" from="UI/BonusPack1/BonusLine" to="." method="_on_bonus_line_pressed"]
+[connection signal="pressed" from="UI/BonusPack1/Bonus_big_plane" to="." method="_on_bonus_big_plane_pressed"]
