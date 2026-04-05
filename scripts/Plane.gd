@@ -6,6 +6,7 @@ var target_speed: float = 90.0
 var current_speed: float = 0.0  
 var forward: bool = true
 var color: String
+var is_big: bool = false
 
 var cargo: Array = []
 var max_seats: int = 6

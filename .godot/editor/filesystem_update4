@@ -1,10 +1,10 @@
-res://scripts/MAP_SIBIR.gd
+res://scene/Airport.tscn
+res://scripts/BigPlane.gd
+res://scripts/MAP_IRAN.gd
+res://scripts/Plane.gd
+res://scene/BigPlane.tscn
 res://scene/MAP_IRAN.tscn
 res://scene/MAP_SIBIR.tscn
-res://scene/Airport.tscn
-res://scene/BigPlane.tscn
 res://scene/Plane.tscn
 res://scene/Route.tscn
 res://scene/StartMenu.tscn
-res://scripts/Speed_button.gd
-res://scripts/MAP_IRAN.gd

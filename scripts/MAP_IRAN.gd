@@ -498,11 +498,16 @@ func _on_spawn_timer_timeout():
 	spawn_airport()
 
 func clear_data(current_color):
-	GameData.start_planes += len(GameData.lines_data[current_color + "_planes"])
+	for plane in GameData.lines_data[current_color + "_planes"]:
+		if plane.is_big:
+			GameData.big_planes += 1
+		else:
+			GameData.start_planes += 1
 	if GameData.lines_data[current_color + "_planes"]:
 		for plane in GameData.lines_data[current_color + "_planes"]:
 			plane.queue_free()
 	get_tree().get_nodes_in_group("countPlane")[0].update_counter()
+	get_tree().get_nodes_in_group("countBigPlane")[0].update_counter()
 	for route in GameData.lines_data[current_color + "_routes"]:
 		route["route"].queue_free()
 	GameData.lines_data["in_" + current_color] = false
