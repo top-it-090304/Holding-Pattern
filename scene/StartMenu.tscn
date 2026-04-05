@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://dggwktu3dwg6x"]
+[gd_scene load_steps=14 format=3 uid="uid://dggwktu3dwg6x"]
 
 [ext_resource type="Script" uid="uid://cuexgr5rra0ub" path="res://scripts/start_menu.gd" id="1_lj036"]
 [ext_resource type="Script" uid="uid://bj5771ufkrcb0" path="res://scripts/Background_menu.gd" id="2_akhuw"]
@@ -16,40 +16,40 @@
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_v2vl7"]
 load_path = "res://.godot/imported/Background.png-a00edbe00a3917e875d427caf1430931.ctex"
 
-[node name="Control" type="Node2D" unique_id=1504436688]
+[node name="Control" type="Node2D"]
 script = ExtResource("1_lj036")
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1333308016]
+[node name="Camera2D" type="Camera2D" parent="."]
 ignore_rotation = false
 metadata/_edit_lock_ = true
 
-[node name="Background" type="Sprite2D" parent="." unique_id=526815342]
-position = Vector2(1936.9999, 1210.9998)
-scale = Vector2(3.2739587, 3.259259)
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(1937, 1211)
+scale = Vector2(3.27396, 3.25926)
 texture = SubResource("CompressedTexture2D_v2vl7")
 metadata/_edit_lock_ = true
 
-[node name="Play" type="Button" parent="." unique_id=1056440167]
+[node name="Play" type="Button" parent="."]
 offset_left = -582.0
 offset_top = -143.0
-offset_right = 1.4257813
+offset_right = 1.42578
 offset_bottom = 18.0
 pivot_offset = Vector2(150, 40)
 icon = ExtResource("3_8t8u8")
 flat = true
 expand_icon = true
 
-[node name="Settings" type="Button" parent="." unique_id=1150483765]
+[node name="Settings" type="Button" parent="."]
 offset_left = -581.0
 offset_top = 176.0
-offset_right = 238.24762
+offset_right = 238.248
 offset_bottom = 345.0
 pivot_offset = Vector2(150, 40)
 icon = ExtResource("4_pbb8y")
 flat = true
 expand_icon = true
 
-[node name="Stats" type="Button" parent="." unique_id=1338606621]
+[node name="Stats" type="Button" parent="."]
 offset_left = -586.0
 offset_top = 14.0
 offset_right = 334.0
@@ -59,35 +59,35 @@ icon = ExtResource("5_4vtxv")
 flat = true
 expand_icon = true
 
-[node name="Exit" type="Button" parent="." unique_id=959969849]
+[node name="Exit" type="Button" parent="."]
 offset_left = -576.0
 offset_top = 334.0
-offset_right = 17.039978
+offset_right = 17.04
 offset_bottom = 502.0
 icon = ExtResource("6_pbb8y")
 flat = true
 expand_icon = true
 
-[node name="Back_down" type="Button" parent="." unique_id=1307795110]
+[node name="Back_down" type="Button" parent="."]
 offset_left = -1176.0
 offset_top = 1101.0
 offset_right = -1008.0
-offset_bottom = 1269.333
+offset_bottom = 1269.33
 icon = ExtResource("7_4vtxv")
 flat = true
 expand_icon = true
 
-[node name="Back_right" type="Button" parent="." unique_id=1563972719]
+[node name="Back_right" type="Button" parent="."]
 offset_left = 2066.0
-offset_top = 346.99994
-offset_right = 2266.7788
-offset_bottom = 515.57837
-rotation = 0.6017329
+offset_top = 347.0
+offset_right = 2266.78
+offset_bottom = 515.578
+rotation = 0.601733
 icon = ExtResource("8_akhuw")
 flat = true
 expand_icon = true
 
-[node name="LevelSelect" type="Control" parent="." unique_id=1757225280]
+[node name="LevelSelect" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -98,94 +98,94 @@ offset_right = 2956.0
 offset_bottom = 1062.0
 grow_horizontal = 2
 grow_vertical = 2
-rotation = 0.6021386
+rotation = 0.602139
 script = ExtResource("8_4kmay")
 
-[node name="CardsPack" type="HBoxContainer" parent="LevelSelect" unique_id=946613735]
+[node name="CardsPack" type="HBoxContainer" parent="LevelSelect"]
 clip_contents = true
 layout_mode = 0
 offset_right = 1220.0
-offset_bottom = 785.0001
+offset_bottom = 785.0
 pivot_offset = Vector2(170, 390)
 theme_override_constants/separation = 100
 
-[node name="Map_1" type="Button" parent="LevelSelect/CardsPack" unique_id=227730114]
+[node name="Map_1" type="Button" parent="LevelSelect/CardsPack"]
 z_index = 1
 layout_mode = 2
 icon = ExtResource("11_4kmay")
 flat = true
 
-[node name="Score1" type="Label" parent="LevelSelect/CardsPack/Map_1" unique_id=700402272]
+[node name="Score1" type="Label" parent="LevelSelect/CardsPack/Map_1"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.076000005
-anchor_right = 0.11800001
-offset_left = 101.580246
-offset_top = 674.44574
-offset_right = 127.300224
-offset_bottom = 716.69244
-theme_override_colors/font_color = Color(0.20392157, 0.18039216, 0.20392157, 1)
+anchor_left = 0.076
+anchor_right = 0.118
+offset_left = 101.58
+offset_top = 674.446
+offset_right = 127.3
+offset_bottom = 716.692
+theme_override_colors/font_color = Color(0.203922, 0.180392, 0.203922, 1)
 theme_override_font_sizes/font_size = 26
 
-[node name="Map_2" type="Button" parent="LevelSelect/CardsPack" unique_id=606829218]
+[node name="Map_2" type="Button" parent="LevelSelect/CardsPack"]
 z_index = 1
 layout_mode = 2
 icon = ExtResource("11_4kmay")
 flat = true
 
-[node name="Map_3" type="Button" parent="LevelSelect/CardsPack" unique_id=2093832014]
+[node name="Map_3" type="Button" parent="LevelSelect/CardsPack"]
 z_index = 1
 layout_mode = 2
 icon = ExtResource("11_4kmay")
 flat = true
 
-[node name="Back" type="Node2D" parent="." unique_id=948381286]
+[node name="Back" type="Node2D" parent="."]
 script = ExtResource("2_akhuw")
 
-[node name="Points" type="Node2D" parent="Back" unique_id=1009917509]
+[node name="Points" type="Node2D" parent="Back"]
 metadata/_edit_lock_ = true
 
-[node name="Marker2D" type="Marker2D" parent="Back/Points" unique_id=1940000438]
+[node name="Marker2D" type="Marker2D" parent="Back/Points"]
 position = Vector2(292, -677)
 
-[node name="Marker2D2" type="Marker2D" parent="Back/Points" unique_id=513781829]
+[node name="Marker2D2" type="Marker2D" parent="Back/Points"]
 position = Vector2(1851, -34)
 
-[node name="Marker2D3" type="Marker2D" parent="Back/Points" unique_id=1119795862]
+[node name="Marker2D3" type="Marker2D" parent="Back/Points"]
 position = Vector2(-1380, 49)
 
-[node name="Marker2D4" type="Marker2D" parent="Back/Points" unique_id=342716418]
+[node name="Marker2D4" type="Marker2D" parent="Back/Points"]
 position = Vector2(-331, 814)
 
-[node name="Marker2D5" type="Marker2D" parent="Back/Points" unique_id=51962528]
+[node name="Marker2D5" type="Marker2D" parent="Back/Points"]
 position = Vector2(-1389, 1840)
 
-[node name="Marker2D6" type="Marker2D" parent="Back/Points" unique_id=962952090]
+[node name="Marker2D6" type="Marker2D" parent="Back/Points"]
 position = Vector2(314, 2302)
 
-[node name="Marker2D7" type="Marker2D" parent="Back/Points" unique_id=1580976034]
+[node name="Marker2D7" type="Marker2D" parent="Back/Points"]
 position = Vector2(1655, 1677)
 
-[node name="Marker2D8" type="Marker2D" parent="Back/Points" unique_id=2043917348]
+[node name="Marker2D8" type="Marker2D" parent="Back/Points"]
 position = Vector2(-1378, -64)
 
-[node name="Marker2D9" type="Marker2D" parent="Back/Points" unique_id=713569536]
+[node name="Marker2D9" type="Marker2D" parent="Back/Points"]
 position = Vector2(-448, -655)
 
-[node name="Marker2D10" type="Marker2D" parent="Back/Points" unique_id=2031596884]
+[node name="Marker2D10" type="Marker2D" parent="Back/Points"]
 position = Vector2(4173, 2162)
 
-[node name="Marker2D11" type="Marker2D" parent="Back/Points" unique_id=878403298]
+[node name="Marker2D11" type="Marker2D" parent="Back/Points"]
 position = Vector2(70, -639)
 
-[node name="PointSquare" type="Sprite2D" parent="." unique_id=704127309]
+[node name="PointSquare" type="Sprite2D" parent="."]
 position = Vector2(-333, 813)
 texture = ExtResource("9_ols7h")
 metadata/_edit_lock_ = true
 
-[node name="Name" type="Sprite2D" parent="." unique_id=1161887461]
-position = Vector2(59.37195, -230.1875)
-scale = Vector2(1.0556169, 1.0556167)
+[node name="Name" type="Sprite2D" parent="."]
+position = Vector2(59.3719, -230.188)
+scale = Vector2(1.05562, 1.05562)
 texture = ExtResource("12_upnxq")
 
 [connection signal="pressed" from="Play" to="." method="_on_play_pressed"]

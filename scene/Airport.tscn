@@ -1,19 +1,19 @@
-[gd_scene format=3 uid="uid://d14pau2shqbgm"]
+[gd_scene load_steps=4 format=3 uid="uid://d14pau2shqbgm"]
 
 [ext_resource type="Script" uid="uid://cr3b3fq783vb7" path="res://scripts/Airport.gd" id="1_qo1ey"]
 [ext_resource type="Texture2D" uid="uid://bbdidywjb2jq4" path="res://objects/point_circle.png" id="2_qo1ey"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qo1ey"]
-radius = 23.086792
+radius = 23.0868
 
-[node name="Airport" type="Area2D" unique_id=1138182898]
+[node name="Airport" type="Area2D"]
 z_index = 1
 script = ExtResource("1_qo1ey")
 
-[node name="Point" type="Sprite2D" parent="." unique_id=1225630992]
-position = Vector2(4.7683716e-07, 4.7683716e-07)
-scale = Vector2(0.24750903, 0.24750903)
+[node name="Point" type="Sprite2D" parent="."]
+position = Vector2(4.76837e-07, 4.76837e-07)
+scale = Vector2(0.247509, 0.247509)
 texture = ExtResource("2_qo1ey")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=389386773]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_qo1ey")

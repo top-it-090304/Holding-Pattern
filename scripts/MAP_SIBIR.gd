@@ -271,6 +271,7 @@ func spawn_airport():
 	inst.airport_selected.connect(_on_airport_selected)
 	inst.end_game.connect(game_over)
 	add_child(inst)
+	print("+++")
 	
 func set_line_stroke(is_active: bool):
 	if is_active and not is_drawing: 

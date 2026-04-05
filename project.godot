@@ -12,23 +12,20 @@ config_version=5
 
 config/name="Air Rout"
 run/main_scene="uid://dggwktu3dwg6x"
-config/features=PackedStringArray("4.6", "Forward Plus")
-run/max_fps=60
-config/icon="res://objects/icon.svg"
+config/features=PackedStringArray("4.4", "Forward Plus")
+config/icon="res://icon.svg"
 
 [autoload]
 
-GameData="*uid://b8gyqpk7m3yjq"
-Events="*uid://sgyghjllpleo"
-PassengerManager="*uid://df4q5iax1l1bg"
-SoundManager="*uid://8y3cbqmy8wsy"
+GameData="*res://scripts/GameData.gd"
+Events="*res://scripts/Event.gd"
+SoundManager="*res://scripts/SoundManager.gd"
 
 [display]
 
 window/size/viewport_width=2400
 window/size/viewport_height=1080
 window/size/initial_position_type=0
-window/size/resizable=false
 window/size/window_width_override=1200
 window/size/window_height_override=540
 window/stretch/mode="canvas_items"
@@ -38,13 +35,3 @@ window/vsync/vsync_mode=3
 [gui]
 
 theme/custom_font="uid://c8xnikxnwoo8j"
-
-[physics]
-
-3d/physics_engine="Jolt Physics"
-
-[rendering]
-
-rendering_device/driver.windows="d3d12"
-textures/vram_compression/import_etc2_astc=true
-anti_aliasing/quality/msaa_2d=1

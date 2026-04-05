@@ -30,7 +30,7 @@ func _process(_delta):
 			var pos2 = curve.sample_baked(offset + 2.0)
 			
 			var target_angle = (pos2 - pos1).angle()
-			ghost_plane.rotation = lerp_angle(ghost_plane.rotation, target_angle, 0.15)
+			ghost_plane.rotation = lerp_angle(ghost_plane.rotation, target_angle, 0.9)
 		else:
 			ghost_plane.modulate = Color(1, 1, 1, 0.5)
 			ghost_plane.rotation = 0

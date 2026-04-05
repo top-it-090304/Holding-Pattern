@@ -1,8 +1,8 @@
+res://scene/Airport.tscn
+res://scene/BigPlane.tscn
 res://scene/MAP_IRAN.tscn
 res://scene/MAP_SIBIR.tscn
-res://scripts/start_menu.gd
+res://scene/Plane.tscn
+res://scene/Route.tscn
 res://scene/StartMenu.tscn
-res://scripts/MAP_SIBIR.gd
-res://scripts/GameData.gd
-res://scripts/Big_airport_add.gd
-res://scripts/MAP_IRAN.gd
+res://scripts/Plane_add.gd
