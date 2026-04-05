@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://bbv23030tkbig"]
+[gd_scene load_steps=43 format=3 uid="uid://bbv23030tkbig"]
 
 [ext_resource type="Script" uid="uid://4lbcxhykgbgy" path="res://scripts/MAP_SIBIR.gd" id="1_gam1i"]
 [ext_resource type="Texture2D" uid="uid://da7e7nn81drgs" path="res://objects/MAP_SIBIR.png" id="2_1numj"]
@@ -32,6 +32,8 @@
 [ext_resource type="Script" uid="uid://cp4srkpb0n5r7" path="res://scripts/Week_day.gd" id="25_ax4nu"]
 [ext_resource type="Texture2D" uid="uid://cel3fq7keunyb" path="res://objects/Bonus_BG.png" id="26_dc07v"]
 [ext_resource type="Texture2D" uid="uid://rl5b1huph76s" path="res://objects/Bonus_line.png" id="27_yh4fj"]
+[ext_resource type="Texture2D" uid="uid://bw7800lop1lnv" path="res://objects/Clock/Speed_1.0.png" id="33_0tqmr"]
+[ext_resource type="Texture2D" uid="uid://bpeiunxuagah6" path="res://objects/Clock/Speed_2.0.png" id="34_iaqaf"]
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_to4wy"]
 allow_unpress = true
@@ -811,6 +813,36 @@ offset_bottom = 904.0
 scale = Vector2(1.92, 1.92)
 theme_override_font_sizes/font_size = 36
 text = "Большой самолёт"
+
+[node name="SpeedButton" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 2322.0
+offset_top = 128.0
+offset_right = 2362.0
+offset_bottom = 168.0
+
+[node name="Button" type="Button" parent="UI/SpeedButton"]
+layout_mode = 0
+offset_left = -24.0
+offset_top = -26.0
+offset_right = -5.0
+offset_bottom = -7.0
+scale = Vector2(4.68, 4.68)
+icon = ExtResource("33_0tqmr")
+flat = true
+expand_icon = true
+
+[node name="Button2" type="Button" parent="UI/SpeedButton"]
+layout_mode = 0
+offset_left = -41.0
+offset_top = 49.0
+offset_right = -15.0
+offset_bottom = 70.0
+scale = Vector2(4.44, 4.44)
+icon = ExtResource("34_iaqaf")
+flat = true
+expand_icon = true
 
 [node name="AirportSpawn" type="Node2D" parent="."]
 metadata/_edit_lock_ = true

@@ -16,6 +16,9 @@ var route_scene = load("res://scene/Route.tscn")
 
 @onready var buttons = [$GameOverUI/MainPack/Restart, $GameOverUI/MainPack/Menu]
 
+@onready var speed_1_btn = $UI/SpeedButton/Button
+@onready var speed_2_btn = $UI/SpeedButton/Button2
+
 @onready var inactive_buttons = [$UI/LightBlueButton, $UI/GreenButton, $UI/PinkButton, $UI/OrangeButton]
 var active_button: Node = null
 
@@ -110,6 +113,10 @@ func _ready():
 			btn.pivot_offset = btn.size / 2
 			btn.mouse_entered.connect(_on_button_hovered.bind(btn))
 			btn.mouse_exited.connect(_on_button_unhovered)
+			
+	speed_1_btn.pressed.connect(func(): _set_game_speed(1.0))
+	speed_2_btn.pressed.connect(func(): _set_game_speed(2.0))
+	_set_game_speed(1.0)
 	
 func _process(delta):
 	if is_drawing and selected_airport and is_instance_valid(pred_line):
@@ -121,6 +128,20 @@ func _process(delta):
 	if camera:
 		var zoom_speed = 0.06 ## скорость камеры
 		camera.zoom = camera.zoom.lerp(target_zoom, zoom_speed * delta)
+		
+func _set_game_speed(speed: float):
+	Engine.time_scale = speed
+	var tween = create_tween().set_parallel(true)
+	
+	if speed == 1.0:
+		tween.tween_property(speed_1_btn, "modulate", Color(1.5, 1.5, 1.5, 1.0), 0.2)
+		tween.tween_property(speed_2_btn, "modulate", Color(1.0, 1.0, 1.0, 0.4), 0.2)
+	else:
+		tween.tween_property(speed_1_btn, "modulate", Color(1.0, 1.0, 1.0, 0.4), 0.2)
+		tween.tween_property(speed_2_btn, "modulate", Color(1.5, 1.5, 1.5, 1.0), 0.2)
+	
+	if is_instance_valid(SoundManager):
+		SoundManager.play("station_click", -5.0, 1.0 if speed == 1.0 else 1.2)
 		
 func _stop_line_create():
 	for airport in get_tree().get_nodes_in_group("airports"):

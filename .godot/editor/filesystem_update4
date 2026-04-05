@@ -6,3 +6,5 @@ res://scene/BigPlane.tscn
 res://scene/Plane.tscn
 res://scene/Route.tscn
 res://scene/StartMenu.tscn
+res://scripts/Speed_button.gd
+res://scripts/MAP_IRAN.gd
