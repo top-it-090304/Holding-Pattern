@@ -19,7 +19,7 @@ func _input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		var mouse_pos = get_global_mouse_position()
 		if event.pressed:
-			var main_node = get_tree().root.get_node("Main")
+			var main_node = get_tree().root.get_node("MAP_IRAN")
 			if main_node and main_node.is_drawing:
 				return
 				

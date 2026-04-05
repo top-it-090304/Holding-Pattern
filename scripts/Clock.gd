@@ -3,7 +3,7 @@ extends Control
 @onready var arrow = $Arrow
 @onready var circle = $Circle
 @onready var riski = $Riski
-@onready var day_label = $UI/WeekDay
+@onready var day_label = $WeekDay
 
 var day_time: float = 10.0
 var current_time: float = 0.0

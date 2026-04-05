@@ -11,7 +11,6 @@ var route_scene = load("res://scene/Route.tscn")
 @onready var game_over_ui = $GameOverUI
 @onready var vinetka =  $GameOverUI/MainPack/Vinetka
 @onready var score_final_label = $GameOverUI/MainPack/ScoreLabel
-@onready var text_game_over = $GameOverUI/MainPack/Text
 @onready var main_pack = $GameOverUI/MainPack
 
 @onready var buttons = [$GameOverUI/MainPack/Restart, $GameOverUI/MainPack/Menu]
