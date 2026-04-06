@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dggwktu3dwg6x"]
+[gd_scene load_steps=15 format=3 uid="uid://dggwktu3dwg6x"]
 
 [ext_resource type="Script" uid="uid://cuexgr5rra0ub" path="res://scripts/start_menu.gd" id="1_lj036"]
 [ext_resource type="Script" uid="uid://bj5771ufkrcb0" path="res://scripts/Background_menu.gd" id="2_akhuw"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://64quipoas7ud" path="res://scripts/Level_select.gd" id="8_4kmay"]
 [ext_resource type="Texture2D" uid="uid://dhgy00ifet6ci" path="res://objects/Button_back_right.png" id="8_akhuw"]
 [ext_resource type="Texture2D" uid="uid://bjil8gjfbvr62" path="res://objects/point_square.png" id="9_ols7h"]
+[ext_resource type="Texture2D" uid="uid://bl6st3pljm11" path="res://objects/Menu/cards_2.png" id="10_ad1t2"]
 [ext_resource type="Texture2D" uid="uid://v3a1y8lydq1x" path="res://objects/Menu/cards_1.png" id="11_4kmay"]
 [ext_resource type="Texture2D" uid="uid://bsa0n1vap4l3" path="res://objects/name.png" id="12_upnxq"]
 
@@ -24,8 +25,8 @@ ignore_rotation = false
 metadata/_edit_lock_ = true
 
 [node name="Background" type="Sprite2D" parent="."]
-position = Vector2(1937, 1211)
-scale = Vector2(3.27396, 3.25926)
+position = Vector2(1937, 902)
+scale = Vector2(3.27396, 3.83148)
 texture = SubResource("CompressedTexture2D_v2vl7")
 metadata/_edit_lock_ = true
 
@@ -68,6 +69,16 @@ icon = ExtResource("6_pbb8y")
 flat = true
 expand_icon = true
 
+[node name="Back_down2" type="Button" parent="."]
+offset_left = 2588.0
+offset_top = -582.0
+offset_right = 2756.0
+offset_bottom = -413.67
+rotation = -1.5708
+icon = ExtResource("7_4vtxv")
+flat = true
+expand_icon = true
+
 [node name="Back_down" type="Button" parent="."]
 offset_left = -1176.0
 offset_top = 1101.0
@@ -78,6 +89,7 @@ flat = true
 expand_icon = true
 
 [node name="Back_right" type="Button" parent="."]
+visible = false
 offset_left = 2066.0
 offset_top = 347.0
 offset_right = 2266.78
@@ -130,8 +142,21 @@ theme_override_font_sizes/font_size = 26
 [node name="Map_2" type="Button" parent="LevelSelect/CardsPack"]
 z_index = 1
 layout_mode = 2
-icon = ExtResource("11_4kmay")
+icon = ExtResource("10_ad1t2")
 flat = true
+
+[node name="Score2" type="Label" parent="LevelSelect/CardsPack/Map_2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.076
+anchor_right = 0.118
+offset_left = 101.58
+offset_top = 674.446
+offset_right = 127.3
+offset_bottom = 716.692
+theme_override_colors/font_color = Color(0.203922, 0.180392, 0.203922, 1)
+theme_override_font_sizes/font_size = 26
+text = "353"
 
 [node name="Map_3" type="Button" parent="LevelSelect/CardsPack"]
 z_index = 1
@@ -178,6 +203,9 @@ position = Vector2(4173, 2162)
 [node name="Marker2D11" type="Marker2D" parent="Back/Points"]
 position = Vector2(70, -639)
 
+[node name="Marker2D12" type="Marker2D" parent="Back/Points"]
+position = Vector2(3272, -1063)
+
 [node name="PointSquare" type="Sprite2D" parent="."]
 position = Vector2(-333, 813)
 texture = ExtResource("9_ols7h")
@@ -192,6 +220,7 @@ texture = ExtResource("12_upnxq")
 [connection signal="pressed" from="Settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="Stats" to="." method="_on_stats_pressed"]
 [connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="Back_down2" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="Back_down" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="Back_right" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="LevelSelect/CardsPack/Map_1" to="." method="_on_map_1_pressed"]

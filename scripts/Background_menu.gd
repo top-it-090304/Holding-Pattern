@@ -21,6 +21,10 @@ func _ready():
 	
 	if points.size() >= 6:
 		_create_menu_route(points[9].global_position, points[10].global_position, Color(1.0, 0.8, 0.1, 0.8), 0.0)
+		
+	if points.size() >= 7:
+		_create_menu_route(points[1].global_position, points[11].global_position, Color(0.1, 0.5, 1.0, 0.8), 340.0)
+		
 func _create_menu_route(start_pos: Vector2, end_pos: Vector2, route_color: Color, arc_height: float = 0.0):
 	
 	var points_array = PackedVector2Array()

@@ -4,12 +4,13 @@ extends Node2D
 @onready var buttons = [$Play, $Settings, $Stats, $Exit]
 @onready var button = [$Back_right, $Back_down]
 @onready var high_score_1 = $LevelSelect/CardsPack/Map_1/Score1
+@onready var high_score_2 = $LevelSelect/CardsPack/Map_2/Score2
 
 var positions = {
 	"main": Vector2(0, 0),
 	"play": Vector2(2800, 1420),
 	"settings": Vector2(0, 1620),
-	"stats": Vector2(1770, 0)
+	"stats": Vector2(3770, -200)
 }
 
 
@@ -38,6 +39,7 @@ func _process(delta):
 func _on_play_pressed():
 	target_pos = positions["play"]
 	target_rotation = 0.60
+	$Back_right.visible = true
 
 func _on_map_1_pressed():
 	get_tree().change_scene_to_file("res://scene/MAP_IRAN.tscn")
@@ -54,6 +56,7 @@ func _on_stats_pressed():
 func _on_back_pressed():
 	target_pos = positions["main"]
 	target_rotation = 0.0
+	$Back_right.visible = false
 
 
 func _on_exit_pressed():
