@@ -1,7 +1,8 @@
-[gd_scene load_steps=43 format=3 uid="uid://w3majmenhb7r"]
+[gd_scene load_steps=44 format=3 uid="uid://w3majmenhb7r"]
 
 [ext_resource type="Script" uid="uid://sp2ta70qytu6" path="res://scripts/MAP_IRAN.gd" id="1_1hfpl"]
 [ext_resource type="Texture2D" uid="uid://po01xbkyu0m5" path="res://objects/map3d.png" id="2_4vfsl"]
+[ext_resource type="Script" uid="uid://klqdhwym7rg7" path="res://scripts/Settings.gd" id="3_6pevr"]
 [ext_resource type="Texture2D" uid="uid://cya118am2kgj2" path="res://objects/Vinetka.png" id="3_ts4wl"]
 [ext_resource type="Texture2D" uid="uid://i5602sbm708r" path="res://objects/Restart.png" id="4_ap85m"]
 [ext_resource type="Texture2D" uid="uid://dmiia6t0baedq" path="res://objects/Menu.png" id="5_tu5oa"]
@@ -115,8 +116,9 @@ wait_time = 25.0
 autostart = true
 
 [node name="WeekTimer" type="Timer" parent="."]
-wait_time = 142.0
+wait_time = 10.0
 autostart = true
+script = ExtResource("3_6pevr")
 
 [node name="GameOverUI" type="CanvasLayer" parent="."]
 process_mode = 3

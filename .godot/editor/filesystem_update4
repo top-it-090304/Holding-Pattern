@@ -1,3 +1,12 @@
+res://scene/Airport.tscn
+res://scripts/Settings.gd
+res://user/settings.json
+res://scene/BigPlane.tscn
+res://scene/MAP_IRAN.tscn
+res://scene/MAP_SIBIR.tscn
+res://scene/Plane.tscn
+res://scene/Route.tscn
+res://scene/StartMenu.tscn
 res://scripts/Airport.gd
 res://scripts/Background_menu.gd
 res://scripts/BigPlane.gd
@@ -20,10 +29,3 @@ res://scripts/Route.gd
 res://scripts/SoundManager.gd
 res://scripts/start_menu.gd
 res://scripts/Week_day.gd
-res://scene/Airport.tscn
-res://scene/BigPlane.tscn
-res://scene/MAP_IRAN.tscn
-res://scene/MAP_SIBIR.tscn
-res://scene/Plane.tscn
-res://scene/Route.tscn
-res://scene/StartMenu.tscn

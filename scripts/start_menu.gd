@@ -5,6 +5,7 @@ extends Node2D
 @onready var button = [$Back_right, $Back_down]
 @onready var high_score_1 = $LevelSelect/CardsPack/Map_1/Score1
 @onready var high_score_2 = $LevelSelect/CardsPack/Map_2/Score2
+@onready var volume_values = ["Без звука", "Тихо", "Средне", "Громко"]
 
 var positions = {
 	"main": Vector2(0, 0),
@@ -112,3 +113,46 @@ func _on_button_unhovered():
 		var tween = create_tween().set_parallel(true).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
 		tween.tween_property(btn, "scale", scale_normal, duration)
 		tween.tween_property(btn, "modulate", alpha_full, duration)
+
+func load_settings():
+	$SettingsMenu/Volume.text = Settings.volume_label
+	if Settings.volume_label == volume_values[0]:
+		$SettingsMenu/VolumeMinus.disabled = true
+	else: $SettingsMenu/VolumeMinus.disabled = false
+	if Settings.volume_label == volume_values[-1]:
+		$SettingsMenu/VolumePlus.disabled = true
+	else: $SettingsMenu/VolumePlus.disabled = false
+
+func _on_volume_minus_pressed() -> void:
+	$SettingsMenu/Volume.text = volume_values[volume_values.find($SettingsMenu/Volume.text) - 1]
+	if $SettingsMenu/Volume.text == volume_values[0]:
+		$SettingsMenu/VolumeMinus.disabled = true
+	if $SettingsMenu/Volume.text == volume_values[2]:
+		$SettingsMenu/VolumePlus.disabled = false
+	Settings.volume = convert_volume()
+	Settings.volume_label = $SettingsMenu/Volume.text
+	Settings.apply()
+	Settings.save_data()
+
+func _on_volume_plus_pressed() -> void:
+	$SettingsMenu/Volume.text = volume_values[volume_values.find($SettingsMenu/Volume.text) + 1]
+	if $SettingsMenu/Volume.text == volume_values[-1]:
+		$SettingsMenu/VolumePlus.disabled = true
+	if $SettingsMenu/Volume.text == volume_values[1]:
+		$SettingsMenu/VolumeMinus.disabled = false
+	Settings.volume = convert_volume()
+	Settings.volume_label = $SettingsMenu/Volume.text
+	Settings.apply()
+	Settings.save_data()
+
+func convert_volume():
+	var volume
+	if $SettingsMenu/Volume.text == volume_values[0]:
+		volume = 0.0
+	elif $SettingsMenu/Volume.text == volume_values[1]:
+		volume = 0.33
+	elif $SettingsMenu/Volume.text == volume_values[2]:
+		volume = 0.67
+	elif $SettingsMenu/Volume.text == volume_values[3]:
+		volume = 1.0
+	return volume

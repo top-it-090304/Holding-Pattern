@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dggwktu3dwg6x"]
+[gd_scene load_steps=18 format=3 uid="uid://dggwktu3dwg6x"]
 
 [ext_resource type="Script" uid="uid://cuexgr5rra0ub" path="res://scripts/start_menu.gd" id="1_lj036"]
 [ext_resource type="Script" uid="uid://bj5771ufkrcb0" path="res://scripts/Background_menu.gd" id="2_akhuw"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://bjil8gjfbvr62" path="res://objects/point_square.png" id="9_ols7h"]
 [ext_resource type="Texture2D" uid="uid://bl6st3pljm11" path="res://objects/Menu/cards_2.png" id="10_ad1t2"]
 [ext_resource type="Texture2D" uid="uid://v3a1y8lydq1x" path="res://objects/Menu/cards_1.png" id="11_4kmay"]
+[ext_resource type="Texture2D" uid="uid://bppf5m8rluohc" path="res://objects/settings_button.png" id="11_a3i8o"]
 [ext_resource type="Texture2D" uid="uid://bsa0n1vap4l3" path="res://objects/name.png" id="12_upnxq"]
 [ext_resource type="Texture2D" uid="uid://cfoiek1b4roq6" path="res://objects/Menu/Stats.png" id="14_svnti"]
 [ext_resource type="Texture2D" uid="uid://bbdidywjb2jq4" path="res://objects/point_circle.png" id="15_u6iap"]
@@ -166,6 +167,55 @@ layout_mode = 2
 icon = ExtResource("11_4kmay")
 flat = true
 
+[node name="SettingsMenu" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Volume" type="Label" parent="SettingsMenu"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 466.0
+offset_top = 1375.0
+offset_right = 879.0
+offset_bottom = 1474.0
+theme_override_font_sizes/font_size = 72
+text = "Громко"
+horizontal_alignment = 1
+
+[node name="VolumeLabel" type="Label" parent="SettingsMenu"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = -185.0
+offset_top = 1383.0
+offset_right = 200.0
+offset_bottom = 1482.0
+theme_override_font_sizes/font_size = 72
+text = "Громкость"
+
+[node name="VolumePlus" type="Button" parent="SettingsMenu"]
+layout_mode = 0
+offset_left = 847.0
+offset_top = 1358.0
+offset_right = 1005.0
+offset_bottom = 1508.0
+disabled = true
+icon = ExtResource("11_a3i8o")
+flat = true
+expand_icon = true
+
+[node name="VolumeMinus" type="Button" parent="SettingsMenu"]
+layout_mode = 0
+offset_left = 496.0
+offset_top = 1500.0
+offset_right = 654.0
+offset_bottom = 1643.0
+rotation = 3.14159
+icon = ExtResource("11_a3i8o")
+flat = true
+expand_icon = true
+
 [node name="Back" type="Node2D" parent="."]
 script = ExtResource("2_akhuw")
 
@@ -238,3 +288,5 @@ texture = ExtResource("15_u6iap")
 [connection signal="pressed" from="LevelSelect/CardsPack/Map_1" to="." method="_on_map_1_pressed"]
 [connection signal="pressed" from="LevelSelect/CardsPack/Map_1" to="LevelSelect" method="_on_card_pressed"]
 [connection signal="pressed" from="LevelSelect/CardsPack/Map_2" to="." method="_on_map_2_pressed"]
+[connection signal="pressed" from="SettingsMenu/VolumePlus" to="." method="_on_volume_plus_pressed"]
+[connection signal="pressed" from="SettingsMenu/VolumeMinus" to="." method="_on_volume_minus_pressed"]

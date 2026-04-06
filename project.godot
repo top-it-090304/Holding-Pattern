@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 GameData="*res://scripts/GameData.gd"
 Events="*res://scripts/Event.gd"
 SoundManager="*res://scripts/SoundManager.gd"
+Settings="*res://scripts/Settings.gd"
 
 [display]
 
