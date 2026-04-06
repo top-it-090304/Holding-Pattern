@@ -6,6 +6,7 @@ extends Node2D
 @onready var high_score_1 = $LevelSelect/CardsPack/Map_1/Score1
 @onready var high_score_2 = $LevelSelect/CardsPack/Map_2/Score2
 @onready var volume_values = ["Без звука", "Тихо", "Средне", "Громко"]
+@onready var sound_values = ["Без звука", "Минимум", "Максимум"]
 
 var positions = {
 	"main": Vector2(0, 0),
@@ -123,6 +124,14 @@ func load_settings():
 	if Settings.volume_label == volume_values[-1]:
 		$SettingsMenu/VolumePlus.disabled = true
 	else: $SettingsMenu/VolumePlus.disabled = false
+	
+	$SettingsMenu/Sound.text = Settings.sound_label
+	if Settings.sound_label == sound_values[0]:
+		$SettingsMenu/SoundMinus.disabled = true
+	else: $SettingsMenu/SoundMinus.disabled = false
+	if Settings.sound_label == sound_values[-1]:
+		$SettingsMenu/SoundPlus.disabled = true
+	else: $SettingsMenu/SoundPlus.disabled = false
 
 func _on_volume_minus_pressed() -> void:
 	$SettingsMenu/Volume.text = volume_values[volume_values.find($SettingsMenu/Volume.text) - 1]
@@ -148,12 +157,38 @@ func _on_volume_plus_pressed() -> void:
 
 func convert_volume():
 	var volume
-	if $SettingsMenu/Volume.text == volume_values[0]:
-		volume = 0.0
-	elif $SettingsMenu/Volume.text == volume_values[1]:
-		volume = 0.33
-	elif $SettingsMenu/Volume.text == volume_values[2]:
-		volume = 0.67
-	elif $SettingsMenu/Volume.text == volume_values[3]:
-		volume = 1.0
+	if $SettingsMenu/Volume.text == volume_values[0]: volume = 0.0
+	elif $SettingsMenu/Volume.text == volume_values[1]: volume = 0.33
+	elif $SettingsMenu/Volume.text == volume_values[2]: volume = 0.67
+	elif $SettingsMenu/Volume.text == volume_values[3]: volume = 1.0
 	return volume
+
+
+func _on_sound_minus_pressed() -> void:
+	$SettingsMenu/Sound.text = sound_values[sound_values.find($SettingsMenu/Sound.text) - 1]
+	if $SettingsMenu/Sound.text == sound_values[0]:
+		$SettingsMenu/SoundMinus.disabled = true
+	if $SettingsMenu/Sound.text == sound_values[1]:
+		$SettingsMenu/SoundPlus.disabled = false
+	Settings.sound = convert_sound()
+	Settings.sound_label = $SettingsMenu/Sound.text
+	Settings.apply()
+	Settings.save_data()
+
+func _on_sound_plus_pressed() -> void:
+	$SettingsMenu/Sound.text = sound_values[sound_values.find($SettingsMenu/Sound.text) + 1]
+	if $SettingsMenu/Sound.text == sound_values[-1]:
+		$SettingsMenu/SoundPlus.disabled = true
+	if $SettingsMenu/Sound.text == sound_values[1]:
+		$SettingsMenu/SoundMinus.disabled = false
+	Settings.sound = convert_sound()
+	Settings.sound_label = $SettingsMenu/Sound.text
+	Settings.apply()
+	Settings.save_data()
+
+func convert_sound():
+	var sound
+	if $SettingsMenu/Sound.text == sound_values[0]: sound = 0.0
+	elif $SettingsMenu/Sound.text == sound_values[1]: sound = 0.5
+	elif $SettingsMenu/Sound.text == sound_values[2]: sound = 1.0
+	return sound
