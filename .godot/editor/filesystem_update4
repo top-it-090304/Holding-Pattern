@@ -1,12 +1,12 @@
 res://scene/Airport.tscn
 res://scripts/Settings.gd
-res://user/settings.json
 res://scene/BigPlane.tscn
 res://scene/MAP_IRAN.tscn
 res://scene/MAP_SIBIR.tscn
 res://scene/Plane.tscn
 res://scene/Route.tscn
 res://scene/StartMenu.tscn
+res://user/settings.json
 res://scripts/Airport.gd
 res://scripts/Background_menu.gd
 res://scripts/BigPlane.gd

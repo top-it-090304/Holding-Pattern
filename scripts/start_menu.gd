@@ -19,6 +19,7 @@ var target_pos = Vector2(576, 324)
 var target_rotation: float = 0.0 
 
 func _ready():
+	load_settings()
 	high_score_1.text = str(GameData.high_score)
 	target_pos = positions["main"]
 	camera.position = target_pos
