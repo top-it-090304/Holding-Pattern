@@ -8,6 +8,7 @@ func spawn_passenger(my_shape):
 	for shape in GameData.ShapeType.values():
 		if shape != my_shape:
 			current_shapes.append(shape)
+			SoundManager.play("spawn_passengers")
 	
 	var passenger_shape = current_shapes.pick_random()
 	passengers.append(passenger_shape)

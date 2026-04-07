@@ -149,6 +149,8 @@ func _stop_line_create():
 	is_drawing = false
 	if is_instance_valid(pred_line):
 		pred_line.clear_points()
+		
+		
 	
 func animate_score():
 	var tween = create_tween().set_parallel(true)
@@ -253,7 +255,8 @@ func check_airport():
 		
 		if permission:
 			permission = false
-			airport.activate_pulse() 
+			airport.activate_pulse()
+			SoundManager.play("click_airport")
 			
 			if not lines_data["in_" + lines_data["current color"]]:
 				lines_data[lines_data["current color"] + "_airports"].append(selected_airport)
@@ -265,12 +268,14 @@ func check_airport():
 				break
 			selected_airport = airport
 			selected_airport.draw_stroke(true)
+			
 
 func create_route(a, b):
 	var route = route_scene.instantiate()
 	route.add_to_group("routes")
 	add_child(route)
 	route.create_line(a, b)
+	
 
 func stop_draw():
 	for airport in get_tree().get_nodes_in_group("airports"):
@@ -278,6 +283,8 @@ func stop_draw():
 	selected_airport = null
 	is_drawing = false
 	pred_line.clear_points()
+	
+	
 
 func spawn_airport():
 	if active_airport.is_empty(): return
@@ -308,6 +315,7 @@ func set_line_stroke(is_active: bool):
 	for a in airports:
 		if is_instance_valid(a):
 			a.toggle_stroke(is_active, hex_color)
+			
 
 
 func _on_airport_selected(airport):
@@ -320,10 +328,13 @@ func _on_airport_selected(airport):
 	selected_airport = airport
 	is_drawing = true
 	selected_airport.draw_stroke(true)
+	SoundManager.play("click_airport")
 	
 	for a in lines_data[current_color + "_airports"]:
 		if is_instance_valid(a):
 			a.draw_stroke(true)
+			
+			
 	
 func _on_passenger_timer_timeout():
 	if not storage_stack and randf() < stack_chanse:
@@ -563,6 +574,7 @@ func _close_clear_animation(target_btn: Node):
 	clear_data_twin.chain().tween_callback(func(): clear_btn.visible = false)
 
 func _on_clear_data_pressed() -> void:
+	SoundManager.play("del_rout")
 	clear_data(GameData.lines_data["current color"])
 
 func _on_week_timer_timeout() -> void:

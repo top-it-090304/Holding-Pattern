@@ -2,7 +2,11 @@ extends Node
 
 var sounds = {
 	"new_week": preload("res://sounds/new_week.ogg"),
-	"click_button": preload("res://sounds/click_button.ogg")
+	"click_button": preload("res://sounds/click_button.ogg"),
+	"click_airport": preload("res://sounds/click_airport.ogg"),
+	"draw_rout": preload("res://sounds/draw_rout.ogg"),
+	"del_rout": preload("res://sounds/del_rout.ogg"),
+	"spawn_passengers": preload("res://sounds/spawn_passengers.ogg")
 }
 
 func _ready():
