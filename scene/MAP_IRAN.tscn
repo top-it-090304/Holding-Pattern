@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://w3majmenhb7r"]
+[gd_scene load_steps=44 format=3 uid="uid://w3majmenhb7r"]
 
 [ext_resource type="Script" uid="uid://sp2ta70qytu6" path="res://scripts/MAP_IRAN.gd" id="1_1hfpl"]
 [ext_resource type="Texture2D" uid="uid://po01xbkyu0m5" path="res://objects/map3d.png" id="2_4vfsl"]
@@ -35,7 +35,6 @@
 [ext_resource type="Texture2D" uid="uid://rl5b1huph76s" path="res://objects/Bonus_line.png" id="28_44qpc"]
 [ext_resource type="Texture2D" uid="uid://bw7800lop1lnv" path="res://objects/Clock/Speed_1.0.png" id="33_jad85"]
 [ext_resource type="Texture2D" uid="uid://bpeiunxuagah6" path="res://objects/Clock/Speed_2.0.png" id="34_6pevr"]
-[ext_resource type="AudioStream" uid="uid://swp6gwj7teo1" path="res://sounds/fff.mp3" id="36_l8fvx"]
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_hr7lf"]
 allow_unpress = true
@@ -110,7 +109,6 @@ z_index = -1
 position = Vector2(1452, 401)
 scale = Vector2(1.10078, 1)
 texture = ExtResource("2_4vfsl")
-metadata/_edit_lock_ = true
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 25.0
@@ -998,10 +996,6 @@ position = Vector2(774, 935)
 
 [node name="Marker2D43" type="Marker2D" parent="AirportSpawn/Zone6"]
 position = Vector2(1150, 890)
-
-[node name="Music" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("36_l8fvx")
-autoplay = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_spawn_timer_timeout"]
 [connection signal="timeout" from="WeekTimer" to="." method="_on_week_timer_timeout"]

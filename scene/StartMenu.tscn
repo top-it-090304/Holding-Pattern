@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dggwktu3dwg6x"]
+[gd_scene load_steps=19 format=3 uid="uid://dggwktu3dwg6x"]
 
 [ext_resource type="Script" uid="uid://cuexgr5rra0ub" path="res://scripts/start_menu.gd" id="1_lj036"]
 [ext_resource type="Script" uid="uid://bj5771ufkrcb0" path="res://scripts/Background_menu.gd" id="2_akhuw"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://bsa0n1vap4l3" path="res://objects/name.png" id="12_upnxq"]
 [ext_resource type="Texture2D" uid="uid://cfoiek1b4roq6" path="res://objects/Menu/Stats.png" id="14_svnti"]
 [ext_resource type="Texture2D" uid="uid://bbdidywjb2jq4" path="res://objects/point_circle.png" id="15_u6iap"]
+[ext_resource type="AudioStream" uid="uid://cw12a0okh76j0" path="res://sounds/Main_music.ogg" id="17_5mwqa"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_v2vl7"]
 load_path = "res://.godot/imported/Background.png-a00edbe00a3917e875d427caf1430931.ctex"
@@ -176,10 +177,10 @@ offset_bottom = 40.0
 [node name="Volume" type="Label" parent="SettingsMenu"]
 modulate = Color(0, 0, 0, 1)
 layout_mode = 0
-offset_left = 73.0004
-offset_top = 1599.0
-offset_right = 643.0
-offset_bottom = 1698.0
+offset_left = -164.0
+offset_top = 1687.0
+offset_right = 406.0
+offset_bottom = 1786.0
 theme_override_font_sizes/font_size = 72
 text = "Громко"
 horizontal_alignment = 1
@@ -187,19 +188,19 @@ horizontal_alignment = 1
 [node name="VolumeLabel" type="Label" parent="SettingsMenu"]
 modulate = Color(0, 0, 0, 1)
 layout_mode = 0
-offset_left = -483.0
-offset_top = 1587.0
-offset_right = -98.0
-offset_bottom = 1686.0
+offset_left = -720.0
+offset_top = 1675.0
+offset_right = -335.0
+offset_bottom = 1774.0
 theme_override_font_sizes/font_size = 72
 text = "Громкость"
 
 [node name="VolumePlus" type="Button" parent="SettingsMenu"]
 layout_mode = 0
-offset_left = 612.0
-offset_top = 1579.0
-offset_right = 770.0
-offset_bottom = 1729.0
+offset_left = 375.0
+offset_top = 1667.0
+offset_right = 533.0
+offset_bottom = 1817.0
 disabled = true
 icon = ExtResource("11_a3i8o")
 flat = true
@@ -207,10 +208,10 @@ expand_icon = true
 
 [node name="VolumeMinus" type="Button" parent="SettingsMenu"]
 layout_mode = 0
-offset_left = 103.0
-offset_top = 1719.0
-offset_right = 261.0
-offset_bottom = 1862.0
+offset_left = -134.0
+offset_top = 1807.0
+offset_right = 24.0
+offset_bottom = 1950.0
 rotation = 3.14159
 icon = ExtResource("11_a3i8o")
 flat = true
@@ -219,30 +220,30 @@ expand_icon = true
 [node name="SoundLabel" type="Label" parent="SettingsMenu"]
 modulate = Color(0, 0, 0, 1)
 layout_mode = 0
-offset_left = -265.0
-offset_top = 1423.0
-offset_right = -98.0
-offset_bottom = 1560.0
+offset_left = -502.0
+offset_top = 1511.0
+offset_right = -335.0
+offset_bottom = 1648.0
 theme_override_font_sizes/font_size = 72
 text = "Звук"
 
 [node name="Sound" type="Label" parent="SettingsMenu"]
 modulate = Color(0, 0, 0, 1)
 layout_mode = 0
-offset_left = 73.0
-offset_top = 1414.0
-offset_right = 637.0
-offset_bottom = 1513.0
+offset_left = -164.0
+offset_top = 1502.0
+offset_right = 400.0
+offset_bottom = 1601.0
 theme_override_font_sizes/font_size = 72
 text = "Максимум"
 horizontal_alignment = 1
 
 [node name="SoundMinus" type="Button" parent="SettingsMenu"]
 layout_mode = 0
-offset_left = 102.0
-offset_top = 1545.0
-offset_right = 253.0
-offset_bottom = 1691.0
+offset_left = -135.0
+offset_top = 1633.0
+offset_right = 16.0
+offset_bottom = 1779.0
 rotation = 3.14159
 icon = ExtResource("11_a3i8o")
 flat = true
@@ -250,10 +251,10 @@ expand_icon = true
 
 [node name="SoundPlus" type="Button" parent="SettingsMenu"]
 layout_mode = 0
-offset_left = 610.0
-offset_top = 1392.0
-offset_right = 763.0
-offset_bottom = 1541.0
+offset_left = 373.0
+offset_top = 1480.0
+offset_right = 526.0
+offset_bottom = 1629.0
 disabled = true
 icon = ExtResource("11_a3i8o")
 flat = true
@@ -320,6 +321,11 @@ texture = ExtResource("14_svnti")
 position = Vector2(1852, -35)
 scale = Vector2(1.74275, 1.74275)
 texture = ExtResource("15_u6iap")
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("17_5mwqa")
+autoplay = true
+bus = &"Music"
 
 [connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Settings" to="." method="_on_settings_pressed"]

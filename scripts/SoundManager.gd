@@ -2,7 +2,7 @@ extends Node
 
 var sounds = {
 	"new_week": preload("res://sounds/new_week.ogg"),
-	
+	"click_button": preload("res://sounds/click_button.ogg")
 }
 
 func _ready():

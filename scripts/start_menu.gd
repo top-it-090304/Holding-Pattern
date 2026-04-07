@@ -40,29 +40,36 @@ func _process(delta):
 
 ## Сигналы кнопок
 func _on_play_pressed():
+	SoundManager.play("click_button")
 	target_pos = positions["play"]
 	target_rotation = 0.60
 	$Back_right.visible = true
 
 func _on_map_1_pressed():
+	SoundManager.play("click_button")
 	get_tree().change_scene_to_file("res://scene/MAP_IRAN.tscn")
 	
 func _on_map_2_pressed() -> void:
+	SoundManager.play("click_button")
 	get_tree().change_scene_to_file("res://scene/MAP_SIBIR.tscn")
 
 func _on_settings_pressed():
+	SoundManager.play("click_button")
 	target_pos = positions["settings"]
 	
 func _on_stats_pressed():
+	SoundManager.play("click_button")
 	target_pos = positions["stats"]
 
 func _on_back_pressed():
+	SoundManager.play("click_button")
 	target_pos = positions["main"]
 	target_rotation = 0.0
 	$Back_right.visible = false
 
 
 func _on_exit_pressed():
+	SoundManager.play("click_button")
 	get_tree().quit()
 
 
@@ -134,6 +141,7 @@ func load_settings():
 	else: $SettingsMenu/SoundPlus.disabled = false
 
 func _on_volume_minus_pressed() -> void:
+	SoundManager.play("click_button")
 	$SettingsMenu/Volume.text = volume_values[volume_values.find($SettingsMenu/Volume.text) - 1]
 	if $SettingsMenu/Volume.text == volume_values[0]:
 		$SettingsMenu/VolumeMinus.disabled = true
@@ -145,6 +153,7 @@ func _on_volume_minus_pressed() -> void:
 	Settings.save_data()
 
 func _on_volume_plus_pressed() -> void:
+	SoundManager.play("click_button")
 	$SettingsMenu/Volume.text = volume_values[volume_values.find($SettingsMenu/Volume.text) + 1]
 	if $SettingsMenu/Volume.text == volume_values[-1]:
 		$SettingsMenu/VolumePlus.disabled = true
@@ -158,13 +167,14 @@ func _on_volume_plus_pressed() -> void:
 func convert_volume():
 	var volume
 	if $SettingsMenu/Volume.text == volume_values[0]: volume = 0.0
-	elif $SettingsMenu/Volume.text == volume_values[1]: volume = 0.33
-	elif $SettingsMenu/Volume.text == volume_values[2]: volume = 0.67
-	elif $SettingsMenu/Volume.text == volume_values[3]: volume = 1.0
+	elif $SettingsMenu/Volume.text == volume_values[1]: volume = 0.1
+	elif $SettingsMenu/Volume.text == volume_values[2]: volume = 0.5
+	elif $SettingsMenu/Volume.text == volume_values[3]: volume = 0.8
 	return volume
 
 
 func _on_sound_minus_pressed() -> void:
+	SoundManager.play("click_button")
 	$SettingsMenu/Sound.text = sound_values[sound_values.find($SettingsMenu/Sound.text) - 1]
 	if $SettingsMenu/Sound.text == sound_values[0]:
 		$SettingsMenu/SoundMinus.disabled = true
@@ -176,6 +186,7 @@ func _on_sound_minus_pressed() -> void:
 	Settings.save_data()
 
 func _on_sound_plus_pressed() -> void:
+	SoundManager.play("click_button")
 	$SettingsMenu/Sound.text = sound_values[sound_values.find($SettingsMenu/Sound.text) + 1]
 	if $SettingsMenu/Sound.text == sound_values[-1]:
 		$SettingsMenu/SoundPlus.disabled = true
