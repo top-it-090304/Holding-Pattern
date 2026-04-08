@@ -141,7 +141,7 @@ func _set_game_speed(speed: float):
 		tween.tween_property(speed_2_btn, "modulate", Color(1.5, 1.5, 1.5, 1.0), 0.2)
 	
 	if is_instance_valid(SoundManager):
-		SoundManager.play("click_button", -5.0, 1.0 if speed == 1.0 else 1.2)
+		SoundManager.play("station_click", -5.0, 1.0 if speed == 1.0 else 1.2)
 		
 func _stop_line_create():
 	for airport in get_tree().get_nodes_in_group("airports"):
@@ -254,8 +254,7 @@ func check_airport():
 		
 		if permission:
 			permission = false
-			airport.activate_pulse()
-			SoundManager.play("click_airport")
+			airport.activate_pulse() 
 			
 			if not lines_data["in_" + lines_data["current color"]]:
 				lines_data[lines_data["current color"] + "_airports"].append(selected_airport)
@@ -323,7 +322,6 @@ func _on_airport_selected(airport):
 	selected_airport = airport
 	is_drawing = true
 	selected_airport.draw_stroke(true)
-	SoundManager.play("click_airport")
 	
 	for a in lines_data[current_color + "_airports"]:
 		if is_instance_valid(a):
@@ -562,7 +560,6 @@ func _close_clear_animation(target_btn: Node):
 	clear_data_twin.chain().tween_callback(func(): clear_btn.visible = false)
 
 func _on_clear_data_pressed() -> void:
-	SoundManager.play("del_rout")
 	clear_data(GameData.lines_data["current color"])
 
 func _on_week_timer_timeout() -> void:

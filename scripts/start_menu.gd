@@ -95,18 +95,20 @@ var duration = 0.12
 
 func _on_button_hovered(hovered_btn):
 	for btn in buttons:
-		var tween = create_tween().set_parallel(true).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
+		
   
 		if btn == hovered_btn:
+			var tween = create_tween().set_parallel(true).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
   			## увеличение
 			tween.tween_property(btn, "scale", scale_hovered, duration)
 			tween.tween_property(btn, "modulate", alpha_full, duration)
 	
 			
 	for btn in button:
-		var tween = create_tween().set_parallel(true).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
+		
   
 		if btn == hovered_btn:
+			var tween = create_tween().set_parallel(true).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
    		## увеличение
 			tween.tween_property(btn, "scale", scale_hovered, duration)
 			tween.tween_property(btn, "modulate", alpha_full, duration)

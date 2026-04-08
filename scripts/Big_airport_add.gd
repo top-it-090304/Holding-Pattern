@@ -45,7 +45,6 @@ func _gui_input(event):
 			_drop_plane()
 
 func _create_ghost():
-	SoundManager.play("tap_add_plane")
 	ghost_plane = Sprite2D.new()
 	ghost_plane.texture = fly_ghost.texture
 	ghost_plane.modulate = Color(1, 1, 1, 0.5)
@@ -84,4 +83,3 @@ func _drop_plane():
 	
 	if ghost_plane:
 		ghost_plane.queue_free()
-		SoundManager.play("add_plane")
