@@ -92,6 +92,7 @@ func _draw():
 		
 
 func spawn_animation():
+	SoundManager.play("spawn_airport")
 	sprite.scale = Vector2.ZERO
 	var tween_pop = create_tween().set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
 	tween_pop.tween_property(sprite, "scale", Vector2(0.7, 0.7), 1.0)

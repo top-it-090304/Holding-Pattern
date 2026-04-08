@@ -4,13 +4,14 @@ var last_play_time = 0
 
 var sounds = {
 	"new_week": preload("res://sounds/new_week.ogg"),
-	"click_button": preload("res://sounds/click_button.ogg"),
+	"click_button": preload("res://sounds/click_button_on_menu.ogg"),
 	"click_airport": preload("res://sounds/click_airport.ogg"),
 	"draw_rout": preload("res://sounds/draw_rout.ogg"),
 	"del_rout": preload("res://sounds/del_rout.ogg"),
-	"spawn_passengers": [preload("res://sounds/spawn_passengers_1.ogg"),preload("res://sounds/spawn_passengers_2.ogg")],
+	"spawn_passengers": [preload("res://sounds/spawn_passengers_1.ogg"), preload("res://sounds/spawn_passengers_2.ogg"),preload("res://sounds/spawn_passengers_3.ogg")],
 	"tap_add_plane": preload("res://sounds/tap_add_plane.ogg"),
-	"add_plane": preload("res://sounds/add_plane.ogg")
+	"add_plane": preload("res://sounds/add_plane.ogg"),
+	"spawn_airport": preload("res://sounds/spawn_airport.ogg")
 }
 
 func _ready():
