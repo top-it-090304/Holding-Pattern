@@ -181,7 +181,7 @@ func unlock_next_phase():
 		active_airport.append_array(all_zones[current_phase])
 		active_airport.shuffle()
 		
-		var zoom_value = max(2.1 - (current_phase * 0.3), 0.8)
+		var zoom_value = max(2.1 - (current_phase * 0.3), 1.0)
 		
 		target_zoom = Vector2(zoom_value, zoom_value)
 		
@@ -195,13 +195,13 @@ func unlock_next_phase():
 				new_speed = 1.0
 				
 			if current_phase == 4:
-				new_speed = 0.5
+				new_speed = 0.75
 				
 			if current_phase == 5:
-				new_speed = 0.35
+				new_speed = 0.5
 				
 			if current_phase == 6:
-				new_speed = 0.1
+				new_speed = 0.3
 			
 			passenger_timer.wait_time = new_speed
 			passenger_timer.start()

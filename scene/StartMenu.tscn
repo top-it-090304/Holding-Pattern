@@ -161,7 +161,7 @@ offset_right = 127.3
 offset_bottom = 716.692
 theme_override_colors/font_color = Color(0.203922, 0.180392, 0.203922, 1)
 theme_override_font_sizes/font_size = 26
-text = "353"
+text = "1102"
 
 [node name="Map_3" type="Button" parent="LevelSelect/CardsPack"]
 z_index = 1
