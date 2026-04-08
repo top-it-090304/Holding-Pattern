@@ -67,6 +67,3 @@ func update_target_x():
 	var offset_to_card = current_index * (card_width + spacing) + (card_width / 2.0)
 	target_x = menu_center_x - offset_to_card
 	
-func _on_card_pressed(level_path: String):
-	if abs(drag_current_x - drag_start_x) < 5:
-		get_tree().change_scene_to_file(level_path)

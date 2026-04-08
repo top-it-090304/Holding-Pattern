@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Air Rout"
-run/main_scene="uid://w3majmenhb7r"
+run/main_scene="uid://dggwktu3dwg6x"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 

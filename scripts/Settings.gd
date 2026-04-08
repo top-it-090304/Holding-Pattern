@@ -3,6 +3,7 @@ var sound = 1.0
 var sound_label = "Максимум"
 var volume = 1.0
 var volume_label = "Громко"
+var vibration: bool = true
 
 func _ready():
 	load_data()
@@ -17,6 +18,7 @@ func load_data():
 	volume_label = data.get("volume_label", "Громко")
 	sound = data.get("sound", 1.0)
 	sound_label = data.get("sound_label", "Максимум")
+	vibration = data.get("vibration", true)
 
 func apply():
 	if sound == 0.0: AudioServer.set_bus_volume_linear(AudioServer.get_bus_index("Master"), 0.0)
@@ -33,6 +35,7 @@ func save_data():
 		"volume" : volume,
 		"volume_label": volume_label,
 		"sound": sound,
-		"sound_label": sound_label
+		"sound_label": sound_label,
+		"vibration": vibration
 	}
 	file.store_string(JSON.stringify(data))

@@ -7,6 +7,8 @@ extends Node2D
 @onready var high_score_2 = $LevelSelect/CardsPack/Map_2/Score2
 @onready var volume_values = ["Без звука", "Тихо", "Средне", "Громко"]
 @onready var sound_values = ["Без звука", "Минимум", "Максимум"]
+var vibration_true = preload("res://objects/black_circle.png")
+var vibration_false = preload("res://objects/Button_NULL.png")
 
 var positions = {
 	"main": Vector2(0, 0),
@@ -141,6 +143,9 @@ func load_settings():
 	if Settings.sound_label == sound_values[-1]:
 		$SettingsMenu/SoundPlus.disabled = true
 	else: $SettingsMenu/SoundPlus.disabled = false
+	
+	if Settings.vibration: $SettingsMenu/Vibration.icon = vibration_true
+	else: $SettingsMenu/Vibration.icon = vibration_false
 
 func _on_volume_minus_pressed() -> void:
 	SoundManager.play("click_button")
@@ -205,3 +210,13 @@ func convert_sound():
 	elif $SettingsMenu/Sound.text == sound_values[1]: sound = 0.5
 	elif $SettingsMenu/Sound.text == sound_values[2]: sound = 1.0
 	return sound
+
+func _on_vibration_pressed() -> void:
+	if Settings.vibration: 
+		Settings.vibration = false
+		$SettingsMenu/Vibration.icon = vibration_false
+	else:
+		Settings.vibration = true
+		$SettingsMenu/Vibration.icon = vibration_true
+	Settings.apply()
+	Settings.save_data()
