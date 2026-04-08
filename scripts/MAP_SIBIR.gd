@@ -141,7 +141,7 @@ func _set_game_speed(speed: float):
 		tween.tween_property(speed_2_btn, "modulate", Color(1.5, 1.5, 1.5, 1.0), 0.2)
 	
 	if is_instance_valid(SoundManager):
-		SoundManager.play("station_click", -5.0, 1.0 if speed == 1.0 else 1.2)
+		SoundManager.play("click_button", -5.0, 1.0 if speed == 1.0 else 1.2)
 		
 func _stop_line_create():
 	for airport in get_tree().get_nodes_in_group("airports"):
