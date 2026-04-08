@@ -52,6 +52,36 @@ var lines_data = {
 	"orange_airports" : [],
 	"orange_planes" : [],
 	
+	"in_light_yellow" : false,
+	"light_yellow_routes" : [],
+	"light_yellow_airports" : [],
+	"light_yellow_planes" : [],
+	
+	"in_bolot" : false,
+	"bolot_routes" : [],
+	"bolot_airports" : [],
+	"bolot_planes" : [],
+	
+	"in_full_pink" : false,
+	"full_pink_routes" : [],
+	"full_pink_airports" : [],
+	"full_pink_planes" : [],
+	
+	"in_lavanda" : false,
+	"lavanda_routes" : [],
+	"lavanda_airports" : [],
+	"lavanda_planes" : [],
+	
+	"in_light_orange" : false,
+	"light_orange_routes" : [],
+	"light_orange_airports" : [],
+	"light_orange_planes" : [],
+	
+	"in_turquoise" : false,
+	"turquoise_routes" : [],
+	"turquoise_airports" : [],
+	"turquoise_planes" : [],
+	
 	"yellow_shapes" : [],
 	"blue_shapes" : [],
 	"red_shapes" : [],
@@ -59,6 +89,12 @@ var lines_data = {
 	"green_shapes" : [],
 	"pink_shapes" : [],
 	"orange_shapes" : [],
+	"light_yellow_shapes" : [],
+	"bolot_shapes" : [],
+	"full_pink_shapes" : [],
+	"lavanda_shapes" : [],
+	"light_orange_shapes" : [],
+	"turquoise_shapes" : [],
 }
 
 var color_values = {
@@ -68,7 +104,13 @@ var color_values = {
 	"light_blue": Color(0.0, 0.627, 0.878, 1.0),
 	"green": Color(0.0, 0.549, 0.141, 1.0),
 	"pink": Color(1.0, 0.533, 0.639, 1.0),
-	"orange": Color(0.886, 0.396, 0.224, 1.0) 
+	"orange": Color(0.886, 0.396, 0.224, 1.0),
+	"bolot": Color(0.612, 0.604, 0.216, 1.0),
+	"full_pink": Color(0.839, 0.302, 0.608, 1.0),
+	"light_yellow": Color(1.0, 0.812, 0.039, 1.0),
+	"turquoise": Color(0.208, 0.769, 0.576, 1.0),
+	"light_orange": Color(1.0, 0.565, 0.282, 1.0),
+	"lavanda": Color(1.0, 0.624, 0.706, 1.0),
 }
 
 

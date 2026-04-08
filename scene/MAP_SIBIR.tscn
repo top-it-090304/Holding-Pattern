@@ -7,9 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://dmiia6t0baedq" path="res://objects/Menu.png" id="4_3bhkq"]
 [ext_resource type="FontFile" uid="uid://bxu04q03hthlj" path="res://font/LFCurry.ttf" id="5_lxv0k"]
 [ext_resource type="Texture2D" uid="uid://b6dnv4yl8clsx" path="res://objects/x.png" id="6_1numj"]
-[ext_resource type="Texture2D" uid="uid://d3hmyd7fm44gt" path="res://objects/Button_yellow.png" id="7_38ns6"]
-[ext_resource type="Texture2D" uid="uid://c32r7a0jfkk6t" path="res://objects/Button_blue.png" id="8_0tqmr"]
-[ext_resource type="Texture2D" uid="uid://ck4unu555lgo2" path="res://objects/Button_red.png" id="9_iaqaf"]
+[ext_resource type="Texture2D" uid="uid://r362w31jjsc3" path="res://objects/Button_light_yellow.png" id="8_0tqmr"]
+[ext_resource type="Texture2D" uid="uid://j3fkt31ohl73" path="res://objects/Button_light_blue.png" id="9_iaqaf"]
+[ext_resource type="Texture2D" uid="uid://b7hivr7e4n2p5" path="res://objects/Button_bolot.png" id="10_37v68"]
 [ext_resource type="Texture2D" uid="uid://umrjde6u3mhk" path="res://objects/NULL_button.png" id="10_to4wy"]
 [ext_resource type="Script" uid="uid://dj87sysn61exl" path="res://scripts/Plane_count.gd" id="11_37v68"]
 [ext_resource type="Texture2D" uid="uid://dirl28ic4l46t" path="res://objects/Fly_ghost.png" id="12_ococl"]
@@ -115,7 +115,7 @@ wait_time = 25.0
 autostart = true
 
 [node name="WeekTimer" type="Timer" parent="."]
-wait_time = 142.0
+wait_time = 5.0
 autostart = true
 
 [node name="GameOverUI" type="CanvasLayer" parent="."]
@@ -200,8 +200,7 @@ scale = Vector2(1.4, 1.4)
 icon = ExtResource("6_1numj")
 flat = true
 
-[node name="YellowButton" type="Button" parent="UI"]
-modulate = Color(1, 1, 0, 1)
+[node name="ColorButton1" type="Button" parent="UI"]
 texture_filter = 6
 anchors_preset = -1
 anchor_left = 0.341
@@ -217,12 +216,11 @@ toggle_mode = true
 button_pressed = true
 action_mode = 0
 button_group = SubResource("ButtonGroup_to4wy")
-icon = ExtResource("7_38ns6")
+icon = ExtResource("8_0tqmr")
 flat = true
 expand_icon = true
 
-[node name="BlueButton" type="Button" parent="UI"]
-modulate = Color(0, 0, 1, 1)
+[node name="ColorButton2" type="Button" parent="UI"]
 texture_filter = 6
 offset_left = 2275.0
 offset_top = 380.0
@@ -232,12 +230,11 @@ scale = Vector2(0.442105, 0.442105)
 toggle_mode = true
 action_mode = 0
 button_group = SubResource("ButtonGroup_37v68")
-icon = ExtResource("8_0tqmr")
+icon = ExtResource("9_iaqaf")
 flat = true
 expand_icon = true
 
-[node name="RedButton" type="Button" parent="UI"]
-modulate = Color(1, 0, 0, 1)
+[node name="ColorButton3" type="Button" parent="UI"]
 texture_filter = 6
 offset_left = 2276.0
 offset_top = 496.0
@@ -247,11 +244,11 @@ scale = Vector2(0.442105, 0.442105)
 toggle_mode = true
 action_mode = 0
 button_group = SubResource("ButtonGroup_ococl")
-icon = ExtResource("9_iaqaf")
+icon = ExtResource("10_37v68")
 flat = true
 expand_icon = true
 
-[node name="LightBlueButton" type="Button" parent="UI"]
+[node name="ColorButton4" type="Button" parent="UI"]
 offset_left = 2273.0
 offset_top = 598.0
 offset_right = 2353.0
@@ -266,7 +263,7 @@ button_group = SubResource("ButtonGroup_to4wy")
 flat = true
 expand_icon = true
 
-[node name="GreenButton" type="Button" parent="UI"]
+[node name="ColorButton5" type="Button" parent="UI"]
 offset_left = 2273.0
 offset_top = 712.0
 offset_right = 2353.0
@@ -281,7 +278,7 @@ button_group = SubResource("ButtonGroup_to4wy")
 flat = true
 expand_icon = true
 
-[node name="PinkButton" type="Button" parent="UI"]
+[node name="ColorButton6" type="Button" parent="UI"]
 offset_left = 2273.0
 offset_top = 824.0
 offset_right = 2352.0
@@ -296,7 +293,7 @@ button_group = SubResource("ButtonGroup_to4wy")
 flat = true
 expand_icon = true
 
-[node name="OrangeButton" type="Button" parent="UI"]
+[node name="ColorButton7" type="Button" parent="UI"]
 offset_left = 2272.0
 offset_top = 934.0
 offset_right = 2352.0
@@ -998,13 +995,13 @@ position = Vector2(2386, -93)
 [connection signal="pressed" from="GameOverUI/MainPack/Restart" to="." method="_on_restart_pressed"]
 [connection signal="pressed" from="GameOverUI/MainPack/Menu" to="." method="_on_menu_pressed"]
 [connection signal="pressed" from="UI/ClearData" to="." method="_on_clear_data_pressed"]
-[connection signal="pressed" from="UI/YellowButton" to="." method="_on_yb_pressed"]
-[connection signal="pressed" from="UI/BlueButton" to="." method="_on_bb_pressed"]
-[connection signal="pressed" from="UI/RedButton" to="." method="_on_rb_pressed"]
-[connection signal="pressed" from="UI/LightBlueButton" to="." method="_on_lbb_pressed"]
-[connection signal="pressed" from="UI/GreenButton" to="." method="_on_gb_pressed"]
-[connection signal="pressed" from="UI/PinkButton" to="." method="_on_pb_pressed"]
-[connection signal="pressed" from="UI/OrangeButton" to="." method="_on_ob_pressed"]
+[connection signal="pressed" from="UI/ColorButton1" to="." method="_on_yb_pressed"]
+[connection signal="pressed" from="UI/ColorButton2" to="." method="_on_bb_pressed"]
+[connection signal="pressed" from="UI/ColorButton3" to="." method="_on_rb_pressed"]
+[connection signal="pressed" from="UI/ColorButton4" to="." method="_on_lbb_pressed"]
+[connection signal="pressed" from="UI/ColorButton5" to="." method="_on_gb_pressed"]
+[connection signal="pressed" from="UI/ColorButton6" to="." method="_on_pb_pressed"]
+[connection signal="pressed" from="UI/ColorButton7" to="." method="_on_ob_pressed"]
 [connection signal="pressed" from="UI/BonusPlane/BonusPlane" to="." method="_on_bonus_plane_pressed"]
 [connection signal="pressed" from="UI/BonusPack1/BonusLine" to="." method="_on_bonus_line_pressed"]
 [connection signal="pressed" from="UI/BonusPack1/Bonus_big_plane" to="." method="_on_bonus_big_plane_pressed"]

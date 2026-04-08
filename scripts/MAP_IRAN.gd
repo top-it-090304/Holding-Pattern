@@ -473,7 +473,7 @@ func _on_restart_pressed():
 	GameData.lines_data["inactive colors"] = ["light_blue", "green", "pink", "orange"]
 	lines_data["current color"] = "yellow"
 	lines_data["current hex color"] = Color(1.0, 0.812, 0.039, 1.0)
-	get_tree().change_scene_to_file("res://scene/Main.tscn")
+	get_tree().change_scene_to_file("res://scene/MAP_IRAN.tscn")
 	GameData.start_planes = 3
 
 func _on_menu_pressed():
@@ -481,10 +481,6 @@ func _on_menu_pressed():
 	get_tree().paused = false
 	for color in GameData.lines_data["active colors"]:
 		clear_data(color)
-	GameData.lines_data["active colors"] = ["yellow", "blue", "red"]
-	GameData.lines_data["inactive colors"] = ["light_blue", "green", "pink", "orange"]
-	lines_data["current color"] = "yellow"
-	lines_data["current hex color"] = Color(1.0, 0.812, 0.039, 1.0)
 	get_tree().change_scene_to_file("res://scene/StartMenu.tscn")
 	GameData.start_planes = 3
 

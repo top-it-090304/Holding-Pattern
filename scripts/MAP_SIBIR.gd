@@ -19,7 +19,7 @@ var route_scene = load("res://scene/Route.tscn")
 @onready var speed_1_btn = $UI/SpeedButton/Button
 @onready var speed_2_btn = $UI/SpeedButton/Button2
 
-@onready var inactive_buttons = [$UI/LightBlueButton, $UI/GreenButton, $UI/PinkButton, $UI/OrangeButton]
+@onready var inactive_buttons = [$UI/ColorButton4, $UI/ColorButton5, $UI/ColorButton6, $UI/ColorButton7]
 var active_button: Node = null
 
 
@@ -415,65 +415,61 @@ func _setup_vignette(_airport):
 ## кнопки
 func _on_yb_pressed():
 	set_line_stroke(false)
-	_animate_clear_button($UI/YellowButton)
-	lines_data["current color"] = "yellow"
+	_animate_clear_button($UI/ColorButton1)
+	lines_data["current color"] = "light_yellow"
 	lines_data["current hex color"] = Color(1.0, 0.812, 0.039, 1.0)
 
 func _on_bb_pressed():
 	set_line_stroke(false)
-	_animate_clear_button($UI/BlueButton)
-	lines_data["current color"] = "blue"
-	lines_data["current hex color"] = Color(0.0, 0.323, 0.983, 1.0)
-
-func _on_rb_pressed():
-	set_line_stroke(false)
-	_animate_clear_button($UI/RedButton)
-	lines_data["current color"] = "red"
-	lines_data["current hex color"] = Color(1.0, 0.0, 0.0, 1.0)
-
-func _on_lbb_pressed() -> void:
-	set_line_stroke(false)
-	_animate_clear_button($UI/LightBlueButton)
+	_animate_clear_button($UI/ColorButton2)
 	lines_data["current color"] = "light_blue"
 	lines_data["current hex color"] = Color(0.0, 0.627, 0.878, 1.0)
 
+func _on_rb_pressed():
+	set_line_stroke(false)
+	_animate_clear_button($UI/ColorButton3)
+	lines_data["current color"] = "bolot"
+	lines_data["current hex color"] = Color(0.612, 0.604, 0.216, 1.0)
+
+func _on_lbb_pressed() -> void:
+	set_line_stroke(false)
+	_animate_clear_button($UI/ColorButton4)
+	lines_data["current color"] = "full_pink"
+	lines_data["current hex color"] = Color(0.839, 0.302, 0.608, 1.0)
+
 func _on_gb_pressed() -> void:
 	set_line_stroke(false)
-	_animate_clear_button($UI/GreenButton)
-	lines_data["current color"] = "green"
-	lines_data["current hex color"] = Color(0.0, 0.549, 0.141, 1.0)
+	_animate_clear_button($UI/ColorButton5)
+	lines_data["current color"] = "light_orange"
+	lines_data["current hex color"] = Color(1.0, 0.565, 0.282, 1.0)
 
 func _on_pb_pressed() -> void:
 	set_line_stroke(false)
-	_animate_clear_button($UI/PinkButton)
-	lines_data["current color"] = "pink"
-	lines_data["current hex color"] = Color(1.0, 0.533, 0.639, 1.0)
+	_animate_clear_button($UI/ColorButton6)
+	lines_data["current color"] = "turquoise"
+	lines_data["current hex color"] = Color(0.208, 0.769, 0.576, 1.0)
 
 func _on_ob_pressed() -> void:
 	set_line_stroke(false)
-	_animate_clear_button($UI/OrangeButton)
-	lines_data["current color"] = "orange"
-	lines_data["current hex color"] = Color(0.886, 0.396, 0.224, 1.0)
+	_animate_clear_button($UI/ColorButton7)
+	lines_data["current color"] = "lavanda"
+	lines_data["current hex color"] = Color(1.0, 0.624, 0.706, 1.0)
 
 func _on_restart_pressed():
 	get_tree().paused = false
 	for color in GameData.lines_data["active colors"]:
 		clear_data(color)
-	GameData.lines_data["active colors"] = ["yellow", "blue", "red"]
-	GameData.lines_data["inactive colors"] = ["light_blue", "green", "pink", "orange"]
-	lines_data["current color"] = "yellow"
+	GameData.lines_data["active colors"] = ["light_yellow", "light_blue", "bolot"]
+	GameData.lines_data["inactive colors"] = ["full_pink", "light_orange", "turquoise", "lavanda"]
+	lines_data["current color"] = "light_yellow"
 	lines_data["current hex color"] = Color(1.0, 0.812, 0.039, 1.0)
-	get_tree().change_scene_to_file("res://scene/Main.tscn")
+	get_tree().change_scene_to_file("res://scene/MAP_SIBIR.tscn")
 	GameData.start_planes = 3
 
 func _on_menu_pressed():
 	get_tree().paused = false
 	for color in GameData.lines_data["active colors"]:
 		clear_data(color)
-	GameData.lines_data["active colors"] = ["yellow", "blue", "red"]
-	GameData.lines_data["inactive colors"] = ["light_blue", "green", "pink", "orange"]
-	lines_data["current color"] = "yellow"
-	lines_data["current hex color"] = Color(1.0, 0.812, 0.039, 1.0)
 	get_tree().change_scene_to_file("res://scene/StartMenu.tscn")
 	GameData.start_planes = 3
 

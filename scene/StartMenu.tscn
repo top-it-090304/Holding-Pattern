@@ -13,7 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://bl6st3pljm11" path="res://objects/Menu/cards_2.png" id="10_ad1t2"]
 [ext_resource type="Texture2D" uid="uid://v3a1y8lydq1x" path="res://objects/Menu/cards_1.png" id="11_4kmay"]
 [ext_resource type="Texture2D" uid="uid://bppf5m8rluohc" path="res://objects/settings_button.png" id="11_a3i8o"]
-[ext_resource type="Texture2D" uid="uid://g6xobvgi7ovh" path="res://objects/black_circle.png" id="12_0yv6x"]
+[ext_resource type="Texture2D" uid="uid://cqwe2uabnlynb" path="res://objects/VibrationTrue.png" id="12_0yv6x"]
 [ext_resource type="Texture2D" uid="uid://bsa0n1vap4l3" path="res://objects/name.png" id="12_upnxq"]
 [ext_resource type="Texture2D" uid="uid://cfoiek1b4roq6" path="res://objects/Menu/Stats.png" id="14_svnti"]
 [ext_resource type="Texture2D" uid="uid://bbdidywjb2jq4" path="res://objects/point_circle.png" id="15_u6iap"]
@@ -273,10 +273,10 @@ text = "Вибрация"
 
 [node name="Vibration" type="Button" parent="SettingsMenu"]
 layout_mode = 0
-offset_left = -266.0
-offset_top = 1846.0
+offset_left = -252.0
+offset_top = 1857.0
 offset_right = -138.0
-offset_bottom = 1974.0
+offset_bottom = 1976.0
 icon = ExtResource("12_0yv6x")
 flat = true
 
