@@ -31,8 +31,3 @@ window/size/window_width_override=1200
 window/size/window_height_override=540
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
-window/vsync/vsync_mode=3
-
-[gui]
-
-theme/custom_font="uid://c8xnikxnwoo8j"
