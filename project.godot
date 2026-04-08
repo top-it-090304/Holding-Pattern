@@ -36,3 +36,7 @@ window/vsync/vsync_mode=3
 [gui]
 
 theme/custom_font="uid://c8xnikxnwoo8j"
+
+[rendering]
+
+textures/vram_compression/import_etc2_astc=true

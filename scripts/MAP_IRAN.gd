@@ -465,6 +465,7 @@ func _on_ob_pressed() -> void:
 	lines_data["current hex color"] = Color(0.886, 0.396, 0.224, 1.0)
 
 func _on_restart_pressed():
+	SoundManager.play("click_button")
 	get_tree().paused = false
 	for color in GameData.lines_data["active colors"]:
 		clear_data(color)
@@ -476,6 +477,7 @@ func _on_restart_pressed():
 	GameData.start_planes = 3
 
 func _on_menu_pressed():
+	SoundManager.play("click_button")
 	get_tree().paused = false
 	for color in GameData.lines_data["active colors"]:
 		clear_data(color)
