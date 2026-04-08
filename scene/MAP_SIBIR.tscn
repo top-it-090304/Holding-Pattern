@@ -115,7 +115,7 @@ wait_time = 25.0
 autostart = true
 
 [node name="WeekTimer" type="Timer" parent="."]
-wait_time = 5.0
+wait_time = 142.0
 autostart = true
 
 [node name="GameOverUI" type="CanvasLayer" parent="."]

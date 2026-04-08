@@ -255,6 +255,7 @@ func check_airport():
 		if permission:
 			permission = false
 			airport.activate_pulse() 
+			SoundManager.play("click_airport")
 			
 			if not lines_data["in_" + lines_data["current color"]]:
 				lines_data[lines_data["current color"] + "_airports"].append(selected_airport)
