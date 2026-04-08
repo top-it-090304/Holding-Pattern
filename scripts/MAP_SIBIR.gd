@@ -323,6 +323,7 @@ func _on_airport_selected(airport):
 	selected_airport = airport
 	is_drawing = true
 	selected_airport.draw_stroke(true)
+	SoundManager.play("click_airport")
 	
 	for a in lines_data[current_color + "_airports"]:
 		if is_instance_valid(a):
@@ -457,6 +458,7 @@ func _on_ob_pressed() -> void:
 	lines_data["current hex color"] = Color(1.0, 0.624, 0.706, 1.0)
 
 func _on_restart_pressed():
+	SoundManager.play("click_button")
 	get_tree().paused = false
 	for color in GameData.lines_data["active colors"]:
 		clear_data(color)
@@ -468,6 +470,7 @@ func _on_restart_pressed():
 	GameData.start_planes = 3
 
 func _on_menu_pressed():
+	SoundManager.play("click_button")
 	get_tree().paused = false
 	for color in GameData.lines_data["active colors"]:
 		clear_data(color)
@@ -557,6 +560,7 @@ func _close_clear_animation(target_btn: Node):
 	clear_data_twin.chain().tween_callback(func(): clear_btn.visible = false)
 
 func _on_clear_data_pressed() -> void:
+	SoundManager.play("del_rout")
 	clear_data(GameData.lines_data["current color"])
 
 func _on_week_timer_timeout() -> void:
@@ -570,6 +574,7 @@ func _on_week_timer_timeout() -> void:
 	$UI/BonusPack1/Week.text = "Неделя " + str(GameData.current_week)
 
 func _on_bonus_plane_pressed() -> void:
+	SoundManager.play("click_button")
 	get_tree().get_nodes_in_group("countPlane")[0].add_bonus_planes(1)
 	$UI/BonusPlane.hide()
 	if GameData.lines_data["inactive colors"]:
@@ -578,6 +583,7 @@ func _on_bonus_plane_pressed() -> void:
 		get_tree().paused = false
 
 func _on_bonus_line_pressed() -> void:
+	SoundManager.play("click_button")
 	var path = "res://objects/Button_" + GameData.lines_data["inactive colors"][0] + ".png"
 	inactive_buttons[0].icon = load(path)
 	GameData.lines_data["active colors"].append(GameData.lines_data["inactive colors"].pop_at(0))
@@ -586,6 +592,7 @@ func _on_bonus_line_pressed() -> void:
 	get_tree().paused = false
 
 func _on_bonus_big_plane_pressed() -> void:
+	SoundManager.play("click_button")
 	get_tree().get_nodes_in_group("countBigPlane")[0].add_bonus_planes(1)
 	$UI/BonusPack1.hide()
 	get_tree().paused = false

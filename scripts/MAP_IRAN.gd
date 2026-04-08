@@ -588,6 +588,7 @@ func _on_week_timer_timeout() -> void:
 	$UI/BonusPack3/Week.text = "Неделя " + str(GameData.current_week)
 
 func _on_bonus_plane_pressed() -> void:
+	SoundManager.play("click_button")
 	get_tree().get_nodes_in_group("countPlane")[0].add_bonus_planes(1)
 	$UI/BonusPlane.hide()
 	if GameData.current_week == 2:
@@ -604,6 +605,7 @@ func _on_bonus_plane_pressed() -> void:
 		$UI/BonusPack3.show()
 
 func _on_bonus_line_pressed() -> void:
+	SoundManager.play("click_button")
 	var path = "res://objects/Button_" + GameData.lines_data["inactive colors"][0] + ".png"
 	inactive_buttons[0].icon = load(path)
 	GameData.lines_data["active colors"].append(GameData.lines_data["inactive colors"].pop_at(0))
@@ -613,12 +615,14 @@ func _on_bonus_line_pressed() -> void:
 	get_tree().paused = false
 
 func _on_bonus_big_plane_pressed() -> void:
+	SoundManager.play("click_button")
 	get_tree().get_nodes_in_group("countBigPlane")[0].add_bonus_planes(1)
 	$UI/BonusPack1.hide()
 	$UI/BonusPack3.hide()
 	get_tree().paused = false
 
 func _on_bonus_big_airport_pressed() -> void:
+	SoundManager.play("click_button")
 	get_tree().get_nodes_in_group("countBigAirport")[0].add_bonus_planes(1)
 	$UI/BonusPack2.hide()
 	$UI/BonusPack3.hide()
