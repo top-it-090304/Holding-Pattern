@@ -1010,17 +1010,8 @@ position = Vector2(763, 212)
 [node name="Marker2D19" type="Marker2D" parent="AirportSpawn/Zone5" unique_id=1524081923]
 position = Vector2(1802, 771)
 
-[node name="Marker2D16" type="Marker2D" parent="AirportSpawn/Zone5" unique_id=1155984942]
-position = Vector2(2548, 534)
-
 [node name="Marker2D23" type="Marker2D" parent="AirportSpawn/Zone5" unique_id=624810089]
 position = Vector2(2266, 419)
-
-[node name="Marker2D2" type="Marker2D" parent="AirportSpawn/Zone5" unique_id=1920595530]
-position = Vector2(2611, 373)
-
-[node name="Marker2D4" type="Marker2D" parent="AirportSpawn/Zone5" unique_id=29009830]
-position = Vector2(338, -79)
 
 [node name="Marker2D34" type="Marker2D" parent="AirportSpawn/Zone5" unique_id=671167552]
 position = Vector2(1947, 646)
@@ -1043,7 +1034,10 @@ position = Vector2(2373, -39)
 [node name="Zone6" type="Node2D" parent="AirportSpawn" unique_id=2125407557]
 
 [node name="Marker2D12" type="Marker2D" parent="AirportSpawn/Zone6" unique_id=1325871952]
-position = Vector2(2449, 813)
+position = Vector2(2076, 941)
+
+[node name="Marker2D4" type="Marker2D" parent="AirportSpawn/Zone6" unique_id=29009830]
+position = Vector2(596, -248)
 
 [connection signal="timeout" from="Timer" to="." method="_on_spawn_timer_timeout"]
 [connection signal="timeout" from="WeekTimer" to="." method="_on_week_timer_timeout"]

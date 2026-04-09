@@ -180,7 +180,7 @@ func unlock_next_phase():
 		active_airport.append_array(all_zones[current_phase])
 		active_airport.shuffle()
 		
-		var zoom_value = max(2.1 - (current_phase * 0.3), 1.0)
+		var zoom_value = max(2.1 - (current_phase * 0.3), 1.15)
 		
 		target_zoom = Vector2(zoom_value, zoom_value)
 		

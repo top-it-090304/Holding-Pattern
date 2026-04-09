@@ -66,6 +66,7 @@ var clear_data_twin: Tween
 var target_camera_pos:  Vector2 = Vector2(0, 0)
 var camera_lerp_speed: float = 5.0
 var target_camera_rotation: float = 0.0
+var pause_camera_rotation: float = -0.2
 var camera_speed: float = 5.0
 var target_rotation: float = 0.0
 
@@ -103,7 +104,7 @@ func _ready():
 	add_child(passenger_timer)
 	
 	var phase_timer = Timer.new()
-	phase_timer.wait_time = 5.0 ## таймер на новую зону
+	phase_timer.wait_time = 120.0 ## таймер на новую зону
 	phase_timer.autostart = true
 	phase_timer.timeout.connect(_on_phase_timer_timeout)
 	add_child(phase_timer)
@@ -127,6 +128,7 @@ func _ready():
 	
 func _process(delta):
 	camera.position = camera.position.lerp(target_camera_pos, camera_lerp_speed * delta)
+	camera.rotation = lerp_angle(camera.rotation, target_camera_rotation, camera_speed * delta)
 	if is_drawing and selected_airport and is_instance_valid(pred_line):
 		var current_color = GameData.lines_data["current hex color"]
 		pred_line.default_color = Color(current_color.r, current_color.g, current_color.b)
@@ -191,7 +193,7 @@ func unlock_next_phase():
 		active_airport.append_array(all_zones[current_phase])
 		active_airport.shuffle()
 		
-		var zoom_value = max(2.4 - (current_phase * 0.3), 1.0)
+		var zoom_value = max(2.4 - (current_phase * 0.3), 1.165)
 		target_zoom = Vector2(zoom_value, zoom_value)
 		
 		current_phase += 1
@@ -638,19 +640,32 @@ func _on_bonus_big_airport_pressed() -> void:
 
 
 func _on_continue_pressed() -> void:
-	SoundManager.play("click_button")
-	$UI/PauseMenu.hide()
 	get_tree().paused = false
-	target_camera_pos = Vector2(0, 0) 
-	camera_lerp_speed = 5.0
-
-func _on_pause_button_pressed() -> void:
-	get_tree().paused = true
 	SoundManager.play("click_button")
-	$UI/PauseMenu.show()
+	target_camera_pos = Vector2(1374.0, 369.0) 
+	camera_lerp_speed = 5.0
+	await get_tree().create_timer(0.2).timeout
 	var tween = create_tween()
 	tween.set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
+	tween.tween_property($PauseMenu, "modulate:a", 0.0, 0.3)
+	tween.chain().tween_callback(func():
+		$PauseMenu.hide()
+		$PauseMenu.modulate.a = 1.0
+	)
+
+func _on_pause_button_pressed() -> void:
+	$PauseMenu.show()
+	get_tree().paused = true
+	SoundManager.play("click_button")
 	
-	tween.tween_property(camera, "position", Vector2(camera.position.x, -1500), 0.6).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
+	var tween = create_tween()
+	tween.set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
+	tween.set_parallel(true)
 	
+	var screen_size = get_viewport_rect().size
+	var new_y = camera.position.y - (screen_size.y) + 300
+	tween.tween_property(camera, "position", Vector2(camera.position.x - 150, new_y), 0.7).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
+		
+	target_rotation = pause_camera_rotation 
+	tween.tween_property(camera, "rotation", target_rotation, 0.7).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
 	

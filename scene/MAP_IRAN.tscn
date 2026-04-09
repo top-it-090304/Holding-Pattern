@@ -5,9 +5,12 @@
 [ext_resource type="Script" uid="uid://klqdhwym7rg7" path="res://scripts/Settings.gd" id="3_6pevr"]
 [ext_resource type="Texture2D" uid="uid://cya118am2kgj2" path="res://objects/Vinetka.png" id="3_ts4wl"]
 [ext_resource type="Texture2D" uid="uid://i5602sbm708r" path="res://objects/Restart.png" id="4_ap85m"]
+[ext_resource type="Texture2D" uid="uid://bt80hh32ovxqk" path="res://objects/Menu/resume.png" id="5_smxhb"]
 [ext_resource type="Texture2D" uid="uid://dmiia6t0baedq" path="res://objects/Menu.png" id="5_tu5oa"]
 [ext_resource type="FontFile" uid="uid://bxu04q03hthlj" path="res://font/LFCurry.ttf" id="6_1yydk"]
+[ext_resource type="Texture2D" uid="uid://3sgxie4floa7" path="res://objects/Menu/restart.png" id="6_d42c7"]
 [ext_resource type="Texture2D" uid="uid://b6dnv4yl8clsx" path="res://objects/x.png" id="7_jad85"]
+[ext_resource type="Texture2D" uid="uid://bqlp7cbr35xaw" path="res://objects/Menu/menu.png" id="7_qfpcn"]
 [ext_resource type="Texture2D" uid="uid://d3hmyd7fm44gt" path="res://objects/Button_yellow.png" id="8_6pevr"]
 [ext_resource type="Texture2D" uid="uid://c32r7a0jfkk6t" path="res://objects/Button_blue.png" id="9_l8fvx"]
 [ext_resource type="Texture2D" uid="uid://ck4unu555lgo2" path="res://objects/Button_red.png" id="10_u63k7"]
@@ -121,6 +124,65 @@ autostart = true
 wait_time = 142.0
 autostart = true
 script = ExtResource("3_6pevr")
+
+[node name="PauseMenu" type="Control" parent="." unique_id=518320348]
+process_mode = 2
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="PauseMenu" unique_id=185090960]
+z_index = 5
+layout_mode = 0
+offset_left = -137.0
+offset_top = -1710.0
+offset_right = 3004.0
+offset_bottom = 187.0
+texture = ExtResource("37_u63k7")
+
+[node name="Continue" type="Button" parent="PauseMenu" unique_id=1744643231]
+z_index = 6
+layout_mode = 0
+offset_left = 841.0
+offset_top = -901.0
+offset_right = 1331.0
+offset_bottom = -794.0
+rotation = -0.2808132
+theme_override_font_sizes/font_size = 72
+icon = ExtResource("5_smxhb")
+flat = true
+
+[node name="Restart" type="Button" parent="PauseMenu" unique_id=251305847]
+process_mode = 2
+z_index = 5
+layout_mode = 0
+offset_left = 918.0
+offset_top = -872.0
+offset_right = 1465.0
+offset_bottom = -765.0
+rotation = -0.2808132
+pivot_offset = Vector2(150, 40)
+theme_override_font_sizes/font_size = 72
+icon = ExtResource("6_d42c7")
+flat = true
+expand_icon = true
+
+[node name="Menu" type="Button" parent="PauseMenu" unique_id=1061508788]
+process_mode = 2
+z_index = 6
+layout_mode = 0
+offset_left = 907.0
+offset_top = -771.0
+offset_right = 1442.0
+offset_bottom = -677.6656
+rotation = -0.2808132
+pivot_offset = Vector2(150, 40)
+theme_override_font_sizes/font_size = 72
+icon = ExtResource("7_qfpcn")
+flat = true
+expand_icon = true
 
 [node name="GameOverUI" type="CanvasLayer" parent="." unique_id=1819062600]
 process_mode = 3
@@ -856,57 +918,6 @@ icon = ExtResource("36_l8fvx")
 flat = true
 expand_icon = true
 
-[node name="PauseMenu" type="Control" parent="UI" unique_id=1854176592]
-process_mode = 2
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="TextureRect" type="TextureRect" parent="UI/PauseMenu" unique_id=1342418856]
-layout_mode = 0
-offset_left = -404.0
-offset_top = -2116.0
-offset_right = 2564.0
-offset_bottom = -2.0
-texture = ExtResource("37_u63k7")
-
-[node name="Continue" type="Button" parent="UI/PauseMenu" unique_id=938621947]
-layout_mode = 0
-offset_left = 81.0
-offset_top = -1375.367
-offset_right = 550.0
-offset_bottom = -1268.367
-rotation = -0.7853982
-theme_override_font_sizes/font_size = 72
-text = "Продолжить"
-
-[node name="Restart" type="Button" parent="UI/PauseMenu" unique_id=597334439]
-process_mode = 2
-layout_mode = 0
-offset_left = 140.99994
-offset_top = -1409.367
-offset_right = 687.99994
-offset_bottom = -1302.367
-rotation = -0.7853982
-pivot_offset = Vector2(150, 40)
-theme_override_font_sizes/font_size = 72
-text = "Начать заново"
-expand_icon = true
-
-[node name="Menu" type="Button" parent="UI/PauseMenu" unique_id=716737363]
-process_mode = 2
-layout_mode = 0
-offset_left = 221.99994
-offset_top = -1327.3668
-offset_right = 756.99994
-offset_bottom = -1220.3668
-rotation = -0.7853982
-pivot_offset = Vector2(150, 40)
-theme_override_font_sizes/font_size = 72
-text = "Выйти в меню"
-expand_icon = true
-
 [node name="AirportSpawn" type="Node2D" parent="." unique_id=760523429]
 metadata/_edit_lock_ = true
 
@@ -1037,6 +1048,9 @@ position = Vector2(1845, -105)
 
 [connection signal="timeout" from="Timer" to="." method="_on_spawn_timer_timeout"]
 [connection signal="timeout" from="WeekTimer" to="." method="_on_week_timer_timeout"]
+[connection signal="pressed" from="PauseMenu/Continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="PauseMenu/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="PauseMenu/Menu" to="." method="_on_menu_pressed"]
 [connection signal="pressed" from="GameOverUI/MainPack/Restart" to="." method="_on_restart_pressed"]
 [connection signal="pressed" from="GameOverUI/MainPack/Menu" to="." method="_on_menu_pressed"]
 [connection signal="pressed" from="UI/ClearData" to="." method="_on_clear_data_pressed"]
@@ -1055,6 +1069,3 @@ position = Vector2(1845, -105)
 [connection signal="pressed" from="UI/BonusPack3/Bonus_big_plane" to="." method="_on_bonus_big_plane_pressed"]
 [connection signal="pressed" from="UI/BonusPack3/BonusBigAirport" to="." method="_on_bonus_big_airport_pressed"]
 [connection signal="pressed" from="UI/PauseButton" to="." method="_on_pause_button_pressed"]
-[connection signal="pressed" from="UI/PauseMenu/Continue" to="." method="_on_continue_pressed"]
-[connection signal="pressed" from="UI/PauseMenu/Restart" to="." method="_on_restart_pressed"]
-[connection signal="pressed" from="UI/PauseMenu/Menu" to="." method="_on_menu_pressed"]
