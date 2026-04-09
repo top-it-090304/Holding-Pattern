@@ -35,3 +35,7 @@ window/size/window_width_override=1280
 window/size/window_height_override=800
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
+
+[rendering]
+
+textures/vram_compression/import_etc2_astc=true

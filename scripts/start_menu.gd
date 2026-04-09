@@ -183,7 +183,7 @@ func convert_volume():
 	if $SettingsMenu/Volume.text == volume_values[0]: return 0.0
 	elif $SettingsMenu/Volume.text == volume_values[1]: return 0.1
 	elif $SettingsMenu/Volume.text == volume_values[2]: return 0.5
-	elif $SettingsMenu/Volume.text == volume_values[3]: return 0.8
+	elif $SettingsMenu/Volume.text == volume_values[3]: return 1.0
 
 
 func _on_sound_minus_pressed() -> void:
