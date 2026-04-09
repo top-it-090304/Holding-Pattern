@@ -288,7 +288,7 @@ func _drop_plane():
 			if count_label.has_method("update_counter"):
 				count_label.update_counter()
 		queue_free()
-		GameData.lines_data[GameData.lines_data["current color"] + "_planes"].erase(self)
+		GameData.lines_data[color + "_planes"].erase(self)
 
 func _get_lines_at_airport(airport) -> Array:
 	var lines_here = []
