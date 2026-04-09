@@ -333,7 +333,7 @@ position = Vector2(1406, 2578)
 position = Vector2(-1733, -95)
 
 [node name="Marker2D9" type="Marker2D" parent="Back/Points" unique_id=1322930977]
-position = Vector2(-424, -1065)
+position = Vector2(-25, -1217)
 
 [node name="Marker2D10" type="Marker2D" parent="Back/Points" unique_id=578715333]
 position = Vector2(4247, 2169)

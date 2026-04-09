@@ -10,14 +10,14 @@ func _ready():
 	_create_menu_route(points[0].global_position, points[1].global_position, Color(0.1, 0.5, 1.0, 0.8), 170.0)
 	
 	if points.size() >= 3:
-		_create_menu_route(points[2].global_position, points[3].global_position, Color(1.0, 0.2, 0.2, 0.8), -190.0)
+		_create_menu_route(points[2].global_position, points[3].global_position, Color(1.0, 0.2, 0.2, 0.8), -290.0)
 		_create_menu_route(points[3].global_position, points[4].global_position, Color(1.0, 0.2, 0.2, 0.8), 0.0)
 		
 	if points.size() >= 4:
 		_create_menu_route(points[5].global_position, points[6].global_position, Color(0.0, 0.624, 0.867, 1.0), -250.0)
 	
 	if points.size() >= 5:
-		_create_menu_route(points[7].global_position, points[8].global_position, Color(0.0, 0.639, 0.235, 1.0), 200.0)
+		_create_menu_route(points[7].global_position, points[8].global_position, Color(0.0, 0.639, 0.235, 1.0), 350.0)
 	
 	if points.size() >= 6:
 		_create_menu_route(points[9].global_position, points[10].global_position, Color(1.0, 0.8, 0.1, 0.8), 0.0)
