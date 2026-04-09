@@ -13,7 +13,9 @@
 [ext_resource type="Texture2D" uid="uid://bl6st3pljm11" path="res://objects/Menu/cards_2.png" id="10_ad1t2"]
 [ext_resource type="Texture2D" uid="uid://v3a1y8lydq1x" path="res://objects/Menu/cards_1.png" id="11_4kmay"]
 [ext_resource type="Texture2D" uid="uid://bppf5m8rluohc" path="res://objects/settings_button.png" id="11_a3i8o"]
+[ext_resource type="Texture2D" uid="uid://b3y5on2cnoy67" path="res://objects/Menu/cards_3.png" id="11_ui0tv"]
 [ext_resource type="Texture2D" uid="uid://cqwe2uabnlynb" path="res://objects/VibrationTrue.png" id="12_0yv6x"]
+[ext_resource type="Texture2D" uid="uid://6n7jupnvrip2" path="res://objects/Menu/cards_4.png" id="12_ksajq"]
 [ext_resource type="Texture2D" uid="uid://bsa0n1vap4l3" path="res://objects/name.png" id="12_upnxq"]
 [ext_resource type="Texture2D" uid="uid://cfoiek1b4roq6" path="res://objects/Menu/Stats.png" id="14_svnti"]
 [ext_resource type="Texture2D" uid="uid://bbdidywjb2jq4" path="res://objects/point_circle.png" id="15_u6iap"]
@@ -166,8 +168,26 @@ text = "1102"
 [node name="Map_3" type="Button" parent="LevelSelect/CardsPack" unique_id=1179616033]
 z_index = 1
 layout_mode = 2
-icon = ExtResource("11_4kmay")
+icon = ExtResource("11_ui0tv")
 flat = true
+
+[node name="Map_5" type="Button" parent="LevelSelect/CardsPack" unique_id=697018823]
+z_index = 1
+layout_mode = 2
+icon = ExtResource("12_ksajq")
+flat = true
+
+[node name="Score1" type="Label" parent="LevelSelect/CardsPack/Map_5" unique_id=997903130]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.076
+anchor_right = 0.118
+offset_left = 101.58
+offset_top = 674.446
+offset_right = 127.3
+offset_bottom = 716.692
+theme_override_colors/font_color = Color(0.203922, 0.180392, 0.203922, 1)
+theme_override_font_sizes/font_size = 26
 
 [node name="SettingsMenu" type="Control" parent="." unique_id=1786117160]
 layout_mode = 3
