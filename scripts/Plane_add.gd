@@ -113,7 +113,10 @@ func _drop_plane():
 	if found_route and route_data_:
 		found_route.spawn_plane(route_data_, t_, false)
 		SoundManager.play("add_plane")
-		print("самолет появился")
+		var planes_list = GameData.lines_data[route_data_["color"] + "_planes"]
+		if planes_list.size() > 0:
+			var new_plane = planes_list.back()
+			new_plane.current_speed = 0.0
 		
 	
 	
