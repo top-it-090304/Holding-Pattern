@@ -13,7 +13,7 @@ var vibration_false = preload("res://objects/VibrationFalse.png")
 var positions = {
 	"main": Vector2(0, 0),
 	"play": Vector2(2800, 1420),
-	"settings": Vector2(0, 1620),
+	"settings": Vector2(0, 2320),
 	"stats": Vector2(3770, -200)
 }
 
