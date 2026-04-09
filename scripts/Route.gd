@@ -77,6 +77,7 @@ func spawn_plane(route_data: Dictionary, start_t: float, is_big: bool):
 		plane.current_route = route_data
 		plane.color = route_data["color"]
 		plane.t = start_t
+		plane.current_speed = 0.0
 		
 		lines_data[route_data["color"] + "_planes"].append(plane)
 		plane.setup_with_route(route_data, start_t)
