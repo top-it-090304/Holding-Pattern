@@ -573,7 +573,7 @@ func _close_clear_animation(target_btn: Node):
 
 func _on_clear_data_pressed() -> void:
 	SoundManager.play("del_rout")
-	clear_data(GameData.lines_data["current color"])
+	if lines_data["in_" + lines_data["current color"]]: clear_data(GameData.lines_data["current color"])
 
 func _on_week_timer_timeout() -> void:
 	SoundManager.play("new_week")
