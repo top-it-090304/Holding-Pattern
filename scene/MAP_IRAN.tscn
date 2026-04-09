@@ -846,12 +846,13 @@ flat = true
 expand_icon = true
 
 [node name="PauseButton" type="Button" parent="UI" unique_id=2091601170]
-offset_left = 69.0
-offset_top = 29.0
-offset_right = 175.0
-offset_bottom = 108.0
+offset_left = 19.0
+offset_top = 9.0
+offset_right = 173.3038
+offset_bottom = 124.0
 icon = ExtResource("36_l8fvx")
 flat = true
+expand_icon = true
 
 [node name="PauseMenu" type="Control" parent="UI" unique_id=1854176592]
 process_mode = 2

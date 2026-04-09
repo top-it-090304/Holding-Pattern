@@ -36,6 +36,7 @@ metadata/_edit_lock_ = true
 position = Vector2(1727.001, 1127.4999)
 scale = Vector2(3.492709, 4.132407)
 texture = SubResource("CompressedTexture2D_v2vl7")
+metadata/_edit_lock_ = true
 
 [node name="Play" type="Button" parent="." unique_id=2054451538]
 offset_left = -582.0
