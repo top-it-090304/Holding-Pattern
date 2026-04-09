@@ -627,3 +627,19 @@ func _on_bonus_big_airport_pressed() -> void:
 	$UI/BonusPack2.hide()
 	$UI/BonusPack3.hide()
 	get_tree().paused = false
+
+
+func _on_continue_pressed() -> void:
+	SoundManager.play("click_button")
+	get_tree().paused = false
+	$UI/PauseMenu.hide()
+
+func _on_pause_button_pressed() -> void:
+	SoundManager.play("click_button")
+	$UI/PauseMenu.show()
+	get_tree().paused = true
+
+
+func _on_exit_pressed() -> void:
+	SoundManager.play("click_button")
+	get_tree().quit()

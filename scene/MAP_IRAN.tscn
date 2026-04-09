@@ -35,6 +35,7 @@
 [ext_resource type="Texture2D" uid="uid://rl5b1huph76s" path="res://objects/Bonus_line.png" id="28_44qpc"]
 [ext_resource type="Texture2D" uid="uid://bw7800lop1lnv" path="res://objects/Clock/Speed_1.0.png" id="33_jad85"]
 [ext_resource type="Texture2D" uid="uid://bpeiunxuagah6" path="res://objects/Clock/Speed_2.0.png" id="34_6pevr"]
+[ext_resource type="Texture2D" uid="uid://dhgy00ifet6ci" path="res://objects/Button_back_right.png" id="36_l8fvx"]
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_hr7lf"]
 allow_unpress = true
@@ -844,6 +845,70 @@ icon = ExtResource("34_6pevr")
 flat = true
 expand_icon = true
 
+[node name="PauseButton" type="Button" parent="UI" unique_id=2091601170]
+offset_left = 69.0
+offset_top = 29.0
+offset_right = 175.0
+offset_bottom = 108.0
+icon = ExtResource("36_l8fvx")
+flat = true
+
+[node name="PauseMenu" type="Control" parent="UI" unique_id=1854176592]
+process_mode = 2
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="UI/PauseMenu" unique_id=1342418856]
+layout_mode = 0
+offset_right = 2403.0
+offset_bottom = 1082.0
+texture = ExtResource("27_lm8cf")
+
+[node name="Continue" type="Button" parent="UI/PauseMenu" unique_id=938621947]
+layout_mode = 0
+offset_left = 890.0
+offset_top = 274.0
+offset_right = 1359.0
+offset_bottom = 381.0
+theme_override_font_sizes/font_size = 72
+text = "Продолжить"
+
+[node name="Restart" type="Button" parent="UI/PauseMenu" unique_id=597334439]
+process_mode = 2
+layout_mode = 0
+offset_left = 891.0
+offset_top = 398.0
+offset_right = 1438.0
+offset_bottom = 505.0
+pivot_offset = Vector2(150, 40)
+theme_override_font_sizes/font_size = 72
+text = "Начать заново"
+expand_icon = true
+
+[node name="Menu" type="Button" parent="UI/PauseMenu" unique_id=716737363]
+process_mode = 2
+layout_mode = 0
+offset_left = 890.0
+offset_top = 511.0
+offset_right = 1425.0
+offset_bottom = 618.0
+pivot_offset = Vector2(150, 40)
+theme_override_font_sizes/font_size = 72
+text = "Выйти в меню"
+expand_icon = true
+
+[node name="Exit" type="Button" parent="UI/PauseMenu" unique_id=252402336]
+layout_mode = 0
+offset_left = 888.0
+offset_top = 622.0
+offset_right = 1444.0
+offset_bottom = 729.0
+theme_override_font_sizes/font_size = 72
+text = "Выйти из игры"
+
 [node name="AirportSpawn" type="Node2D" parent="." unique_id=760523429]
 metadata/_edit_lock_ = true
 
@@ -991,3 +1056,8 @@ position = Vector2(1845, -105)
 [connection signal="pressed" from="UI/BonusPack2/BonusBigAirport" to="." method="_on_bonus_big_airport_pressed"]
 [connection signal="pressed" from="UI/BonusPack3/Bonus_big_plane" to="." method="_on_bonus_big_plane_pressed"]
 [connection signal="pressed" from="UI/BonusPack3/BonusBigAirport" to="." method="_on_bonus_big_airport_pressed"]
+[connection signal="pressed" from="UI/PauseButton" to="." method="_on_pause_button_pressed"]
+[connection signal="pressed" from="UI/PauseMenu/Continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="UI/PauseMenu/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="UI/PauseMenu/Menu" to="." method="_on_menu_pressed"]
+[connection signal="pressed" from="UI/PauseMenu/Exit" to="." method="_on_exit_pressed"]

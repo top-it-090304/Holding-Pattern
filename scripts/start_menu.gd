@@ -180,12 +180,10 @@ func _on_volume_plus_pressed() -> void:
 	Settings.save_data()
 
 func convert_volume():
-	var volume
-	if $SettingsMenu/Volume.text == volume_values[0]: volume = 0.0
-	elif $SettingsMenu/Volume.text == volume_values[1]: volume = 0.1
-	elif $SettingsMenu/Volume.text == volume_values[2]: volume = 0.5
-	elif $SettingsMenu/Volume.text == volume_values[3]: volume = 0.8
-	return volume
+	if $SettingsMenu/Volume.text == volume_values[0]: return 0.0
+	elif $SettingsMenu/Volume.text == volume_values[1]: return 0.1
+	elif $SettingsMenu/Volume.text == volume_values[2]: return 0.5
+	elif $SettingsMenu/Volume.text == volume_values[3]: return 0.8
 
 
 func _on_sound_minus_pressed() -> void:
@@ -213,11 +211,10 @@ func _on_sound_plus_pressed() -> void:
 	Settings.save_data()
 
 func convert_sound():
-	var sound
-	if $SettingsMenu/Sound.text == sound_values[0]: sound = 0.0
-	elif $SettingsMenu/Sound.text == sound_values[1]: sound = 0.5
-	elif $SettingsMenu/Sound.text == sound_values[2]: sound = 1.0
-	return sound
+	if $SettingsMenu/Sound.text == sound_values[0]: return 0.0
+	elif $SettingsMenu/Sound.text == sound_values[1]: return 0.5
+	elif $SettingsMenu/Sound.text == sound_values[2]: return 1.0
+
 
 func _on_vibration_pressed() -> void:
 	if Settings.vibration: 
