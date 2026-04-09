@@ -822,6 +822,7 @@ flat = true
 
 [node name="PauseMenu" type="Control" parent="UI" unique_id=1464477577]
 process_mode = 2
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -835,25 +836,45 @@ texture = ExtResource("26_dc07v")
 
 [node name="Continue" type="Button" parent="UI/PauseMenu" unique_id=1184671679]
 layout_mode = 0
-offset_left = 689.0
-offset_top = 386.0
-offset_right = 747.0
-offset_bottom = 441.0
+offset_left = 890.0
+offset_top = 274.0
+offset_right = 1359.0
+offset_bottom = 381.0
+theme_override_font_sizes/font_size = 72
+text = "Продолжить"
 
-[node name="Restart" type="Button" parent="UI/PauseMenu" unique_id=1702123087]
+[node name="Restart" type="Button" parent="UI/PauseMenu" unique_id=1344874616]
+process_mode = 2
 layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
+offset_left = 891.0
+offset_top = 389.0
+offset_right = 1438.0
+offset_bottom = 496.0
+pivot_offset = Vector2(150, 40)
+theme_override_font_sizes/font_size = 72
+text = "Начать заново"
+expand_icon = true
 
-[node name="Menu" type="Button" parent="UI/PauseMenu" unique_id=1206582935]
+[node name="Menu" type="Button" parent="UI/PauseMenu" unique_id=173871151]
+process_mode = 2
 layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
+offset_left = 889.0
+offset_top = 505.0
+offset_right = 1113.0
+offset_bottom = 612.0
+pivot_offset = Vector2(150, 40)
+theme_override_font_sizes/font_size = 72
+text = "Выйти в меню"
+expand_icon = true
 
 [node name="Exit" type="Button" parent="UI/PauseMenu" unique_id=1633545167]
 layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
+offset_left = 888.0
+offset_top = 622.0
+offset_right = 1444.0
+offset_bottom = 729.0
+theme_override_font_sizes/font_size = 72
+text = "Выйти из игры"
 
 [node name="SpeedButton" type="Control" parent="UI" unique_id=145179823]
 layout_mode = 3
@@ -1045,3 +1066,7 @@ position = Vector2(2449, 813)
 [connection signal="pressed" from="UI/BonusPack3/Bonus_big_plane" to="." method="_on_bonus_big_plane_pressed"]
 [connection signal="pressed" from="UI/BonusPack3/BonusBigAirport" to="." method="_on_bonus_big_airport_pressed"]
 [connection signal="pressed" from="UI/PauseButton" to="." method="_on_pause_button_pressed"]
+[connection signal="pressed" from="UI/PauseMenu/Continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="UI/PauseMenu/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="UI/PauseMenu/Menu" to="." method="_on_menu_pressed"]
+[connection signal="pressed" from="UI/PauseMenu/Exit" to="." method="_on_exit_pressed"]
