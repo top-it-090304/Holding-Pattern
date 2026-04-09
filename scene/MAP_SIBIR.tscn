@@ -33,6 +33,7 @@
 [ext_resource type="Texture2D" uid="uid://cel3fq7keunyb" path="res://objects/Bonus_BG.png" id="26_dc07v"]
 [ext_resource type="Texture2D" uid="uid://rl5b1huph76s" path="res://objects/Bonus_line.png" id="27_yh4fj"]
 [ext_resource type="Texture2D" uid="uid://bw7800lop1lnv" path="res://objects/Clock/Speed_1.0.png" id="33_0tqmr"]
+[ext_resource type="Texture2D" uid="uid://dhgy00ifet6ci" path="res://objects/Button_back_right.png" id="33_iaqaf"]
 [ext_resource type="Texture2D" uid="uid://bpeiunxuagah6" path="res://objects/Clock/Speed_2.0.png" id="34_iaqaf"]
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_to4wy"]
@@ -120,10 +121,10 @@ autostart = true
 
 [node name="GameOverUI" type="CanvasLayer" parent="." unique_id=969786869]
 process_mode = 3
-visible = false
 
 [node name="MainPack" type="CanvasGroup" parent="GameOverUI" unique_id=531049790]
 process_mode = 3
+visible = false
 
 [node name="Vinetka" type="TextureRect" parent="GameOverUI/MainPack" unique_id=406772672]
 offset_right = 2405.0
@@ -811,6 +812,49 @@ scale = Vector2(1.92, 1.92)
 theme_override_font_sizes/font_size = 36
 text = "Большой самолёт"
 
+[node name="PauseButton" type="Button" parent="UI" unique_id=722747178]
+offset_left = 69.0
+offset_top = 29.0
+offset_right = 175.0
+offset_bottom = 108.0
+icon = ExtResource("33_iaqaf")
+flat = true
+
+[node name="PauseMenu" type="Control" parent="UI" unique_id=1464477577]
+process_mode = 2
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="UI/PauseMenu" unique_id=374975843]
+layout_mode = 0
+offset_right = 2403.0
+offset_bottom = 1082.0
+texture = ExtResource("26_dc07v")
+
+[node name="Continue" type="Button" parent="UI/PauseMenu" unique_id=1184671679]
+layout_mode = 0
+offset_left = 689.0
+offset_top = 386.0
+offset_right = 747.0
+offset_bottom = 441.0
+
+[node name="Restart" type="Button" parent="UI/PauseMenu" unique_id=1702123087]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+
+[node name="Menu" type="Button" parent="UI/PauseMenu" unique_id=1206582935]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+
+[node name="Exit" type="Button" parent="UI/PauseMenu" unique_id=1633545167]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+
 [node name="SpeedButton" type="Control" parent="UI" unique_id=145179823]
 layout_mode = 3
 anchors_preset = 0
@@ -1000,3 +1044,4 @@ position = Vector2(2449, 813)
 [connection signal="pressed" from="UI/BonusPack2/BonusBigAirport" to="." method="_on_bonus_big_airport_pressed"]
 [connection signal="pressed" from="UI/BonusPack3/Bonus_big_plane" to="." method="_on_bonus_big_plane_pressed"]
 [connection signal="pressed" from="UI/BonusPack3/BonusBigAirport" to="." method="_on_bonus_big_airport_pressed"]
+[connection signal="pressed" from="UI/PauseButton" to="." method="_on_pause_button_pressed"]

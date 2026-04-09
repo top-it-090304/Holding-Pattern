@@ -11,7 +11,6 @@ var route_scene = load("res://scene/Route.tscn")
 @onready var game_over_ui = $GameOverUI
 @onready var vinetka =  $GameOverUI/MainPack/Vinetka
 @onready var score_final_label = $GameOverUI/MainPack/ScoreLabel
-@onready var text_game_over = $GameOverUI/MainPack/Text
 @onready var main_pack = $GameOverUI/MainPack
 
 @onready var buttons = [$GameOverUI/MainPack/Restart, $GameOverUI/MainPack/Menu]
@@ -615,3 +614,8 @@ func _on_bonus_big_airport_pressed() -> void:
 	$UI/BonusPack2.hide()
 	$UI/BonusPack3.hide()
 	get_tree().paused = false
+
+
+func _on_pause_button_pressed() -> void:
+	get_tree().paused = true
+	$UI/PauseMenu.show()
