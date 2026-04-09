@@ -572,15 +572,25 @@ func _on_week_timer_timeout() -> void:
 	GameData.current_week += 1
 	$UI/BonusPlane/Week.text = "Неделя " + str(GameData.current_week)
 	$UI/BonusPack1/Week.text = "Неделя " + str(GameData.current_week)
+	$UI/BonusPack2/Week.text = "Неделя " + str(GameData.current_week)
+	$UI/BonusPack3/Week.text = "Неделя " + str(GameData.current_week)
 
 func _on_bonus_plane_pressed() -> void:
 	SoundManager.play("click_button")
 	get_tree().get_nodes_in_group("countPlane")[0].add_bonus_planes(1)
 	$UI/BonusPlane.hide()
-	if GameData.lines_data["inactive colors"]:
+	if GameData.current_week == 2:
 		$UI/BonusPack1.show()
-	else: 
-		get_tree().paused = false
+	elif GameData.current_week == 3:
+		$UI/BonusPack3.show()
+	elif GameData.current_week % 4 == 0 and GameData.lines_data["inactive colors"]:
+		$UI/BonusPack2.show()
+	elif GameData.current_week % 3 == 0:
+		$UI/BonusPack3.show()
+	elif GameData.current_week % 2 == 0:
+		$UI/BonusPack1.show()
+	else:
+		$UI/BonusPack3.show()
 
 func _on_bonus_line_pressed() -> void:
 	SoundManager.play("click_button")
@@ -589,10 +599,19 @@ func _on_bonus_line_pressed() -> void:
 	GameData.lines_data["active colors"].append(GameData.lines_data["inactive colors"].pop_at(0))
 	inactive_buttons.pop_at(0).disabled = false
 	$UI/BonusPack1.hide()
+	$UI/BonusPack2.hide()
 	get_tree().paused = false
 
 func _on_bonus_big_plane_pressed() -> void:
 	SoundManager.play("click_button")
 	get_tree().get_nodes_in_group("countBigPlane")[0].add_bonus_planes(1)
 	$UI/BonusPack1.hide()
+	$UI/BonusPack3.hide()
+	get_tree().paused = false
+
+func _on_bonus_big_airport_pressed() -> void:
+	SoundManager.play("click_button")
+	get_tree().get_nodes_in_group("countBigAirport")[0].add_bonus_planes(1)
+	$UI/BonusPack2.hide()
+	$UI/BonusPack3.hide()
 	get_tree().paused = false
