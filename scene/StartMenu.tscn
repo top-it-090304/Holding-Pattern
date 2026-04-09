@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://dggwktu3dwg6x"]
+[gd_scene format=3 uid="uid://dggwktu3dwg6x"]
 
 [ext_resource type="Script" uid="uid://cuexgr5rra0ub" path="res://scripts/start_menu.gd" id="1_lj036"]
 [ext_resource type="Script" uid="uid://bj5771ufkrcb0" path="res://scripts/Background_menu.gd" id="2_akhuw"]
@@ -22,20 +22,20 @@
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_v2vl7"]
 load_path = "res://.godot/imported/Background.png-a00edbe00a3917e875d427caf1430931.ctex"
 
-[node name="Control" type="Node2D"]
+[node name="Control" type="Node2D" unique_id=2136997302]
 script = ExtResource("1_lj036")
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=80650185]
 ignore_rotation = false
+zoom = Vector2(1.2, 1.2)
 metadata/_edit_lock_ = true
 
-[node name="Background" type="Sprite2D" parent="."]
-position = Vector2(1937, 1016)
-scale = Vector2(3.27396, 3.5)
+[node name="Background" type="Sprite2D" parent="." unique_id=991112221]
+position = Vector2(1727.001, 931)
+scale = Vector2(3.492709, 3.6574073)
 texture = SubResource("CompressedTexture2D_v2vl7")
-metadata/_edit_lock_ = true
 
-[node name="Play" type="Button" parent="."]
+[node name="Play" type="Button" parent="." unique_id=2054451538]
 offset_left = -582.0
 offset_top = -143.0
 offset_right = 1.42578
@@ -45,7 +45,7 @@ icon = ExtResource("3_8t8u8")
 flat = true
 expand_icon = true
 
-[node name="Settings" type="Button" parent="."]
+[node name="Settings" type="Button" parent="." unique_id=108400040]
 offset_left = -581.0
 offset_top = 176.0
 offset_right = 238.248
@@ -55,7 +55,7 @@ icon = ExtResource("4_pbb8y")
 flat = true
 expand_icon = true
 
-[node name="Stats" type="Button" parent="."]
+[node name="Stats" type="Button" parent="." unique_id=1402969838]
 offset_left = -586.0
 offset_top = 14.0
 offset_right = 334.0
@@ -65,7 +65,7 @@ icon = ExtResource("5_4vtxv")
 flat = true
 expand_icon = true
 
-[node name="Exit" type="Button" parent="."]
+[node name="Exit" type="Button" parent="." unique_id=158421374]
 offset_left = -576.0
 offset_top = 334.0
 offset_right = 17.04
@@ -74,7 +74,7 @@ icon = ExtResource("6_pbb8y")
 flat = true
 expand_icon = true
 
-[node name="Back_down2" type="Button" parent="."]
+[node name="Back_down2" type="Button" parent="." unique_id=1681739533]
 offset_left = 2588.0
 offset_top = -582.0
 offset_right = 2756.0
@@ -84,7 +84,7 @@ icon = ExtResource("7_4vtxv")
 flat = true
 expand_icon = true
 
-[node name="Back_down" type="Button" parent="."]
+[node name="Back_down" type="Button" parent="." unique_id=1768870969]
 offset_left = -1176.0
 offset_top = 1101.0
 offset_right = -1008.0
@@ -93,7 +93,7 @@ icon = ExtResource("7_4vtxv")
 flat = true
 expand_icon = true
 
-[node name="Back_right" type="Button" parent="."]
+[node name="Back_right" type="Button" parent="." unique_id=1164054253]
 visible = false
 offset_left = 2066.0
 offset_top = 347.0
@@ -104,7 +104,7 @@ icon = ExtResource("8_akhuw")
 flat = true
 expand_icon = true
 
-[node name="LevelSelect" type="Control" parent="."]
+[node name="LevelSelect" type="Control" parent="." unique_id=1368143272]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -118,7 +118,7 @@ grow_vertical = 2
 rotation = 0.602139
 script = ExtResource("8_4kmay")
 
-[node name="CardsPack" type="HBoxContainer" parent="LevelSelect"]
+[node name="CardsPack" type="HBoxContainer" parent="LevelSelect" unique_id=1483034237]
 clip_contents = true
 layout_mode = 0
 offset_right = 1220.0
@@ -126,13 +126,13 @@ offset_bottom = 785.0
 pivot_offset = Vector2(170, 390)
 theme_override_constants/separation = 100
 
-[node name="Map_1" type="Button" parent="LevelSelect/CardsPack"]
+[node name="Map_1" type="Button" parent="LevelSelect/CardsPack" unique_id=1026101079]
 z_index = 1
 layout_mode = 2
 icon = ExtResource("11_4kmay")
 flat = true
 
-[node name="Score1" type="Label" parent="LevelSelect/CardsPack/Map_1"]
+[node name="Score1" type="Label" parent="LevelSelect/CardsPack/Map_1" unique_id=1741970582]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.076
@@ -144,13 +144,13 @@ offset_bottom = 716.692
 theme_override_colors/font_color = Color(0.203922, 0.180392, 0.203922, 1)
 theme_override_font_sizes/font_size = 26
 
-[node name="Map_2" type="Button" parent="LevelSelect/CardsPack"]
+[node name="Map_2" type="Button" parent="LevelSelect/CardsPack" unique_id=1684554194]
 z_index = 1
 layout_mode = 2
 icon = ExtResource("10_ad1t2")
 flat = true
 
-[node name="Score2" type="Label" parent="LevelSelect/CardsPack/Map_2"]
+[node name="Score2" type="Label" parent="LevelSelect/CardsPack/Map_2" unique_id=946232039]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.076
@@ -163,19 +163,19 @@ theme_override_colors/font_color = Color(0.203922, 0.180392, 0.203922, 1)
 theme_override_font_sizes/font_size = 26
 text = "1102"
 
-[node name="Map_3" type="Button" parent="LevelSelect/CardsPack"]
+[node name="Map_3" type="Button" parent="LevelSelect/CardsPack" unique_id=1179616033]
 z_index = 1
 layout_mode = 2
 icon = ExtResource("11_4kmay")
 flat = true
 
-[node name="SettingsMenu" type="Control" parent="."]
+[node name="SettingsMenu" type="Control" parent="." unique_id=1786117160]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Volume" type="Label" parent="SettingsMenu"]
+[node name="Volume" type="Label" parent="SettingsMenu" unique_id=2082217403]
 modulate = Color(0, 0, 0, 1)
 layout_mode = 0
 offset_left = -164.0
@@ -186,7 +186,7 @@ theme_override_font_sizes/font_size = 72
 text = "Громко"
 horizontal_alignment = 1
 
-[node name="VolumeLabel" type="Label" parent="SettingsMenu"]
+[node name="VolumeLabel" type="Label" parent="SettingsMenu" unique_id=1972250529]
 modulate = Color(0, 0, 0, 1)
 layout_mode = 0
 offset_left = -720.0
@@ -196,7 +196,7 @@ offset_bottom = 1774.0
 theme_override_font_sizes/font_size = 72
 text = "Громкость"
 
-[node name="VolumePlus" type="Button" parent="SettingsMenu"]
+[node name="VolumePlus" type="Button" parent="SettingsMenu" unique_id=475755575]
 layout_mode = 0
 offset_left = 375.0
 offset_top = 1667.0
@@ -207,7 +207,7 @@ icon = ExtResource("11_a3i8o")
 flat = true
 expand_icon = true
 
-[node name="VolumeMinus" type="Button" parent="SettingsMenu"]
+[node name="VolumeMinus" type="Button" parent="SettingsMenu" unique_id=1867680433]
 layout_mode = 0
 offset_left = -134.0
 offset_top = 1807.0
@@ -218,7 +218,7 @@ icon = ExtResource("11_a3i8o")
 flat = true
 expand_icon = true
 
-[node name="SoundLabel" type="Label" parent="SettingsMenu"]
+[node name="SoundLabel" type="Label" parent="SettingsMenu" unique_id=1092195926]
 modulate = Color(0, 0, 0, 1)
 layout_mode = 0
 offset_left = -502.0
@@ -228,7 +228,7 @@ offset_bottom = 1648.0
 theme_override_font_sizes/font_size = 72
 text = "Звук"
 
-[node name="Sound" type="Label" parent="SettingsMenu"]
+[node name="Sound" type="Label" parent="SettingsMenu" unique_id=1479898237]
 modulate = Color(0, 0, 0, 1)
 layout_mode = 0
 offset_left = -164.0
@@ -239,7 +239,7 @@ theme_override_font_sizes/font_size = 72
 text = "Максимум"
 horizontal_alignment = 1
 
-[node name="SoundMinus" type="Button" parent="SettingsMenu"]
+[node name="SoundMinus" type="Button" parent="SettingsMenu" unique_id=27351469]
 layout_mode = 0
 offset_left = -135.0
 offset_top = 1633.0
@@ -250,7 +250,7 @@ icon = ExtResource("11_a3i8o")
 flat = true
 expand_icon = true
 
-[node name="SoundPlus" type="Button" parent="SettingsMenu"]
+[node name="SoundPlus" type="Button" parent="SettingsMenu" unique_id=1822612255]
 layout_mode = 0
 offset_left = 373.0
 offset_top = 1480.0
@@ -261,7 +261,7 @@ icon = ExtResource("11_a3i8o")
 flat = true
 expand_icon = true
 
-[node name="Label" type="Label" parent="SettingsMenu"]
+[node name="Label" type="Label" parent="SettingsMenu" unique_id=238052637]
 modulate = Color(0, 0, 0, 1)
 layout_mode = 0
 offset_left = -694.0
@@ -271,7 +271,7 @@ offset_bottom = 1991.0
 theme_override_font_sizes/font_size = 72
 text = "Вибрация"
 
-[node name="Vibration" type="Button" parent="SettingsMenu"]
+[node name="Vibration" type="Button" parent="SettingsMenu" unique_id=482037575]
 layout_mode = 0
 offset_left = -252.0
 offset_top = 1857.0
@@ -280,69 +280,69 @@ offset_bottom = 1976.0
 icon = ExtResource("12_0yv6x")
 flat = true
 
-[node name="Back" type="Node2D" parent="."]
+[node name="Back" type="Node2D" parent="." unique_id=536389213]
 script = ExtResource("2_akhuw")
 
-[node name="Points" type="Node2D" parent="Back"]
+[node name="Points" type="Node2D" parent="Back" unique_id=252651999]
 metadata/_edit_lock_ = true
 
-[node name="Marker2D" type="Marker2D" parent="Back/Points"]
-position = Vector2(292, -677)
+[node name="Marker2D" type="Marker2D" parent="Back/Points" unique_id=326273290]
+position = Vector2(219, -971)
 
-[node name="Marker2D2" type="Marker2D" parent="Back/Points"]
+[node name="Marker2D2" type="Marker2D" parent="Back/Points" unique_id=1787268430]
 position = Vector2(1851, -34)
 
-[node name="Marker2D3" type="Marker2D" parent="Back/Points"]
-position = Vector2(-1380, 49)
+[node name="Marker2D3" type="Marker2D" parent="Back/Points" unique_id=1411969656]
+position = Vector2(-1735, 67)
 
-[node name="Marker2D4" type="Marker2D" parent="Back/Points"]
+[node name="Marker2D4" type="Marker2D" parent="Back/Points" unique_id=2128703357]
 position = Vector2(-331, 814)
 
-[node name="Marker2D5" type="Marker2D" parent="Back/Points"]
+[node name="Marker2D5" type="Marker2D" parent="Back/Points" unique_id=1340420816]
 position = Vector2(-1389, 1840)
 
-[node name="Marker2D6" type="Marker2D" parent="Back/Points"]
+[node name="Marker2D6" type="Marker2D" parent="Back/Points" unique_id=1288042136]
 position = Vector2(314, 2302)
 
-[node name="Marker2D7" type="Marker2D" parent="Back/Points"]
+[node name="Marker2D7" type="Marker2D" parent="Back/Points" unique_id=2118646891]
 position = Vector2(1655, 1677)
 
-[node name="Marker2D8" type="Marker2D" parent="Back/Points"]
-position = Vector2(-1378, -64)
+[node name="Marker2D8" type="Marker2D" parent="Back/Points" unique_id=534024399]
+position = Vector2(-1733, -95)
 
-[node name="Marker2D9" type="Marker2D" parent="Back/Points"]
-position = Vector2(-448, -655)
+[node name="Marker2D9" type="Marker2D" parent="Back/Points" unique_id=1322930977]
+position = Vector2(-424, -1065)
 
-[node name="Marker2D10" type="Marker2D" parent="Back/Points"]
+[node name="Marker2D10" type="Marker2D" parent="Back/Points" unique_id=578715333]
 position = Vector2(4173, 2162)
 
-[node name="Marker2D11" type="Marker2D" parent="Back/Points"]
-position = Vector2(70, -639)
+[node name="Marker2D11" type="Marker2D" parent="Back/Points" unique_id=204775243]
+position = Vector2(-101, -896)
 
-[node name="Marker2D12" type="Marker2D" parent="Back/Points"]
+[node name="Marker2D12" type="Marker2D" parent="Back/Points" unique_id=692772632]
 position = Vector2(3272, -1063)
 
-[node name="PointSquare" type="Sprite2D" parent="."]
+[node name="PointSquare" type="Sprite2D" parent="." unique_id=304778494]
 position = Vector2(-331, 814)
 scale = Vector2(1.64312, 1.64312)
 texture = ExtResource("9_ols7h")
 
-[node name="Name" type="Sprite2D" parent="."]
+[node name="Name" type="Sprite2D" parent="." unique_id=1056722702]
 position = Vector2(59.3719, -230.188)
 scale = Vector2(1.05562, 1.05562)
 texture = ExtResource("12_upnxq")
 
-[node name="Stats2" type="Sprite2D" parent="."]
+[node name="Stats2" type="Sprite2D" parent="." unique_id=475121555]
 position = Vector2(3814, -175)
 scale = Vector2(1.25833, 1.25833)
 texture = ExtResource("14_svnti")
 
-[node name="PointCircle" type="Sprite2D" parent="."]
+[node name="PointCircle" type="Sprite2D" parent="." unique_id=163633957]
 position = Vector2(1852, -35)
 scale = Vector2(1.74275, 1.74275)
 texture = ExtResource("15_u6iap")
 
-[node name="Music" type="AudioStreamPlayer" parent="."]
+[node name="Music" type="AudioStreamPlayer" parent="." unique_id=1604131971]
 stream = ExtResource("17_5mwqa")
 autoplay = true
 bus = &"Music"

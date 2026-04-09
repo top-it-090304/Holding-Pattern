@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://w3majmenhb7r"]
+[gd_scene format=3 uid="uid://w3majmenhb7r"]
 
 [ext_resource type="Script" uid="uid://sp2ta70qytu6" path="res://scripts/MAP_IRAN.gd" id="1_1hfpl"]
 [ext_resource type="Texture2D" uid="uid://po01xbkyu0m5" path="res://objects/map3d.png" id="2_4vfsl"]
@@ -96,42 +96,42 @@ corner_detail = 5
 [sub_resource type="LabelSettings" id="LabelSettings_pnqar"]
 font_size = 32
 
-[node name="MAP_IRAN" type="Node2D"]
+[node name="MAP_IRAN" type="Node2D" unique_id=65367913]
 script = ExtResource("1_1hfpl")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(1613, 447)
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1600277396]
+position = Vector2(1374, 369)
 ignore_rotation = false
 zoom = Vector2(2.4, 2.4)
 
-[node name="Map" type="Sprite2D" parent="."]
+[node name="Map" type="Sprite2D" parent="." unique_id=543851618]
 z_index = -1
-position = Vector2(1452, 401)
+position = Vector2(1415, 401)
 scale = Vector2(1.10078, 1)
 texture = ExtResource("2_4vfsl")
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Timer" type="Timer" parent="." unique_id=465259474]
 wait_time = 25.0
 autostart = true
 
-[node name="WeekTimer" type="Timer" parent="."]
+[node name="WeekTimer" type="Timer" parent="." unique_id=1969759407]
 wait_time = 142.0
 autostart = true
 script = ExtResource("3_6pevr")
 
-[node name="GameOverUI" type="CanvasLayer" parent="."]
+[node name="GameOverUI" type="CanvasLayer" parent="." unique_id=1819062600]
 process_mode = 3
 visible = false
 
-[node name="MainPack" type="CanvasGroup" parent="GameOverUI"]
+[node name="MainPack" type="CanvasGroup" parent="GameOverUI" unique_id=1658087555]
 process_mode = 3
 
-[node name="Vinetka" type="TextureRect" parent="GameOverUI/MainPack"]
+[node name="Vinetka" type="TextureRect" parent="GameOverUI/MainPack" unique_id=2127894638]
 offset_right = 2405.0
 offset_bottom = 1080.0
 texture = ExtResource("3_ts4wl")
 
-[node name="Restart" type="Button" parent="GameOverUI/MainPack"]
+[node name="Restart" type="Button" parent="GameOverUI/MainPack" unique_id=1597837865]
 process_mode = 3
 offset_left = 247.0
 offset_top = 680.0
@@ -142,7 +142,7 @@ icon = ExtResource("4_ap85m")
 flat = true
 expand_icon = true
 
-[node name="Menu" type="Button" parent="GameOverUI/MainPack"]
+[node name="Menu" type="Button" parent="GameOverUI/MainPack" unique_id=556172914]
 process_mode = 3
 offset_left = 243.0
 offset_top = 850.0
@@ -153,7 +153,7 @@ icon = ExtResource("5_tu5oa")
 flat = true
 expand_icon = true
 
-[node name="RichTextLabel" type="RichTextLabel" parent="GameOverUI/MainPack"]
+[node name="RichTextLabel" type="RichTextLabel" parent="GameOverUI/MainPack" unique_id=47537334]
 offset_left = 656.0
 offset_top = 16.0
 offset_right = 1816.0
@@ -166,7 +166,7 @@ theme_override_font_sizes/normal_font_size = 149
 bbcode_enabled = true
 text = "Игра окончена"
 
-[node name="RichTextLabel2" type="RichTextLabel" parent="GameOverUI/MainPack"]
+[node name="RichTextLabel2" type="RichTextLabel" parent="GameOverUI/MainPack" unique_id=588561761]
 offset_left = 553.0
 offset_top = 205.0
 offset_right = 2066.0
@@ -176,7 +176,7 @@ theme_override_font_sizes/normal_font_size = 38
 text = "Переполнение этого аэропорта привело к закрытию вашей авиакомпании.
 В вашей авиакомпании Перевезено пассажиров:"
 
-[node name="ScoreLabel" type="Label" parent="GameOverUI/MainPack"]
+[node name="ScoreLabel" type="Label" parent="GameOverUI/MainPack" unique_id=33945643]
 offset_left = 1515.0
 offset_top = 254.0
 offset_right = 1597.0
@@ -184,24 +184,24 @@ offset_bottom = 322.0
 theme_override_colors/font_color = Color(0.2, 0.176471, 0.2, 1)
 theme_override_font_sizes/font_size = 39
 
-[node name="UI" type="CanvasLayer" parent="."]
+[node name="UI" type="CanvasLayer" parent="." unique_id=1987992017]
 layer = 2
 
-[node name="ClearData" type="Button" parent="UI"]
+[node name="ClearData" type="Button" parent="UI" unique_id=1828800753]
 anchors_preset = -1
 anchor_left = 0.339
 anchor_top = 0.886
 anchor_right = 0.361
 anchor_bottom = 0.935
-offset_left = 1461.4
-offset_top = -656.88
-offset_right = 1476.6
-offset_bottom = -641.8
-scale = Vector2(1.32, 1.32)
+offset_left = 1557.84
+offset_top = -931.1699
+offset_right = 1573.0399
+offset_bottom = -916.0901
+scale = Vector2(1.2800001, 1.2800001)
 icon = ExtResource("7_jad85")
 flat = true
 
-[node name="YellowButton" type="Button" parent="UI"]
+[node name="YellowButton" type="Button" parent="UI" unique_id=329766116]
 modulate = Color(1, 1, 0, 1)
 texture_filter = 6
 anchors_preset = -1
@@ -209,11 +209,11 @@ anchor_left = 0.341
 anchor_top = 0.892865
 anchor_right = 0.384828
 anchor_bottom = 1.00994
-offset_left = 1451.6
-offset_top = -676.294
-offset_right = 1586.41
-offset_bottom = -532.737
-scale = Vector2(0.416841, 0.416841)
+offset_left = 1548.04
+offset_top = -950.584
+offset_right = 1682.8501
+offset_bottom = -807.02704
+scale = Vector2(0.40420946, 0.40420946)
 toggle_mode = true
 button_pressed = true
 action_mode = 0
@@ -222,13 +222,13 @@ icon = ExtResource("8_6pevr")
 flat = true
 expand_icon = true
 
-[node name="BlueButton" type="Button" parent="UI"]
+[node name="BlueButton" type="Button" parent="UI" unique_id=417924367]
 modulate = Color(0, 0, 1, 1)
 texture_filter = 6
-offset_left = 2270.0
-offset_top = 395.0
-offset_right = 2510.0
-offset_bottom = 665.0
+offset_left = 2422.0
+offset_top = 596.0
+offset_right = 2662.0
+offset_bottom = 866.0
 scale = Vector2(0.416841, 0.416841)
 toggle_mode = true
 action_mode = 0
@@ -237,13 +237,13 @@ icon = ExtResource("9_l8fvx")
 flat = true
 expand_icon = true
 
-[node name="RedButton" type="Button" parent="UI"]
+[node name="RedButton" type="Button" parent="UI" unique_id=1173937527]
 modulate = Color(1, 0, 0, 1)
 texture_filter = 6
-offset_left = 2271.0
-offset_top = 506.0
-offset_right = 2541.0
-offset_bottom = 776.0
+offset_left = 2423.0
+offset_top = 707.0
+offset_right = 2693.0
+offset_bottom = 977.0
 scale = Vector2(0.416841, 0.416841)
 toggle_mode = true
 action_mode = 0
@@ -252,11 +252,11 @@ icon = ExtResource("10_u63k7")
 flat = true
 expand_icon = true
 
-[node name="LightBlueButton" type="Button" parent="UI"]
-offset_left = 2269.0
-offset_top = 604.0
-offset_right = 2349.0
-offset_bottom = 698.316
+[node name="LightBlueButton" type="Button" parent="UI" unique_id=698306499]
+offset_left = 2421.0
+offset_top = 805.0
+offset_right = 2501.0
+offset_bottom = 899.316
 scale = Vector2(1.28526, 1.28526)
 theme_override_colors/icon_disabled_color = Color(0.89059, 0.89059, 0.89059, 1)
 theme_override_icons/icon = ExtResource("11_0q2b8")
@@ -267,11 +267,11 @@ button_group = SubResource("ButtonGroup_hr7lf")
 flat = true
 expand_icon = true
 
-[node name="GreenButton" type="Button" parent="UI"]
-offset_left = 2269.0
-offset_top = 713.0
-offset_right = 2349.0
-offset_bottom = 804.594
+[node name="GreenButton" type="Button" parent="UI" unique_id=342753560]
+offset_left = 2421.0
+offset_top = 914.0
+offset_right = 2501.0
+offset_bottom = 1005.594
 scale = Vector2(1.28526, 1.28526)
 theme_override_colors/icon_disabled_color = Color(0.890196, 0.890196, 0.890196, 1)
 theme_override_icons/icon = ExtResource("11_0q2b8")
@@ -282,11 +282,11 @@ button_group = SubResource("ButtonGroup_hr7lf")
 flat = true
 expand_icon = true
 
-[node name="PinkButton" type="Button" parent="UI"]
-offset_left = 2269.0
-offset_top = 820.0
-offset_right = 2348.0
-offset_bottom = 910.449
+[node name="PinkButton" type="Button" parent="UI" unique_id=2108246230]
+offset_left = 2421.0
+offset_top = 1021.0
+offset_right = 2500.0
+offset_bottom = 1111.449
 scale = Vector2(1.28526, 1.28526)
 theme_override_colors/icon_disabled_color = Color(0.890196, 0.890196, 0.890196, 1)
 theme_override_icons/icon = ExtResource("11_0q2b8")
@@ -297,11 +297,11 @@ button_group = SubResource("ButtonGroup_hr7lf")
 flat = true
 expand_icon = true
 
-[node name="OrangeButton" type="Button" parent="UI"]
-offset_left = 2269.0
-offset_top = 925.0
-offset_right = 2349.0
-offset_bottom = 1016.59
+[node name="OrangeButton" type="Button" parent="UI" unique_id=2001752416]
+offset_left = 2421.0
+offset_top = 1126.0
+offset_right = 2501.0
+offset_bottom = 1217.5901
 scale = Vector2(1.28526, 1.28526)
 theme_override_colors/icon_disabled_color = Color(0.890196, 0.890196, 0.890196, 1)
 theme_override_icons/icon = ExtResource("11_0q2b8")
@@ -312,7 +312,7 @@ button_group = SubResource("ButtonGroup_hr7lf")
 flat = true
 expand_icon = true
 
-[node name="CountPlanePack" type="Control" parent="UI"]
+[node name="CountPlanePack" type="Control" parent="UI" unique_id=425050150]
 layout_mode = 3
 anchor_left = 0.473
 anchor_top = 0.909
@@ -324,7 +324,7 @@ offset_right = -0.800049
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="CountPlaneZero" type="TextureRect" parent="UI/CountPlanePack"]
+[node name="CountPlaneZero" type="TextureRect" parent="UI/CountPlanePack" unique_id=1422051616]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = -8.34375
@@ -337,7 +337,7 @@ offset_right = -56.0
 offset_bottom = -127.0
 metadata/_edit_use_anchors_ = true
 
-[node name="Count" type="Label" parent="UI/CountPlanePack"]
+[node name="Count" type="Label" parent="UI/CountPlanePack" unique_id=560306410]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -353,7 +353,7 @@ label_settings = SubResource("LabelSettings_pnqar")
 script = ExtResource("12_qmeo3")
 metadata/_edit_use_anchors_ = true
 
-[node name="TexturePlaneGhost" type="TextureRect" parent="UI/CountPlanePack"]
+[node name="TexturePlaneGhost" type="TextureRect" parent="UI/CountPlanePack" unique_id=922726191]
 unique_name_in_owner = true
 layout_mode = 0
 offset_left = -1571.0
@@ -362,25 +362,25 @@ offset_right = -1394.63
 offset_bottom = -489.0
 texture = ExtResource("13_smxhb")
 
-[node name="AddPlane" type="TextureRect" parent="UI/CountPlanePack"]
+[node name="AddPlane" type="TextureRect" parent="UI/CountPlanePack" unique_id=1596030711]
 texture_filter = 6
 layout_mode = 1
 anchors_preset = -1
-anchor_left = -7.79688
-anchor_top = -6.17324
-anchor_right = -6.96875
-anchor_bottom = -4.95894
-offset_left = -47.0
-offset_top = -93.022
-offset_right = -31.9999
-offset_bottom = -91.024
+anchor_left = -8.479319
+anchor_top = -5.323593
+anchor_right = -7.5865617
+anchor_bottom = -4.505168
+offset_left = -0.06567383
+offset_top = -0.05493164
+offset_right = -0.05206299
+offset_bottom = 0.011230469
 mouse_filter = 0
 texture = ExtResource("14_d42c7")
 expand_mode = 1
 script = ExtResource("15_qfpcn")
 metadata/_edit_use_anchors_ = true
 
-[node name="TextureBigPlaneGhost" type="TextureRect" parent="UI/CountPlanePack"]
+[node name="TextureBigPlaneGhost" type="TextureRect" parent="UI/CountPlanePack" unique_id=2067746771]
 unique_name_in_owner = true
 layout_mode = 0
 offset_left = -1588.0
@@ -389,29 +389,29 @@ offset_right = -1376.8
 offset_bottom = -284.0
 texture = ExtResource("16_54xju")
 
-[node name="CountBigPlanePack" type="Control" parent="UI"]
+[node name="CountBigPlanePack" type="Control" parent="UI" unique_id=1181686995]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="AddBigPlane" type="TextureRect" parent="UI/CountBigPlanePack"]
+[node name="AddBigPlane" type="TextureRect" parent="UI/CountBigPlanePack" unique_id=962683367]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 2.225
 anchor_top = 12.325
 anchor_right = 2.225
 anchor_bottom = 12.325
-offset_left = 6.99999
-offset_top = -61.0
-offset_right = 126.0
-offset_bottom = 58.0
+offset_left = -34.0
+offset_top = 46.0
+offset_right = 85.0
+offset_bottom = 165.0
 mouse_filter = 0
 texture = ExtResource("17_r4a12")
 expand_mode = 1
 script = ExtResource("18_3t1ax")
 
-[node name="Count" type="Label" parent="UI/CountBigPlanePack"]
+[node name="Count" type="Label" parent="UI/CountBigPlanePack" unique_id=2085190166]
 layout_mode = 0
 offset_left = 195.0
 offset_top = 416.0
@@ -420,7 +420,7 @@ offset_bottom = 464.0
 theme_override_font_sizes/font_size = 26
 script = ExtResource("19_jsff0")
 
-[node name="CountBigAirportPack" type="Control" parent="UI"]
+[node name="CountBigAirportPack" type="Control" parent="UI" unique_id=381744348]
 layout_mode = 3
 anchors_preset = 0
 offset_left = 34.0
@@ -428,17 +428,17 @@ offset_top = 40.0
 offset_right = 130.0
 offset_bottom = 114.0
 
-[node name="AddBigAirport" type="TextureRect" parent="UI/CountBigAirportPack"]
+[node name="AddBigAirport" type="TextureRect" parent="UI/CountBigAirportPack" unique_id=1713706943]
 layout_mode = 0
-offset_left = 60.0
-offset_top = 529.0
-offset_right = 180.0
-offset_bottom = 649.0
+offset_left = 18.0
+offset_top = 783.0
+offset_right = 138.0
+offset_bottom = 903.0
 texture = ExtResource("20_tu5oa")
 expand_mode = 1
 script = ExtResource("21_1yydk")
 
-[node name="Count" type="Label" parent="UI/CountBigAirportPack"]
+[node name="Count" type="Label" parent="UI/CountBigAirportPack" unique_id=1391110836]
 layout_mode = 0
 offset_left = 160.0
 offset_top = 511.0
@@ -447,7 +447,7 @@ offset_bottom = 559.0
 theme_override_font_sizes/font_size = 26
 script = ExtResource("22_jad85")
 
-[node name="TextureRect" type="TextureRect" parent="UI/CountBigAirportPack"]
+[node name="TextureRect" type="TextureRect" parent="UI/CountBigAirportPack" unique_id=1434658308]
 unique_name_in_owner = true
 modulate = Color(1, 1, 1, 0.360784)
 layout_mode = 0
@@ -457,7 +457,7 @@ offset_right = -336.0
 offset_bottom = 258.0
 texture = ExtResource("23_6pevr")
 
-[node name="ScorePack" type="Control" parent="UI"]
+[node name="ScorePack" type="Control" parent="UI" unique_id=1191817564]
 layout_mode = 3
 anchors_preset = 0
 offset_left = 1655.0
@@ -467,7 +467,7 @@ offset_bottom = 98.0
 pivot_offset = Vector2(60, 75)
 metadata/_edit_use_anchors_ = true
 
-[node name="Man" type="TextureRect" parent="UI/ScorePack"]
+[node name="Man" type="TextureRect" parent="UI/ScorePack" unique_id=120625667]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = -2.0257
@@ -481,7 +481,7 @@ offset_bottom = 290.01
 texture = ExtResource("20_j2cc6")
 expand_mode = 1
 
-[node name="Score" type="RichTextLabel" parent="UI/ScorePack"]
+[node name="Score" type="RichTextLabel" parent="UI/ScorePack" unique_id=1103324732]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = -0.0608696
@@ -499,18 +499,17 @@ bbcode_enabled = true
 text = "0"
 metadata/_edit_use_anchors_ = true
 
-[node name="Clock" type="Control" parent="UI"]
+[node name="Clock" type="Control" parent="UI" unique_id=348331956]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 2262.0
-offset_top = 6.0
-offset_right = 2383.0
-offset_bottom = 129.0
+offset_left = 2401.0
+offset_top = 17.0
+offset_right = 2522.0
+offset_bottom = 140.0
 pivot_offset = Vector2(118.605, 150.145)
 script = ExtResource("21_t388w")
-metadata/_edit_lock_ = true
 
-[node name="Stroke" type="TextureRect" parent="UI/Clock"]
+[node name="Stroke" type="TextureRect" parent="UI/Clock" unique_id=187453768]
 texture_filter = 4
 layout_mode = 0
 offset_left = 22.0
@@ -521,7 +520,7 @@ scale = Vector2(0.92, 0.92)
 texture = ExtResource("22_2hy6f")
 expand_mode = 1
 
-[node name="Circle" type="TextureRect" parent="UI/Clock"]
+[node name="Circle" type="TextureRect" parent="UI/Clock" unique_id=471694902]
 texture_filter = 4
 layout_mode = 0
 offset_left = 28.5
@@ -531,7 +530,7 @@ offset_bottom = 106.0
 scale = Vector2(0.92, 0.92)
 texture = ExtResource("23_lqeuv")
 
-[node name="Arrow" type="TextureRect" parent="UI/Clock"]
+[node name="Arrow" type="TextureRect" parent="UI/Clock" unique_id=249885678]
 texture_filter = 4
 layout_mode = 0
 offset_left = 67.77
@@ -543,7 +542,7 @@ pivot_offset = Vector2(3.805, 24.055)
 texture = ExtResource("24_88v1a")
 expand_mode = 1
 
-[node name="Riski" type="TextureRect" parent="UI/Clock"]
+[node name="Riski" type="TextureRect" parent="UI/Clock" unique_id=1879902659]
 texture_filter = 4
 layout_mode = 0
 offset_left = 34.0
@@ -553,7 +552,7 @@ offset_bottom = 103.0
 scale = Vector2(0.92, 0.92)
 texture = ExtResource("25_og6mj")
 
-[node name="WeekDay" type="Label" parent="UI/Clock"]
+[node name="WeekDay" type="Label" parent="UI/Clock" unique_id=1641093312]
 z_index = 11
 layout_mode = 0
 offset_left = -45.0
@@ -566,16 +565,16 @@ theme_override_font_sizes/font_size = 42
 script = ExtResource("26_prp3o")
 metadata/_edit_lock_ = true
 
-[node name="BonusPlane" type="CanvasGroup" parent="UI"]
+[node name="BonusPlane" type="CanvasGroup" parent="UI" unique_id=551705988]
 process_mode = 2
 visible = false
 
-[node name="TextureRect" type="TextureRect" parent="UI/BonusPlane"]
+[node name="TextureRect" type="TextureRect" parent="UI/BonusPlane" unique_id=594790685]
 offset_right = 2400.0
 offset_bottom = 1082.0
 texture = ExtResource("27_lm8cf")
 
-[node name="Week" type="Label" parent="UI/BonusPlane"]
+[node name="Week" type="Label" parent="UI/BonusPlane" unique_id=2097712188]
 modulate = Color(0, 0, 0, 1)
 offset_left = 677.0
 offset_top = 37.0
@@ -586,7 +585,7 @@ theme_override_colors/font_outline_color = Color(0.571327, 0.239612, 0.917579, 1
 theme_override_font_sizes/font_size = 145
 text = "Неделя 1"
 
-[node name="Label2" type="Label" parent="UI/BonusPlane"]
+[node name="Label2" type="Label" parent="UI/BonusPlane" unique_id=1161851673]
 modulate = Color(0, 0, 0, 1)
 offset_left = 684.0
 offset_top = 215.0
@@ -595,7 +594,7 @@ offset_bottom = 310.0
 theme_override_font_sizes/font_size = 52
 text = "Вы получили новый самолет."
 
-[node name="BonusPlane" type="Button" parent="UI/BonusPlane"]
+[node name="BonusPlane" type="Button" parent="UI/BonusPlane" unique_id=270618029]
 offset_left = 1042.0
 offset_top = 398.0
 offset_right = 1242.0
@@ -605,7 +604,7 @@ icon = ExtResource("14_d42c7")
 flat = true
 expand_icon = true
 
-[node name="Label3" type="Label" parent="UI/BonusPlane"]
+[node name="Label3" type="Label" parent="UI/BonusPlane" unique_id=976856644]
 modulate = Color(0, 0, 0, 1)
 offset_left = 1085.0
 offset_top = 751.0
@@ -615,16 +614,16 @@ scale = Vector2(1.8, 1.8)
 theme_override_font_sizes/font_size = 36
 text = "Самолёт"
 
-[node name="BonusPack1" type="CanvasGroup" parent="UI"]
+[node name="BonusPack1" type="CanvasGroup" parent="UI" unique_id=236737434]
 process_mode = 2
 visible = false
 
-[node name="TextureRect" type="TextureRect" parent="UI/BonusPack1"]
+[node name="TextureRect" type="TextureRect" parent="UI/BonusPack1" unique_id=997901829]
 offset_right = 2403.0
 offset_bottom = 1082.0
 texture = ExtResource("27_lm8cf")
 
-[node name="Week" type="Label" parent="UI/BonusPack1"]
+[node name="Week" type="Label" parent="UI/BonusPack1" unique_id=1586442929]
 modulate = Color(0.160784, 0.137255, 0.156863, 1)
 offset_left = 678.0
 offset_top = 27.0
@@ -633,7 +632,7 @@ offset_bottom = 235.0
 theme_override_font_sizes/font_size = 145
 text = "Неделя 1"
 
-[node name="Label3" type="Label" parent="UI/BonusPack1"]
+[node name="Label3" type="Label" parent="UI/BonusPack1" unique_id=488555411]
 modulate = Color(0.160784, 0.137255, 0.156863, 1)
 offset_left = 685.0
 offset_top = 214.0
@@ -643,7 +642,7 @@ theme_override_font_sizes/font_size = 58
 text = "Что бы вы хотели приобрести для
 вашей авиакомпании?"
 
-[node name="BonusLine" type="Button" parent="UI/BonusPack1"]
+[node name="BonusLine" type="Button" parent="UI/BonusPack1" unique_id=75460181]
 offset_left = 581.0
 offset_top = 502.0
 offset_right = 771.0
@@ -652,7 +651,7 @@ scale = Vector2(1.92, 1.92)
 icon = ExtResource("28_44qpc")
 flat = true
 
-[node name="Bonus_big_plane" type="Button" parent="UI/BonusPack1"]
+[node name="Bonus_big_plane" type="Button" parent="UI/BonusPack1" unique_id=1529776864]
 offset_left = 1537.0
 offset_top = 502.0
 offset_right = 1727.0
@@ -661,7 +660,7 @@ scale = Vector2(1.92, 1.92)
 icon = ExtResource("17_r4a12")
 flat = true
 
-[node name="Label4" type="Label" parent="UI/BonusPack1"]
+[node name="Label4" type="Label" parent="UI/BonusPack1" unique_id=863798108]
 modulate = Color(0.160784, 0.137255, 0.156863, 1)
 offset_left = 1413.0
 offset_top = 854.0
@@ -671,7 +670,7 @@ scale = Vector2(1.92, 1.92)
 theme_override_font_sizes/font_size = 36
 text = "Большой самолёт"
 
-[node name="Label5" type="Label" parent="UI/BonusPack1"]
+[node name="Label5" type="Label" parent="UI/BonusPack1" unique_id=1755469540]
 modulate = Color(0.160784, 0.137255, 0.156863, 1)
 offset_left = 653.0
 offset_top = 845.0
@@ -681,16 +680,16 @@ scale = Vector2(1.92, 1.92)
 theme_override_font_sizes/font_size = 36
 text = "Линия"
 
-[node name="BonusPack2" type="CanvasGroup" parent="UI"]
+[node name="BonusPack2" type="CanvasGroup" parent="UI" unique_id=2095571009]
 process_mode = 2
 visible = false
 
-[node name="TextureRect" type="TextureRect" parent="UI/BonusPack2"]
+[node name="TextureRect" type="TextureRect" parent="UI/BonusPack2" unique_id=598364417]
 offset_right = 2403.0
 offset_bottom = 1082.0
 texture = ExtResource("27_lm8cf")
 
-[node name="Week" type="Label" parent="UI/BonusPack2"]
+[node name="Week" type="Label" parent="UI/BonusPack2" unique_id=652464919]
 modulate = Color(0.160784, 0.137255, 0.156863, 1)
 offset_left = 678.0
 offset_top = 27.0
@@ -699,7 +698,7 @@ offset_bottom = 235.0
 theme_override_font_sizes/font_size = 145
 text = "Неделя 1"
 
-[node name="Label3" type="Label" parent="UI/BonusPack2"]
+[node name="Label3" type="Label" parent="UI/BonusPack2" unique_id=1410323583]
 modulate = Color(0.160784, 0.137255, 0.156863, 1)
 offset_left = 685.0
 offset_top = 214.0
@@ -709,7 +708,7 @@ theme_override_font_sizes/font_size = 58
 text = "Что бы вы хотели приобрести для
 вашей авиакомпании?"
 
-[node name="BonusLine" type="Button" parent="UI/BonusPack2"]
+[node name="BonusLine" type="Button" parent="UI/BonusPack2" unique_id=135873317]
 offset_left = 581.0
 offset_top = 502.0
 offset_right = 771.0
@@ -718,7 +717,7 @@ scale = Vector2(1.92, 1.92)
 icon = ExtResource("28_44qpc")
 flat = true
 
-[node name="BonusBigAirport" type="Button" parent="UI/BonusPack2"]
+[node name="BonusBigAirport" type="Button" parent="UI/BonusPack2" unique_id=180087341]
 offset_left = 1537.0
 offset_top = 502.0
 offset_right = 1727.0
@@ -728,7 +727,7 @@ icon = ExtResource("20_tu5oa")
 flat = true
 expand_icon = true
 
-[node name="Label4" type="Label" parent="UI/BonusPack2"]
+[node name="Label4" type="Label" parent="UI/BonusPack2" unique_id=34422785]
 modulate = Color(0.160784, 0.137255, 0.156863, 1)
 offset_left = 1304.0
 offset_top = 848.0
@@ -738,7 +737,7 @@ scale = Vector2(1.92, 1.92)
 theme_override_font_sizes/font_size = 36
 text = "Расширенный аэропорт"
 
-[node name="Label5" type="Label" parent="UI/BonusPack2"]
+[node name="Label5" type="Label" parent="UI/BonusPack2" unique_id=383894484]
 modulate = Color(0.160784, 0.137255, 0.156863, 1)
 offset_left = 653.0
 offset_top = 845.0
@@ -748,16 +747,16 @@ scale = Vector2(1.92, 1.92)
 theme_override_font_sizes/font_size = 36
 text = "Линия"
 
-[node name="BonusPack3" type="CanvasGroup" parent="UI"]
+[node name="BonusPack3" type="CanvasGroup" parent="UI" unique_id=1777817407]
 process_mode = 2
 visible = false
 
-[node name="TextureRect" type="TextureRect" parent="UI/BonusPack3"]
+[node name="TextureRect" type="TextureRect" parent="UI/BonusPack3" unique_id=1837014632]
 offset_right = 2403.0
 offset_bottom = 1082.0
 texture = ExtResource("27_lm8cf")
 
-[node name="Week" type="Label" parent="UI/BonusPack3"]
+[node name="Week" type="Label" parent="UI/BonusPack3" unique_id=1075030187]
 modulate = Color(0.160784, 0.137255, 0.156863, 1)
 offset_left = 678.0
 offset_top = 27.0
@@ -766,7 +765,7 @@ offset_bottom = 235.0
 theme_override_font_sizes/font_size = 145
 text = "Неделя 1"
 
-[node name="Label3" type="Label" parent="UI/BonusPack3"]
+[node name="Label3" type="Label" parent="UI/BonusPack3" unique_id=1374421067]
 modulate = Color(0.160784, 0.137255, 0.156863, 1)
 offset_left = 685.0
 offset_top = 214.0
@@ -776,7 +775,7 @@ theme_override_font_sizes/font_size = 58
 text = "Что бы вы хотели приобрести для
 вашей авиакомпании?"
 
-[node name="Bonus_big_plane" type="Button" parent="UI/BonusPack3"]
+[node name="Bonus_big_plane" type="Button" parent="UI/BonusPack3" unique_id=67788661]
 offset_left = 1537.0
 offset_top = 502.0
 offset_right = 1727.0
@@ -785,7 +784,7 @@ scale = Vector2(1.92, 1.92)
 icon = ExtResource("17_r4a12")
 flat = true
 
-[node name="BonusBigAirport" type="Button" parent="UI/BonusPack3"]
+[node name="BonusBigAirport" type="Button" parent="UI/BonusPack3" unique_id=1471072839]
 offset_left = 581.0
 offset_top = 502.0
 offset_right = 771.0
@@ -795,7 +794,7 @@ icon = ExtResource("20_tu5oa")
 flat = true
 expand_icon = true
 
-[node name="Label4" type="Label" parent="UI/BonusPack3"]
+[node name="Label4" type="Label" parent="UI/BonusPack3" unique_id=1230475387]
 modulate = Color(0.160784, 0.137255, 0.156863, 1)
 offset_left = 347.0
 offset_top = 848.0
@@ -805,7 +804,7 @@ scale = Vector2(1.92, 1.92)
 theme_override_font_sizes/font_size = 36
 text = "Расширенный аэропорт"
 
-[node name="Label5" type="Label" parent="UI/BonusPack3"]
+[node name="Label5" type="Label" parent="UI/BonusPack3" unique_id=1865053050]
 modulate = Color(0.160784, 0.137255, 0.156863, 1)
 offset_left = 1413.0
 offset_top = 854.0
@@ -815,187 +814,163 @@ scale = Vector2(1.92, 1.92)
 theme_override_font_sizes/font_size = 36
 text = "Большой самолёт"
 
-[node name="SpeedButton" type="Control" parent="UI"]
+[node name="SpeedButton" type="Control" parent="UI" unique_id=1412995231]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 2322.0
-offset_top = 128.0
-offset_right = 2362.0
-offset_bottom = 168.0
+offset_left = 2474.0
+offset_top = 139.0
+offset_right = 2514.0
+offset_bottom = 179.0
 
-[node name="Button" type="Button" parent="UI/SpeedButton"]
+[node name="Button" type="Button" parent="UI/SpeedButton" unique_id=1647260472]
 layout_mode = 0
-offset_left = -24.0
+offset_left = -40.0
 offset_top = -26.0
-offset_right = -5.0
+offset_right = -21.0
 offset_bottom = -7.0
 scale = Vector2(4.68, 4.68)
 icon = ExtResource("33_jad85")
 flat = true
 expand_icon = true
 
-[node name="Button2" type="Button" parent="UI/SpeedButton"]
+[node name="Button2" type="Button" parent="UI/SpeedButton" unique_id=187435755]
 layout_mode = 0
-offset_left = -41.0
+offset_left = -56.0
 offset_top = 49.0
-offset_right = -15.0
+offset_right = -30.0
 offset_bottom = 70.0
 scale = Vector2(4.44, 4.44)
 icon = ExtResource("34_6pevr")
 flat = true
 expand_icon = true
 
-[node name="AirportSpawn" type="Node2D" parent="."]
+[node name="AirportSpawn" type="Node2D" parent="." unique_id=760523429]
 metadata/_edit_lock_ = true
 
-[node name="Zone0" type="Node2D" parent="AirportSpawn"]
+[node name="Zone0" type="Node2D" parent="AirportSpawn" unique_id=211188203]
 
-[node name="Marker2D13" type="Marker2D" parent="AirportSpawn/Zone0"]
+[node name="Marker2D13" type="Marker2D" parent="AirportSpawn/Zone0" unique_id=759523272]
 position = Vector2(1363, 381)
 
-[node name="Marker2D15" type="Marker2D" parent="AirportSpawn/Zone0"]
-position = Vector2(1911, 343)
-
-[node name="Marker2D18" type="Marker2D" parent="AirportSpawn/Zone0"]
+[node name="Marker2D18" type="Marker2D" parent="AirportSpawn/Zone0" unique_id=787454299]
 position = Vector2(1329, 554)
 
-[node name="Marker2D21" type="Marker2D" parent="AirportSpawn/Zone0"]
+[node name="Marker2D21" type="Marker2D" parent="AirportSpawn/Zone0" unique_id=473634745]
 position = Vector2(1635, 343)
 
-[node name="Marker2D41" type="Marker2D" parent="AirportSpawn/Zone0"]
-position = Vector2(1808, 471)
-
-[node name="Zone1" type="Node2D" parent="AirportSpawn"]
-
-[node name="Marker2D39" type="Marker2D" parent="AirportSpawn/Zone1"]
-position = Vector2(1213, 308)
-
-[node name="Marker2D" type="Marker2D" parent="AirportSpawn/Zone1"]
-position = Vector2(2032, 497)
-
-[node name="Marker2D4" type="Marker2D" parent="AirportSpawn/Zone1"]
-position = Vector2(1581, 534)
-
-[node name="Zone2" type="Node2D" parent="AirportSpawn"]
-
-[node name="Marker2D6" type="Marker2D" parent="AirportSpawn/Zone2"]
-position = Vector2(996, 696)
-
-[node name="Marker2D36" type="Marker2D" parent="AirportSpawn/Zone2"]
-position = Vector2(1502, 226)
-
-[node name="Marker2D26" type="Marker2D" parent="AirportSpawn/Zone2"]
-position = Vector2(993, 194)
-
-[node name="Marker2D42" type="Marker2D" parent="AirportSpawn/Zone2"]
+[node name="Marker2D42" type="Marker2D" parent="AirportSpawn/Zone0" unique_id=1095882459]
 position = Vector2(1791, 214)
 
-[node name="Marker2D24" type="Marker2D" parent="AirportSpawn/Zone2"]
-position = Vector2(1098, 539)
+[node name="Marker2D24" type="Marker2D" parent="AirportSpawn/Zone0" unique_id=1293887816]
+position = Vector2(1145, 530)
 
-[node name="Marker2D22" type="Marker2D" parent="AirportSpawn/Zone2"]
-position = Vector2(2091, 651)
+[node name="Zone1" type="Node2D" parent="AirportSpawn" unique_id=540331357]
 
-[node name="Marker2D7" type="Marker2D" parent="AirportSpawn/Zone2"]
+[node name="Marker2D39" type="Marker2D" parent="AirportSpawn/Zone1" unique_id=594047598]
+position = Vector2(1213, 308)
+
+[node name="Marker2D4" type="Marker2D" parent="AirportSpawn/Zone1" unique_id=646696511]
+position = Vector2(1581, 534)
+
+[node name="Marker2D15" type="Marker2D" parent="AirportSpawn/Zone1" unique_id=1790927512]
+position = Vector2(1911, 343)
+
+[node name="Zone2" type="Node2D" parent="AirportSpawn" unique_id=231204320]
+
+[node name="Marker2D6" type="Marker2D" parent="AirportSpawn/Zone2" unique_id=952381691]
+position = Vector2(996, 696)
+
+[node name="Marker2D36" type="Marker2D" parent="AirportSpawn/Zone2" unique_id=1388887543]
+position = Vector2(1502, 226)
+
+[node name="Marker2D26" type="Marker2D" parent="AirportSpawn/Zone2" unique_id=1440066947]
+position = Vector2(993, 194)
+
+[node name="Marker2D22" type="Marker2D" parent="AirportSpawn/Zone2" unique_id=9847681]
+position = Vector2(1838, 512)
+
+[node name="Marker2D7" type="Marker2D" parent="AirportSpawn/Zone2" unique_id=890090740]
 position = Vector2(2047, 226)
 
-[node name="Marker2D20" type="Marker2D" parent="AirportSpawn/Zone2"]
-position = Vector2(1575, 702)
+[node name="Marker2D20" type="Marker2D" parent="AirportSpawn/Zone2" unique_id=1782396966]
+position = Vector2(1545, 683)
 
-[node name="Zone3" type="Node2D" parent="AirportSpawn"]
+[node name="Zone3" type="Node2D" parent="AirportSpawn" unique_id=1516111750]
 
-[node name="Marker2D31" type="Marker2D" parent="AirportSpawn/Zone3"]
+[node name="Marker2D31" type="Marker2D" parent="AirportSpawn/Zone3" unique_id=521154180]
 position = Vector2(1636, 124)
 
-[node name="Marker2D35" type="Marker2D" parent="AirportSpawn/Zone3"]
+[node name="Marker2D35" type="Marker2D" parent="AirportSpawn/Zone3" unique_id=75592907]
 position = Vector2(1922, 106)
 
-[node name="Marker2D25" type="Marker2D" parent="AirportSpawn/Zone3"]
-position = Vector2(1238, 776)
+[node name="Marker2D25" type="Marker2D" parent="AirportSpawn/Zone3" unique_id=1473245047]
+position = Vector2(1279, 776)
 
-[node name="Marker2D" type="Marker2D" parent="AirportSpawn/Zone3"]
+[node name="Marker2D" type="Marker2D" parent="AirportSpawn/Zone3" unique_id=1468210659]
 position = Vector2(1256, 163)
 
-[node name="Zone4" type="Node2D" parent="AirportSpawn"]
+[node name="Zone4" type="Node2D" parent="AirportSpawn" unique_id=606329077]
 
-[node name="Marker2D8" type="Marker2D" parent="AirportSpawn/Zone4"]
+[node name="Marker2D8" type="Marker2D" parent="AirportSpawn/Zone4" unique_id=1370434199]
 position = Vector2(1458, 38)
 
-[node name="Marker2D30" type="Marker2D" parent="AirportSpawn/Zone4"]
+[node name="Marker2D30" type="Marker2D" parent="AirportSpawn/Zone4" unique_id=490752699]
 position = Vector2(667, 644)
 
-[node name="Marker2D28" type="Marker2D" parent="AirportSpawn/Zone4"]
+[node name="Marker2D28" type="Marker2D" parent="AirportSpawn/Zone4" unique_id=904507508]
 position = Vector2(787, 314)
 
-[node name="Marker2D17" type="Marker2D" parent="AirportSpawn/Zone4"]
-position = Vector2(2370, 358)
+[node name="Marker2D17" type="Marker2D" parent="AirportSpawn/Zone4" unique_id=509980287]
+position = Vector2(2184, 296)
 
-[node name="Zone5" type="Node2D" parent="AirportSpawn"]
+[node name="Zone5" type="Node2D" parent="AirportSpawn" unique_id=1334429940]
 
-[node name="Marker2D14" type="Marker2D" parent="AirportSpawn/Zone5"]
+[node name="Marker2D14" type="Marker2D" parent="AirportSpawn/Zone5" unique_id=994574809]
 position = Vector2(2316, 37)
 
-[node name="Marker2D46" type="Marker2D" parent="AirportSpawn/Zone5"]
-position = Vector2(2539, 152)
+[node name="Marker2D38" type="Marker2D" parent="AirportSpawn/Zone5" unique_id=435252595]
+position = Vector2(576, 224)
 
-[node name="Marker2D38" type="Marker2D" parent="AirportSpawn/Zone5"]
-position = Vector2(611, 240)
-
-[node name="Marker2D33" type="Marker2D" parent="AirportSpawn/Zone5"]
+[node name="Marker2D33" type="Marker2D" parent="AirportSpawn/Zone5" unique_id=1339157466]
 position = Vector2(483, 799)
 
-[node name="Marker2D40" type="Marker2D" parent="AirportSpawn/Zone5"]
+[node name="Marker2D40" type="Marker2D" parent="AirportSpawn/Zone5" unique_id=1304664460]
 position = Vector2(1067, 3)
 
-[node name="Marker2D3" type="Marker2D" parent="AirportSpawn/Zone5"]
-position = Vector2(1541, 927)
+[node name="Marker2D3" type="Marker2D" parent="AirportSpawn/Zone5" unique_id=1675830109]
+position = Vector2(1469, 914)
 
-[node name="Marker2D19" type="Marker2D" parent="AirportSpawn/Zone5"]
-position = Vector2(1777, 841)
+[node name="Zone6" type="Node2D" parent="AirportSpawn" unique_id=1071603465]
 
-[node name="Zone6" type="Node2D" parent="AirportSpawn"]
-
-[node name="Marker2D37" type="Marker2D" parent="AirportSpawn/Zone6"]
+[node name="Marker2D37" type="Marker2D" parent="AirportSpawn/Zone6" unique_id=1035062097]
 position = Vector2(534, 411)
 
-[node name="Marker2D32" type="Marker2D" parent="AirportSpawn/Zone6"]
-position = Vector2(471, 613)
+[node name="Marker2D32" type="Marker2D" parent="AirportSpawn/Zone6" unique_id=521821784]
+position = Vector2(1356, -200)
 
-[node name="Marker2D12" type="Marker2D" parent="AirportSpawn/Zone6"]
-position = Vector2(2682, 776)
+[node name="Marker2D23" type="Marker2D" parent="AirportSpawn/Zone6" unique_id=1767189783]
+position = Vector2(2103, 449)
 
-[node name="Marker2D16" type="Marker2D" parent="AirportSpawn/Zone6"]
-position = Vector2(2548, 536)
+[node name="Marker2D10" type="Marker2D" parent="AirportSpawn/Zone6" unique_id=2080071123]
+position = Vector2(731, -92)
 
-[node name="Marker2D23" type="Marker2D" parent="AirportSpawn/Zone6"]
-position = Vector2(2154, 434)
+[node name="Marker2D3" type="Marker2D" parent="AirportSpawn/Zone6" unique_id=79643693]
+position = Vector2(430, -123)
 
-[node name="Marker2D10" type="Marker2D" parent="AirportSpawn/Zone6"]
-position = Vector2(725, -26)
-
-[node name="Marker2D" type="Marker2D" parent="AirportSpawn/Zone6"]
-position = Vector2(2740, 904)
-
-[node name="Marker2D2" type="Marker2D" parent="AirportSpawn/Zone6"]
-position = Vector2(2632, 352)
-
-[node name="Marker2D3" type="Marker2D" parent="AirportSpawn/Zone6"]
-position = Vector2(352, -108)
-
-[node name="Marker2D34" type="Marker2D" parent="AirportSpawn/Zone6"]
+[node name="Marker2D34" type="Marker2D" parent="AirportSpawn/Zone6" unique_id=1957934731]
 position = Vector2(1843, 685)
 
-[node name="Marker2D29" type="Marker2D" parent="AirportSpawn/Zone6"]
+[node name="Marker2D29" type="Marker2D" parent="AirportSpawn/Zone6" unique_id=1469402323]
 position = Vector2(822, 536)
 
-[node name="Marker2D27" type="Marker2D" parent="AirportSpawn/Zone6"]
-position = Vector2(562, 103)
-
-[node name="Marker2D45" type="Marker2D" parent="AirportSpawn/Zone6"]
+[node name="Marker2D45" type="Marker2D" parent="AirportSpawn/Zone6" unique_id=1313970943]
 position = Vector2(774, 935)
 
-[node name="Marker2D43" type="Marker2D" parent="AirportSpawn/Zone6"]
+[node name="Marker2D43" type="Marker2D" parent="AirportSpawn/Zone6" unique_id=1568428925]
 position = Vector2(1150, 890)
+
+[node name="Marker2D19" type="Marker2D" parent="AirportSpawn/Zone6" unique_id=417267570]
+position = Vector2(1845, -105)
 
 [connection signal="timeout" from="Timer" to="." method="_on_spawn_timer_timeout"]
 [connection signal="timeout" from="WeekTimer" to="." method="_on_week_timer_timeout"]
