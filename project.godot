@@ -17,7 +17,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 config/name="Air Rout"
 run/main_scene="uid://dggwktu3dwg6x"
 config/features=PackedStringArray("4.6", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="uid://cs844d8qaefnd"
 
 [autoload]
 
