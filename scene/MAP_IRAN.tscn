@@ -121,7 +121,7 @@ wait_time = 25.0
 autostart = true
 
 [node name="WeekTimer" type="Timer" parent="." unique_id=1969759407]
-wait_time = 142.0
+wait_time = 3.0
 autostart = true
 script = ExtResource("3_6pevr")
 
@@ -635,16 +635,16 @@ process_mode = 2
 visible = false
 
 [node name="TextureRect" type="TextureRect" parent="UI/BonusPlane" unique_id=594790685]
-offset_right = 2400.0
-offset_bottom = 1082.0
+offset_right = 2562.0
+offset_bottom = 1613.0
 texture = ExtResource("27_lm8cf")
 
 [node name="Week" type="Label" parent="UI/BonusPlane" unique_id=2097712188]
 modulate = Color(0, 0, 0, 1)
 offset_left = 677.0
-offset_top = 37.0
+offset_top = 223.0
 offset_right = 1408.0
-offset_bottom = 258.0
+offset_bottom = 444.0
 theme_override_colors/font_color = Color(1, 0.161195, 0.499621, 1)
 theme_override_colors/font_outline_color = Color(0.571327, 0.239612, 0.917579, 1)
 theme_override_font_sizes/font_size = 145
@@ -653,17 +653,17 @@ text = "Неделя 1"
 [node name="Label2" type="Label" parent="UI/BonusPlane" unique_id=1161851673]
 modulate = Color(0, 0, 0, 1)
 offset_left = 684.0
-offset_top = 215.0
+offset_top = 386.0
 offset_right = 1765.0
-offset_bottom = 310.0
+offset_bottom = 481.0
 theme_override_font_sizes/font_size = 52
 text = "Вы получили новый самолет."
 
 [node name="BonusPlane" type="Button" parent="UI/BonusPlane" unique_id=270618029]
 offset_left = 1042.0
-offset_top = 398.0
+offset_top = 738.0
 offset_right = 1242.0
-offset_bottom = 598.0
+offset_bottom = 938.0
 scale = Vector2(1.8, 1.8)
 icon = ExtResource("14_d42c7")
 flat = true
@@ -671,10 +671,10 @@ expand_icon = true
 
 [node name="Label3" type="Label" parent="UI/BonusPlane" unique_id=976856644]
 modulate = Color(0, 0, 0, 1)
-offset_left = 1085.0
-offset_top = 751.0
-offset_right = 1240.0
-offset_bottom = 801.0
+offset_left = 1082.0
+offset_top = 1079.0
+offset_right = 1237.0
+offset_bottom = 1129.0
 scale = Vector2(1.8, 1.8)
 theme_override_font_sizes/font_size = 36
 text = "Самолёт"
@@ -684,63 +684,63 @@ process_mode = 2
 visible = false
 
 [node name="TextureRect" type="TextureRect" parent="UI/BonusPack1" unique_id=997901829]
-offset_right = 2403.0
-offset_bottom = 1082.0
+offset_right = 2570.0
+offset_bottom = 1613.0
 texture = ExtResource("27_lm8cf")
 
 [node name="Week" type="Label" parent="UI/BonusPack1" unique_id=1586442929]
 modulate = Color(0.160784, 0.137255, 0.156863, 1)
-offset_left = 678.0
-offset_top = 27.0
-offset_right = 1367.0
-offset_bottom = 235.0
+offset_left = 677.0
+offset_top = 223.0
+offset_right = 1366.0
+offset_bottom = 431.0
 theme_override_font_sizes/font_size = 145
 text = "Неделя 1"
 
 [node name="Label3" type="Label" parent="UI/BonusPack1" unique_id=488555411]
 modulate = Color(0.160784, 0.137255, 0.156863, 1)
 offset_left = 685.0
-offset_top = 214.0
-offset_right = 1552.0
-offset_bottom = 305.0
+offset_top = 389.0
+offset_right = 1690.0
+offset_bottom = 550.0
 theme_override_font_sizes/font_size = 58
 text = "Что бы вы хотели приобрести для
 вашей авиакомпании?"
 
 [node name="BonusLine" type="Button" parent="UI/BonusPack1" unique_id=75460181]
 offset_left = 581.0
-offset_top = 502.0
+offset_top = 806.0
 offset_right = 771.0
-offset_bottom = 692.0
+offset_bottom = 996.0
 scale = Vector2(1.92, 1.92)
 icon = ExtResource("28_44qpc")
 flat = true
 
 [node name="Bonus_big_plane" type="Button" parent="UI/BonusPack1" unique_id=1529776864]
 offset_left = 1537.0
-offset_top = 502.0
+offset_top = 806.0
 offset_right = 1727.0
-offset_bottom = 692.0
+offset_bottom = 996.0
 scale = Vector2(1.92, 1.92)
 icon = ExtResource("17_r4a12")
 flat = true
 
 [node name="Label4" type="Label" parent="UI/BonusPack1" unique_id=863798108]
 modulate = Color(0.160784, 0.137255, 0.156863, 1)
-offset_left = 1413.0
-offset_top = 854.0
-offset_right = 1741.0
-offset_bottom = 904.0
+offset_left = 1413.0001
+offset_top = 1150.0
+offset_right = 1741.0001
+offset_bottom = 1200.0
 scale = Vector2(1.92, 1.92)
 theme_override_font_sizes/font_size = 36
 text = "Большой самолёт"
 
 [node name="Label5" type="Label" parent="UI/BonusPack1" unique_id=1755469540]
 modulate = Color(0.160784, 0.137255, 0.156863, 1)
-offset_left = 653.0
-offset_top = 845.0
-offset_right = 772.0
-offset_bottom = 895.0
+offset_left = 650.0
+offset_top = 1146.0001
+offset_right = 769.0
+offset_bottom = 1196.0001
 scale = Vector2(1.92, 1.92)
 theme_override_font_sizes/font_size = 36
 text = "Линия"
@@ -750,43 +750,43 @@ process_mode = 2
 visible = false
 
 [node name="TextureRect" type="TextureRect" parent="UI/BonusPack2" unique_id=598364417]
-offset_right = 2403.0
-offset_bottom = 1082.0
+offset_right = 2575.0
+offset_bottom = 1613.0
 texture = ExtResource("27_lm8cf")
 
 [node name="Week" type="Label" parent="UI/BonusPack2" unique_id=652464919]
 modulate = Color(0.160784, 0.137255, 0.156863, 1)
-offset_left = 678.0
-offset_top = 27.0
-offset_right = 1367.0
-offset_bottom = 235.0
+offset_left = 677.0
+offset_top = 223.0
+offset_right = 1366.0
+offset_bottom = 431.0
 theme_override_font_sizes/font_size = 145
 text = "Неделя 1"
 
 [node name="Label3" type="Label" parent="UI/BonusPack2" unique_id=1410323583]
 modulate = Color(0.160784, 0.137255, 0.156863, 1)
 offset_left = 685.0
-offset_top = 214.0
-offset_right = 1552.0
-offset_bottom = 305.0
+offset_top = 390.0
+offset_right = 1690.0
+offset_bottom = 551.0
 theme_override_font_sizes/font_size = 58
 text = "Что бы вы хотели приобрести для
 вашей авиакомпании?"
 
 [node name="BonusLine" type="Button" parent="UI/BonusPack2" unique_id=135873317]
 offset_left = 581.0
-offset_top = 502.0
+offset_top = 806.0
 offset_right = 771.0
-offset_bottom = 692.0
+offset_bottom = 996.0
 scale = Vector2(1.92, 1.92)
 icon = ExtResource("28_44qpc")
 flat = true
 
 [node name="BonusBigAirport" type="Button" parent="UI/BonusPack2" unique_id=180087341]
 offset_left = 1537.0
-offset_top = 502.0
+offset_top = 806.0
 offset_right = 1727.0
-offset_bottom = 692.0
+offset_bottom = 996.0
 scale = Vector2(1.92, 1.92)
 icon = ExtResource("20_tu5oa")
 flat = true
@@ -795,19 +795,19 @@ expand_icon = true
 [node name="Label4" type="Label" parent="UI/BonusPack2" unique_id=34422785]
 modulate = Color(0.160784, 0.137255, 0.156863, 1)
 offset_left = 1304.0
-offset_top = 848.0
+offset_top = 1151.0
 offset_right = 1744.0
-offset_bottom = 898.0
+offset_bottom = 1201.0
 scale = Vector2(1.92, 1.92)
 theme_override_font_sizes/font_size = 36
 text = "Расширенный аэропорт"
 
 [node name="Label5" type="Label" parent="UI/BonusPack2" unique_id=383894484]
 modulate = Color(0.160784, 0.137255, 0.156863, 1)
-offset_left = 653.0
-offset_top = 845.0
-offset_right = 772.0
-offset_bottom = 895.0
+offset_left = 648.0
+offset_top = 1143.0001
+offset_right = 767.0
+offset_bottom = 1193.0001
 scale = Vector2(1.92, 1.92)
 theme_override_font_sizes/font_size = 36
 text = "Линия"
@@ -817,43 +817,43 @@ process_mode = 2
 visible = false
 
 [node name="TextureRect" type="TextureRect" parent="UI/BonusPack3" unique_id=1837014632]
-offset_right = 2403.0
-offset_bottom = 1082.0
+offset_right = 2575.0
+offset_bottom = 1613.0
 texture = ExtResource("27_lm8cf")
 
 [node name="Week" type="Label" parent="UI/BonusPack3" unique_id=1075030187]
 modulate = Color(0.160784, 0.137255, 0.156863, 1)
-offset_left = 678.0
-offset_top = 27.0
-offset_right = 1367.0
-offset_bottom = 235.0
+offset_left = 677.0
+offset_top = 220.0
+offset_right = 1366.0
+offset_bottom = 428.0
 theme_override_font_sizes/font_size = 145
 text = "Неделя 1"
 
 [node name="Label3" type="Label" parent="UI/BonusPack3" unique_id=1374421067]
 modulate = Color(0.160784, 0.137255, 0.156863, 1)
 offset_left = 685.0
-offset_top = 214.0
-offset_right = 1552.0
-offset_bottom = 305.0
+offset_top = 388.0
+offset_right = 1690.0
+offset_bottom = 549.0
 theme_override_font_sizes/font_size = 58
 text = "Что бы вы хотели приобрести для
 вашей авиакомпании?"
 
 [node name="Bonus_big_plane" type="Button" parent="UI/BonusPack3" unique_id=67788661]
 offset_left = 1537.0
-offset_top = 502.0
+offset_top = 806.0
 offset_right = 1727.0
-offset_bottom = 692.0
+offset_bottom = 996.0
 scale = Vector2(1.92, 1.92)
 icon = ExtResource("17_r4a12")
 flat = true
 
 [node name="BonusBigAirport" type="Button" parent="UI/BonusPack3" unique_id=1471072839]
 offset_left = 581.0
-offset_top = 502.0
+offset_top = 806.0
 offset_right = 771.0
-offset_bottom = 692.0
+offset_bottom = 996.0
 scale = Vector2(1.92, 1.92)
 icon = ExtResource("20_tu5oa")
 flat = true
@@ -862,19 +862,19 @@ expand_icon = true
 [node name="Label4" type="Label" parent="UI/BonusPack3" unique_id=1230475387]
 modulate = Color(0.160784, 0.137255, 0.156863, 1)
 offset_left = 347.0
-offset_top = 848.0
+offset_top = 1141.0
 offset_right = 787.0
-offset_bottom = 898.0
+offset_bottom = 1191.0
 scale = Vector2(1.92, 1.92)
 theme_override_font_sizes/font_size = 36
 text = "Расширенный аэропорт"
 
 [node name="Label5" type="Label" parent="UI/BonusPack3" unique_id=1865053050]
 modulate = Color(0.160784, 0.137255, 0.156863, 1)
-offset_left = 1413.0
-offset_top = 854.0
-offset_right = 1741.0
-offset_bottom = 904.0
+offset_left = 1413.0001
+offset_top = 1152.0
+offset_right = 1741.0001
+offset_bottom = 1202.0
 scale = Vector2(1.92, 1.92)
 theme_override_font_sizes/font_size = 36
 text = "Большой самолёт"

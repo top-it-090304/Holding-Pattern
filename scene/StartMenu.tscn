@@ -302,6 +302,49 @@ offset_bottom = 1976.0
 icon = ExtResource("12_0yv6x")
 flat = true
 
+[node name="SoundLabel2" type="Label" parent="SettingsMenu" unique_id=1357745194]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = -502.0
+offset_top = 1333.0
+offset_right = -319.0
+offset_bottom = 1470.0
+theme_override_font_sizes/font_size = 72
+text = "Язык"
+
+[node name="Sound2" type="Label" parent="SettingsMenu" unique_id=1339149932]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = -164.0
+offset_top = 1334.0
+offset_right = 400.0
+offset_bottom = 1433.0
+theme_override_font_sizes/font_size = 72
+text = "Русский"
+horizontal_alignment = 1
+
+[node name="SoundMinus2" type="Button" parent="SettingsMenu" unique_id=562283566]
+layout_mode = 0
+offset_left = -135.0
+offset_top = 1465.0
+offset_right = 16.0
+offset_bottom = 1611.0
+rotation = 3.14159
+icon = ExtResource("11_a3i8o")
+flat = true
+expand_icon = true
+
+[node name="SoundPlus2" type="Button" parent="SettingsMenu" unique_id=843698771]
+layout_mode = 0
+offset_left = 373.0
+offset_top = 1312.0
+offset_right = 526.0
+offset_bottom = 1461.0
+disabled = true
+icon = ExtResource("11_a3i8o")
+flat = true
+expand_icon = true
+
 [node name="Back" type="Node2D" parent="." unique_id=536389213]
 script = ExtResource("2_akhuw")
 
