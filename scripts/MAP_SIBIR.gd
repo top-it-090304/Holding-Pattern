@@ -82,7 +82,6 @@ func _ready():
 	pred_line.width = 9.0
 	pred_line.z_index = -1
 	add_child(pred_line)
-	for i in range(4): _on_bonus_line_pressed()
 	for zone_node in spawn_points.get_children():
 		var zone_points: Array[Vector2] = []
 		for marker in zone_node.get_children():
