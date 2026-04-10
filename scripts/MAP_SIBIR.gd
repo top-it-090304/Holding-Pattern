@@ -207,10 +207,13 @@ func unlock_next_phase():
 				new_speed = 0.75
 				
 			if current_phase == 5:
-				new_speed = 0.5
+				new_speed = 0.45
 				
 			if current_phase == 6:
-				new_speed = 0.3
+				new_speed = 0.25
+				
+			if current_phase == 7:
+				new_speed = 0.1
 			
 			passenger_timer.wait_time = new_speed
 			passenger_timer.start()

@@ -121,7 +121,7 @@ wait_time = 25.0
 autostart = true
 
 [node name="WeekTimer" type="Timer" parent="." unique_id=1969759407]
-wait_time = 3.0
+wait_time = 142.0
 autostart = true
 script = ExtResource("3_6pevr")
 
@@ -192,16 +192,16 @@ visible = false
 process_mode = 3
 
 [node name="Vinetka" type="TextureRect" parent="GameOverUI/MainPack" unique_id=2127894638]
-offset_right = 2405.0
-offset_bottom = 1080.0
+offset_right = 2573.0
+offset_bottom = 1611.0
 texture = ExtResource("3_ts4wl")
 
 [node name="Restart" type="Button" parent="GameOverUI/MainPack" unique_id=1597837865]
 process_mode = 3
 offset_left = 247.0
-offset_top = 680.0
+offset_top = 1038.0
 offset_right = 1181.06
-offset_bottom = 858.0
+offset_bottom = 1216.0
 pivot_offset = Vector2(150, 40)
 icon = ExtResource("4_ap85m")
 flat = true
@@ -210,9 +210,9 @@ expand_icon = true
 [node name="Menu" type="Button" parent="GameOverUI/MainPack" unique_id=556172914]
 process_mode = 3
 offset_left = 243.0
-offset_top = 850.0
+offset_top = 1218.0
 offset_right = 887.733
-offset_bottom = 983.0
+offset_bottom = 1351.0
 pivot_offset = Vector2(150, 40)
 icon = ExtResource("5_tu5oa")
 flat = true
@@ -220,9 +220,9 @@ expand_icon = true
 
 [node name="RichTextLabel" type="RichTextLabel" parent="GameOverUI/MainPack" unique_id=47537334]
 offset_left = 656.0
-offset_top = 16.0
+offset_top = 90.0
 offset_right = 1816.0
-offset_bottom = 225.0
+offset_bottom = 299.0
 theme_override_colors/default_color = Color(0.2, 0.176471, 0.2, 1)
 theme_override_colors/font_outline_color = Color(0.2, 0.176471, 0.2, 1)
 theme_override_constants/outline_size = 7
@@ -233,19 +233,19 @@ text = "Игра окончена"
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="GameOverUI/MainPack" unique_id=588561761]
 offset_left = 553.0
-offset_top = 205.0
+offset_top = 293.0
 offset_right = 2066.0
-offset_bottom = 353.0
+offset_bottom = 441.0
 theme_override_colors/default_color = Color(0.2, 0.176471, 0.2, 1)
 theme_override_font_sizes/normal_font_size = 38
 text = "Переполнение этого аэропорта привело к закрытию вашей авиакомпании.
 В вашей авиакомпании Перевезено пассажиров:"
 
 [node name="ScoreLabel" type="Label" parent="GameOverUI/MainPack" unique_id=33945643]
-offset_left = 1515.0
-offset_top = 254.0
-offset_right = 1597.0
-offset_bottom = 322.0
+offset_left = 1524.0
+offset_top = 345.0
+offset_right = 1606.0
+offset_bottom = 413.0
 theme_override_colors/font_color = Color(0.2, 0.176471, 0.2, 1)
 theme_override_font_sizes/font_size = 39
 
@@ -947,7 +947,7 @@ position = Vector2(1213, 308)
 position = Vector2(1581, 534)
 
 [node name="Marker2D15" type="Marker2D" parent="AirportSpawn/Zone1" unique_id=1790927512]
-position = Vector2(1911, 343)
+position = Vector2(1817, 400)
 
 [node name="Zone2" type="Node2D" parent="AirportSpawn" unique_id=231204320]
 

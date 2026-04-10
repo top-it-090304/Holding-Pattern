@@ -184,10 +184,10 @@ expand_icon = true
 
 [node name="GameOverUI" type="CanvasLayer" parent="." unique_id=969786869]
 process_mode = 3
+visible = false
 
 [node name="MainPack" type="CanvasGroup" parent="GameOverUI" unique_id=531049790]
 process_mode = 3
-visible = false
 
 [node name="Vinetka" type="TextureRect" parent="GameOverUI/MainPack" unique_id=406772672]
 offset_right = 2561.0
@@ -240,10 +240,10 @@ text = "Переполнение этого аэропорта привело к
 В вашей авиакомпании Перевезено пассажиров:"
 
 [node name="ScoreLabel" type="Label" parent="GameOverUI/MainPack" unique_id=1825679025]
-offset_left = 1515.0
-offset_top = 254.0
-offset_right = 1597.0
-offset_bottom = 322.0
+offset_left = 1519.0
+offset_top = 306.0
+offset_right = 1601.0
+offset_bottom = 374.0
 theme_override_colors/font_color = Color(0.2, 0.176471, 0.2, 1)
 theme_override_font_sizes/font_size = 39
 
