@@ -82,7 +82,7 @@ func _ready():
 	pred_line.width = 9.0
 	pred_line.z_index = -1
 	add_child(pred_line)
- 
+	
 	for zone_node in spawn_points.get_children():
 		var zone_points: Array[Vector2] = []
 		for marker in zone_node.get_children():
@@ -556,7 +556,7 @@ func _open_clear_animation(target_btn: Node):
 	if is_instance_valid(clear_data_twin):
 		clear_data_twin.kill()
 	
-	var out_pos = target_btn.global_position + Vector2(-85, 10)
+	var out_pos = target_btn.global_position + Vector2(-85, 5)
 	var in_pos = target_btn.global_position + Vector2(10, 0)
 	
 	clear_data_twin = create_tween().set_parallel(true)
