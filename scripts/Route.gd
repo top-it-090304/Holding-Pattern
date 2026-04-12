@@ -113,36 +113,49 @@ func update_handles(show_start: bool, show_end: bool):
 	var curve = my_curves[0]
 	var points = curve.get_baked_points()
 	if points.size() < 2: return
+	
 	var hex_color = lines_data["current hex color"]
 	if route_data and route_data.has("route_color"):
 		hex_color = route_data["route_color"]
 
 	if show_start:
+		var _animation = false
 		if not is_instance_valid(handle_start):
 			handle_start = handle_scene.instantiate()
 			add_child(handle_start)
-			
-			
 			handle_start.setup(self, true, hex_color)
-	
+			_animation = true
+		elif not handle_start.visible:
+			_animation = true
 		
 		var dir = (points[0] - points[1]).normalized()
-		handle_start.position = points[0] + dir * 30.0
-		handle_start.rotation = dir.angle()
-		handle_start.visible = true
+		var final_pos = points[0] + dir * 30.0
+		
+		if _animation:
+			handle_start.animate_appearance(points[0], final_pos, dir.angle())
+		else:
+			handle_start.position = final_pos
+			handle_start.rotation = dir.angle()
 	elif is_instance_valid(handle_start):
 		handle_start.visible = false
 
 	if show_end:
+		var _animation = false
 		if not is_instance_valid(handle_end):
 			handle_end = handle_scene.instantiate()
 			add_child(handle_end)
-			
 			handle_end.setup(self, false, hex_color)
+			_animation = true
+		elif not handle_end.visible:
+			_animation = true
 			
 		var dir = (points[-1] - points[-2]).normalized()
-		handle_end.position = points[-1] + dir * 30.0
-		handle_end.rotation = dir.angle()
-		handle_end.visible = true
+		var final_pos = points[-1] + dir * 30.0
+		
+		if _animation:
+			handle_end.animate_appearance(points[-1], final_pos, dir.angle())
+		else:
+			handle_end.position = final_pos
+			handle_end.rotation = dir.angle()
 	elif is_instance_valid(handle_end):
 		handle_end.visible = false

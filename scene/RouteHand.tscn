@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://bul3wf5tvs4fa" path="res://scripts/Route_hand.gd" id="1_yqpl1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yqpl1"]
-size = Vector2(31, 43)
+size = Vector2(32, 43)
 
 [node name="RouteHand" type="Area2D" unique_id=2139742304]
 script = ExtResource("1_yqpl1")
@@ -14,5 +14,5 @@ scale = Vector2(0.57246375, 0.57246375)
 texture = ExtResource("1_hdgde")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1964717647]
-position = Vector2(9.5, 0.5)
+position = Vector2(9, 0.5)
 shape = SubResource("RectangleShape2D_yqpl1")
