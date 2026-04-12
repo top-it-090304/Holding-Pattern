@@ -288,6 +288,7 @@ func create_route(a, b):
 	route.add_to_group("routes")
 	add_child(route)
 	route.create_line(a, b)
+	refresh_line_handles()
 	
 
 func stop_draw():
@@ -346,6 +347,20 @@ func _on_airport_selected(airport):
 	for a in lines_data[current_color + "_airports"]:
 		if is_instance_valid(a):
 			a.draw_stroke(true)
+			
+func refresh_line_handles():
+	var color_name = GameData.lines_data["current color"]
+	var routes_array = GameData.lines_data[color_name + "_routes"]
+	
+	if routes_array.is_empty():
+		return
+		
+	for i in range(routes_array.size()):
+		var route_node = routes_array[i]["route"]
+		if is_instance_valid(route_node):
+			var show_start = (i == 0)
+			var show_last = (i == routes_array.size() - 1)
+			route_node.update_handles(show_start, show_last)
 			
 			
 	
@@ -643,6 +658,7 @@ func _on_bonus_big_airport_pressed() -> void:
 
 
 func _on_continue_pressed() -> void:
+	
 	get_tree().paused = false
 	SoundManager.play("click_button")
 	target_camera_pos = Vector2(1374.0, 369.0) 
@@ -651,6 +667,7 @@ func _on_continue_pressed() -> void:
 	var tween = create_tween()
 	tween.set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
 	tween.tween_property($PauseMenu, "modulate:a", 0.0, 0.3)
+	$UI.visible = true
 	tween.chain().tween_callback(func():
 		$PauseMenu.hide()
 		$PauseMenu.modulate.a = 1.0
@@ -658,6 +675,7 @@ func _on_continue_pressed() -> void:
 
 func _on_pause_button_pressed() -> void:
 	$PauseMenu.show()
+	$UI.visible = false
 	get_tree().paused = true
 	SoundManager.play("click_button")
 	

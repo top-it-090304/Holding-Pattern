@@ -1,5 +1,9 @@
 extends Node2D
 
+var handle_scene = preload("res://scene/RouteHand.tscn")
+var handle_start: Area2D
+var handle_end: Area2D
+
 var plane_scene = load("res://scene/Plane.tscn")
 var big_plane_scene = load("res://scene/BigPlane.tscn")
 var my_curves: Array[Curve2D] = []
@@ -100,3 +104,45 @@ func spawn_plane(route_data: Dictionary, start_t: float, is_big: bool):
 		var CountPlane = get_tree().get_first_node_in_group("countBigPlane")
 		if CountPlane:
 			CountPlane.on_plane_spawned()
+
+
+func update_handles(show_start: bool, show_end: bool):
+	if my_curves.is_empty(): 
+		return
+	
+	var curve = my_curves[0]
+	var points = curve.get_baked_points()
+	if points.size() < 2: return
+	var hex_color = lines_data["current hex color"]
+	if route_data and route_data.has("route_color"):
+		hex_color = route_data["route_color"]
+
+	if show_start:
+		if not is_instance_valid(handle_start):
+			handle_start = handle_scene.instantiate()
+			add_child(handle_start)
+			
+			
+			handle_start.setup(self, true, hex_color)
+	
+		
+		var dir = (points[0] - points[1]).normalized()
+		handle_start.position = points[0] + dir * 30.0
+		handle_start.rotation = dir.angle()
+		handle_start.visible = true
+	elif is_instance_valid(handle_start):
+		handle_start.visible = false
+
+	if show_end:
+		if not is_instance_valid(handle_end):
+			handle_end = handle_scene.instantiate()
+			add_child(handle_end)
+			
+			handle_end.setup(self, false, hex_color)
+			
+		var dir = (points[-1] - points[-2]).normalized()
+		handle_end.position = points[-1] + dir * 30.0
+		handle_end.rotation = dir.angle()
+		handle_end.visible = true
+	elif is_instance_valid(handle_end):
+		handle_end.visible = false
