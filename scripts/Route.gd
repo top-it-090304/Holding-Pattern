@@ -12,7 +12,8 @@ var route_data
 
 func _ready():
 	add_to_group("routes")
-	
+	update_hand(true, true)
+
 func create_line(airport_a, airport_b):
 	var line = Line2D.new()
 	add_child(line)

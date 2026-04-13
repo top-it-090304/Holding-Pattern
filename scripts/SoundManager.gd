@@ -17,7 +17,7 @@ var sounds = {
 func _ready():
 	process_mode = Node.PROCESS_MODE_ALWAYS
 
-func play(sound_name: String, volume: float = 0.0, pitch: float = 1.0):
+func play(sound_name: String, volume: float = Settings.volume, pitch: float = 1.0):
 	var current_time = Time.get_ticks_msec()
 	if sound_name == "spawn_passengers" and current_time - last_play_time < 50:
 		return

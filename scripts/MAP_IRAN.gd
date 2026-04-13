@@ -287,7 +287,10 @@ func create_route(a, b):
 	route.add_to_group("routes")
 	add_child(route)
 	route.create_line(a, b)
-	
+	refresh_line_hand()
+	if len(GameData.lines_data[GameData.lines_data["current color"] + "_routes"]) == 1:
+		route.handle_start.handle_grabbed.connect(_on_handle_grabbed)
+		route.handle_end.handle_grabbed.connect(_on_handle_grabbed)
 
 func stop_draw():
 	for airport in get_tree().get_nodes_in_group("airports"):
@@ -295,8 +298,7 @@ func stop_draw():
 	selected_airport = null
 	is_drawing = false
 	pred_line.clear_points()
-	
-	
+
 
 func spawn_airport():
 	if active_airport.is_empty(): return
@@ -345,7 +347,22 @@ func _on_airport_selected(airport):
 	for a in lines_data[current_color + "_airports"]:
 		if is_instance_valid(a):
 			a.draw_stroke(true)
-			
+
+func _on_handle_grabbed(route, is_start):
+	var current_color = lines_data["current color"]
+	var airport
+	if is_start: airport = route.route_data["start_airport"]
+	else: airport = route.route_data["end_airport"]
+	
+	selected_airport = airport
+	is_drawing = true
+	selected_airport.draw_stroke(true)
+	SoundManager.play("click_airport")
+	
+	for a in lines_data[current_color + "_airports"]:
+		if is_instance_valid(a):
+			a.draw_stroke(true)
+
 func refresh_line_hand():
 	var color_name = GameData.lines_data["current color"]
 	var routes_array = GameData.lines_data[color_name + "_routes"]

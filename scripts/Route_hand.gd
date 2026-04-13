@@ -7,6 +7,7 @@ var color: Color
 signal handle_grabbed(route, is_start)
 
 func setup(route, is_start_point, route_color):
+	self.add_to_group("handles")
 	route_ref = route
 	is_start = is_start_point
 	color = route_color
