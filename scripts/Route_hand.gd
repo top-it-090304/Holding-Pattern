@@ -15,7 +15,6 @@ func setup(route, is_start_point, route_color):
 func _input_event(_viewport, event, _shape_idx):
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		handle_grabbed.emit(route_ref, is_start)
-		SoundManager.play("click_airport")
 
 func animate_appearance(start_pos: Vector2, target_pos: Vector2, dir_angle: float):
 	SoundManager.play("draw_rout")
