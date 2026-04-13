@@ -165,22 +165,6 @@ func activate_pulse():
 	tween.tween_property(self, "pulse_radius", 50.0, 0.4).set_trans(Tween.TRANS_SINE)
 	tween.tween_property(self, "pulse_alpha", 0.0, 0.4)
 
-func _unhandled_input(event):
-	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
-		var dist = global_position.distance_to(get_global_mouse_position())
-		var permision = false
-		if dist < CLICK_RADIUS:
-			for color in lines_data["active colors"]:
-				if not lines_data["in_" + color]:
-					lines_data["current color"] = color
-					lines_data["current hex color"] = GameData.color_values[color]
-					permision = true
-					break
-			if permision:
-				activate_pulse()
-				airport_selected.emit(self)
-				get_viewport().set_input_as_handled()
-
 ## пассажиры
 func spawn_passenger():
 	passenger_manager.spawn_passenger(my_shape)
