@@ -349,6 +349,9 @@ func _on_airport_selected(airport):
 			a.draw_stroke(true)
 
 func _on_handle_grabbed(route, is_start):
+	lines_data["current color"] = route.route_data["color"]
+	lines_data["current hex color"] = route.route_data["route_color"]
+	
 	var current_color = lines_data["current color"]
 	var airport
 	if is_start: airport = route.route_data["start_airport"]
