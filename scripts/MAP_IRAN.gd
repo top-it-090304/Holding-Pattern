@@ -229,7 +229,7 @@ func _input(event):
 				is_drawing = true
 				set_line_stroke(true)
 			else:
-				refresh_line_handles()
+				refresh_line_hand()
 				set_line_stroke(false)
 				is_drawing = false
 				stop_draw()
@@ -348,7 +348,7 @@ func _on_airport_selected(airport):
 		if is_instance_valid(a):
 			a.draw_stroke(true)
 			
-func refresh_line_handles():
+func refresh_line_hand():
 	var color_name = GameData.lines_data["current color"]
 	var routes_array = GameData.lines_data[color_name + "_routes"]
 	
@@ -362,9 +362,9 @@ func refresh_line_handles():
 			var show_last = (i == routes_array.size() - 1)
 			var airports = GameData.lines_data[color_name + "_airports"]
 			if airports.size() > 2 and airports[0] == airports[-1]:
-				route_node.update_handles(false, false)
+				route_node.update_hand(false, false)
 			else:
-				route_node.update_handles(show_start, show_last)
+				route_node.update_hand(show_start, show_last)
 			
 			
 	

@@ -106,7 +106,7 @@ func spawn_plane(route_data: Dictionary, start_t: float, is_big: bool):
 			CountPlane.on_plane_spawned()
 
 
-func update_handles(show_start: bool, show_end: bool):
+func update_hand(show_start: bool, show_end: bool):
 	if my_curves.is_empty(): 
 		return
 	
