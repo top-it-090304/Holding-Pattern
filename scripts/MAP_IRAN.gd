@@ -622,9 +622,12 @@ func _close_clear_animation(target_btn: Node):
 	clear_data_twin.chain().tween_callback(func(): clear_btn.visible = false)
 
 func _on_clear_data_pressed() -> void:
+	_close_clear_animation($UI/ClearData)
 	if lines_data["in_" + lines_data["current color"]]: 
 		SoundManager.play("del_rout")
 		clear_data(GameData.lines_data["current color"])
+		
+		
 
 func _on_week_timer_timeout() -> void:
 	SoundManager.play("new_week")

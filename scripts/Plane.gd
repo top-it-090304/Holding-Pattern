@@ -213,6 +213,7 @@ func _draw():
 				
 				
 func _take_plane():
+	GameData.lines_data[color + "_planes"].erase(self)
 	var canvas_transform = get_viewport().get_canvas_transform()
 	var mouse_pos_world = canvas_transform.affine_inverse() * get_viewport().get_mouse_position()
 	
@@ -267,10 +268,14 @@ func _drop_plane():
 	var found_data = _get_closest_route_data(mouse_pos)
 	
 	if found_data:
+		current_route["route"].remove_child(self)
 		current_route = found_data.full_route_data.duplicate()
+		current_route["route"].add_child(self)
 		current_route["curve"] = found_data.curve
 		color = current_route.color
-
+		
+		GameData.lines_data[color + "_planes"].append(self)
+		
 		modulate = found_data.color_val
 		modulate.a = 1.0
 		
