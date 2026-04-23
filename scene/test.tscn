@@ -1,0 +1,657 @@
+[gd_scene format=3 uid="uid://dx5juvcorsmyg"]
+
+[ext_resource type="Texture2D" uid="uid://dhgy00ifet6ci" path="res://objects/Button_back_right.png" id="1_abanw"]
+[ext_resource type="Texture2D" uid="uid://b6dnv4yl8clsx" path="res://objects/x.png" id="1_amvha"]
+[ext_resource type="Texture2D" uid="uid://d3hmyd7fm44gt" path="res://objects/Button_yellow.png" id="1_hngkw"]
+[ext_resource type="Texture2D" uid="uid://c32r7a0jfkk6t" path="res://objects/Button_blue.png" id="2_pb23w"]
+[ext_resource type="Texture2D" uid="uid://c7ssbco7yvqas" path="res://objects/Man.png" id="2_r7uh7"]
+[ext_resource type="Texture2D" uid="uid://ck4unu555lgo2" path="res://objects/Button_red.png" id="3_abanw"]
+[ext_resource type="Script" uid="uid://bsfmvdgi50hyw" path="res://scripts/Clock.gd" id="3_ts07n"]
+[ext_resource type="Texture2D" uid="uid://0ha25hwlwpxt" path="res://objects/Clock/Stroke.png" id="3_u1fpc"]
+[ext_resource type="Texture2D" uid="uid://bvq3rqkkfv8j3" path="res://objects/Bonus_Plane.png" id="4_r7uh7"]
+[ext_resource type="Texture2D" uid="uid://bs2ppxd53lrw8" path="res://objects/Clock/Circle.png" id="4_ts07n"]
+[ext_resource type="Texture2D" uid="uid://deil82mhkcdr0" path="res://objects/Clock/Arrow.png" id="5_n2ak6"]
+[ext_resource type="Texture2D" uid="uid://cw60yd0i354ir" path="res://objects/Bonus_bigPlane.png" id="5_sov46"]
+[ext_resource type="Texture2D" uid="uid://cl6kwmwss60c8" path="res://objects/Clock/Riski.png" id="6_2643f"]
+[ext_resource type="Texture2D" uid="uid://gegyo2242mki" path="res://objects/Bonus_airport.png" id="6_ivktd"]
+[ext_resource type="Script" uid="uid://cp4srkpb0n5r7" path="res://scripts/Week_day.gd" id="7_amvha"]
+[ext_resource type="Texture2D" uid="uid://bw7800lop1lnv" path="res://objects/Clock/Speed_1.0.png" id="9_2643f"]
+[ext_resource type="Texture2D" uid="uid://bpeiunxuagah6" path="res://objects/Clock/Speed_2.0.png" id="10_amvha"]
+[ext_resource type="Texture2D" uid="uid://cel3fq7keunyb" path="res://objects/Bonus_BG.png" id="18_mfj6y"]
+[ext_resource type="Texture2D" uid="uid://rl5b1huph76s" path="res://objects/Bonus_line.png" id="19_gxpfe"]
+
+[node name="UI" type="CanvasLayer" unique_id=1898156501]
+
+[node name="Control" type="Control" parent="." unique_id=519528330]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Control" unique_id=1600766624]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 35
+theme_override_constants/margin_top = 35
+theme_override_constants/margin_right = 35
+theme_override_constants/margin_bottom = 35
+
+[node name="ClearData" type="Button" parent="Control/MarginContainer" unique_id=2101437050]
+layout_mode = 2
+icon = ExtResource("1_amvha")
+flat = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/MarginContainer" unique_id=1616843210]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="Control/MarginContainer/HBoxContainer" unique_id=1878337754]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+icon = ExtResource("1_abanw")
+flat = true
+
+[node name="Man" type="TextureRect" parent="Control/MarginContainer/HBoxContainer" unique_id=627215035]
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 0
+texture = ExtResource("2_r7uh7")
+
+[node name="Score" type="RichTextLabel" parent="Control/MarginContainer/HBoxContainer" unique_id=1417830947]
+custom_minimum_size = Vector2(149.565, 88.555)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+size_flags_stretch_ratio = 0.0
+theme_override_colors/default_color = Color(0.180392, 0.156863, 0.180392, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 64
+bbcode_enabled = true
+text = "0"
+metadata/_edit_use_anchors_ = true
+
+[node name="Control" type="Control" parent="Control/MarginContainer/HBoxContainer" unique_id=2082947481]
+custom_minimum_size = Vector2(274.59, 0)
+layout_mode = 2
+
+[node name="Clock" type="Control" parent="Control/MarginContainer/HBoxContainer" unique_id=2085351900]
+custom_minimum_size = Vector2(162.275, 118.595)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+script = ExtResource("3_ts07n")
+
+[node name="WeekDay" type="Label" parent="Control/MarginContainer/HBoxContainer/Clock" unique_id=515089095]
+z_index = 11
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = -51.725098
+offset_top = 37.0
+offset_right = -129.72519
+offset_bottom = 117.0
+grow_horizontal = 2
+pivot_offset = Vector2(27, 30)
+theme_override_colors/font_color = Color(0.180392, 0.156863, 0.180392, 1)
+theme_override_font_sizes/font_size = 42
+script = ExtResource("7_amvha")
+
+[node name="Stroke" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/Clock" unique_id=130568932]
+texture_filter = 4
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 0
+offset_left = 13.155029
+offset_top = -4.000001
+offset_right = 170.59521
+offset_bottom = 152.52174
+scale = Vector2(0.92, 0.92)
+texture = ExtResource("3_u1fpc")
+expand_mode = 1
+
+[node name="Circle" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/Clock" unique_id=1792657113]
+texture_filter = 4
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 0
+offset_left = 24.154907
+offset_top = 6.999999
+offset_right = 157.85071
+offset_bottom = 139.60869
+scale = Vector2(0.92, 0.92)
+texture = ExtResource("4_ts07n")
+
+[node name="Arrow" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/Clock" unique_id=603222672]
+texture_filter = 4
+layout_mode = 0
+offset_left = 80.15503
+offset_top = 34.000004
+offset_right = 92.11206
+offset_bottom = 75.402824
+scale = Vector2(0.68, 0.92)
+pivot_offset = Vector2(5.78, 35.905)
+texture = ExtResource("5_n2ak6")
+expand_mode = 1
+
+[node name="Riski" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/Clock" unique_id=979903664]
+texture_filter = 4
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 0
+offset_left = 32.15503
+offset_top = 15.0
+offset_right = 152.15503
+offset_bottom = 135.0
+scale = Vector2(0.92, 0.92)
+texture = ExtResource("6_2643f")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer" unique_id=702234961]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Button" type="Button" parent="Control/MarginContainer/VBoxContainer" unique_id=783614573]
+custom_minimum_size = Vector2(86.01, 71.715)
+layout_mode = 2
+size_flags_horizontal = 8
+icon = ExtResource("9_2643f")
+flat = true
+
+[node name="Button2" type="Button" parent="Control/MarginContainer/VBoxContainer" unique_id=1536913062]
+custom_minimum_size = Vector2(94.715, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+icon = ExtResource("10_amvha")
+flat = true
+
+[node name="Yellow" type="Button" parent="Control/MarginContainer/VBoxContainer" unique_id=1167735222]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+icon = ExtResource("1_hngkw")
+flat = true
+
+[node name="Blue" type="Button" parent="Control/MarginContainer/VBoxContainer" unique_id=1155914619]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+icon = ExtResource("2_pb23w")
+flat = true
+
+[node name="Red" type="Button" parent="Control/MarginContainer/VBoxContainer" unique_id=639501646]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+icon = ExtResource("3_abanw")
+flat = true
+
+[node name="LightBlue" type="Button" parent="Control/MarginContainer/VBoxContainer" unique_id=2141241073]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+icon = ExtResource("1_hngkw")
+flat = true
+
+[node name="Green" type="Button" parent="Control/MarginContainer/VBoxContainer" unique_id=375432355]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+icon = ExtResource("1_hngkw")
+flat = true
+
+[node name="Pink" type="Button" parent="Control/MarginContainer/VBoxContainer" unique_id=773538919]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+icon = ExtResource("1_hngkw")
+flat = true
+
+[node name="Oragne" type="Button" parent="Control/MarginContainer/VBoxContainer" unique_id=1017909749]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+icon = ExtResource("1_hngkw")
+flat = true
+
+[node name="BonusButton" type="VBoxContainer" parent="Control/MarginContainer" unique_id=647972193]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_constants/separation = 45
+
+[node name="PlaneBonus" type="TextureRect" parent="Control/MarginContainer/BonusButton" unique_id=1997414938]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 6
+texture = ExtResource("4_r7uh7")
+stretch_mode = 1
+
+[node name="BigPlaneBonus" type="TextureRect" parent="Control/MarginContainer/BonusButton" unique_id=836504639]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 6
+texture = ExtResource("5_sov46")
+
+[node name="AirportBonus" type="TextureRect" parent="Control/MarginContainer/BonusButton" unique_id=708628328]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 6
+texture = ExtResource("6_ivktd")
+
+[node name="CountPlaneZero" type="TextureRect" parent="Control/MarginContainer/BonusButton" unique_id=39002065]
+layout_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="BonusPlane" type="Control" parent="." unique_id=381291283]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="BonusPlane" unique_id=918261884]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("18_mfj6y")
+
+[node name="HBoxContainer" type="VBoxContainer" parent="BonusPlane" unique_id=25479261]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="Control" parent="BonusPlane/HBoxContainer" unique_id=140471391]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+
+[node name="Week" type="Label" parent="BonusPlane/HBoxContainer" unique_id=1793882030]
+modulate = Color(0.160784, 0.137255, 0.156863, 1)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 145
+text = "Неделя 1"
+
+[node name="Label3" type="Label" parent="BonusPlane/HBoxContainer" unique_id=330712135]
+modulate = Color(0.160784, 0.137255, 0.156863, 1)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 58
+text = "Что бы вы хотели приобрести для
+вашей авиакомпании?"
+
+[node name="Control2" type="Control" parent="BonusPlane/HBoxContainer" unique_id=2057950112]
+custom_minimum_size = Vector2(0, 68.345)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BonusPlane" unique_id=1019334310]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -95.0
+offset_top = -95.0
+offset_right = 95.0
+offset_bottom = 95.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+pivot_offset = Vector2(90.64, -36.925)
+
+[node name="BonusPlane" type="Button" parent="BonusPlane/VBoxContainer" unique_id=1036426563]
+layout_mode = 2
+icon = ExtResource("4_r7uh7")
+flat = true
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="BonusPlane" unique_id=1625829361]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -77.5
+offset_top = -50.0
+offset_right = 77.5
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(2, 2)
+pivot_offset = Vector2(73.405, 233.58)
+
+[node name="Label3" type="Label" parent="BonusPlane/VBoxContainer2" unique_id=1198506561]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Самолёт"
+
+[node name="BonusPack1" type="Control" parent="." unique_id=1621256346]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="BonusPack1" unique_id=58716847]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("18_mfj6y")
+
+[node name="HBoxContainer" type="VBoxContainer" parent="BonusPack1" unique_id=40874859]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="Control" parent="BonusPack1/HBoxContainer" unique_id=629401875]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+
+[node name="Week" type="Label" parent="BonusPack1/HBoxContainer" unique_id=303033637]
+modulate = Color(0.160784, 0.137255, 0.156863, 1)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 145
+text = "Неделя 1"
+
+[node name="Label3" type="Label" parent="BonusPack1/HBoxContainer" unique_id=1667340614]
+modulate = Color(0.160784, 0.137255, 0.156863, 1)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 58
+text = "Что бы вы хотели приобрести для
+вашей авиакомпании?"
+
+[node name="Control2" type="Control" parent="BonusPack1/HBoxContainer" unique_id=322840552]
+custom_minimum_size = Vector2(0, 68.345)
+layout_mode = 2
+
+[node name="VBoxContainer" type="HBoxContainer" parent="BonusPack1" unique_id=805651654]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -324.0
+offset_top = -95.0
+offset_right = 324.0
+offset_bottom = 95.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2.005, 2.005)
+pivot_offset = Vector2(319.895, 0)
+theme_override_constants/separation = 268
+
+[node name="BonusLine" type="Button" parent="BonusPack1/VBoxContainer" unique_id=2146367086]
+layout_mode = 2
+icon = ExtResource("19_gxpfe")
+flat = true
+
+[node name="Bonus_big_plane" type="Button" parent="BonusPack1/VBoxContainer" unique_id=996900468]
+layout_mode = 2
+icon = ExtResource("5_sov46")
+flat = true
+
+[node name="VBoxContainer2" type="HBoxContainer" parent="BonusPack1" unique_id=1805809837]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -357.5
+offset_top = -190.0
+offset_right = 357.5
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(2.005, 2.005)
+pivot_offset = Vector2(405.905, 271.06)
+theme_override_constants/separation = 228
+
+[node name="Label4" type="Label" parent="BonusPack1/VBoxContainer2" unique_id=579423984]
+modulate = Color(0.160784, 0.137255, 0.156863, 1)
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Большой самолёт"
+
+[node name="Label5" type="Label" parent="BonusPack1/VBoxContainer2" unique_id=791488045]
+modulate = Color(0.160784, 0.137255, 0.156863, 1)
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Линия"
+
+[node name="BonusPack2" type="Control" parent="." unique_id=772553489]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="BonusPack2" unique_id=483700205]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("18_mfj6y")
+
+[node name="HBoxContainer" type="VBoxContainer" parent="BonusPack2" unique_id=941477220]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="Control" parent="BonusPack2/HBoxContainer" unique_id=1212770082]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+
+[node name="Week" type="Label" parent="BonusPack2/HBoxContainer" unique_id=863272495]
+modulate = Color(0.160784, 0.137255, 0.156863, 1)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 145
+text = "Неделя 1"
+
+[node name="Label3" type="Label" parent="BonusPack2/HBoxContainer" unique_id=609975770]
+modulate = Color(0.160784, 0.137255, 0.156863, 1)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 58
+text = "Что бы вы хотели приобрести для
+вашей авиакомпании?"
+
+[node name="Control2" type="Control" parent="BonusPack2/HBoxContainer" unique_id=250146284]
+custom_minimum_size = Vector2(0, 68.345)
+layout_mode = 2
+
+[node name="VBoxContainer" type="HBoxContainer" parent="BonusPack2" unique_id=1719272300]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -324.0
+offset_top = -95.0
+offset_right = 324.0
+offset_bottom = 95.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2.005, 2.005)
+pivot_offset = Vector2(319.895, 0)
+theme_override_constants/separation = 268
+
+[node name="BonusLine" type="Button" parent="BonusPack2/VBoxContainer" unique_id=325148380]
+layout_mode = 2
+icon = ExtResource("19_gxpfe")
+flat = true
+
+[node name="Bonus_big_plane" type="Button" parent="BonusPack2/VBoxContainer" unique_id=1952109763]
+layout_mode = 2
+icon = ExtResource("6_ivktd")
+flat = true
+
+[node name="VBoxContainer2" type="HBoxContainer" parent="BonusPack2" unique_id=1920451114]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -357.5
+offset_top = -190.0
+offset_right = 357.5
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(2.005, 2.005)
+pivot_offset = Vector2(214.85, 359.575)
+theme_override_constants/separation = 224
+
+[node name="Label5" type="Label" parent="BonusPack2/VBoxContainer2" unique_id=1146024979]
+modulate = Color(0.160784, 0.137255, 0.156863, 1)
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Линия"
+
+[node name="Label4" type="Label" parent="BonusPack2/VBoxContainer2" unique_id=643958075]
+modulate = Color(0.160784, 0.137255, 0.156863, 1)
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Расширенный аэропорт"
+
+[node name="BonusPack3" type="Control" parent="." unique_id=709342401]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="BonusPack3" unique_id=900023092]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("18_mfj6y")
+
+[node name="HBoxContainer" type="VBoxContainer" parent="BonusPack3" unique_id=192079349]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="Control" parent="BonusPack3/HBoxContainer" unique_id=1905089831]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+
+[node name="Week" type="Label" parent="BonusPack3/HBoxContainer" unique_id=1897003378]
+modulate = Color(0.160784, 0.137255, 0.156863, 1)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 145
+text = "Неделя 1"
+
+[node name="Label3" type="Label" parent="BonusPack3/HBoxContainer" unique_id=1216763911]
+modulate = Color(0.160784, 0.137255, 0.156863, 1)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 58
+text = "Что бы вы хотели приобрести для
+вашей авиакомпании?"
+
+[node name="Control2" type="Control" parent="BonusPack3/HBoxContainer" unique_id=463884462]
+custom_minimum_size = Vector2(0, 68.345)
+layout_mode = 2
+
+[node name="VBoxContainer" type="HBoxContainer" parent="BonusPack3" unique_id=1926159574]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -324.0
+offset_top = -95.0
+offset_right = 324.0
+offset_bottom = 95.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2.005, 2.005)
+pivot_offset = Vector2(319.895, 0)
+theme_override_constants/separation = 268
+
+[node name="BonusLine" type="Button" parent="BonusPack3/VBoxContainer" unique_id=1141749321]
+layout_mode = 2
+icon = ExtResource("5_sov46")
+flat = true
+
+[node name="Bonus_big_plane" type="Button" parent="BonusPack3/VBoxContainer" unique_id=965663524]
+layout_mode = 2
+icon = ExtResource("6_ivktd")
+flat = true
+
+[node name="VBoxContainer2" type="HBoxContainer" parent="BonusPack3" unique_id=1912279240]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -357.5
+offset_top = -190.0
+offset_right = 357.5
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(2.005, 2.005)
+pivot_offset = Vector2(169.52, 359.575)
+pivot_offset_ratio = Vector2(0.225, 0)
+theme_override_constants/separation = 86
+
+[node name="Label5" type="Label" parent="BonusPack3/VBoxContainer2" unique_id=1267001559]
+modulate = Color(0.160784, 0.137255, 0.156863, 1)
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Большой самолет"
+
+[node name="Label4" type="Label" parent="BonusPack3/VBoxContainer2" unique_id=781494797]
+modulate = Color(0.160784, 0.137255, 0.156863, 1)
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Расширенный аэропорт"

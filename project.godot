@@ -28,11 +28,11 @@ Settings="*res://scripts/Settings.gd"
 
 [display]
 
-window/size/viewport_width=2560
-window/size/viewport_height=1600
+window/size/viewport_width=2400
+window/size/viewport_height=1200
 window/size/initial_position_type=0
-window/size/window_width_override=1280
-window/size/window_height_override=800
+window/size/window_width_override=1200
+window/size/window_height_override=600
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 

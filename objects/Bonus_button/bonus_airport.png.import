@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cl6kwmwss60c8"
-path="res://.godot/imported/Riski.png-155dd69010cdda496d3260f73950445a.ctex"
+uid="uid://jvtasude1xts"
+path="res://.godot/imported/bonus_airport.png-3d56d97207b06aa8b5fbdd27b1dfd4af.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://objects/Clock/Riski.png"
-dest_files=["res://.godot/imported/Riski.png-155dd69010cdda496d3260f73950445a.ctex"]
+source_file="res://objects/Bonus_button/bonus_airport.png"
+dest_files=["res://.godot/imported/bonus_airport.png-3d56d97207b06aa8b5fbdd27b1dfd4af.ctex"]
 
 [params]
 

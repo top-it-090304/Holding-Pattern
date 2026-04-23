@@ -33,10 +33,9 @@ zoom = Vector2(1.1, 1.1)
 metadata/_edit_lock_ = true
 
 [node name="Background" type="Sprite2D" parent="." unique_id=991112221]
-position = Vector2(1727.001, 1127.4999)
-scale = Vector2(3.492709, 4.132407)
+position = Vector2(1476.9999, 1052.4998)
+scale = Vector2(4.336458, 5.456482)
 texture = SubResource("CompressedTexture2D_v2vl7")
-metadata/_edit_lock_ = true
 
 [node name="Play" type="Button" parent="." unique_id=2054451538]
 offset_left = -582.0
@@ -78,30 +77,29 @@ flat = true
 expand_icon = true
 
 [node name="Back_down2" type="Button" parent="." unique_id=1681739533]
-offset_left = 2600.0
-offset_top = -766.0
-offset_right = 2768.0
-offset_bottom = -597.67004
+offset_left = 2625.0
+offset_top = -599.0
+offset_right = 2793.0
+offset_bottom = -430.67004
 rotation = -1.5708
 icon = ExtResource("7_4vtxv")
 flat = true
 expand_icon = true
 
 [node name="Back_down" type="Button" parent="." unique_id=1768870969]
-offset_left = -1151.0
-offset_top = 1597.0
-offset_right = -983.0
-offset_bottom = 1765.33
+offset_left = -1055.0
+offset_top = 1784.0
+offset_right = -887.0
+offset_bottom = 1952.33
 icon = ExtResource("7_4vtxv")
 flat = true
 expand_icon = true
 
 [node name="Back_right" type="Button" parent="." unique_id=1164054253]
-visible = false
-offset_left = 2201.0
-offset_top = 233.00006
-offset_right = 2401.78
-offset_bottom = 401.57806
+offset_left = 2155.0
+offset_top = 414.99994
+offset_right = 2355.78
+offset_bottom = 583.57794
 rotation = 0.601733
 icon = ExtResource("8_akhuw")
 flat = true
@@ -358,7 +356,7 @@ position = Vector2(219, -971)
 position = Vector2(1851, -34)
 
 [node name="Marker2D3" type="Marker2D" parent="Back/Points" unique_id=1411969656]
-position = Vector2(-1735, 67)
+position = Vector2(-2005, 97)
 
 [node name="Marker2D4" type="Marker2D" parent="Back/Points" unique_id=2128703357]
 position = Vector2(-334, 967)
@@ -373,7 +371,7 @@ position = Vector2(-29, 3681)
 position = Vector2(1406, 2578)
 
 [node name="Marker2D8" type="Marker2D" parent="Back/Points" unique_id=534024399]
-position = Vector2(-1733, -95)
+position = Vector2(-2003, -95)
 
 [node name="Marker2D9" type="Marker2D" parent="Back/Points" unique_id=1322930977]
 position = Vector2(-25, -1217)
