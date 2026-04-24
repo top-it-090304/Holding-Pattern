@@ -31,8 +31,8 @@ Settings="*res://scripts/Settings.gd"
 window/size/viewport_width=2400
 window/size/viewport_height=1200
 window/size/initial_position_type=0
-window/size/window_width_override=1200
-window/size/window_height_override=600
+window/size/window_width_override=1500
+window/size/window_height_override=900
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 

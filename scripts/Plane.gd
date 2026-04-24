@@ -81,7 +81,7 @@ func _process(delta):
 		
 func _arrive_at_airport(airport):
 	is_waiting = true
-	await _load_passenger(airport)
+	await handle_passengers(airport)
 	is_waiting = false
 
 func setup_with_route(route_data: Dictionary, start_t: float = 0.0):
@@ -326,3 +326,62 @@ func _can_reach_transfer_hub(target_shape) -> bool:
 				if l_color != color and target_shape in GameData.lines_data[l_color + "_shapes"]:
 					return true
 	return false
+
+func handle_passengers(airport):
+	var pm = airport.passenger_manager
+	if !pm or is_loading: return
+	
+	is_loading = true
+	
+	var remaining_cargo = []
+	for p_shape in cargo:
+		if p_shape == airport.my_shape:
+			Events.passengers_delivery.emit()
+		else:
+			var on_my_line = p_shape in GameData.lines_data[color + "_shapes"]
+			var can_transfer_here = false
+			
+			if not on_my_line:
+				for l in _get_lines_at_airport(airport):
+					if l != color and p_shape in GameData.lines_data[l + "_shapes"]:
+						can_transfer_here = true
+						break
+			
+			if can_transfer_here:
+				pm.passengers.append(p_shape)
+			else:
+				remaining_cargo.append(p_shape)
+	
+	cargo = remaining_cargo
+	
+	var i = 0
+	while i < pm.passengers.size() and cargo.size() < max_seats:
+		var p_shape = pm.passengers[i]
+		var can_reach_directly = p_shape in GameData.lines_data[color + "_shapes"]
+		var can_help_transfer = false
+		
+		if not can_reach_directly:
+			can_help_transfer = _can_reach_transfer_hub(p_shape)
+		
+		var already_on_right_line = false
+		for l in _get_lines_at_airport(airport):
+			if p_shape in GameData.lines_data[l + "_shapes"] and l != color:
+				already_on_right_line = true
+		
+		if can_reach_directly or (can_help_transfer and not already_on_right_line):
+			pm.passengers.remove_at(i)
+			airport.queue_redraw()
+			
+			await get_tree().create_timer(0.15).timeout
+			
+			cargo.append(p_shape)
+			queue_redraw()
+			
+			await get_tree().create_timer(0.15).timeout
+		else:
+			i += 1
+	
+	airport.queue_redraw()
+	queue_redraw()
+	
+	is_loading = false
