@@ -175,12 +175,11 @@ func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> voi
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		var permision = false
 		for color in lines_data["active colors"]:
-			if not lines_data["in_" + color]:
+			if not lines_data[color + "_routes"]:
 				lines_data["current color"] = color
 				lines_data["current hex color"] = GameData.color_values[color]
 				permision = true
 				break
 		if permision:
-			permision = false
 			activate_pulse()
 			airport_selected.emit(self)
