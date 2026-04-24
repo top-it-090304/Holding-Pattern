@@ -421,8 +421,6 @@ func deleted_station_slot(airport, color):
 	if station_slots.has(airport):
 		station_slots[airport].erase(color)
 
-			
-	
 func _on_passenger_timer_timeout():
 	if not storage_stack and randf() < stack_chanse:
 		storage_stack = true
