@@ -12,7 +12,7 @@ var route_data
 
 func _ready():
 	add_to_group("routes")
-	update_hand(true, true)
+	update_hand()
 
 func create_line(airport_a, airport_b):
 	var line = Line2D.new()
@@ -107,56 +107,84 @@ func spawn_plane(route_data: Dictionary, start_t: float, is_big: bool):
 			CountPlane.on_plane_spawned()
 
 
-func update_hand(show_start: bool, show_end: bool):
-	if my_curves.is_empty(): 
+func update_hand():
+	if my_curves.is_empty() or typeof(route_data) != TYPE_DICTIONARY:
 		return
-	
+
 	var curve = my_curves[0]
 	var points = curve.get_baked_points()
-	if points.size() < 2: return
-	
+	if points.size() < 2:
+		return
+
 	var hex_color = lines_data["current hex color"]
-	if route_data and route_data.has("route_color"):
+	if route_data.has("route_color"):
 		hex_color = route_data["route_color"]
 
+	var airports = GameData.lines_data[route_data["color"] + "_airports"]
+	if airports.is_empty():
+		return
+		
+	var show_start = (count_connections(route_data["start_airport"], route_data["color"]) == 1)
+	var show_end   = (count_connections(route_data["end_airport"], route_data["color"]) == 1)
+
 	if show_start:
-		var _animation = false
+		var was_hidden = false
 		if not is_instance_valid(handle_start):
 			handle_start = handle_scene.instantiate()
 			add_child(handle_start)
 			handle_start.setup(self, true, hex_color)
-			_animation = true
+			was_hidden = true
 		elif not handle_start.visible:
-			_animation = true
-		
+			was_hidden = true
+
 		var dir = (points[0] - points[1]).normalized()
-		var final_pos = points[0] + dir * 30.0
+		if dir == Vector2.ZERO: dir = Vector2.LEFT
 		
-		if _animation:
+		var final_pos = points[0] + dir * 35.0
+
+		if was_hidden:
 			handle_start.animate_appearance(points[0], final_pos, dir.angle())
 		else:
 			handle_start.position = final_pos
 			handle_start.rotation = dir.angle()
-	elif is_instance_valid(handle_start):
-		handle_start.visible = false
+		handle_start.visible = true
+	else:
+		if is_instance_valid(handle_start):
+			handle_start.visible = false
 
 	if show_end:
-		var _animation = false
+		var was_hidden = false
 		if not is_instance_valid(handle_end):
 			handle_end = handle_scene.instantiate()
 			add_child(handle_end)
 			handle_end.setup(self, false, hex_color)
-			_animation = true
+			was_hidden = true
 		elif not handle_end.visible:
-			_animation = true
-			
+			was_hidden = true
+
 		var dir = (points[-1] - points[-2]).normalized()
-		var final_pos = points[-1] + dir * 30.0
+		if dir == Vector2.ZERO: dir = Vector2.RIGHT
 		
-		if _animation:
+		var final_pos = points[-1] + dir * 35.0
+
+		if was_hidden:
 			handle_end.animate_appearance(points[-1], final_pos, dir.angle())
 		else:
 			handle_end.position = final_pos
 			handle_end.rotation = dir.angle()
-	elif is_instance_valid(handle_end):
-		handle_end.visible = false
+		handle_end.visible = true
+	else:
+		if is_instance_valid(handle_end):
+			handle_end.visible = false
+
+func count_connections(airport, color) -> int:
+	var count = 0
+	for r in GameData.lines_data[color + "_routes"]:
+		if is_instance_valid(r["route"]) and typeof(r["route"].route_data) == TYPE_DICTIONARY:
+			var r_data = r["route"].route_data
+			if r_data["start_airport"] == airport:
+				count += 1
+			if r_data["end_airport"] == airport:
+				count += 1
+	return count
+			

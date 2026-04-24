@@ -375,20 +375,13 @@ func _on_handle_grabbed(route, is_start):
 func refresh_line_hand():
 	var color_name = GameData.lines_data["current color"]
 	var routes_array = GameData.lines_data[color_name + "_routes"]
-	
 	if routes_array.is_empty():
 		return
-		
-	for i in range(routes_array.size()):
-		var route_node = routes_array[i]["route"]
+
+	for route_dict in routes_array:
+		var route_node = route_dict["route"]
 		if is_instance_valid(route_node):
-			var show_start = (i == 0)
-			var show_last = (i == routes_array.size() - 1)
-			var airports = GameData.lines_data[color_name + "_airports"]
-			if airports.size() > 2 and airports[0] == airports[-1]:
-				route_node.update_hand(false, false)
-			else:
-				route_node.update_hand(show_start, show_last)
+			route_node.update_hand()
 			
 			
 	

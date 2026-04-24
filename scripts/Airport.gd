@@ -181,5 +181,6 @@ func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> voi
 				permision = true
 				break
 		if permision:
+			permision = false
 			activate_pulse()
 			airport_selected.emit(self)

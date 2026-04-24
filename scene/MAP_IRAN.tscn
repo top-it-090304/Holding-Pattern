@@ -531,7 +531,7 @@ icon = ExtResource("10_u63k7")
 flat = true
 
 [node name="LightBlue" type="Button" parent="UI/Control/MarginContainer/VBoxContainer" unique_id=1055967704]
-custom_minimum_size = Vector2(125, 0)
+custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 4
@@ -542,7 +542,7 @@ disabled = true
 flat = true
 
 [node name="Green" type="Button" parent="UI/Control/MarginContainer/VBoxContainer" unique_id=616691583]
-custom_minimum_size = Vector2(125, 0)
+custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 4
@@ -553,7 +553,7 @@ disabled = true
 flat = true
 
 [node name="Pink" type="Button" parent="UI/Control/MarginContainer/VBoxContainer" unique_id=349626819]
-custom_minimum_size = Vector2(125, 0)
+custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 4
@@ -564,7 +564,7 @@ disabled = true
 flat = true
 
 [node name="Oragne" type="Button" parent="UI/Control/MarginContainer/VBoxContainer" unique_id=1001509500]
-custom_minimum_size = Vector2(125, 0)
+custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 4
@@ -658,27 +658,6 @@ text = "Что бы вы хотели приобрести для
 custom_minimum_size = Vector2(0, 68.345)
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/BonusPlane" unique_id=934347258]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -95.0
-offset_top = -95.0
-offset_right = 95.0
-offset_bottom = 95.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(2, 2)
-pivot_offset = Vector2(90.64, -36.925)
-
-[node name="BonusPlane" type="Button" parent="UI/BonusPlane/VBoxContainer" unique_id=686641149]
-layout_mode = 2
-icon = ExtResource("36_d42c7")
-flat = true
-
 [node name="VBoxContainer2" type="VBoxContainer" parent="UI/BonusPlane" unique_id=1152424465]
 layout_mode = 1
 anchors_preset = 7
@@ -699,6 +678,27 @@ modulate = Color(0, 0, 0, 1)
 layout_mode = 2
 theme_override_font_sizes/font_size = 36
 text = "Самолёт"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/BonusPlane" unique_id=934347258]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -95.0
+offset_top = -95.0
+offset_right = 95.0
+offset_bottom = 95.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+pivot_offset = Vector2(90.64, -36.925)
+
+[node name="BonusPlane" type="Button" parent="UI/BonusPlane/VBoxContainer" unique_id=686641149]
+layout_mode = 2
+icon = ExtResource("36_d42c7")
+flat = true
 
 [node name="BonusPack1" type="Control" parent="UI" unique_id=1520631920]
 process_mode = 2
@@ -753,33 +753,6 @@ text = "Что бы вы хотели приобрести для
 custom_minimum_size = Vector2(0, 68.345)
 layout_mode = 2
 
-[node name="VBoxContainer" type="HBoxContainer" parent="UI/BonusPack1" unique_id=1065786806]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -324.0
-offset_top = -95.0
-offset_right = 324.0
-offset_bottom = 95.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(2.005, 2.005)
-pivot_offset = Vector2(319.895, 0)
-theme_override_constants/separation = 268
-
-[node name="BonusLine" type="Button" parent="UI/BonusPack1/VBoxContainer" unique_id=1862558590]
-layout_mode = 2
-icon = ExtResource("37_qfpcn")
-flat = true
-
-[node name="Bonus_big_plane" type="Button" parent="UI/BonusPack1/VBoxContainer" unique_id=1491074173]
-layout_mode = 2
-icon = ExtResource("38_54xju")
-flat = true
-
 [node name="VBoxContainer2" type="HBoxContainer" parent="UI/BonusPack1" unique_id=295426722]
 custom_minimum_size = Vector2(0, 1)
 layout_mode = 1
@@ -809,6 +782,33 @@ modulate = Color(0.160784, 0.137255, 0.156863, 1)
 layout_mode = 2
 theme_override_font_sizes/font_size = 36
 text = "Большой самолёт"
+
+[node name="VBoxContainer" type="HBoxContainer" parent="UI/BonusPack1" unique_id=1065786806]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -324.0
+offset_top = -95.0
+offset_right = 324.0
+offset_bottom = 95.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2.005, 2.005)
+pivot_offset = Vector2(319.895, 0)
+theme_override_constants/separation = 268
+
+[node name="BonusLine" type="Button" parent="UI/BonusPack1/VBoxContainer" unique_id=1862558590]
+layout_mode = 2
+icon = ExtResource("37_qfpcn")
+flat = true
+
+[node name="Bonus_big_plane" type="Button" parent="UI/BonusPack1/VBoxContainer" unique_id=1491074173]
+layout_mode = 2
+icon = ExtResource("38_54xju")
+flat = true
 
 [node name="BonusPack2" type="Control" parent="UI" unique_id=2077597810]
 process_mode = 2
@@ -863,33 +863,6 @@ text = "Что бы вы хотели приобрести для
 custom_minimum_size = Vector2(0, 68.345)
 layout_mode = 2
 
-[node name="VBoxContainer" type="HBoxContainer" parent="UI/BonusPack2" unique_id=759115639]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -324.0
-offset_top = -95.0
-offset_right = 324.0
-offset_bottom = 95.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(2.005, 2.005)
-pivot_offset = Vector2(319.895, 0)
-theme_override_constants/separation = 268
-
-[node name="BonusLine" type="Button" parent="UI/BonusPack2/VBoxContainer" unique_id=207295912]
-layout_mode = 2
-icon = ExtResource("37_qfpcn")
-flat = true
-
-[node name="BonusBigAirport" type="Button" parent="UI/BonusPack2/VBoxContainer" unique_id=1257204525]
-layout_mode = 2
-icon = ExtResource("39_r4a12")
-flat = true
-
 [node name="VBoxContainer2" type="HBoxContainer" parent="UI/BonusPack2" unique_id=1020474556]
 layout_mode = 1
 anchors_preset = 7
@@ -918,6 +891,33 @@ modulate = Color(0.160784, 0.137255, 0.156863, 1)
 layout_mode = 2
 theme_override_font_sizes/font_size = 36
 text = "Расширенный аэропорт"
+
+[node name="VBoxContainer" type="HBoxContainer" parent="UI/BonusPack2" unique_id=759115639]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -324.0
+offset_top = -95.0
+offset_right = 324.0
+offset_bottom = 95.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2.005, 2.005)
+pivot_offset = Vector2(319.895, 0)
+theme_override_constants/separation = 268
+
+[node name="BonusLine" type="Button" parent="UI/BonusPack2/VBoxContainer" unique_id=207295912]
+layout_mode = 2
+icon = ExtResource("37_qfpcn")
+flat = true
+
+[node name="BonusBigAirport" type="Button" parent="UI/BonusPack2/VBoxContainer" unique_id=1257204525]
+layout_mode = 2
+icon = ExtResource("39_r4a12")
+flat = true
 
 [node name="BonusPack3" type="Control" parent="UI" unique_id=1106224316]
 process_mode = 2
@@ -972,33 +972,6 @@ text = "Что бы вы хотели приобрести для
 custom_minimum_size = Vector2(0, 68.345)
 layout_mode = 2
 
-[node name="VBoxContainer" type="HBoxContainer" parent="UI/BonusPack3" unique_id=214609397]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -324.0
-offset_top = -95.0
-offset_right = 324.0
-offset_bottom = 95.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(2.005, 2.005)
-pivot_offset = Vector2(319.895, 0)
-theme_override_constants/separation = 268
-
-[node name="BonusBigPlane" type="Button" parent="UI/BonusPack3/VBoxContainer" unique_id=441667134]
-layout_mode = 2
-icon = ExtResource("38_54xju")
-flat = true
-
-[node name="BonusBigAirport" type="Button" parent="UI/BonusPack3/VBoxContainer" unique_id=1336784197]
-layout_mode = 2
-icon = ExtResource("39_r4a12")
-flat = true
-
 [node name="VBoxContainer2" type="HBoxContainer" parent="UI/BonusPack3" unique_id=232581483]
 layout_mode = 1
 anchors_preset = 7
@@ -1028,6 +1001,33 @@ modulate = Color(0.160784, 0.137255, 0.156863, 1)
 layout_mode = 2
 theme_override_font_sizes/font_size = 36
 text = "Расширенный аэропорт"
+
+[node name="VBoxContainer" type="HBoxContainer" parent="UI/BonusPack3" unique_id=214609397]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -324.0
+offset_top = -95.0
+offset_right = 324.0
+offset_bottom = 95.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2.005, 2.005)
+pivot_offset = Vector2(319.895, 0)
+theme_override_constants/separation = 268
+
+[node name="BonusBigPlane" type="Button" parent="UI/BonusPack3/VBoxContainer" unique_id=441667134]
+layout_mode = 2
+icon = ExtResource("38_54xju")
+flat = true
+
+[node name="BonusBigAirport" type="Button" parent="UI/BonusPack3/VBoxContainer" unique_id=1336784197]
+layout_mode = 2
+icon = ExtResource("39_r4a12")
+flat = true
 
 [node name="ClearData" type="Button" parent="UI" unique_id=602788293]
 visible = false
