@@ -70,7 +70,8 @@ func create_line(airport_a, airport_b):
 	if not lines_data["in_" + color_name]:
 		if GameData.start_planes > 0:
 			spawn_plane(route_data, 0.0, false)
-			lines_data["in_" + color_name] = true
+		lines_data["in_" + color_name] = true
+
 
 @warning_ignore("shadowed_variable")
 func spawn_plane(route_data: Dictionary, start_t: float, is_big: bool):

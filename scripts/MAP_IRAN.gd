@@ -117,7 +117,10 @@ func _ready():
 	
 	for i in range(6):
 		spawn_airport()
-		
+	
+	for i in range(3):
+		_on_bonus_line_pressed()
+	
 	score_pack.scale = Vector2.ZERO
 	score_pack.modulate.a = 0
 	get_tree().create_timer(1.0).timeout.connect(animate_score)

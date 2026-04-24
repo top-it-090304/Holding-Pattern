@@ -109,7 +109,7 @@ wait_time = 25.0
 autostart = true
 
 [node name="WeekTimer" type="Timer" parent="." unique_id=1969759407]
-wait_time = 10.0
+wait_time = 142.0
 autostart = true
 script = ExtResource("3_6pevr")
 
