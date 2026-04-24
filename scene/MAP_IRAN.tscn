@@ -14,7 +14,6 @@
 [ext_resource type="Texture2D" uid="uid://d3hmyd7fm44gt" path="res://objects/Button_yellow.png" id="8_6pevr"]
 [ext_resource type="Texture2D" uid="uid://c32r7a0jfkk6t" path="res://objects/Button_blue.png" id="9_l8fvx"]
 [ext_resource type="Texture2D" uid="uid://ck4unu555lgo2" path="res://objects/Button_red.png" id="10_u63k7"]
-[ext_resource type="Texture2D" uid="uid://umrjde6u3mhk" path="res://objects/NULL_button.png" id="11_0q2b8"]
 [ext_resource type="Texture2D" uid="uid://dirl28ic4l46t" path="res://objects/Fly_ghost.png" id="13_smxhb"]
 [ext_resource type="Texture2D" uid="uid://bvq3rqkkfv8j3" path="res://objects/Bonus_Plane.png" id="14_d42c7"]
 [ext_resource type="Texture2D" uid="uid://dn6f8p3t56spw" path="res://objects/Fly_BIG_ghost.png" id="16_54xju"]
@@ -79,57 +78,6 @@ corner_radius_bottom_left = 3
 corner_detail = 5
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qfpcn"]
-content_margin_left = 20.0
-content_margin_top = 20.0
-content_margin_right = 20.0
-content_margin_bottom = 20.0
-bg_color = Color(0.1, 0.1, 0.1, 0.3)
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
-corner_detail = 5
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ob58h"]
-content_margin_left = 20.0
-content_margin_top = 20.0
-content_margin_right = 20.0
-content_margin_bottom = 20.0
-bg_color = Color(0.1, 0.1, 0.1, 0.3)
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
-corner_detail = 5
-
-[sub_resource type="ButtonGroup" id="ButtonGroup_hr7lf"]
-allow_unpress = true
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3hqfm"]
-content_margin_left = 20.0
-content_margin_top = 20.0
-content_margin_right = 20.0
-content_margin_bottom = 20.0
-bg_color = Color(0.1, 0.1, 0.1, 0.3)
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
-corner_detail = 5
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_08k7p"]
-content_margin_left = 20.0
-content_margin_top = 20.0
-content_margin_right = 20.0
-content_margin_bottom = 20.0
-bg_color = Color(0.1, 0.1, 0.1, 0.3)
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
-corner_detail = 5
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8cuns"]
 content_margin_left = 20.0
 content_margin_top = 20.0
 content_margin_right = 20.0
@@ -1041,70 +989,6 @@ icon = ExtResource("7_jad85")
 flat = true
 expand_icon = true
 
-[node name="UI_" type="CanvasLayer" parent="." unique_id=1987992017]
-layer = 2
-visible = false
-
-[node name="LightBlueButton" type="Button" parent="UI_" unique_id=698306499]
-offset_left = 2421.0
-offset_top = 805.0
-offset_right = 2501.0
-offset_bottom = 899.316
-scale = Vector2(1.28526, 1.28526)
-theme_override_colors/icon_disabled_color = Color(0.89059, 0.89059, 0.89059, 1)
-theme_override_icons/icon = ExtResource("11_0q2b8")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_ob58h")
-disabled = true
-toggle_mode = true
-button_group = SubResource("ButtonGroup_hr7lf")
-flat = true
-expand_icon = true
-
-[node name="GreenButton" type="Button" parent="UI_" unique_id=342753560]
-offset_left = 2421.0
-offset_top = 914.0
-offset_right = 2501.0
-offset_bottom = 1005.594
-scale = Vector2(1.28526, 1.28526)
-theme_override_colors/icon_disabled_color = Color(0.890196, 0.890196, 0.890196, 1)
-theme_override_icons/icon = ExtResource("11_0q2b8")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_3hqfm")
-disabled = true
-toggle_mode = true
-button_group = SubResource("ButtonGroup_hr7lf")
-flat = true
-expand_icon = true
-
-[node name="PinkButton" type="Button" parent="UI_" unique_id=2108246230]
-offset_left = 2421.0
-offset_top = 1021.0
-offset_right = 2500.0
-offset_bottom = 1111.449
-scale = Vector2(1.28526, 1.28526)
-theme_override_colors/icon_disabled_color = Color(0.890196, 0.890196, 0.890196, 1)
-theme_override_icons/icon = ExtResource("11_0q2b8")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_08k7p")
-disabled = true
-toggle_mode = true
-button_group = SubResource("ButtonGroup_hr7lf")
-flat = true
-expand_icon = true
-
-[node name="OrangeButton" type="Button" parent="UI_" unique_id=2001752416]
-offset_left = 2421.0
-offset_top = 1126.0
-offset_right = 2501.0
-offset_bottom = 1217.5901
-scale = Vector2(1.28526, 1.28526)
-theme_override_colors/icon_disabled_color = Color(0.890196, 0.890196, 0.890196, 1)
-theme_override_icons/icon = ExtResource("11_0q2b8")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_8cuns")
-disabled = true
-toggle_mode = true
-button_group = SubResource("ButtonGroup_hr7lf")
-flat = true
-expand_icon = true
-
 [node name="AirportSpawn" type="Node2D" parent="." unique_id=760523429]
 metadata/_edit_lock_ = true
 
@@ -1256,7 +1140,3 @@ position = Vector2(1845, -105)
 [connection signal="pressed" from="UI/BonusPack3/VBoxContainer/BonusBigPlane" to="." method="_on_bonus_big_plane_pressed"]
 [connection signal="pressed" from="UI/BonusPack3/VBoxContainer/BonusBigAirport" to="." method="_on_bonus_big_airport_pressed"]
 [connection signal="pressed" from="UI/ClearData" to="." method="_on_clear_data_pressed"]
-[connection signal="pressed" from="UI_/LightBlueButton" to="." method="_on_lbb_pressed"]
-[connection signal="pressed" from="UI_/GreenButton" to="." method="_on_gb_pressed"]
-[connection signal="pressed" from="UI_/PinkButton" to="." method="_on_pb_pressed"]
-[connection signal="pressed" from="UI_/OrangeButton" to="." method="_on_ob_pressed"]

@@ -33,8 +33,8 @@ zoom = Vector2(1.1, 1.1)
 metadata/_edit_lock_ = true
 
 [node name="Background" type="Sprite2D" parent="." unique_id=991112221]
-position = Vector2(1476.9999, 1052.4998)
-scale = Vector2(4.336458, 5.456482)
+position = Vector2(1578.5001, 957.49994)
+scale = Vector2(85.74699, 98.27659)
 texture = SubResource("CompressedTexture2D_v2vl7")
 
 [node name="Play" type="Button" parent="." unique_id=2054451538]
@@ -77,29 +77,29 @@ flat = true
 expand_icon = true
 
 [node name="Back_down2" type="Button" parent="." unique_id=1681739533]
-offset_left = 2625.0
-offset_top = -599.0
-offset_right = 2793.0
-offset_bottom = -430.67004
+offset_left = 2779.0
+offset_top = -477.0
+offset_right = 2947.0
+offset_bottom = -308.67004
 rotation = -1.5708
 icon = ExtResource("7_4vtxv")
 flat = true
 expand_icon = true
 
 [node name="Back_down" type="Button" parent="." unique_id=1768870969]
-offset_left = -1055.0
-offset_top = 1784.0
-offset_right = -887.0
-offset_bottom = 1952.33
+offset_left = -915.0
+offset_top = 1763.0
+offset_right = -747.0
+offset_bottom = 1931.33
 icon = ExtResource("7_4vtxv")
 flat = true
 expand_icon = true
 
 [node name="Back_right" type="Button" parent="." unique_id=1164054253]
-offset_left = 2155.0
-offset_top = 414.99994
-offset_right = 2355.78
-offset_bottom = 583.57794
+offset_left = 2209.0
+offset_top = 535.0
+offset_right = 2409.78
+offset_bottom = 703.578
 rotation = 0.601733
 icon = ExtResource("8_akhuw")
 flat = true
