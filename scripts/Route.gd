@@ -126,6 +126,7 @@ func update_hand():
 		
 	var show_start = (count_connections(route_data["start_airport"], route_data["color"]) == 1)
 	var show_end   = (count_connections(route_data["end_airport"], route_data["color"]) == 1)
+	var map = get_tree().get_first_node_in_group("maps")
 
 	if show_start:
 		var was_hidden = false
@@ -138,19 +139,27 @@ func update_hand():
 			was_hidden = true
 
 		var dir = (points[0] - points[1]).normalized()
-		if dir == Vector2.ZERO: dir = Vector2.LEFT
+		var final_angle = dir.angle()
 		
-		var final_pos = points[0] + dir * 35.0
+		if map and map.has_method("get_handle_angle"):
+			var v_angle = map.get_handle_angle(route_data["start_airport"], route_data["color"])
+			if v_angle != -999.0:
+				final_angle = v_angle
+		
+		var final_pos = points[0] + Vector2.from_angle(final_angle) * 35.0
+		handle_start.rotation = final_angle
+		handle_start.position = final_pos
+		handle_start.visible = true
 
+				
 		if was_hidden:
-			handle_start.animate_appearance(points[0], final_pos, dir.angle())
+			handle_start.animate_appearance(points[0], final_pos, final_angle)
 		else:
-			handle_start.position = final_pos
-			handle_start.rotation = dir.angle()
+			handle_start.position = handle_start.position.lerp(final_pos, 0.2)
+			handle_start.rotation = lerp_angle(handle_start.rotation, final_angle, 0.2)
 		handle_start.visible = true
 	else:
-		if is_instance_valid(handle_start):
-			handle_start.visible = false
+		if is_instance_valid(handle_start): handle_start.visible = false
 
 	if show_end:
 		var was_hidden = false
@@ -163,20 +172,27 @@ func update_hand():
 			was_hidden = true
 
 		var dir = (points[-1] - points[-2]).normalized()
-		if dir == Vector2.ZERO: dir = Vector2.RIGHT
+		var final_angle = dir.angle()
 		
-		var final_pos = points[-1] + dir * 35.0
+		if map and map.has_method("get_handle_angle"):
+			var v_angle = map.get_handle_angle(route_data["end_airport"], route_data["color"])
+			if v_angle != -999.0:
+				final_angle = v_angle
+				
+		var final_pos = points[-1] + Vector2.from_angle(final_angle) * 35.0
+		handle_end.rotation = final_angle
+		handle_end.position = final_pos
+		handle_end.visible = true
 
 		if was_hidden:
-			handle_end.animate_appearance(points[-1], final_pos, dir.angle())
+			handle_end.animate_appearance(points[-1], final_pos, final_angle)
 		else:
-			handle_end.position = final_pos
-			handle_end.rotation = dir.angle()
+			handle_end.position = handle_end.position.lerp(final_pos, 0.2)
+			handle_end.rotation = lerp_angle(handle_end.rotation, final_angle, 0.2)
 		handle_end.visible = true
 	else:
-		if is_instance_valid(handle_end):
-			handle_end.visible = false
-
+		if is_instance_valid(handle_end): handle_end.visible = false
+		
 func count_connections(airport, color) -> int:
 	var count = 0
 	for r in GameData.lines_data[color + "_routes"]:

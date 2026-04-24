@@ -64,6 +64,8 @@ var selected_airport = null
 var is_drawing: bool = false
 var pred_line: Line2D
 
+var station_slots = {}
+
 var lines_data = GameData.lines_data
 var clear_data_twin: Tween
 
@@ -75,6 +77,7 @@ var camera_speed: float = 5.0
 var target_rotation: float = 0.0
 
 func _ready():
+	add_to_group("maps")
 	target_camera_pos = camera.position
 	target_rotation = 0.0
 	$GameOverUI.visible = false
@@ -112,7 +115,7 @@ func _ready():
 	phase_timer.timeout.connect(_on_phase_timer_timeout)
 	add_child(phase_timer)
 	
-	for i in range(3):
+	for i in range(6):
 		spawn_airport()
 		
 	score_pack.scale = Vector2.ZERO
@@ -383,6 +386,41 @@ func refresh_line_hand():
 		if is_instance_valid(route_node):
 			route_node.update_hand()
 			
+func get_handle_angle(airport, query_color: String) -> float:
+	var terminal_colors = []
+	var all_colors = GameData.lines_data["active colors"] + GameData.lines_data["inactive colors"]
+	
+	for color in all_colors:
+		var routes = GameData.lines_data.get(color + "_routes", [])
+		for r in routes:
+			if is_instance_valid(r["route"]):
+				if r["route"].count_connections(airport, color) == 1:
+					var d = r["route"].route_data
+					if d["start_airport"] == airport or d["end_airport"] == airport:
+						if not terminal_colors.has(color):
+							terminal_colors.append(color)
+	
+	if terminal_colors.size() <= 1:
+		return -999.0 
+	
+	terminal_colors.sort()
+	var idx = terminal_colors.find(query_color)
+	
+	var slots = [
+		deg_to_rad(0),
+		deg_to_rad(45),
+		deg_to_rad(90),
+		deg_to_rad(135),
+		deg_to_rad(180),
+		deg_to_rad(225)
+	]
+	
+	return slots[idx % slots.size()]
+
+func deleted_station_slot(airport, color):
+	if station_slots.has(airport):
+		station_slots[airport].erase(color)
+
 			
 	
 func _on_passenger_timer_timeout():
