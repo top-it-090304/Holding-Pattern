@@ -115,7 +115,7 @@ func _ready():
 	phase_timer.timeout.connect(_on_phase_timer_timeout)
 	add_child(phase_timer)
 	
-	for i in range(6):
+	for i in range(3):
 		spawn_airport()
 		
 	score_pack.scale = Vector2.ZERO

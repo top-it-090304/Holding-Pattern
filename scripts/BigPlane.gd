@@ -6,15 +6,17 @@ var target_speed: float = 90.0
 var current_speed: float = 0.0  
 var forward: bool = true
 var color: String
-var is_big: bool = true
+var is_big: bool = false
 
 var cargo: Array = []
 var max_seats: int = 8
-var if_load: bool = true
 var is_transport_plane: bool = false
+var is_loading = false
 
 var is_waiting: bool = false
 var current_target_airport = null
+
+
 
 func _input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
@@ -26,7 +28,7 @@ func _input(event):
 					return
 			if not is_transport_plane and mouse_pos.distance_to(global_position) < 40.0:
 				is_transport_plane = true
-				scale = Vector2(0.6, 0.6)
+				scale = Vector2(0.84, 0.84)
 				z_index = 10
 		elif not event.pressed and is_transport_plane:
 				_drop_plane()
@@ -156,29 +158,38 @@ func _upload_passenger(airport):
 	queue_redraw()
 	
 func _load_passenger(airport):
-	var line_shapes = GameData.lines_data[color + "_shapes"]
-	if cargo.size() >= max_seats:
+	var pm = airport.passenger_manager
+	if !pm or is_loading or cargo.size() >= max_seats:
 		return
 
-	var i = 0
-	while (i < airport.passenger_manager.passengers.size()) and (cargo.size() < max_seats):
-		var p_shape = airport.passenger_manager.passengers[i]
-		
-		if p_shape in line_shapes:
-			cargo.append(p_shape)
-			airport.passenger_manager.passengers.remove_at(i)
+	is_loading = true
 
-			await get_tree().create_timer(0.3).timeout
-		else:
-			i += 1
+	var potential_passengers = pm.passengers.duplicate()
+	
+	for p_shape in potential_passengers:
+		if cargo.size() >= max_seats:
+			break
 			
-	if cargo.size() > 0:
-		airport.queue_redraw()
-		queue_redraw()
+		var can_take = p_shape in GameData.lines_data[color + "_shapes"]
+			
+		if can_take:
+			var idx = pm.passengers.find(p_shape)
+			if idx != -1:
+				pm.passengers.remove_at(idx)
+				airport.queue_redraw()
+				await get_tree().create_timer(0.15).timeout
+				
+				cargo.append(p_shape)
+				queue_redraw()
+				await get_tree().create_timer(0.15).timeout
+
+	is_loading = false
+
+
 
 
 func _draw():
-	var p_size = 6.1
+	var p_size = 6.0
 	var spacing = 13.0
 	var start_offset = Vector2(-44, 0)
 	
@@ -285,15 +296,14 @@ func _drop_plane():
 		t = offset / curve.get_baked_length()
 		position = curve.sample_baked(offset)
 		
-		current_speed = target_speed
+		
 		forward = true 
 	else:
-		GameData.big_planes += 1
-		for count_label in get_tree().get_nodes_in_group("countBigPlane"):
+		GameData.start_planes += 1
+		for count_label in get_tree().get_nodes_in_group("countPlane"):
 			if count_label.has_method("update_counter"):
 				count_label.update_counter()
 		queue_free()
-		self.queue_free()
 		GameData.lines_data[color + "_planes"].erase(self)
 
 func _get_lines_at_airport(airport) -> Array:
@@ -319,7 +329,9 @@ func _can_reach_transfer_hub(target_shape) -> bool:
 
 func handle_passengers(airport):
 	var pm = airport.passenger_manager
-	if !pm: return
+	if !pm or is_loading: return
+	
+	is_loading = true
 	
 	var remaining_cargo = []
 	for p_shape in cargo:
@@ -328,7 +340,6 @@ func handle_passengers(airport):
 		else:
 			var on_my_line = p_shape in GameData.lines_data[color + "_shapes"]
 			var can_transfer_here = false
-		
 			
 			if not on_my_line:
 				for l in _get_lines_at_airport(airport):
@@ -358,10 +369,19 @@ func handle_passengers(airport):
 				already_on_right_line = true
 		
 		if can_reach_directly or (can_help_transfer and not already_on_right_line):
-			cargo.append(p_shape)
 			pm.passengers.remove_at(i)
+			airport.queue_redraw()
+			
+			await get_tree().create_timer(0.15).timeout
+			
+			cargo.append(p_shape)
+			queue_redraw()
+			
+			await get_tree().create_timer(0.15).timeout
 		else:
 			i += 1
 	
 	airport.queue_redraw()
 	queue_redraw()
+	
+	is_loading = false
