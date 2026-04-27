@@ -511,43 +511,43 @@ func _on_yb_pressed():
 	set_line_stroke(false)
 	_animate_clear_button($UI/Control/MarginContainer/VBoxContainer/Yellow)
 	lines_data["current color"] = "yellow"
-	lines_data["current hex color"] = Color(1.0, 0.812, 0.039, 1.0)
+	lines_data["current hex color"] = Color(0.996, 0.784, 0.035, 1.0)
 
 func _on_bb_pressed():
 	set_line_stroke(false)
 	_animate_clear_button($UI/Control/MarginContainer/VBoxContainer/Blue)
 	lines_data["current color"] = "blue"
-	lines_data["current hex color"] = Color(0.0, 0.323, 0.983, 1.0)
+	lines_data["current hex color"] = Color(0.0, 0.424, 0.714, 1.0)
 
-func _on_rb_pressed():
+func _on_bolb_pressed():
 	set_line_stroke(false)
 	_animate_clear_button($UI/Control/MarginContainer/VBoxContainer/Red)
 	lines_data["current color"] = "red"
-	lines_data["current hex color"] = Color(1.0, 0.0, 0.0, 1.0)
-
-func _on_lbb_pressed() -> void:
-	set_line_stroke(false)
-	_animate_clear_button($UI/Control/MarginContainer/VBoxContainer/LightBlue)
-	lines_data["current color"] = "light_blue"
-	lines_data["current hex color"] = Color(0.0, 0.627, 0.878, 1.0)
-
-func _on_gb_pressed() -> void:
-	set_line_stroke(false)
-	_animate_clear_button($UI/Control/MarginContainer/VBoxContainer/Green)
-	lines_data["current color"] = "green"
-	lines_data["current hex color"] = Color(0.0, 0.549, 0.141, 1.0)
+	lines_data["current hex color"] = Color(0.612, 0.604, 0.216, 1.0)
 
 func _on_pb_pressed() -> void:
 	set_line_stroke(false)
-	_animate_clear_button($UI/Control/MarginContainer/VBoxContainer/Pink)
-	lines_data["current color"] = "pink"
-	lines_data["current hex color"] = Color(1.0, 0.533, 0.639, 1.0)
+	_animate_clear_button($UI/Control/MarginContainer/VBoxContainer/LightBlue)
+	lines_data["current color"] = "light_blue"
+	lines_data["current hex color"] = Color(0.839, 0.302, 0.608, 1.0)
 
 func _on_ob_pressed() -> void:
 	set_line_stroke(false)
+	_animate_clear_button($UI/Control/MarginContainer/VBoxContainer/Green)
+	lines_data["current color"] = "green"
+	lines_data["current hex color"] = Color(1.0, 0.565, 0.282, 1.0)
+
+func _on_tb_pressed() -> void:
+	set_line_stroke(false)
+	_animate_clear_button($UI/Control/MarginContainer/VBoxContainer/Pink)
+	lines_data["current color"] = "pink"
+	lines_data["current hex color"] = Color(0.208, 0.769, 0.576, 1.0)
+
+func _on_lb_pressed() -> void:
+	set_line_stroke(false)
 	_animate_clear_button($UI/Control/MarginContainer/VBoxContainer/Oragne)
 	lines_data["current color"] = "orange"
-	lines_data["current hex color"] = Color(0.886, 0.396, 0.224, 1.0)
+	lines_data["current hex color"] = Color(1.0, 0.624, 0.706, 1.0)
 
 func _on_restart_pressed():
 	SoundManager.play("click_button")
@@ -558,7 +558,7 @@ func _on_restart_pressed():
 	GameData.lines_data["inactive colors"] = ["light_blue", "green", "pink", "orange"]
 	lines_data["current color"] = "yellow"
 	lines_data["current hex color"] = Color(1.0, 0.812, 0.039, 1.0)
-	get_tree().change_scene_to_file("res://scene/MAP_IRAN.tscn")
+	get_tree().change_scene_to_file("res://scene/MAP_SIBIR.tscn")
 	GameData.start_planes = 3
 
 func _on_menu_pressed():

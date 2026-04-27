@@ -469,14 +469,14 @@ size_flags_vertical = 4
 icon = ExtResource("25_32jyh")
 flat = true
 
-[node name="Red" type="Button" parent="UI/Control/MarginContainer/VBoxContainer" unique_id=1227045280]
+[node name="Boloto" type="Button" parent="UI/Control/MarginContainer/VBoxContainer" unique_id=1227045280]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 4
 icon = ExtResource("26_hwh2q")
 flat = true
 
-[node name="LightBlue" type="Button" parent="UI/Control/MarginContainer/VBoxContainer" unique_id=1482305683]
+[node name="Pink" type="Button" parent="UI/Control/MarginContainer/VBoxContainer" unique_id=1482305683]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 8
@@ -487,7 +487,7 @@ theme_override_styles/disabled = SubResource("StyleBoxFlat_4utxa")
 disabled = true
 flat = true
 
-[node name="Green" type="Button" parent="UI/Control/MarginContainer/VBoxContainer" unique_id=1221183782]
+[node name="Oragne" type="Button" parent="UI/Control/MarginContainer/VBoxContainer" unique_id=1221183782]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 8
@@ -498,7 +498,7 @@ theme_override_styles/disabled = SubResource("StyleBoxFlat_43rta")
 disabled = true
 flat = true
 
-[node name="Pink" type="Button" parent="UI/Control/MarginContainer/VBoxContainer" unique_id=1233537063]
+[node name="Turquoise" type="Button" parent="UI/Control/MarginContainer/VBoxContainer" unique_id=1233537063]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 8
@@ -509,7 +509,7 @@ theme_override_styles/disabled = SubResource("StyleBoxFlat_xr2ay")
 disabled = true
 flat = true
 
-[node name="Oragne" type="Button" parent="UI/Control/MarginContainer/VBoxContainer" unique_id=510235504]
+[node name="Lavanda" type="Button" parent="UI/Control/MarginContainer/VBoxContainer" unique_id=510235504]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 8
@@ -1123,3 +1123,24 @@ position = Vector2(596, -248)
 
 [connection signal="timeout" from="Timer" to="." method="_on_spawn_timer_timeout"]
 [connection signal="timeout" from="WeekTimer" to="." method="_on_week_timer_timeout"]
+[connection signal="pressed" from="PauseMenu/Continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="PauseMenu/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="PauseMenu/Menu" to="." method="_on_menu_pressed"]
+[connection signal="pressed" from="GameOverUI/MainPack/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="GameOverUI/MainPack/Menu" to="." method="_on_menu_pressed"]
+[connection signal="pressed" from="UI/Control/MarginContainer/HBoxContainer/PauseButton" to="." method="_on_pause_button_pressed"]
+[connection signal="pressed" from="UI/Control/MarginContainer/VBoxContainer/Yellow" to="." method="_on_yb_pressed"]
+[connection signal="pressed" from="UI/Control/MarginContainer/VBoxContainer/Blue" to="." method="_on_bb_pressed"]
+[connection signal="pressed" from="UI/Control/MarginContainer/VBoxContainer/Boloto" to="." method="_on_bolb_pressed"]
+[connection signal="pressed" from="UI/Control/MarginContainer/VBoxContainer/Pink" to="." method="_on_pb_pressed"]
+[connection signal="pressed" from="UI/Control/MarginContainer/VBoxContainer/Oragne" to="." method="_on_ob_pressed"]
+[connection signal="pressed" from="UI/Control/MarginContainer/VBoxContainer/Turquoise" to="." method="_on_tb_pressed"]
+[connection signal="pressed" from="UI/Control/MarginContainer/VBoxContainer/Lavanda" to="." method="_on_lb_pressed"]
+[connection signal="pressed" from="UI/BonusPlane/VBoxContainer/BonusPlane" to="." method="_on_bonus_plane_pressed"]
+[connection signal="pressed" from="UI/BonusPack1/VBoxContainer/BonusLine" to="." method="_on_bonus_line_pressed"]
+[connection signal="pressed" from="UI/BonusPack1/VBoxContainer/Bonus_big_plane" to="." method="_on_bonus_big_plane_pressed"]
+[connection signal="pressed" from="UI/BonusPack2/VBoxContainer/BonusLine" to="." method="_on_bonus_line_pressed"]
+[connection signal="pressed" from="UI/BonusPack2/VBoxContainer/BonusBigAirport" to="." method="_on_bonus_big_airport_pressed"]
+[connection signal="pressed" from="UI/BonusPack3/VBoxContainer/BonusBigPlane" to="." method="_on_bonus_big_plane_pressed"]
+[connection signal="pressed" from="UI/BonusPack3/VBoxContainer/BonusBigAirport" to="." method="_on_bonus_big_airport_pressed"]
+[connection signal="pressed" from="UI/ClearData" to="." method="_on_clear_data_pressed"]
