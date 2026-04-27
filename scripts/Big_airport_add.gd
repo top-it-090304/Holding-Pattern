@@ -15,7 +15,14 @@ func _process(_delta):
 	if is_dragging and is_instance_valid(ghost_plane):
 		var mouse_pos_viewport = get_viewport().get_mouse_position() + Vector2(0, -180)
 		ghost_plane.global_position = mouse_pos_viewport
-
+		for airport in get_tree().get_nodes_in_group("airports"):
+			var dist = (get_viewport().get_canvas_transform().affine_inverse() * get_viewport().get_mouse_position() + Vector2(0.0, -90.0)).distance_to(airport.position)
+			if dist < 60:
+				var tween = create_tween().set_parallel(true).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
+				tween.tween_property(airport, "scale", Vector2(1.2, 1.2), 0.25)
+			else:
+				var tween = create_tween().set_parallel(true).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
+				tween.tween_property(airport, "scale", Vector2(1, 1), 0.25)
 
 func _get_closest_route_data(world_pos):
 	var min_dist = 60.0
@@ -76,7 +83,8 @@ func _drop_plane():
 			var tween = create_tween().set_parallel(true).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
 			tween.tween_property(airport, "scale", Vector2(1.35, 1.35), 0.25)
 			GameData.big_airports -= 1
-			
+			airport.is_big = true
+			airport.max_passengers = GameData.big_max_passengers
 			var CountAirport = get_tree().get_first_node_in_group("countBigAirport")
 			if CountAirport:
 				CountAirport.on_plane_spawned()

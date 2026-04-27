@@ -54,7 +54,7 @@ func _on_map_1_pressed():
 	GameData.lines_data["inactive colors"] = ["light_blue", "green", "pink", "orange"]
 	GameData.lines_data["current color"] = "yellow"
 	GameData.start_planes = 3
-	GameData.big_airports = 0
+	GameData.big_airports = 1
 	GameData.big_planes = 1
 	GameData.current_week = 1
 	GameData.lines_data["current hex color"] = Color(1.0, 0.812, 0.039, 1.0)

@@ -22,6 +22,8 @@ var pulse_radius = 0.0
 var pulse_alpha = 1.0
 var pulse_color = Color.WHITE
 
+var is_big: bool = false
+var max_passengers = GameData.max_passengers
 
 var stroke = false
 var stroke_radius = 0.0
@@ -55,7 +57,7 @@ func _process(delta):
 	
 	sprite.scale = Vector2(0.7, 0.7)
 	if is_failed: return
-	if passenger_manager.passengers.size() >= GameData.max_passengers:
+	if passenger_manager.passengers.size() >= max_passengers:
 		current_time += delta
 		queue_redraw()
 	

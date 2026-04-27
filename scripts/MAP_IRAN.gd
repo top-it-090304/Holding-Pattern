@@ -447,7 +447,7 @@ func _spawn_burst_two_passenger(amount: int):
 	if not target_airport: return
 	
 	for i in range(amount):
-		if target_airport.passenger_manager.passengers.size() < 9:
+		if target_airport.passenger_manager.passengers.size() < target_airport.max_passengers + 3:
 			target_airport.spawn_passenger()
 			await get_tree().create_timer(0.2).timeout
 			
@@ -463,7 +463,7 @@ func _get_airport_():
 	var airports = get_tree().get_nodes_in_group("airports")
 	airports.shuffle()
 	for a in airports:
-		if a.passenger_manager.passengers.size() < 9:
+		if a.passenger_manager.passengers.size() < a.max_passengers + 3:
 			return a
 	return null
 
