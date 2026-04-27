@@ -677,6 +677,7 @@ func _on_week_timer_timeout() -> void:
 	
 
 func _on_bonus_plane_pressed() -> void:
+	GameData.start_planes += 1
 	SoundManager.play("click_button")
 	$UI/BonusPlane.hide()
 	if GameData.current_week == 2:
@@ -703,12 +704,14 @@ func _on_bonus_line_pressed() -> void:
 	get_tree().paused = false
 
 func _on_bonus_big_plane_pressed() -> void:
+	GameData.big_planes += 1
 	SoundManager.play("click_button")
 	$UI/BonusPack1.hide()
 	$UI/BonusPack3.hide()
 	get_tree().paused = false
 
 func _on_bonus_big_airport_pressed() -> void:
+	GameData.big_airports += 1
 	SoundManager.play("click_button")
 	$UI/BonusPack2.hide()
 	$UI/BonusPack3.hide()
