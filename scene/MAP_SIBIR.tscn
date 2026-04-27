@@ -26,11 +26,11 @@
 [ext_resource type="Texture2D" uid="uid://g6xobvgi7ovh" path="res://objects/black_circle.png" id="23_iaqaf"]
 [ext_resource type="Texture2D" uid="uid://deil82mhkcdr0" path="res://objects/Clock/Arrow.png" id="23_xr2ay"]
 [ext_resource type="Texture2D" uid="uid://cl6kwmwss60c8" path="res://objects/Clock/Riski.png" id="24_0b3vp"]
-[ext_resource type="Texture2D" uid="uid://d3hmyd7fm44gt" path="res://objects/Button_yellow.png" id="24_c8urr"]
-[ext_resource type="Texture2D" uid="uid://c32r7a0jfkk6t" path="res://objects/Button_blue.png" id="25_32jyh"]
+[ext_resource type="Texture2D" uid="uid://r362w31jjsc3" path="res://objects/Button_light_yellow.png" id="24_c8urr"]
 [ext_resource type="Script" uid="uid://cp4srkpb0n5r7" path="res://scripts/Week_day.gd" id="25_ax4nu"]
+[ext_resource type="Texture2D" uid="uid://j3fkt31ohl73" path="res://objects/Button_light_blue.png" id="25_c8urr"]
+[ext_resource type="Texture2D" uid="uid://b7hivr7e4n2p5" path="res://objects/Button_bolot.png" id="26_32jyh"]
 [ext_resource type="Texture2D" uid="uid://cel3fq7keunyb" path="res://objects/Bonus_BG.png" id="26_dc07v"]
-[ext_resource type="Texture2D" uid="uid://ck4unu555lgo2" path="res://objects/Button_red.png" id="26_hwh2q"]
 [ext_resource type="Texture2D" uid="uid://bc0trire67wgn" path="res://objects/Button_NULL.png" id="27_wcfiu"]
 [ext_resource type="Texture2D" uid="uid://bw7800lop1lnv" path="res://objects/Clock/Speed_1.0.png" id="33_0tqmr"]
 [ext_resource type="Texture2D" uid="uid://dhgy00ifet6ci" path="res://objects/Button_back_right.png" id="33_iaqaf"]
@@ -466,14 +466,14 @@ flat = true
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 4
-icon = ExtResource("25_32jyh")
+icon = ExtResource("25_c8urr")
 flat = true
 
 [node name="Boloto" type="Button" parent="UI/Control/MarginContainer/VBoxContainer" unique_id=1227045280]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 4
-icon = ExtResource("26_hwh2q")
+icon = ExtResource("26_32jyh")
 flat = true
 
 [node name="Pink" type="Button" parent="UI/Control/MarginContainer/VBoxContainer" unique_id=1482305683]
@@ -487,7 +487,7 @@ theme_override_styles/disabled = SubResource("StyleBoxFlat_4utxa")
 disabled = true
 flat = true
 
-[node name="Oragne" type="Button" parent="UI/Control/MarginContainer/VBoxContainer" unique_id=1221183782]
+[node name="Orange" type="Button" parent="UI/Control/MarginContainer/VBoxContainer" unique_id=1221183782]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 8
@@ -1133,7 +1133,7 @@ position = Vector2(596, -248)
 [connection signal="pressed" from="UI/Control/MarginContainer/VBoxContainer/Blue" to="." method="_on_bb_pressed"]
 [connection signal="pressed" from="UI/Control/MarginContainer/VBoxContainer/Boloto" to="." method="_on_bolb_pressed"]
 [connection signal="pressed" from="UI/Control/MarginContainer/VBoxContainer/Pink" to="." method="_on_pb_pressed"]
-[connection signal="pressed" from="UI/Control/MarginContainer/VBoxContainer/Oragne" to="." method="_on_ob_pressed"]
+[connection signal="pressed" from="UI/Control/MarginContainer/VBoxContainer/Orange" to="." method="_on_ob_pressed"]
 [connection signal="pressed" from="UI/Control/MarginContainer/VBoxContainer/Turquoise" to="." method="_on_tb_pressed"]
 [connection signal="pressed" from="UI/Control/MarginContainer/VBoxContainer/Lavanda" to="." method="_on_lb_pressed"]
 [connection signal="pressed" from="UI/BonusPlane/VBoxContainer/BonusPlane" to="." method="_on_bonus_plane_pressed"]

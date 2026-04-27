@@ -557,8 +557,12 @@ func _on_restart_pressed():
 		clear_data(color)
 	GameData.lines_data["active colors"] = ["yellow", "blue", "red"]
 	GameData.lines_data["inactive colors"] = ["light_blue", "green", "pink", "orange"]
-	lines_data["current color"] = "yellow"
-	lines_data["current hex color"] = Color(1.0, 0.812, 0.039, 1.0)
+	GameData.lines_data["current color"] = "yellow"
+	GameData.start_planes = 3
+	GameData.big_airports = 0
+	GameData.big_planes = 1
+	GameData.current_week = 1
+	GameData.lines_data["current hex color"] = Color(1.0, 0.812, 0.039, 1.0)
 	get_tree().change_scene_to_file("res://scene/MAP_IRAN.tscn")
 	GameData.start_planes = 3
 

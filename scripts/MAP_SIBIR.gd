@@ -18,10 +18,10 @@ var route_scene = load("res://scene/Route.tscn")
 @onready var speed_1_btn = $UI/Control/MarginContainer/VBoxContainer/Button
 @onready var speed_2_btn = $UI/Control/MarginContainer/VBoxContainer/Button2
 
-@onready var inactive_buttons = [$UI/Control/MarginContainer/VBoxContainer/LightBlue,
- 								$UI/Control/MarginContainer/VBoxContainer/Green,
- 								$UI/Control/MarginContainer/VBoxContainer/Pink,
- 								$UI/Control/MarginContainer/VBoxContainer/Oragne
+@onready var inactive_buttons = [$UI/Control/MarginContainer/VBoxContainer/Pink,
+ 								$UI/Control/MarginContainer/VBoxContainer/Orange,
+ 								$UI/Control/MarginContainer/VBoxContainer/Turquoise,
+ 								$UI/Control/MarginContainer/VBoxContainer/Lavanda
 ]
 var active_button: Node = null
 
@@ -117,7 +117,7 @@ func _ready():
 	
 	for i in range(3):
 		spawn_airport()
-		
+	
 	score_pack.scale = Vector2.ZERO
 	score_pack.modulate.a = 0
 	get_tree().create_timer(1.0).timeout.connect(animate_score)
@@ -510,43 +510,43 @@ func _setup_vignette(_airport):
 func _on_yb_pressed():
 	set_line_stroke(false)
 	_animate_clear_button($UI/Control/MarginContainer/VBoxContainer/Yellow)
-	lines_data["current color"] = "yellow"
+	lines_data["current color"] = "light_yellow"
 	lines_data["current hex color"] = Color(0.996, 0.784, 0.035, 1.0)
 
 func _on_bb_pressed():
 	set_line_stroke(false)
 	_animate_clear_button($UI/Control/MarginContainer/VBoxContainer/Blue)
-	lines_data["current color"] = "blue"
+	lines_data["current color"] = "light_blue"
 	lines_data["current hex color"] = Color(0.0, 0.424, 0.714, 1.0)
 
 func _on_bolb_pressed():
 	set_line_stroke(false)
-	_animate_clear_button($UI/Control/MarginContainer/VBoxContainer/Red)
-	lines_data["current color"] = "red"
+	_animate_clear_button($UI/Control/MarginContainer/VBoxContainer/Boloto)
+	lines_data["current color"] = "bolot"
 	lines_data["current hex color"] = Color(0.612, 0.604, 0.216, 1.0)
 
 func _on_pb_pressed() -> void:
 	set_line_stroke(false)
-	_animate_clear_button($UI/Control/MarginContainer/VBoxContainer/LightBlue)
-	lines_data["current color"] = "light_blue"
+	_animate_clear_button($UI/Control/MarginContainer/VBoxContainer/Pink)
+	lines_data["current color"] = "full_pink"
 	lines_data["current hex color"] = Color(0.839, 0.302, 0.608, 1.0)
 
 func _on_ob_pressed() -> void:
 	set_line_stroke(false)
-	_animate_clear_button($UI/Control/MarginContainer/VBoxContainer/Green)
-	lines_data["current color"] = "green"
+	_animate_clear_button($UI/Control/MarginContainer/VBoxContainer/Orange)
+	lines_data["current color"] = "light_orange"
 	lines_data["current hex color"] = Color(1.0, 0.565, 0.282, 1.0)
 
 func _on_tb_pressed() -> void:
 	set_line_stroke(false)
-	_animate_clear_button($UI/Control/MarginContainer/VBoxContainer/Pink)
-	lines_data["current color"] = "pink"
+	_animate_clear_button($UI/Control/MarginContainer/VBoxContainer/Turqoise)
+	lines_data["current color"] = "turqoise"
 	lines_data["current hex color"] = Color(0.208, 0.769, 0.576, 1.0)
 
 func _on_lb_pressed() -> void:
 	set_line_stroke(false)
-	_animate_clear_button($UI/Control/MarginContainer/VBoxContainer/Oragne)
-	lines_data["current color"] = "orange"
+	_animate_clear_button($UI/Control/MarginContainer/VBoxContainer/Lavanda)
+	lines_data["current color"] = "lavanda"
 	lines_data["current hex color"] = Color(1.0, 0.624, 0.706, 1.0)
 
 func _on_restart_pressed():
@@ -554,10 +554,14 @@ func _on_restart_pressed():
 	get_tree().paused = false
 	for color in GameData.lines_data["active colors"]:
 		clear_data(color)
-	GameData.lines_data["active colors"] = ["yellow", "blue", "red"]
-	GameData.lines_data["inactive colors"] = ["light_blue", "green", "pink", "orange"]
-	lines_data["current color"] = "yellow"
-	lines_data["current hex color"] = Color(1.0, 0.812, 0.039, 1.0)
+	GameData.lines_data["active colors"] = ["light_yellow", "light_blue", "bolot"]
+	GameData.lines_data["inactive colors"] = ["full_pink", "light_orange", "turquoise", "lavanda"]
+	GameData.lines_data["current color"] = "light_yellow"
+	GameData.start_planes = 3
+	GameData.big_airports = 0
+	GameData.big_planes = 0
+	GameData.current_week = 1
+	GameData.lines_data["current hex color"] = Color(1.0, 0.812, 0.039, 1.0)
 	get_tree().change_scene_to_file("res://scene/MAP_SIBIR.tscn")
 	GameData.start_planes = 3
 
