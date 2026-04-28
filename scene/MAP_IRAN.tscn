@@ -231,16 +231,16 @@ visible = false
 process_mode = 3
 
 [node name="Vinetka" type="TextureRect" parent="GameOverUI/MainPack" unique_id=2127894638]
-offset_right = 2573.0
-offset_bottom = 1611.0
+offset_right = 2448.0
+offset_bottom = 1258.0
 texture = ExtResource("3_ts4wl")
 
 [node name="Restart" type="Button" parent="GameOverUI/MainPack" unique_id=1597837865]
 process_mode = 3
-offset_left = 247.0
-offset_top = 1038.0
-offset_right = 1181.06
-offset_bottom = 1216.0
+offset_left = 262.0
+offset_top = 757.0
+offset_right = 1196.06
+offset_bottom = 935.0
 pivot_offset = Vector2(150, 40)
 icon = ExtResource("4_ap85m")
 flat = true
@@ -248,10 +248,10 @@ expand_icon = true
 
 [node name="Menu" type="Button" parent="GameOverUI/MainPack" unique_id=556172914]
 process_mode = 3
-offset_left = 243.0
-offset_top = 1218.0
-offset_right = 887.733
-offset_bottom = 1351.0
+offset_left = 258.0
+offset_top = 937.0
+offset_right = 902.733
+offset_bottom = 1070.0
 pivot_offset = Vector2(150, 40)
 icon = ExtResource("5_tu5oa")
 flat = true

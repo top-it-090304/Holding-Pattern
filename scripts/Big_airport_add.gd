@@ -5,12 +5,14 @@ var ghost_plane: Sprite2D
 @onready var fly_ghost = %TextureRect
 
 func _ready():
-		Events.stop_plane_add.connect(_stop_plane_add)
+	$".".visible = false
+	Events.stop_plane_add.connect(_stop_plane_add)
 
 func _process(_delta):
 	if GameData.big_airports == 0:
 		texture = load("res://objects/count_airport_Zero.png")
 	if GameData.big_airports > 0:
+		$".".visible = true
 		texture = load("res://objects/Bonus_airport.png")
 	if is_dragging and is_instance_valid(ghost_plane):
 		var mouse_pos_viewport = get_viewport().get_mouse_position() + Vector2(0, -180)

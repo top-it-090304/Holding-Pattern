@@ -94,7 +94,7 @@ script = ExtResource("1_gam1i")
 [node name="Camera2D" type="Camera2D" parent="." unique_id=779560249]
 position = Vector2(1445, 383)
 ignore_rotation = false
-zoom = Vector2(2.1, 2.1)
+zoom = Vector2(2.4, 2.4)
 
 [node name="Map" type="Sprite2D" parent="." unique_id=1957171559]
 z_index = -1
@@ -229,16 +229,16 @@ visible = false
 process_mode = 3
 
 [node name="Vinetka" type="TextureRect" parent="GameOverUI/MainPack" unique_id=1542630280]
-offset_right = 2573.0
-offset_bottom = 1611.0
+offset_right = 2457.0
+offset_bottom = 1262.0
 texture = ExtResource("2_gam1i")
 
 [node name="Restart" type="Button" parent="GameOverUI/MainPack" unique_id=597973882]
 process_mode = 3
-offset_left = 247.0
-offset_top = 1038.0
-offset_right = 1181.06
-offset_bottom = 1216.0
+offset_left = 278.0
+offset_top = 749.0
+offset_right = 1212.06
+offset_bottom = 927.0
 pivot_offset = Vector2(150, 40)
 icon = ExtResource("3_6trm6")
 flat = true
@@ -246,10 +246,10 @@ expand_icon = true
 
 [node name="Menu" type="Button" parent="GameOverUI/MainPack" unique_id=1687148644]
 process_mode = 3
-offset_left = 243.0
-offset_top = 1218.0
-offset_right = 887.733
-offset_bottom = 1351.0
+offset_left = 274.0
+offset_top = 929.0
+offset_right = 918.733
+offset_bottom = 1062.0
 pivot_offset = Vector2(150, 40)
 icon = ExtResource("4_3bhkq")
 flat = true
