@@ -65,6 +65,7 @@ var is_drawing: bool = false
 var pred_line: Line2D
 
 var station_slots = {}
+var is_refreshing = false
 
 var lines_data = GameData.lines_data
 var clear_data_twin: Tween
@@ -232,7 +233,7 @@ func _input(event):
 				is_drawing = true
 				set_line_stroke(true)
 			else:
-				refresh_line_hand()
+				refresh_all_airports()
 				set_line_stroke(false)
 				is_drawing = false
 				stop_draw()
@@ -292,7 +293,7 @@ func create_route(a, b):
 	route.add_to_group("routes")
 	add_child(route)
 	route.create_line(a, b)
-	refresh_line_hand()
+	refresh_all_airports()
 	if route.handle_start: route.handle_start.handle_grabbed.connect(_on_handle_grabbed)
 	if route.handle_end: route.handle_end.handle_grabbed.connect(_on_handle_grabbed)
 
@@ -376,16 +377,22 @@ func _on_handle_grabbed(route, is_start):
 			a.draw_stroke(true)
 
 func refresh_line_hand():
+	if is_refreshing:
+		return
+	
+	is_refreshing = true
 	var color_name = GameData.lines_data["current color"]
 	var routes_array = GameData.lines_data[color_name + "_routes"]
-	if routes_array.is_empty():
-		return
-
-	for route_dict in routes_array:
-		var route_node = route_dict["route"]
-		if is_instance_valid(route_node):
-			route_node.update_hand()
-			
+	
+	if not routes_array.is_empty():
+		for route_dict in routes_array:
+			var route_node = route_dict["route"]
+			if is_instance_valid(route_node):
+				route_node.update_hand()
+	
+	is_refreshing = false
+	
+	
 func get_handle_angle(airport, query_color: String) -> float:
 	var terminal_colors = []
 	var all_colors = GameData.lines_data["active colors"] + GameData.lines_data["inactive colors"]
@@ -401,8 +408,8 @@ func get_handle_angle(airport, query_color: String) -> float:
 							terminal_colors.append(color)
 	
 	if terminal_colors.size() <= 1:
-		return -999.0 
-	
+		return -999.0
+		
 	terminal_colors.sort()
 	var idx = terminal_colors.find(query_color)
 	
@@ -414,8 +421,25 @@ func get_handle_angle(airport, query_color: String) -> float:
 		deg_to_rad(180),
 		deg_to_rad(225)
 	]
-	
 	return slots[idx % slots.size()]
+	
+func _on_line_connected(airport):
+	_refresh_handles_for_airport(airport)
+
+func refresh_all_airports():
+	var airports = get_tree().get_nodes_in_group("airports") 
+	for airport in airports:
+		_refresh_handles_for_airport(airport)
+
+func _refresh_handles_for_airport(airport_node):
+	var all_colors = GameData.lines_data["active colors"] + GameData.lines_data["inactive colors"]
+	for color in all_colors:
+		var routes = GameData.lines_data.get(color + "_routes", [])
+		for r in routes:
+			var route_node = r["route"]
+			if is_instance_valid(route_node):
+				if route_node.route_data["start_airport"] == airport_node or route_node.route_data["end_airport"] == airport_node:
+					route_node.update_hand()
 
 func deleted_station_slot(airport, color):
 	if station_slots.has(airport):

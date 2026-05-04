@@ -25,59 +25,111 @@ func _animation_spawn_pass_(value: float):
 func draw_passengers(drawer: Node2D):
 	var start_pos = Vector2(22, -8)
 	var spacing = 15
-	var max_in_row = drawer.max_passengers - 1
+	var max_in_row = 5
 	var passenger_color = Color(0.173, 0.157, 0.173, 1.0)
 	var p_size = 7
-	
-	for i in range(passengers.size()):
-		var shape = passengers[i]
-		@warning_ignore("integer_division")
-		var row = int(i / max_in_row)
-		var col = i % max_in_row
-		var pos
-		var revers_col
-		
-		var current_scale = 1.0
-		if i == passengers.size() - 1:
-			current_scale = new_passenger_scale
-		
-		if i == drawer.max_passengers - 2:
-			start_pos = Vector2(32, -6)
-			pos = start_pos + Vector2(col * spacing, row * spacing)
-			passenger_color.a = 0.86
-		
-		elif i > drawer.max_passengers - 2:
-			start_pos = Vector2(15, -11)
-			revers_col = (max_in_row - 1) - col
-			pos = start_pos + Vector2(revers_col * spacing, row * spacing)
-			passenger_color.a = 0.73
-		
-		else:
-			start_pos = Vector2(30, -13)
-			pos = start_pos + Vector2(col * spacing, row * spacing)
-		
-		if i > drawer.max_passengers + 1:
-			break
-		
-		match shape:
-			GameData.ShapeType.CIRCLE:
-				drawer.draw_circle(pos, p_size * current_scale, passenger_color)
-				
-			GameData.ShapeType.SQUARE:
-				var s = p_size * current_scale
-				var rect = Rect2(pos - Vector2(s, s), Vector2(s * 2, s * 2))
-				drawer.draw_rect(rect, passenger_color, true)
-				
-			GameData.ShapeType.TRIANGLE:
-				var size = p_size * current_scale * 2.2
-				var h = size * sqrt(3) / 2
-				
-				var points = PackedVector2Array([
-					pos + Vector2(0, -h/2),
-					pos + Vector2(size/2, h/2),
-					pos + Vector2(-size/2, h/2)
-				])
-				
-				drawer.draw_colored_polygon(points, passenger_color)
+	if drawer.is_big:
+		max_in_row += 1
+		for i in range(passengers.size()):
+			var shape = passengers[i]
+			@warning_ignore("integer_division")
+			var row = int(i / max_in_row)
+			var col = i % max_in_row
+			var pos
+			var revers_col
+			
+			var current_scale = 1.0
+			if i == passengers.size() - 1:
+				current_scale = new_passenger_scale
+			
+			if i == drawer.max_passengers - 5:
+				start_pos = Vector2(32, -6)
+				pos = start_pos + Vector2(col * spacing, row * spacing)
+				passenger_color.a = 0.86
+			
+			elif i > drawer.max_passengers - 5:
+				start_pos = Vector2(15, -11)
+				revers_col = (max_in_row - 1) - col
+				pos = start_pos + Vector2(revers_col * spacing, row * spacing)
+				passenger_color.a = 0.73
+			
+			else:
+				start_pos = Vector2(30, -13)
+				pos = start_pos + Vector2(col * spacing, row * spacing)
+			
+			if i > drawer.max_passengers + 1:
+				break
+			
+			match shape:
+				GameData.ShapeType.CIRCLE:
+					drawer.draw_circle(pos, p_size * current_scale, passenger_color)
+					
+				GameData.ShapeType.SQUARE:
+					var s = p_size * current_scale
+					var rect = Rect2(pos - Vector2(s, s), Vector2(s * 2, s * 2))
+					drawer.draw_rect(rect, passenger_color, true)
+					
+				GameData.ShapeType.TRIANGLE:
+					var size = p_size * current_scale * 2.2
+					var h = size * sqrt(3) / 2
+					
+					var points = PackedVector2Array([
+						pos + Vector2(0, -h/2),
+						pos + Vector2(size/2, h/2),
+						pos + Vector2(-size/2, h/2)
+					])
+					
+					drawer.draw_colored_polygon(points, passenger_color)
+	else:
+		for i in range(passengers.size()):
+			var shape = passengers[i]
+			@warning_ignore("integer_division")
+			var row = int(i / max_in_row)
+			var col = i % max_in_row
+			var pos
+			var revers_col
+			
+			var current_scale = 1.0
+			if i == passengers.size() - 1:
+				current_scale = new_passenger_scale
+			
+			if i == drawer.max_passengers - 2:
+				start_pos = Vector2(32, -6)
+				pos = start_pos + Vector2(col * spacing, row * spacing)
+				passenger_color.a = 0.86
+			
+			elif i > drawer.max_passengers - 2:
+				start_pos = Vector2(15, -11)
+				revers_col = (max_in_row - 1) - col
+				pos = start_pos + Vector2(revers_col * spacing, row * spacing)
+				passenger_color.a = 0.73
+			
+			else:
+				start_pos = Vector2(30, -13)
+				pos = start_pos + Vector2(col * spacing, row * spacing)
+			
+			if i > drawer.max_passengers + 1:
+				break
+			
+			match shape:
+				GameData.ShapeType.CIRCLE:
+					drawer.draw_circle(pos, p_size * current_scale, passenger_color)
+					
+				GameData.ShapeType.SQUARE:
+					var s = p_size * current_scale
+					var rect = Rect2(pos - Vector2(s, s), Vector2(s * 2, s * 2))
+					drawer.draw_rect(rect, passenger_color, true)
+					
+				GameData.ShapeType.TRIANGLE:
+					var size = p_size * current_scale * 2.2
+					var h = size * sqrt(3) / 2
+					
+					var points = PackedVector2Array([
+						pos + Vector2(0, -h/2),
+						pos + Vector2(size/2, h/2),
+						pos + Vector2(-size/2, h/2)
+					])
+					
+					drawer.draw_colored_polygon(points, passenger_color)
 				
 				

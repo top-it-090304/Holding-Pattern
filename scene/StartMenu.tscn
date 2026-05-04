@@ -420,6 +420,7 @@ bus = &"Music"
 [connection signal="pressed" from="Back_right" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="LevelSelect/CardsPack/Map_1" to="." method="_on_map_1_pressed"]
 [connection signal="pressed" from="LevelSelect/CardsPack/Map_2" to="." method="_on_map_2_pressed"]
+[connection signal="pressed" from="LevelSelect/CardsPack/Map_3" to="." method="_on_map_3_pressed"]
 [connection signal="pressed" from="SettingsMenu/VolumePlus" to="." method="_on_volume_plus_pressed"]
 [connection signal="pressed" from="SettingsMenu/VolumeMinus" to="." method="_on_volume_minus_pressed"]
 [connection signal="pressed" from="SettingsMenu/SoundMinus" to="." method="_on_sound_minus_pressed"]

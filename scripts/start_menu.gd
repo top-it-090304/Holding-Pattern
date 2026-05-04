@@ -70,6 +70,18 @@ func _on_map_2_pressed() -> void:
 	GameData.big_planes = 1
 	GameData.current_week = 1
 	GameData.lines_data["current hex color"] = Color(1.0, 0.812, 0.039, 1.0)
+	
+func _on_map_3_pressed() -> void:
+	SoundManager.play("click_button")
+	get_tree().change_scene_to_file("res://scene/MAP_AUSTRALIA.tscn")
+	GameData.lines_data["active colors"] = ["yellow", "blue", "red"]
+	GameData.lines_data["inactive colors"] = ["light_blue", "green", "pink", "orange"]
+	GameData.lines_data["current color"] = "yellow"
+	GameData.start_planes = 3
+	GameData.big_airports = 1
+	GameData.big_planes = 1
+	GameData.current_week = 1
+	GameData.lines_data["current hex color"] = Color(1.0, 0.812, 0.039, 1.0)
 
 func _on_settings_pressed():
 	SoundManager.play("click_button")

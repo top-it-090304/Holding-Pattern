@@ -778,4 +778,3 @@ func _on_pause_button_pressed() -> void:
 		
 	target_rotation = pause_camera_rotation 
 	tween.tween_property(camera, "rotation", target_rotation, 0.7).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
-	

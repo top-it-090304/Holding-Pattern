@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://sp2ta70qytu6" path="res://scripts/MAP_IRAN.gd" id="1_1hfpl"]
 [ext_resource type="Texture2D" uid="uid://po01xbkyu0m5" path="res://objects/map3d.png" id="2_4vfsl"]
-[ext_resource type="Script" uid="uid://klqdhwym7rg7" path="res://scripts/Settings.gd" id="3_6pevr"]
 [ext_resource type="Texture2D" uid="uid://cya118am2kgj2" path="res://objects/Vinetka.png" id="3_ts4wl"]
 [ext_resource type="Texture2D" uid="uid://i5602sbm708r" path="res://objects/Restart.png" id="4_ap85m"]
 [ext_resource type="Texture2D" uid="uid://bt80hh32ovxqk" path="res://objects/Menu/resume.png" id="5_smxhb"]
@@ -111,7 +110,6 @@ autostart = true
 [node name="WeekTimer" type="Timer" parent="." unique_id=1969759407]
 wait_time = 142.0
 autostart = true
-script = ExtResource("3_6pevr")
 
 [node name="CountPlanePack" type="Control" parent="." unique_id=425050150]
 layout_mode = 3
