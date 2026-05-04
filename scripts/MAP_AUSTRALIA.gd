@@ -685,9 +685,21 @@ func _close_clear_animation(target_btn: Node):
 
 func _on_clear_data_pressed() -> void:
 	_close_clear_animation($UI/ClearData)
-	if lines_data["in_" + lines_data["current color"]]: 
+	var current_color = GameData.lines_data["current color"]
+	
+	if lines_data["in_" + current_color]: 
 		SoundManager.play("del_rout")
-		clear_data(GameData.lines_data["current color"])
+		
+		var routes = GameData.lines_data.get(current_color + "_routes", [])
+		for r in routes:
+			var route_node = r["route"]
+			if is_instance_valid(route_node):
+				var d = route_node.route_data
+				deleted_station_slot(d["start_airport"], current_color)
+				deleted_station_slot(d["end_airport"], current_color)
+		
+		clear_data(current_color)
+		refresh_all_airports()
 		
 		
 

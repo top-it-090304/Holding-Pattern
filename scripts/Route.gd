@@ -146,6 +146,7 @@ func update_hand():
 			var v_angle = map.get_handle_angle(route_data["start_airport"], route_data["color"])
 			if v_angle != -999.0:
 				final_angle = v_angle
+			
 		
 		var final_pos = points[0] + Vector2.from_angle(final_angle) * 35.0
 		handle_start.rotation = final_angle
@@ -193,6 +194,8 @@ func update_hand():
 		handle_end.visible = true
 	else:
 		if is_instance_valid(handle_end): handle_end.visible = false
+		
+
 		
 func count_connections(airport, color) -> int:
 	var count = 0
