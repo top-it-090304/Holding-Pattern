@@ -7,13 +7,13 @@ var route_scene = load("res://scene/Route.tscn")
 @onready var spawn_points := $AirportSpawn
 @onready var camera := $Camera2D
 @onready var score_pack = $UI/Control/MarginContainer/HBoxContainer/ScorePack
-@onready var score_label = $UI/Control/MarginContainer/HBoxContainer/ScorePack/Score
+@onready var score_label = $UI/Control/MarginContainer/HBoxContainer/ScorePack/Man/Score
 @onready var game_over_ui = $GameOverUI
-@onready var vinetka =  $GameOverUI/MainPack/Vinetka
-@onready var score_final_label = $GameOverUI/MainPack/ScoreLabel
-@onready var main_pack = $GameOverUI/MainPack
+@onready var vinetka = $GameOverUI/Control/Vinetka
+@onready var score_final_label = $GameOverUI/Control/MarginContainer/VBoxContainer/RichTextLabel2/ScoreLabel
+@onready var main_pack = $GameOverUI/Control
 
-@onready var buttons = [$GameOverUI/MainPack/Restart, $GameOverUI/MainPack/Menu]
+@onready var buttons = [$GameOverUI/Control/MarginContainer/VBoxContainer/Restart, $GameOverUI/Control/MarginContainer/VBoxContainer/Menu]
 
 @onready var speed_1_btn = $UI/Control/MarginContainer/VBoxContainer/Button
 @onready var speed_2_btn = $UI/Control/MarginContainer/VBoxContainer/Button2

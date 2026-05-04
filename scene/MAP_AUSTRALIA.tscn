@@ -225,41 +225,44 @@ expand_icon = true
 process_mode = 3
 visible = false
 
-[node name="MainPack" type="CanvasGroup" parent="GameOverUI" unique_id=323715491]
-process_mode = 3
+[node name="Control" type="Control" parent="GameOverUI" unique_id=675322361]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 
-[node name="Vinetka" type="TextureRect" parent="GameOverUI/MainPack" unique_id=279757744]
-offset_right = 2448.0
-offset_bottom = 1258.0
+[node name="Vinetka" type="TextureRect" parent="GameOverUI/Control" unique_id=279757744]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("10_o11eg")
 
-[node name="Restart" type="Button" parent="GameOverUI/MainPack" unique_id=371583746]
-process_mode = 3
-offset_left = 262.0
-offset_top = 757.0
-offset_right = 1196.06
-offset_bottom = 935.0
-pivot_offset = Vector2(150, 40)
-icon = ExtResource("11_qgruw")
-flat = true
-expand_icon = true
+[node name="MarginContainer" type="MarginContainer" parent="GameOverUI/Control" unique_id=1656101618]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 91
+theme_override_constants/margin_top = 35
+theme_override_constants/margin_right = 57
+theme_override_constants/margin_bottom = 35
 
-[node name="Menu" type="Button" parent="GameOverUI/MainPack" unique_id=544869854]
-process_mode = 3
-offset_left = 258.0
-offset_top = 937.0
-offset_right = 902.733
-offset_bottom = 1070.0
-pivot_offset = Vector2(150, 40)
-icon = ExtResource("12_hbvdu")
-flat = true
-expand_icon = true
+[node name="VBoxContainer" type="VBoxContainer" parent="GameOverUI/Control/MarginContainer" unique_id=966066191]
+layout_mode = 2
 
-[node name="RichTextLabel" type="RichTextLabel" parent="GameOverUI/MainPack" unique_id=467900163]
-offset_left = 656.0
-offset_top = 90.0
-offset_right = 1816.0
-offset_bottom = 299.0
+[node name="RichTextLabel" type="RichTextLabel" parent="GameOverUI/Control/MarginContainer/VBoxContainer" unique_id=1052437771]
+custom_minimum_size = Vector2(1168.545, 204.475)
+layout_mode = 2
+size_flags_horizontal = 4
 theme_override_colors/default_color = Color(0.2, 0.176471, 0.2, 1)
 theme_override_colors/font_outline_color = Color(0.2, 0.176471, 0.2, 1)
 theme_override_constants/outline_size = 7
@@ -268,23 +271,43 @@ theme_override_font_sizes/normal_font_size = 149
 bbcode_enabled = true
 text = "Игра окончена"
 
-[node name="RichTextLabel2" type="RichTextLabel" parent="GameOverUI/MainPack" unique_id=778111400]
-offset_left = 553.0
-offset_top = 293.0
-offset_right = 2066.0
-offset_bottom = 441.0
+[node name="RichTextLabel2" type="RichTextLabel" parent="GameOverUI/Control/MarginContainer/VBoxContainer" unique_id=1631423315]
+custom_minimum_size = Vector2(1289.07, 268.27)
+layout_mode = 2
+size_flags_horizontal = 4
 theme_override_colors/default_color = Color(0.2, 0.176471, 0.2, 1)
 theme_override_font_sizes/normal_font_size = 38
 text = "Переполнение этого аэропорта привело к закрытию вашей авиакомпании.
 В вашей авиакомпании Перевезено пассажиров:"
 
-[node name="ScoreLabel" type="Label" parent="GameOverUI/MainPack" unique_id=1209602335]
-offset_left = 1524.0
-offset_top = 345.0
-offset_right = 1606.0
-offset_bottom = 413.0
+[node name="ScoreLabel" type="Label" parent="GameOverUI/Control/MarginContainer/VBoxContainer/RichTextLabel2" unique_id=1246314158]
+layout_mode = 0
+offset_left = 971.0
+offset_top = 105.0
+offset_right = 1053.0
+offset_bottom = 173.0
 theme_override_colors/font_color = Color(0.2, 0.176471, 0.2, 1)
 theme_override_font_sizes/font_size = 39
+
+[node name="Control" type="Control" parent="GameOverUI/Control/MarginContainer/VBoxContainer" unique_id=799292775]
+custom_minimum_size = Vector2(0, 347.98)
+layout_mode = 2
+
+[node name="Restart" type="Button" parent="GameOverUI/Control/MarginContainer/VBoxContainer" unique_id=371583746]
+process_mode = 3
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 2
+icon = ExtResource("11_qgruw")
+flat = true
+expand_icon = true
+
+[node name="Menu" type="Button" parent="GameOverUI/Control/MarginContainer/VBoxContainer" unique_id=544869854]
+process_mode = 3
+custom_minimum_size = Vector2(0, 111.44)
+layout_mode = 2
+icon = ExtResource("12_hbvdu")
+flat = true
+expand_icon = true
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=612432463]
 
@@ -322,26 +345,35 @@ mouse_filter = 1
 icon = ExtResource("14_63lyc")
 flat = true
 
-[node name="ScorePack" type="Control" parent="UI/Control/MarginContainer/HBoxContainer" unique_id=867788102]
-custom_minimum_size = Vector2(1776.235, 0)
+[node name="ScorePack" type="Control" parent="UI/Control/MarginContainer/HBoxContainer" unique_id=502949578]
+custom_minimum_size = Vector2(121.575, 116.155)
 layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 0
 mouse_filter = 2
 
-[node name="Man" type="TextureRect" parent="UI/Control/MarginContainer/HBoxContainer/ScorePack" unique_id=1091955180]
-layout_mode = 0
-offset_left = 1597.845
-offset_right = 1727.845
-offset_bottom = 130.0
+[node name="Man" type="TextureRect" parent="UI/Control/MarginContainer/HBoxContainer/ScorePack" unique_id=969067014]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -130.0
+offset_top = -65.0
+offset_bottom = 65.0
+grow_horizontal = 0
+grow_vertical = 2
 size_flags_horizontal = 10
 size_flags_vertical = 0
 texture = ExtResource("15_lu3bg")
 
-[node name="Score" type="RichTextLabel" parent="UI/Control/MarginContainer/HBoxContainer/ScorePack" unique_id=53094982]
+[node name="Score" type="RichTextLabel" parent="UI/Control/MarginContainer/HBoxContainer/ScorePack/Man" unique_id=134286032]
 custom_minimum_size = Vector2(149.565, 88.555)
 layout_mode = 0
-offset_left = 1705.845
-offset_top = 12.36
-offset_right = 1855.41
+offset_left = 108.0
+offset_top = 12.360001
+offset_right = 257.56506
 offset_bottom = 100.91501
 size_flags_horizontal = 4
 size_flags_vertical = 0
@@ -353,15 +385,10 @@ bbcode_enabled = true
 text = "0"
 metadata/_edit_use_anchors_ = true
 
-[node name="Control" type="Control" parent="UI/Control/MarginContainer/HBoxContainer" unique_id=1251596667]
-custom_minimum_size = Vector2(311.675, 0)
-layout_mode = 2
-mouse_filter = 2
-
 [node name="Clock" type="Control" parent="UI/Control/MarginContainer/HBoxContainer" unique_id=688971247]
 custom_minimum_size = Vector2(162.275, 118.595)
 layout_mode = 2
-size_flags_horizontal = 2
+size_flags_horizontal = 10
 size_flags_vertical = 0
 mouse_filter = 2
 script = ExtResource("16_0i27f")
@@ -1111,8 +1138,8 @@ position = Vector2(1683, -187)
 [connection signal="pressed" from="PauseMenu/Continue" to="." method="_on_continue_pressed"]
 [connection signal="pressed" from="PauseMenu/Restart" to="." method="_on_restart_pressed"]
 [connection signal="pressed" from="PauseMenu/Menu" to="." method="_on_menu_pressed"]
-[connection signal="pressed" from="GameOverUI/MainPack/Restart" to="." method="_on_restart_pressed"]
-[connection signal="pressed" from="GameOverUI/MainPack/Menu" to="." method="_on_menu_pressed"]
+[connection signal="pressed" from="GameOverUI/Control/MarginContainer/VBoxContainer/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="GameOverUI/Control/MarginContainer/VBoxContainer/Menu" to="." method="_on_menu_pressed"]
 [connection signal="pressed" from="UI/Control/MarginContainer/HBoxContainer/PauseButton" to="." method="_on_pause_button_pressed"]
 [connection signal="pressed" from="UI/Control/MarginContainer/VBoxContainer/Yellow" to="." method="_on_yb_pressed"]
 [connection signal="pressed" from="UI/Control/MarginContainer/VBoxContainer/Blue" to="." method="_on_bb_pressed"]
