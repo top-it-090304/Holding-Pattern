@@ -94,7 +94,7 @@ script = ExtResource("1_gam1i")
 [node name="Camera2D" type="Camera2D" parent="." unique_id=779560249]
 position = Vector2(1445, 383)
 ignore_rotation = false
-zoom = Vector2(1.165, 1.165)
+zoom = Vector2(2.4, 2.4)
 
 [node name="Map" type="Sprite2D" parent="." unique_id=1957171559]
 z_index = -1
