@@ -5,7 +5,7 @@ extends Control
 @onready var riski = $Riski
 @onready var day_label = $WeekDay
 
-var day_time: float = 10.0
+var day_time: float = 10.135
 var current_time: float = 0.0
 var is_day = true
 var full_day = false
