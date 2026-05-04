@@ -122,13 +122,10 @@ script = ExtResource("8_4kmay")
 [node name="CardsPack" type="HBoxContainer" parent="LevelSelect" unique_id=1483034237]
 clip_contents = true
 layout_mode = 0
-offset_left = 57.58687
-offset_top = -46.85884
-offset_right = 1717.5869
-offset_bottom = 738.1412
+offset_right = 1220.0
+offset_bottom = 785.0
 pivot_offset = Vector2(170, 390)
 theme_override_constants/separation = 100
-metadata/_edit_lock_ = true
 
 [node name="Map_1" type="Button" parent="LevelSelect/CardsPack" unique_id=1026101079]
 z_index = 1
@@ -165,6 +162,7 @@ offset_right = 127.3
 offset_bottom = 716.692
 theme_override_colors/font_color = Color(0.203922, 0.180392, 0.203922, 1)
 theme_override_font_sizes/font_size = 26
+text = "1102"
 
 [node name="Map_3" type="Button" parent="LevelSelect/CardsPack" unique_id=1179616033]
 z_index = 1
@@ -172,23 +170,23 @@ layout_mode = 2
 icon = ExtResource("11_ui0tv")
 flat = true
 
-[node name="Score3" type="Label" parent="LevelSelect/CardsPack/Map_3" unique_id=1281007445]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.076
-anchor_right = 0.118
-offset_left = 100.009315
-offset_top = 672.5675
-offset_right = 125.72931
-offset_bottom = 714.81354
-theme_override_colors/font_color = Color(0.203922, 0.180392, 0.203922, 1)
-theme_override_font_sizes/font_size = 26
-
 [node name="Map_5" type="Button" parent="LevelSelect/CardsPack" unique_id=697018823]
 z_index = 1
 layout_mode = 2
 icon = ExtResource("12_ksajq")
 flat = true
+
+[node name="Score1" type="Label" parent="LevelSelect/CardsPack/Map_5" unique_id=997903130]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.076
+anchor_right = 0.118
+offset_left = 101.58
+offset_top = 674.446
+offset_right = 127.3
+offset_bottom = 716.692
+theme_override_colors/font_color = Color(0.203922, 0.180392, 0.203922, 1)
+theme_override_font_sizes/font_size = 26
 
 [node name="SettingsMenu" type="Control" parent="." unique_id=1786117160]
 layout_mode = 3

@@ -116,14 +116,21 @@ var color_values = {
 
 
 
+var high_scores = {
+	"level_1": 0,
+	"level_2": 0,
+	"level_3": 0
+}
+
+
 func _ready():
 	load_highscore()
 
-func save_highscore(new_score: int):
-	if new_score > high_score:
-		high_score = new_score
+func save_highscore(level_key: String, new_score: int):
+	if new_score > high_scores[level_key]:
+		high_scores[level_key] = new_score
 		var config = ConfigFile.new()
-		config.set_value("Progression", "high_score", high_score)
+		config.set_value("Progression", "high_scores", high_scores)
 		config.save(SAVE_PATH)
 
 func load_highscore():
@@ -131,6 +138,8 @@ func load_highscore():
 	var err = config.load(SAVE_PATH)
 	
 	if err == OK:
-		high_score = config.get_value("Progression", "high_score", 0)
-	else:
-		high_score = 0
+		var saved = config.get_value("Progression", "high_scores", null)
+		if saved is Dictionary:
+			for key in high_scores.keys():
+				if saved.has(key):
+					high_scores[key] = saved[key]

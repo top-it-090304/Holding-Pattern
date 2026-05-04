@@ -5,6 +5,7 @@ extends Node2D
 @onready var button = [$Back_right, $Back_down]
 @onready var high_score_1 = $LevelSelect/CardsPack/Map_1/Score1
 @onready var high_score_2 = $LevelSelect/CardsPack/Map_2/Score2
+@onready var high_score_3 = $LevelSelect/CardsPack/Map_3/Score3
 @onready var volume_values = ["Без звука", "Тихо", "Средне", "Громко"]
 @onready var sound_values = ["Без звука", "Минимум", "Максимум"]
 var vibration_true = preload("res://objects/VibrationTrue.png")
@@ -23,7 +24,9 @@ var target_rotation: float = 0.0
 
 func _ready():
 	load_settings()
-	high_score_1.text = str(GameData.high_score)
+	high_score_1.text = str(GameData.high_scores["level_1"])
+	high_score_2.text = str(GameData.high_scores["level_2"])
+	high_score_3.text = str(GameData.high_scores["level_3"])
 	target_pos = positions["main"]
 	camera.position = target_pos
 	target_rotation = 0.0

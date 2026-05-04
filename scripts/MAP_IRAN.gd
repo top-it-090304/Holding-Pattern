@@ -25,6 +25,7 @@ var route_scene = load("res://scene/Route.tscn")
 ]
 var active_button: Node = null
 
+var level_index = "level_1"
 
 var hover_scale = Vector2(1.2, 1.2)
 var normal_scale = Vector2(1.0, 1.0)
@@ -522,7 +523,7 @@ func game_over(_failed_airport):
 	tween.tween_property(main_pack, "self_modulate:a", 1.0, 1.8).from(0.0)
 	
 	var current_score = int(score_label.text)
-	GameData.save_highscore(current_score)
+	GameData.save_highscore(level_index, current_score)
 	
 	score_final_label.text = "Score: " + str(current_score)
 
