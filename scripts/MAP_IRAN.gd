@@ -662,8 +662,8 @@ func _on_ob_pressed() -> void:
 func _on_restart_pressed():
 	SoundManager.play("click_button")
 	get_tree().paused = false
-	for color in GameData.lines_data["active colors"]:
-		clear_data(color)
+	#for color in GameData.lines_data["active colors"]:
+		#clear_data(color)
 	GameData.lines_data["active colors"] = ["yellow", "blue", "red"]
 	GameData.lines_data["inactive colors"] = ["light_blue", "green", "pink", "orange"]
 	GameData.lines_data["current color"] = "yellow"
@@ -678,8 +678,8 @@ func _on_restart_pressed():
 func _on_menu_pressed():
 	SoundManager.play("click_button")
 	get_tree().paused = false
-	for color in GameData.lines_data["active colors"]:
-		clear_data(color)
+	#for color in GameData.lines_data["active colors"]:
+		#clear_data(color)
 	get_tree().change_scene_to_file("res://scene/StartMenu.tscn")
 
 func _on_button_hovered(hovered_btn):
@@ -704,14 +704,25 @@ func _on_button_unhovered():
 func _on_spawn_timer_timeout():
 	spawn_airport(current_phase)
 
-func clear_data(current_color):
-	GameData.lines_data["in_" + current_color] = false
-	GameData.lines_data[current_color + "_routes"].clear()
-	GameData.lines_data[current_color + "_airports"].clear()
-	GameData.lines_data[current_color + "_planes"].clear()
-	GameData.lines_data[current_color + "_shapes"].clear()
-	
 
+	
+func delete_line(current_color):
+	if !lines_data["in_" + current_color]:
+		return
+	SoundManager.play("del_rout")
+	var routes = GameData.lines_data[current_color + "_routes"].duplicate()
+
+	for r in routes:
+		var route_node = r["route"]
+		if is_instance_valid(route_node):
+			var d = route_node.route_data
+			deleted_station_slot(d["start_airport"], current_color)
+			deleted_station_slot(d["end_airport"], current_color)
+
+			route_node.begin_delete()
+			
+	refresh_all_airports()
+	
 func _animate_clear_button(target_btn: Node):
 	if active_button == target_btn:
 		$UI/ClearData.visible = true
@@ -760,30 +771,7 @@ func _close_clear_animation(target_btn: Node):
 
 func _on_clear_data_pressed():
 	_close_clear_animation($UI/ClearData)
-	var current_color = GameData.lines_data["current color"]
-
-	if !lines_data["in_" + current_color]:
-		return
-		
-	SoundManager.play("del_rout")
-	var routes = GameData.lines_data[current_color + "_routes"].duplicate()
-
-	for r in routes:
-		var route_node = r["route"]
-		if is_instance_valid(route_node):
-			var d = route_node.route_data
-
-			deleted_station_slot(d["start_airport"], current_color)
-			deleted_station_slot(d["end_airport"], current_color)
-			route_node.begin_delete()
-
-	GameData.lines_data["in_" + current_color] = false
-	GameData.lines_data[current_color + "_routes"].clear()
-	GameData.lines_data[current_color + "_airports"].clear()
-	GameData.lines_data[current_color + "_planes"].clear()
-	GameData.lines_data[current_color + "_shapes"].clear()
-
-	refresh_all_airports()
+	delete_line(GameData.lines_data["current color"])
 		
 
 func _on_week_timer_timeout() -> void:

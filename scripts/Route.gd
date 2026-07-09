@@ -81,9 +81,9 @@ func destroy_route():
 		var tween = create_tween().set_parallel(true)
 		tween.tween_property(visual, "width", 0.0, 0.25)
 		tween.tween_property(visual, "modulate:a", 0.0, 0.25)
-		tween.chain().tween_callback(queue_free)
-	else:
-		queue_free()
+		#tween.chain().tween_callback(qeuue_free)
+	#else:
+		#queue_free()
 
 
 @warning_ignore("shadowed_variable")
@@ -131,6 +131,7 @@ func unregister_plane(plane):
 	active_planes.erase(plane)
 
 	if pending_delete and active_planes.is_empty():
+		GameData.clear_data(route_data["color"])
 		destroy_route()
 
 
@@ -152,10 +153,14 @@ func begin_delete():
 	if visual:
 		var tween = create_tween()
 		tween.tween_property(visual, "modulate:a", 0.4, 0.25)
-
+	
 	for plane in active_planes:
 		if is_instance_valid(plane):
 			plane.begin_delete()
+			
+	print("ACTIVE PLANES: ", active_planes.size())
+	for p in active_planes:
+		print(p)
 
 	if active_planes.is_empty():
 		destroy_route()
@@ -264,3 +269,4 @@ func count_connections(airport, color) -> int:
 				count += 1
 	return count
 			
+		

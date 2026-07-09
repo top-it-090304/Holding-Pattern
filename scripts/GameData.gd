@@ -132,6 +132,13 @@ var color_values = {
 	"lavanda": Color(1.0, 0.624, 0.706, 1.0),
 }
 
+func clear_data(current_color):
+	GameData.lines_data["in_" + current_color] = false
+	GameData.lines_data[current_color + "_routes"].clear()
+	GameData.lines_data[current_color + "_airports"].clear()
+	GameData.lines_data[current_color + "_planes"].clear()
+	GameData.lines_data[current_color + "_shapes"].clear()
+
 
 var high_scores = {
 	"level_1": 0,

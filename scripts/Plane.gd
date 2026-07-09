@@ -494,6 +494,7 @@ func handle_passengers(airport):
 
 
 func begin_delete():
+	print("BEGIN DELETE ", self)
 	if pending_delete:
 		return
 		
@@ -504,6 +505,7 @@ func begin_delete():
 	tween.tween_property(self, "modulate:a", 0.4, 0.25)
 	
 func _finish_delete(arrived_airport):
+	print("FINISH DELETE")
 	set_process(false)
 	is_waiting = false
 
@@ -532,3 +534,4 @@ func _finish_delete(arrived_airport):
 		label.update_counter()
 
 	tween.chain().tween_callback(queue_free)
+	
