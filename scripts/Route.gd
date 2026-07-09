@@ -10,11 +10,9 @@ var my_curves: Array[Curve2D] = []
 var lines_data = GameData.lines_data
 var route_data
 
-
 var is_fading: bool = false
 var active_planes: Array = []
-
-var is_shrinking_started: bool = false
+var pending_delete: bool = false
 
 func _ready():
 	add_to_group("routes")
@@ -35,6 +33,7 @@ func create_line(airport_a, airport_b):
 	var p2 = airport_b.position
 	var offset
 	
+		
 	var mid = (p0 + p2) / 2
 	if p2.x < p0.x:
 		offset = (p2 - p0).rotated(PI/2).normalized() * (p0.distance_to(p2) * 0.2)
@@ -51,14 +50,13 @@ func create_line(airport_a, airport_b):
 	my_curves.append(curve)
 	
 	var color_name = lines_data["current color"]
+	
 	var shapes_list = GameData.lines_data[color_name + "_shapes"]
 	
 	if not airport_a.my_shape in shapes_list:
-		print("+ точка")
 		shapes_list.append(airport_a.my_shape)
 		
 	if not airport_b.my_shape in shapes_list:
-		print("+ точка")
 		shapes_list.append(airport_b.my_shape) 
 	
 	route_data = {
@@ -76,71 +74,14 @@ func create_line(airport_a, airport_b):
 		if GameData.start_planes > 0:
 			spawn_plane(route_data, 0.0, false)
 		lines_data["in_" + color_name] = true
-
-func fade_out():
-	if is_fading: return
-	is_fading = true
-	
-	if is_instance_valid(handle_start) and handle_start.visible:
-		var start_target = route_data["start_airport"].position
-		var tween_start = create_tween().set_parallel(true).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_IN)
-		tween_start.tween_property(handle_start, "position", start_target, 0.2)
-		tween_start.tween_property(handle_start, "scale", Vector2.ZERO, 0.18)
-		tween_start.tween_property(handle_start, "modulate:a", 0.0, 0.15)
-		tween_start.chain().tween_callback(func(): handle_start.queue_free())
 		
-	if is_instance_valid(handle_end) and handle_end.visible:
-		var end_target = route_data["end_airport"].position
-		var tween_end = create_tween().set_parallel(true).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_IN)
-		tween_end.tween_property(handle_end, "position", end_target, 0.2)
-		tween_end.tween_property(handle_end, "scale", Vector2.ZERO, 0.18)
-		tween_end.tween_property(handle_end, "modulate:a", 0.0, 0.15)
-		tween_end.chain().tween_callback(func(): handle_end.queue_free())
-
-	var visual_line = get_node_or_null("Line2D_Visual")
-	if visual_line:
-		var line_tween = create_tween()
-		line_tween.tween_property(visual_line, "modulate:a", 0.5, 0.3)
-
-	for plane in active_planes:
-		if is_instance_valid(plane) and plane.has_method("set_fading"):
-			plane.set_fading()
-			
-	_check_destruction_conditions()
-
-func register_plane(plane):
-	if not plane in active_planes:
-		active_planes.append(plane)
-
-func unregister_plane(plane):
-	active_planes.erase(plane)
-	_check_destruction_conditions()
-
-func _process(_delta):
-	if is_fading:
-		var still_active = []
-		for plane in active_planes:
-			if is_instance_valid(plane):
-				still_active.append(plane)
-		active_planes = still_active
-		
-		_check_destruction_conditions()
-
-func _check_destruction_conditions():
-	if is_fading and active_planes.is_empty():
-		if not is_shrinking_started:
-			_start_shrinking_animation()
-
-
-func _start_shrinking_animation():
-	is_shrinking_started = true
-	var visual_line = get_node_or_null("Line2D_Visual")
-	
-	if visual_line:
-		var line_tween = create_tween().set_parallel(true).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN)
-		line_tween.tween_property(visual_line, "width", 0.0, 0.2)
-		line_tween.tween_property(visual_line, "modulate:a", 0.0, 0.2)
-		line_tween.chain().tween_callback(queue_free)
+func destroy_route():
+	var visual = get_node_or_null("Line2D_Visual")
+	if visual:
+		var tween = create_tween().set_parallel(true)
+		tween.tween_property(visual, "width", 0.0, 0.25)
+		tween.tween_property(visual, "modulate:a", 0.0, 0.25)
+		tween.chain().tween_callback(queue_free)
 	else:
 		queue_free()
 
@@ -151,6 +92,7 @@ func spawn_plane(route_data: Dictionary, start_t: float, is_big: bool):
 		GameData.start_planes -= 1
 		var plane = plane_scene.instantiate()
 		add_child(plane)
+		register_plane(plane)
 		
 		plane.current_route = route_data
 		plane.color = route_data["color"]
@@ -158,7 +100,6 @@ func spawn_plane(route_data: Dictionary, start_t: float, is_big: bool):
 		plane.current_speed = 0.0
 		
 		lines_data[route_data["color"] + "_planes"].append(plane)
-		register_plane(plane)
 		plane.setup_with_route(route_data, start_t)
 		
 		var CountPlane = get_tree().get_first_node_in_group("countPlane")
@@ -168,21 +109,61 @@ func spawn_plane(route_data: Dictionary, start_t: float, is_big: bool):
 		GameData.big_planes -= 1
 		var plane = big_plane_scene.instantiate()
 		add_child(plane)
+		register_plane(plane)
 		
 		plane.current_route = route_data
 		plane.color = route_data["color"]
 		plane.t = start_t
 		
 		lines_data[route_data["color"] + "_planes"].append(plane)
-		register_plane(plane)
 		plane.setup_with_route(route_data, start_t)
 		
 		var CountPlane = get_tree().get_first_node_in_group("countBigPlane")
 		if CountPlane:
 			CountPlane.on_plane_spawned()
+			
+func register_plane(plane):
+	if plane not in active_planes:
+		active_planes.append(plane)
+
+
+func unregister_plane(plane):
+	active_planes.erase(plane)
+
+	if pending_delete and active_planes.is_empty():
+		destroy_route()
+
+
+func begin_delete():
+
+	if pending_delete:
+		return
+		
+	pending_delete = true
+	is_fading = true
+	
+	if is_instance_valid(handle_start):
+		handle_start.queue_free()
+
+	if is_instance_valid(handle_end):
+		handle_end.queue_free()
+
+	var visual = get_node_or_null("Line2D_Visual")
+	if visual:
+		var tween = create_tween()
+		tween.tween_property(visual, "modulate:a", 0.4, 0.25)
+
+	for plane in active_planes:
+		if is_instance_valid(plane):
+			plane.begin_delete()
+
+	if active_planes.is_empty():
+		destroy_route()
+
 
 func update_hand():
-	if is_fading: return
+	if is_fading:
+		return
 
 	if my_curves.is_empty() or typeof(route_data) != TYPE_DICTIONARY:
 		return
@@ -222,11 +203,13 @@ func update_hand():
 			if v_angle != -999.0:
 				final_angle = v_angle
 			
+		
 		var final_pos = points[0] + Vector2.from_angle(final_angle) * 35.0
 		handle_start.rotation = final_angle
 		handle_start.position = final_pos
 		handle_start.visible = true
 
+				
 		if was_hidden:
 			handle_start.animate_appearance(points[0], final_pos, final_angle)
 		else:
@@ -268,14 +251,11 @@ func update_hand():
 	else:
 		if is_instance_valid(handle_end): handle_end.visible = false
 		
+
+		
 func count_connections(airport, color) -> int:
 	var count = 0
-	if is_fading: return 0
-	
-	var routes_key = color + "_routes"
-	if not GameData.lines_data.has(routes_key): return 0
-	
-	for r in GameData.lines_data[routes_key]:
+	for r in GameData.lines_data[color + "_routes"]:
 		if is_instance_valid(r["route"]) and typeof(r["route"].route_data) == TYPE_DICTIONARY:
 			var r_data = r["route"].route_data
 			if r_data["start_airport"] == airport:
@@ -283,3 +263,4 @@ func count_connections(airport, color) -> int:
 			if r_data["end_airport"] == airport:
 				count += 1
 	return count
+			

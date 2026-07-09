@@ -705,16 +705,6 @@ func _on_spawn_timer_timeout():
 	spawn_airport(current_phase)
 
 func clear_data(current_color):
-	for plane in GameData.lines_data[current_color + "_planes"]:
-		if plane.is_big:
-			GameData.big_planes += 1
-		else:
-			GameData.start_planes += 1
-	if GameData.lines_data[current_color + "_planes"]:
-		for plane in GameData.lines_data[current_color + "_planes"]:
-			plane.queue_free()
-	for route in GameData.lines_data[current_color + "_routes"]:
-		route["route"].queue_free()
 	GameData.lines_data["in_" + current_color] = false
 	GameData.lines_data[current_color + "_routes"].clear()
 	GameData.lines_data[current_color + "_airports"].clear()
@@ -768,36 +758,32 @@ func _close_clear_animation(target_btn: Node):
 	clear_data_twin.tween_property(clear_btn, "modulate:a", 0.0, 0.1)
 	clear_data_twin.chain().tween_callback(func(): clear_btn.visible = false)
 
-func _on_clear_data_pressed() -> void:
+func _on_clear_data_pressed():
 	_close_clear_animation($UI/ClearData)
 	var current_color = GameData.lines_data["current color"]
-	
-	if lines_data["in_" + current_color]: 
-		SoundManager.play("del_rout")
+
+	if !lines_data["in_" + current_color]:
+		return
 		
-		var routes = GameData.lines_data.get(current_color + "_routes", [])
-		for r in routes:
-			var route_node = r["route"]
-			if is_instance_valid(route_node):
-				var d = route_node.route_data
-				deleted_station_slot(d["start_airport"], current_color)
-				deleted_station_slot(d["end_airport"], current_color)
-				
-				if route_node.has_method("fade_out"):
-					route_node.fade_out()
-				else:
-					route_node.queue_free()
-		
-		clear_data_logic_only(current_color)
-		refresh_all_airports()
-		
-func clear_data_logic_only(current_color):
+	SoundManager.play("del_rout")
+	var routes = GameData.lines_data[current_color + "_routes"].duplicate()
+
+	for r in routes:
+		var route_node = r["route"]
+		if is_instance_valid(route_node):
+			var d = route_node.route_data
+
+			deleted_station_slot(d["start_airport"], current_color)
+			deleted_station_slot(d["end_airport"], current_color)
+			route_node.begin_delete()
+
 	GameData.lines_data["in_" + current_color] = false
 	GameData.lines_data[current_color + "_routes"].clear()
 	GameData.lines_data[current_color + "_airports"].clear()
+	GameData.lines_data[current_color + "_planes"].clear()
 	GameData.lines_data[current_color + "_shapes"].clear()
-	if GameData.has_method("clear_route_cache"):
-		GameData.clear_route_cache()
+
+	refresh_all_airports()
 		
 
 func _on_week_timer_timeout() -> void:

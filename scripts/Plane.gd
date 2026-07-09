@@ -7,7 +7,6 @@ var current_speed: float = 0.0
 var forward: bool = true
 var color: String
 var is_big: bool = false
-var is_fading: bool = false
 
 var cargo: Array = []
 var max_seats: int = 6
@@ -17,12 +16,18 @@ var is_loading = false
 var is_waiting: bool = false
 var current_target_airport = null
 
+var is_fading: bool = false
+var pending_delete: bool = false
+
 func _input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
+		if pending_delete:
+			return
+			
 		var mouse_pos = get_global_mouse_position()
 		
 		if event.pressed:
-			if GameData.is_take_plane or is_fading: 
+			if GameData.is_take_plane: 
 				return
 				
 			var grabbed_handle = _is_mouse_over_any_handle(mouse_pos)
@@ -44,19 +49,6 @@ func _input(event):
 			is_transport_plane = false
 			GameData.is_take_plane = false
 			_drop_plane()
-			
-func set_fading():
-	if is_fading: return
-	is_fading = true
-
-	var tween = create_tween()
-	tween.tween_property(self, "modulate:a", 0.5, 1.0)
-	
-	if is_waiting or not is_processing():
-		var arrived_airport = null
-		if current_route:
-			arrived_airport = current_route["end_airport"] if forward else current_route["start_airport"]
-		_force_fade_out_at_airport(arrived_airport)
 
 func _is_mouse_over_any_handle(mouse_pos: Vector2) -> bool:
 	for route in get_tree().get_nodes_in_group("routes"):
@@ -147,34 +139,22 @@ func switch_to_next_route(arrived_at_end: bool):
 	var arrived_airport = current_route["end_airport"] if arrived_at_end else current_route["start_airport"]
 	
 	_upload_passenger(arrived_airport)
+	_load_passenger(arrived_airport)
 	
-	if not is_fading:
-		_load_passenger(arrived_airport)
-		
-	if is_fading:
-		_force_fade_out_at_airport(arrived_airport)
+	if pending_delete:
+		_finish_delete(arrived_airport)
 		return
-
+	
+	var next_route = null
+	for route_data_item in GameData.lines_data[color + "_routes"]:
+		if route_data_item != current_route:
+			if route_data_item["start_airport"] == arrived_airport or route_data_item["end_airport"] == arrived_airport:
+				next_route = route_data_item
+				break
+	
 	set_process(false)
 	current_speed = 0.0
-	
 	await get_tree().create_timer(1.6).timeout
-	
-
-	if is_fading or not is_instance_valid(self) or not is_instance_valid(arrived_airport):
-		_force_fade_out_at_airport(arrived_airport)
-		return
-
-	var next_route = null
-	var routes_key = color + "_routes"
-	
-	if GameData.lines_data.has(routes_key):
-		for route_data_item in GameData.lines_data[routes_key]:
-			if route_data_item != current_route:
-				if route_data_item["start_airport"] == arrived_airport or route_data_item["end_airport"] == arrived_airport:
-					if is_instance_valid(route_data_item["route"]) and not route_data_item["route"].is_fading:
-						next_route = route_data_item
-						break
 	
 	if next_route == null:
 		forward = !forward
@@ -187,50 +167,17 @@ func switch_to_next_route(arrived_at_end: bool):
 			forward = false
 			
 		var old_route = current_route["route"]
-		if is_instance_valid(old_route) and old_route.has_method("unregister_plane"):
+		if is_instance_valid(old_route):
 			old_route.unregister_plane(self)
 			
 		current_route = next_route
 		
 		var new_route = current_route["route"]
-		if is_instance_valid(new_route) and new_route.has_method("register_plane"):
+		if is_instance_valid(new_route):
 			new_route.register_plane(self)
 	
 	start_plane(3.5)
 	set_process(true)
-
-func _force_fade_out_at_airport(airport):
-	set_process(false)
-	is_waiting = false
-	
-	if is_instance_valid(airport) and airport.passenger_manager:
-		for passenger in cargo:
-			airport.passenger_manager.passengers.append(passenger)
-		airport.queue_redraw()
-	cargo.clear()
-
-	var tween = create_tween().set_parallel(true)
-	tween.tween_property(self, "scale", Vector2.ZERO, 0.6).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_IN)
-	tween.tween_property(self, "modulate:a", 0.0, 0.6)
-	
-
-	if is_big:
-		GameData.big_planes += 1
-	else:
-		GameData.start_planes += 1
-		
-	var count_group = "countBigPlane" if is_big else "countPlane"
-	var count_label = get_tree().get_first_node_in_group(count_group)
-	if count_label and count_label.has_method("update_counter"):
-		count_label.update_counter()
-		
-	if current_route:
-		var parent_route = current_route["route"]
-		if is_instance_valid(parent_route) and parent_route.has_method("unregister_plane"):
-			parent_route.unregister_plane(self)
-			
-	tween.chain().tween_callback(queue_free)
-
 
 func _upload_passenger(airport):
 	var initial_cargo_size = cargo.size()
@@ -324,7 +271,9 @@ func _draw():
 				draw_colored_polygon(points, p_color)
 
 func _take_plane():
-	if is_fading: return
+	if pending_delete:
+		return
+		
 	GameData.lines_data[color + "_planes"].erase(self)
 	var canvas_transform = get_viewport().get_canvas_transform()
 	var mouse_pos_world = canvas_transform.affine_inverse() * get_viewport().get_mouse_position()
@@ -354,8 +303,9 @@ func _get_closest_route_data(global_pos):
 	var closest_data = null
 	
 	for route in get_tree().get_nodes_in_group("routes"):
-		if route.is_fading: continue
-		
+		if route.pending_delete:
+			continue
+			
 		for curve in route.my_curves:
 			@warning_ignore("shadowed_variable_base_class")
 			var offset = curve.get_closest_offset(global_pos)
@@ -383,20 +333,20 @@ func _drop_plane():
 		current_route["route"].remove_child(self)
 		
 		var old_route = current_route["route"]
-		if is_instance_valid(old_route) and old_route.has_method("unregister_plane"):
+		if is_instance_valid(old_route):
 			old_route.unregister_plane(self)
 			
 		current_route = found_data.full_route_data.duplicate()
+		
+		var new_route = current_route["route"]
+		if is_instance_valid(new_route):
+			new_route.unregister_plane(self)
 		current_route["route"].add_child(self)
 		current_route["curve"] = found_data.curve
 		color = current_route.color
 		GameData.lines_data[color + "_planes"].append(self)
 		modulate = found_data.color_val
 		modulate.a = 1.0
-		
-		var new_route = current_route["route"]
-		if is_instance_valid(new_route) and new_route.has_method("register_plane"):
-			new_route.register_plane(self)
 		
 		var curve = found_data.curve
 		@warning_ignore("shadowed_variable_base_class")
@@ -409,11 +359,6 @@ func _drop_plane():
 		for count_label in get_tree().get_nodes_in_group("countPlane"):
 			if count_label.has_method("update_counter"):
 				count_label.update_counter()
-		
-		var old_route = current_route["route"]
-		if is_instance_valid(old_route) and old_route.has_method("unregister_plane"):
-			old_route.unregister_plane(self)
-			
 		queue_free()
 		GameData.lines_data[color + "_planes"].erase(self)
 
@@ -424,8 +369,7 @@ func _get_lines_at_airport(airport) -> Array:
 		if GameData.lines_data.has(routes_key):
 			for r in GameData.lines_data[routes_key]:
 				if r["start_airport"] == airport or r["end_airport"] == airport:
-					if is_instance_valid(r["route"]) and not r["route"].is_fading:
-						if not c in lines_here: lines_here.append(c)
+					if not c in lines_here: lines_here.append(c)
 	return lines_here
 
 func can_reach_destination(start_airport, target_shape, max_transfers = 3) -> bool:
@@ -547,3 +491,44 @@ func handle_passengers(airport):
 	airport.queue_redraw()
 	queue_redraw()
 	is_loading = false
+
+
+func begin_delete():
+	if pending_delete:
+		return
+		
+	pending_delete = true
+	is_fading = true
+	
+	var tween = create_tween()
+	tween.tween_property(self, "modulate:a", 0.4, 0.25)
+	
+func _finish_delete(arrived_airport):
+	set_process(false)
+	is_waiting = false
+
+	cargo.clear()
+
+	if current_route:
+		var route = current_route["route"]
+
+		if is_instance_valid(route):
+			route.unregister_plane(self)
+
+	var tween = create_tween().set_parallel(true)
+
+	tween.tween_property(self, "scale", Vector2.ZERO, 0.5)
+	tween.tween_property(self, "modulate:a", 0.0, 0.5)
+
+	if is_big:
+		GameData.big_planes += 1
+	else:
+		GameData.start_planes += 1
+
+	var group = "countBigPlane" if is_big else "countPlane"
+	var label = get_tree().get_first_node_in_group(group)
+
+	if label and label.has_method("update_counter"):
+		label.update_counter()
+
+	tween.chain().tween_callback(queue_free)

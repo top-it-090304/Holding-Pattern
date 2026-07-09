@@ -783,22 +783,10 @@ func _on_clear_data_pressed() -> void:
 				var d = route_node.route_data
 				deleted_station_slot(d["start_airport"], current_color)
 				deleted_station_slot(d["end_airport"], current_color)
-				
-				if route_node.has_method("fade_out"):
-					route_node.fade_out()
-				else:
-					route_node.queue_free()
+				route_node.queue_free()
 		
-		clear_data_logic_only(current_color)
+		clear_data(current_color)
 		refresh_all_airports()
-		
-func clear_data_logic_only(current_color):
-	GameData.lines_data["in_" + current_color] = false
-	GameData.lines_data[current_color + "_routes"].clear()
-	GameData.lines_data[current_color + "_airports"].clear()
-	GameData.lines_data[current_color + "_shapes"].clear()
-	if GameData.has_method("clear_route_cache"):
-		GameData.clear_route_cache()
 		
 		
 
